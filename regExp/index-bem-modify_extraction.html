@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<ul class="entanglement-main">
+    <li class="entanglement-main__item"></li>
+    <li class="entanglement-main__item entanglement-main__item--first"></li>
+    <li class="entanglement-main__item entanglement-main__item--second"></li>
+    <li class="entanglement-main__item"></li>
+    <li class="entanglement-main__item"></li>
+    <li class="entanglement-main__item"></li>
+    <li class="entanglement-main__item"></li>
+    <li class="entanglement-main__item entanglement-main__item--third entanglement-main__item22 entanglement-main__item--forth"></li>
+    <li class="entanglement-main__item"></li>
+    <li class="entanglement-main__item entanglement-main__item--entanglement"></li>
+    <li class="entanglement-main__item"></li>
+    <li class="entanglement-main__item entanglement-main__item--modify"></li>
+    <li class="entanglement-main__item entanglement-main__item--modify22222"></li>
+    <li class="entanglement-main__item--chronicle entanglement-main__item"></li>
+    <li class="entanglement-main__item entanglement-main__item--chronicle"></li>
+</ul>
+<script>
+    // 아래 코드를 작성하며 느낀점
+    // 1. innerHTML 클래스 - string 값
+    // 2. 특정 문자 뒤의 문자를 추출하는 정규식은 없나..? 궁금.. 아 그건 정규식 메커니즘상 안되려나
+
+    var el = Array.prototype.slice.call(document.querySelectorAll('.entanglement-main__item'));
+    var modifyResult = [];
+
+    el.map(function (arr) {
+        if (arr.getAttribute('class').match(/--/g)) {
+            var firstResult = arr.getAttribute('class').split(' ');
+            firstResult.map(function (resultArr) {
+                if (resultArr.match(/--/g)) {
+                    var secondResult = resultArr.replace(/[A-Za-z0-9_\- ]*(?=--)/g, '');
+                    var finalResult = secondResult.replace(/--/g, '');
+                    modifyResult.push(finalResult);
+                }
+            })
+        } else {
+            return
+        }
+    })
+
+    console.log(modifyResult)
+
+</script>
+</body>
+</html>
