@@ -26,7 +26,7 @@
 
     var randomMoney = function (arg) {
         for (var i=0; i<arg.length; i++) {
-            arg[i].setAttribute('src', `img/img_font_0${Math.floor(Math.random()*10)}.png`);
+            arg[i].setAttribute('src', 'img/img_font_0' + Math.floor(Math.random()*10) + '.png');
         }
     }
     var gaugeFunc = function (obj) {
@@ -82,6 +82,7 @@
     var eachCase = function () {
         switch (true) {
             case el.classList.contains('case1') :
+                scrollTo(0, 0);
                 if (document.querySelector('.login').innerText === '로그인') {
                     document.querySelector('.login').innerText = '로그아웃';
                 } else {
@@ -89,18 +90,23 @@
                 }
                 break;
             case el.classList.contains('case2') :
+                scrollTo(0, 300);
                 randomMoney(num);
                 break;
             case el.classList.contains('case3') :
+                scrollTo(0, 300);
                 gaugeFunc(gauge);
                 break;
             case el.classList.contains('case4') :
+                scrollTo(0, 1200);
                 randomMoney(num2);
                 break;
             case el.classList.contains('case5') :
+                scrollTo(0, 1200);
                 gaugeFunc(gauge2);
                 break;
             case el.classList.contains('case6') :
+                scrollTo(0, 900);
                 for (var i=0; i<eventBtn.length; i++) {
                     if (eventBtn[i].disabled  === false) {
                         eventBtn[i].disabled = true;
@@ -115,6 +121,7 @@
             case el.classList.contains('case8') :
                 if (layerPopup.tablePopup.tableShow) {
                     loopFunc(layerPopup.tablePopup.tableTr, 'no_data', 'none', 'table-row');
+                    document.querySelector('.ly_pop.tbl thead tr').style.display = 'table-row';
                     loopFunc(layerPopup.tablePopup.tablePagination, 'on', 'none');
                     for (var i=0; i<layerPopup.tablePopup.tableBtn.length; i++) {
                         layerPopup.tablePopup.tableBtn[i].classList.remove('active');
@@ -153,5 +160,11 @@
         e.preventDefault();
         isCase(e);
         eachCase(e);
+    })
+    document.querySelector('.dimmed').addEventListener('click', function (e) {
+        e.currentTarget.style.display = 'none';
+        for (var i=0; i<layerPopup.el.length; i++) {
+            layerPopup.el[i].style.display = 'none';
+        }
     })
 })()
