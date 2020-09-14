@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>A Simple Canvas Example</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;900&display=swap" rel="stylesheet">
+    <style>
+        html {font-family: 'Noto Sans KR', sans-serif;}
+    </style>
+</head>
+<body>
+<h1>Elment.classList</h1>
+<p>
+    <strong>Element.classList</strong>는 앨리먼트의 클래스 속성의 컬렉션인 활성 <strong>DOMTokenList</strong>를 반환하는 읽기 전용 프로퍼티이다. <br>
+    <strong>classList</strong> 사용은 공백으로 구분된 문자열인 <strong>element.className</strong>을 통해 엘리먼트의 클래스 목록에 접근하는 방식을 대체하는 간편한 방법이다.
+</p>
+<h2>구문</h2>
+<pre>
+    <code>
+        const elementClasses = elementNodeReference.classList;
+    </code>
+</pre>
+<p>
+    <strong>elementClasses</strong>는 <strong>elementNodeReference</strong>의 클래스 속성을 나타내는 <strong>DOMTokenList</strong>이다.
+    <br>
+    만약 클래스 속성이 설정되어 있지 않거나 비어있다면 <strong>elementClasses.length</strong>는 0을 반환한다. <br>
+    <strong>element.classList</strong> 그 자체는 읽기 전용 프로퍼티지만 <strong>add()</strong>와 <strong>remove()</strong> 메서드를 이용하여 변형할 수 있다.
+</p>
+<h2>메서드</h2>
+<dl>
+    <dt style="padding: 10px 0;font-weight: bold;font-size: 20px">add(String [, String [, ...]])</dt>
+    <dd>
+        지정한 클래스 값을 추가한다. <br>
+        만약 추가하려는 클래스가 엘리먼트의 <strong>class</strong> 속성에 이미 존재한다면 무시한다.
+    </dd>
+    <dt style="padding: 10px 0;font-weight: bold;font-size: 20px">remove(String [, String [, ...]])</dt>
+    <dd>
+        지정한 클래스 값을 제거한다. <br>
+        <span style="color: red">노트: 존재하지 않는 클래스를 제거하는 것은 에러를 발생시키지 않습니다.</span>
+    </dd>
+    <dt style="padding: 10px 0;font-weight: bold;font-size: 20px">item( Number )</dt>
+    <dd>
+        콜렉션의 인덱스를 이용하여 클래스 값을 반환한다.
+    </dd>
+    <dt style="padding: 10px 0;font-weight: bold;font-size: 20px">toggle( String [, force] )</dt>
+    <dd>
+        하나의 인수만 있을 때 : 클래스 값을 토글링한다. <br>
+        즉, 클래스가 존재한다면 제거하고 false를 반환하며, <br>
+        존재하지 않으면 클래스를 추가하고 true를 반환한다.
+    </dd>
+    <dt style="padding: 10px 0;font-weight: bold;font-size: 20px">contains( String )</dt>
+    <dd>
+        지정한 클래스 값이 엘리먼트의 class 속성에 존재하는지 확인한다.
+    </dd>
+    <dt style="padding: 10px 0;font-weight: bold;font-size: 20px">replace( oldClass, newClass )</dt>
+    <dd>
+        존재하는 클래스를 새로운 클래스로 교체한다.
+    </dd>
+</dl>
+<h2>브라우저 호환성</h2>
+<p>
+    IE11까지는 지원한다. <br>
+    IE10은 테스트해보면서 사용해야된다.
+</p>
+</body>
+</html>
