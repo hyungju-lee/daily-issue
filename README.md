@@ -4,6 +4,7 @@
 
 1. [케이스뷰 자바스크립트로만 구현하기](https://hyungju-lee.github.io/daily-issue/javascript/script01.js)  
    
+   * [두번째 버전](https://hyungju-lee.github.io/daily-issue/javascript/script01_2.js)
    * **적용한 기법 및 느낀점**
    1. 정말 간단한 루프 추상화 (난이도 하)
    2. 이벤트 위임 (.call 메서드 사용)
