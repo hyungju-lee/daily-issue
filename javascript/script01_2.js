@@ -1,3 +1,28 @@
+// <div class="caseview">
+//     <a href="#" class="case case1 point_view">[화면] 로그인 전/후</a>
+//     <a href="#" class="case case2 point_view">[화면] 내 적립머니_01</a>
+//     <a href="#" class="case case3 point_view">[화면] 게이지_01</a>
+//     <a href="#" class="case case4 point_view">[화면] 내 적립머니_02</a>
+//     <a href="#" class="case case5 point_view">[화면] 게이지_02</a>
+//     <a href="#" class="case case6 point_view">[화면] 비활성/활성 1-1</a>
+//     <a href="#" class="case case6-1 point_view">[화면] 비활성/활성 1-2</a>
+//     <a href="#" class="case case6-2 point_view">[화면] 비활성/활성 1-3</a>
+//     <a href="#" class="case case6-3 point_view">[화면] 비활성/활성 2-1</a>
+//     <a href="#" class="case case6-4 point_view">[화면] 비활성/활성 2-2</a>
+//     <a href="#" class="case case6-5 point_view">[화면] 비활성/활성 2-3</a>
+//     <a href="#" class="case case7">[팝업] 내 교환내역</a>
+//     <a href="#" class="case case8">ㄴ교환내역 없음(토글)</a>
+//     <a href="#" class="case case9">[팝업] 머니당첨1</a>
+//     <a href="#" class="case case10">[팝업] 머니당첨2</a>
+//     <a href="#" class="case case11">[팝업] 머니당첨3</a>
+//     <a href="#" class="case case12">[팝업] 머니당첨4</a>
+//     <a href="#" class="case case13">[팝업] 죄송합니다.</a>
+//     <a href="#" class="case case14">[팝업] 죄송합니다.</a>
+//     <a href="#" class="case case15">[팝업] 죄송합니다.</a>
+//     <a href="#" class="case case16">[팝업] 죄송합니다.</a>
+//     <a href="#" class="case case17">[팝업] 죄송합니다.</a>
+// </div>
+
 (function (){
     var el;
     var num = Array.prototype.slice.call(document.querySelectorAll('.first .money .num img'));
