@@ -45,5 +45,8 @@
 ### 20200916
 
 1. [케이스뷰 세번째 버전](https://hyungju-lee.github.io/daily-issue/javascript/script01_3.js)
+2. [케이스뷰 네번째 버전](https://hyungju-lee.github.io/daily-issue/javascript/script01_4.js)
 
     * 케이스뷰 3번째, insertBefore 메서드 사용
+    * 네번째 버전에서 알게된점
+    * 자바스크립트 children과 childNodes의 차이 : childNodes는 text를 포함한 모든 노드를 가지고 온다.
