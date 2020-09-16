@@ -41,3 +41,9 @@
 ### 20200915
 
 1. [스와이퍼 네비게이션, 페이지네이션 다 없을 때 키보드 방향키 동작원리 - 화면에 보이는 슬라이드만?](https://hyungju-lee.github.io/daily-issue/html/ex02/index02.html)
+
+### 20200916
+
+1. [케이스뷰 세번째 버전](https://hyungju-lee.github.io/daily-issue/javascript/script01_3.js)
+
+    * 케이스뷰 3번째, insertBefore 메서드 사용
