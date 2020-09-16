@@ -50,3 +50,5 @@
     * 케이스뷰 3번째, insertBefore 메서드 사용
     * 네번째 버전에서 알게된점
     * 자바스크립트 children과 childNodes의 차이 : childNodes는 text를 포함한 모든 노드를 가지고 온다.
+    * [children](https://developer.mozilla.org/ko/docs/Web/API/ParentNode/children)
+    * [childNodes](https://developer.mozilla.org/ko/docs/Web/API/Node/childNodes)
