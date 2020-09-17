@@ -52,3 +52,9 @@
     * 자바스크립트 children과 childNodes의 차이 : childNodes는 text를 포함한 모든 노드를 가지고 온다.
     * [children](https://developer.mozilla.org/ko/docs/Web/API/ParentNode/children)
     * [childNodes](https://developer.mozilla.org/ko/docs/Web/API/Node/childNodes)
+    
+### 20200917
+
+1. [케이스뷰 - parentNode](https://hyungju-lee.github.io/daily-issue/javascript/script01_5.js)
+
+    * 자바스크립트 parentNode
