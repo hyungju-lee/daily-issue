@@ -58,3 +58,18 @@
 1. [케이스뷰 - parentNode](https://hyungju-lee.github.io/daily-issue/javascript/script01_5.js)
 
     * 자바스크립트 parentNode
+    
+2. [스와이퍼 UI](https://hyungju-lee.github.io/daily-issue/html/ex03/index03.html)
+
+    * dataset 사용
+    * nextSibling / nextElementSibling
+    * previousSibling / previousElementSibling
+    * [nextElementSibling](https://developer.mozilla.org/en-US/docs/Web/API/NonDocumentTypeChildNode/nextElementSibling)
+    * [previousElementSibling](https://developer.mozilla.org/en-US/docs/Web/API/NonDocumentTypeChildNode/previousElementSibling)
+    
+3. .nvmrc 이슈정리
+
+    * 10.15.3  
+      10.16.3
+
+    0.01 버전만 달랐을 뿐인데도 css 결과물에 차이가 발생함
