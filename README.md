@@ -68,7 +68,16 @@
     * [previousElementSibling](https://developer.mozilla.org/en-US/docs/Web/API/NonDocumentTypeChildNode/previousElementSibling)
  
 3. [스와이퍼 2016년 라이브러리 버전.. 이때 라이브러리 버전 API 사용](https://hyungju-lee.github.io/daily-issue/html/ex04/index04.html)
+
+    * 스와이퍼는 과거.. 한 2016년 기준 API와 현재 API 이름이 다르다. 이점 주의하자!
+    
 4. [스와이퍼 2016년 라이브러리 버전 + IE10까지고려 - 제이쿼리사용](https://hyungju-lee.github.io/daily-issue/html/ex05/index05.html)
+
+    * 자바스크립트 classList - IE10에서 인식X : 제이쿼리 선택자로 대체
+    * 자바스크립트 dataset - IE10에서 인식X : setAttribute / getAttribute 로 대체
+    * [스와이퍼 옛날 API관련 - 1](https://swiperjs.com/types/interfaces/_swiper_react_d_.swiper.html#onpaginationupdate)
+    * [스와이퍼 옛날 API관련 - 2](https://kkotkkio.tistory.com/49)
+    * onPaginationRender 이 아니라 onPaginationRendered 였음
     
 5. .nvmrc 이슈정리
 
