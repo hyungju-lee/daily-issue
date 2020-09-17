@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Swiper demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="swiper.min.css">
+    <!-- Demo styles -->
+    <style>
+        html,
+        body {
+            position: relative;
+            height: 100%;
+        }
+        body {
+            background: #eee;
+            font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+            font-size: 14px;
+            color: #000;
+            margin: 0;
+            padding: 0;
+        }
+        .tabs .swiper-slide {
+            width: 130px;
+            padding: 10px 0;
+            text-align: center;
+            background-color: #fff;
+        }
+        .tabs .swiper-slide.swiper-slide-active {
+            font-weight: bold;
+            text-decoration: underline;
+        }
+        .contents {
+            margin-top: 20px;
+        }
+        .contents .swiper-slide {
+            text-align: center;
+            font-size: 18px;
+            background-color: #fff;
+            height: 300px;
+            line-height: 300px;
+        }
+    </style>
+</head>
+
+<body>
+<!-- Swiper -->
+<div class="swiper-container tabs">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide">Slide 1</div>
+        <div class="swiper-slide">Slide 2</div>
+        <div class="swiper-slide">Slide 3</div>
+        <div class="swiper-slide">Slide 4</div>
+    </div>
+</div>
+<!-- Swiper -->
+<div class="swiper-container contents">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide">Slide 1</div>
+        <div class="swiper-slide">Slide 1</div>
+        <div class="swiper-slide">Slide 2</div>
+        <div class="swiper-slide">Slide 2</div>
+        <div class="swiper-slide">Slide 3</div>
+        <div class="swiper-slide">Slide 3</div>
+        <div class="swiper-slide">Slide 4</div>
+        <div class="swiper-slide">Slide 4</div>
+    </div>
+    <!-- Add Pagination -->
+    <div class="swiper-pagination"></div>
+</div>
+<!-- Swiper JS -->
+<script src="swiper.min.js"></script>
+<!-- Initialize Swiper -->
+<script>
+    (function () {
+        var tabSlides = document.querySelectorAll('.tabs .swiper-slide');
+        var contSlides = document.querySelectorAll('.contents .swiper-slide');
+        var currentIndex = 0;
+
+        var activeSlide = function (key) {
+            if (key) {
+                document.querySelector('.tabs .swiper-slide[data-index=\''+currentIndex+'\']').classList.add('swiper-slide-active');
+            } else {
+                document.querySelector('.tabs .swiper-slide[data-index=\''+currentIndex+'\']').classList.remove('swiper-slide-active');
+            }
+        }
+
+        var tabSwiper = new Swiper('.tabs', {
+            spaceBetween: 10,
+            slidesPerView: 'auto',
+            freeMode: true,
+            slidePrevClass: 'swiper-meanlease-prev',
+            slideNextClass: 'swiper-meanlease-next',
+            slideActiveClass: 'swiper-meanlease-active',
+            onInit: function () {
+                for (var i=0; i<tabSlides.length; i++) {
+                    tabSlides[i].dataset.index = i;
+                    if (i === 0) {
+                        tabSlides[i].classList.add('swiper-slide-active');
+                    }
+                }
+            },
+            onClick: function (swiper, event) {
+                activeSlide(false);
+                currentIndex = event.target.dataset.index;
+                activeSlide(true);
+                contSwiper.slideTo(currentIndex*2);
+            },
+            onTap: function (swiper, event) {
+                activeSlide(false);
+                currentIndex = event.target.dataset.index;
+                activeSlide(true);
+                contSwiper.slideTo(currentIndex*2);
+            }
+        });
+        var contSwiper = new Swiper('.contents', {
+            slidesPerView: 1,
+            spaceBetween: 30,
+            pagination: '.swiper-pagination',
+            paginationClickable: true,
+            onInit: function () {
+                for (var i=0; i<contSlides.length; i++) {
+                    contSlides[i].dataset.index = Math.floor(i/2);
+                }
+            },
+            onTransitionStart: function () {
+                activeSlide(false);
+                currentIndex = document.querySelector('.contents .swiper-slide-active').dataset.index;
+                activeSlide(true);
+            }
+        });
+    })()
+</script>
+</body>
+
+</html>
