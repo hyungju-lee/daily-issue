@@ -85,3 +85,8 @@
       10.16.3
 
     0.01 버전만 달랐을 뿐인데도 css 결과물에 차이가 발생함
+    
+### 20200918
+
+1. [스와이퍼 destroy - 스와이퍼 객체가 생성되어있을 때만 실행되도록](https://hyungju-lee.github.io/daily-issue/html/ex06/index01.html)
+2. [스와이퍼 에러 조금 수정](https://hyungju-lee.github.io/daily-issue/html/ex06/index02.html)

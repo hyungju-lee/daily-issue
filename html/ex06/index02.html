@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>A Simple Canvas Example</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;900&display=swap" rel="stylesheet">
+    <style>
+        html {font-family: 'Noto Sans KR', sans-serif;}
+    </style>
+</head>
+<body>
+<pre>
+    <code>
+(function (win, $) {
+   'use strict';
+    win.HYFRESH.common = win.HYFRESH.common || {};
+
+    var UTIL = win.HYFRESH.common.util;
+    win.HYFRESH.main = (function(container){
+        var defParams = {
+            obj                 : container,
+
+            mainBannerSwiper    : '.js-main-banner-swiper',
+            mainBannerSwiperOpts: {
+                slidePerView: 1,
+                loop: true,
+                pagination : '.swiper-pagination',
+                onPaginationRendered: function(swiperClass, paginationEl) {
+                    var bullet = $(paginationEl).find('.swiper-pagination-bullet');
+                    for (var i=0; i&lt;bullet.length; i++) {
+                        bullet[i].innerText = 'slide' + (i + 1);
+                    }
+                }
+            },
+            mainMdPickSwiper    : '.js-main-md-pick-swiper',
+            mainMdPickSwiperOpts :  {
+                slidesPerView: 'auto',
+                spaceBetween: 9,
+                pagination : '.swiper-pagination',
+                onPaginationRendered: function(swiperClass, paginationEl) {
+                    var bullet = $(paginationEl).find('.swiper-pagination-bullet');
+                    for (var i=0; i&lt;bullet.length; i++) {
+                        bullet[i].innerText = 'slide' + (i + 1);
+                    }
+                }
+            },
+            mainSpecialPriceSwiper    : '.js-main-special-price-swiper',
+            mainSpecialPriceSwiperOpts :  {
+                slidesPerView: 'auto',
+                nextButton: '.swiper-button-next',
+                prevButton: '.swiper-button-prev',
+                pagination : '.swiper-pagination',
+                onPaginationRendered: function(swiperClass, paginationEl) {
+                    var bullet = $(paginationEl).find('.swiper-pagination-bullet');
+                    for (var i=0; i&lt;bullet.length; i++) {
+                        bullet[i].innerText = 'slide' + (i + 1);
+                    }
+                }
+            },
+
+
+            // best swiper
+            currentIndex: 0,
+            tabSwiper: '.js-main-best-category-swiper',
+            tabSlide: '.js-main-best-category-swiper .swiper-slide',
+            <span style="background-color: #e3cccc">
+            tabElement: null,
+            tabClick: function (e) {
+              defParams.tabElement = e.target;
+              while (!$(defParams.tabElement).hasClass('swiper-slide')) {
+                defParams.tabElement = defParams.tabElement.parentNode;
+                if (defParams.tabElement === "BODY") {
+                  defParams.tabElement = null;
+                  return
+                }
+              }
+            },
+            </span>
+            activeSlide: function(key) {
+              if (key) {
+                $(defParams.tabSwiper).find('.swiper-slide[data-index=\''+defParams.currentIndex+'\']').addClass('swiper-slide-active');
+              } else {
+                $(defParams.tabSwiper).find('.swiper-slide[data-index=\''+defParams.currentIndex+'\']').removeClass('swiper-slide-active');
+              }
+            },
+            tabSwiperOpts: {
+                slidesPerView: 'auto',
+                spaceBetween: 26,
+                freeMode: true,
+                slidePrevClass: 'swiper-meanlease-prev',
+                slideNextClass: 'swiper-meanlease-next',
+                slideActiveClass: 'swiper-meanlease-active',
+                onInit: function () {
+                    for (var i=0; i<$(defParams.tabSlide).length; i++) {
+                        $(defParams.tabSlide)[i].setAttribute('data-index', i);
+                        if (i === 0) {
+                            $(defParams.tabSlide)[i].classList.add('swiper-slide-active');
+                        }
+                    }
+                },
+                onClick: function (swiper, event) {
+                    <span style="background-color: #e3cccc">defParams.tabClick(event);</span>
+                    defParams.activeSlide(false);
+                    defParams.currentIndex = defParams.tabElement.getAttribute('data-index');
+                    defParams.activeSlide(true);
+                    defParams.contentSwiperObj.slideTo(defParams.currentIndex*2);
+                },
+                onTap: function (swiper, event) {
+                    <span style="background-color: #e3cccc">defParams.tabClick(event);</span>
+                    defParams.activeSlide(false);
+                    defParams.currentIndex = defParams.tabElement.getAttribute('data-index');
+                    defParams.activeSlide(true);
+                    defParams.contentSwiperObj.slideTo(defParams.currentIndex*2);
+                },
+            },
+
+            contentSwiper: '.js-main-best-swiper',
+            contentSlide: '.js-main-best-swiper  .swiper-slide',
+            contentSwiperOpts: {
+                slidesPerView: 1,
+                spaceBetween: 30,
+                pagination: '.swiper-pagination',
+                paginationClickable: true,
+                onInit: function () {
+                    for (var i=0; i<$(defParams.contentSlide).length; i++) {
+                        $(defParams.contentSlide)[i].setAttribute('data-index', Math.floor(i/2)) ;
+                    }
+                },
+                onTransitionStart: function () {
+                    defParams.activeSlide(false);
+                    defParams.currentIndex = document.querySelector('.js-main-best-swiper .swiper-slide-active').getAttribute('data-index');
+                    defParams.activeSlide(true);
+                },
+                onPaginationRendered: function (swiperClass, paginationEl) {
+                    var bullet = $(paginationEl).find('.swiper-pagination-bullet');
+                    for (var i=0; i&lt;bullet.length; i++) {
+                        bullet[i].innerText = 'slide' + (i + 1);
+                    }
+                }
+            },
+
+            mainBannerSwiperObj: null,
+            mainMdPickSwiperObj: null,
+            mainSpecialPriceSwiperObj: null
+        };
+        return {
+            init: function() {
+                this.setElement();
+                this.bindEvents();
+                this.buildSwiper();
+            },
+            setElement : function() {
+                this.obj = $(defParams.obj);
+                this.mainBannerSwiper = this.obj.find(defParams.mainBannerSwiper);
+                this.mainMdPickSwiper = this.obj.find(defParams.mainMdPickSwiper);
+                this.mainSpecialPriceSwiper = this.obj.find(defParams.mainSpecialPriceSwiper);
+                this.contentSwiper = this.obj.find(defParams.contentSwiper);
+                this.tabSwiper = this.obj.find(defParams.tabSwiper);
+            },
+            bindEvents: function() {
+            },
+            buildSwiper : function() {
+                defParams.mainBannerSwiperObj = new Swiper(this.mainBannerSwiper, defParams.mainBannerSwiperOpts);
+                defParams.mainMdPickSwiperObj = new Swiper(this.mainMdPickSwiper, defParams.mainMdPickSwiperOpts);
+                defParams.mainSpecialPriceSwiperObj = new Swiper(this.mainSpecialPriceSwiper, defParams.mainSpecialPriceSwiperOpts);
+                defParams.contentSwiperObj = new Swiper(this.contentSwiper, defParams.contentSwiperOpts);
+                defParams.tabSwiperObj = new Swiper(this.tabSwiper, defParams.tabSwiperOpts);
+            },
+            checkActiveSwiper : function() {
+
+            },
+        }
+    })('.wrap-main')
+
+    $(function () {
+        if ($('.wrap-main').length) {
+            HYFRESH.main.init();
+        }
+    });
+})(window, window.jQuery);
+    </code>
+</pre>
+</body>
+</html>

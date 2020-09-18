@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>A Simple Canvas Example</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;900&display=swap" rel="stylesheet">
+    <style>
+        html {font-family: 'Noto Sans KR', sans-serif;}
+    </style>
+</head>
+<body>
+<pre>
+    <code>
+(function (win, $) {
+   'use strict';
+    win.HYFRESH.common = win.HYFRESH.common || {};
+
+    var UTIL = win.HYFRESH.common.util;
+    win.HYFRESH.Gnb = (function(){
+        var defParams = {
+            scrollClass: 'is-scroll',
+            visibleClass: 'is-show',
+            visiblePoint: 1280,
+            slideBeforeClass: 'has-before-slide',
+            slideAfterClass: 'has-after-slide',
+            gnbInner : '.gnb__inner',
+            swiperOpts : {
+                slidesPerView: 'auto',
+                spaceBetween : 20,
+                loop         : false,
+                onTouchMove: function() {
+                    defParams.swiperObj.isBeginning === false ? $(defParams.gnbInner).addClass(defParams.slideBeforeClass) : $(defParams.gnbInner).removeClass(defParams.slideBeforeClass);
+                    defParams.swiperObj.isEnd === false ? $(defParams.gnbInner).addClass(defParams.slideAfterClass) : $(defParams.gnbInner).removeClass(defParams.slideAfterClass);
+                }
+            },
+            swiperObj: null,
+            startSwiper: false,
+            moveSwiper: false
+        };
+        return {
+            init : function() {
+                this.setElement();
+                this.bindEvents();
+            },
+            setElement : function() {
+                this.header          = $('.header');
+                this.gnb             = $('.gnb');
+                this.containerSwiper = this.gnb.find('.js-gnb__swiper');
+                this.gnbList         = this.gnb.find('.gnb__list');
+                this.content         = $('.content');
+                this.btnScrollTop = $('.btn-top');
+            },
+            bindEvents : function() {
+                $(win).on('load', $.proxy(this.buildSwiper, this));
+                $(win).on('load', $.proxy(this.checkContentMargin, this));
+                $(win).on('scroll', $.proxy(this.scrollGnbFunc, this));
+                $(win).on('scroll', $.proxy(this.checkScrollTop, this));
+                this.btnScrollTop.on('click', $.proxy(this.scrollPageTop, this));
+            },
+            buildSwiper : function() {
+                defParams.swiperObj = new Swiper(this.containerSwiper, defParams.swiperOpts);
+            },
+            scrollGnbFunc : function() {
+                var currentScroll = $(win).scrollTop();
+                if (currentScroll <= 0) {
+                  if (!defParams.startSwiper) {
+                    this.gnbList.removeClass('is-scroll');
+                    defParams.setSwiper = true;
+                    <span style="background-color: #e3cccc">
+                    if (defParams.swiperObj) {
+                      defParams.swiperObj.destroy();
+                    }
+                    </span>
+                    this.buildSwiper();
+                    defParams.startSwiper = true;
+                    defParams.moveSwiper = false;
+                  }
+                } else {
+                  if (!defParams.moveSwiper) {
+                    this.gnbList.addClass('is-scroll')
+                    <span style="background-color: #ffc9c9">
+                    if (defParams.swiperObj) {
+                      defParams.swiperObj.destroy();
+                    }
+                    </span>
+                    this.buildSwiper();
+                    defParams.moveSwiper = true;
+                    defParams.startSwiper = false;
+                  }
+                }
+                this.checkContentMargin();
+            },
+            checkContentMargin : function() {
+                var headerHeight = this.header.outerHeight(),
+                    gnbHeight    = this.gnb.outerHeight(),
+                    result       = headerHeight + gnbHeight;
+                this.content.css({
+                    'padding-top': result + 'px'
+                })
+            },
+            checkScrollTop: function() {
+                var currentScroll = $(win).scrollTop();
+                currentScroll >= defParams.visiblePoint ? this.showBtnScrollTop() : this.hideBtnScrollTop();
+            },
+            showBtnScrollTop: function() {
+                this.btnScrollTop.addClass(defParams.visibleClass);
+            },
+            hideBtnScrollTop: function(){
+                this.btnScrollTop.removeClass(defParams.visibleClass);
+            },
+            scrollPageTop: function(e) {
+                e.preventDefault();
+                $('html, body').stop()
+                               .animate({
+                                    scrollTop: 0
+                                }, 500);
+            }
+        }
+    })();
+})(window, window.jQuery);
+    </code>
+</pre>
+</body>
+</html>
