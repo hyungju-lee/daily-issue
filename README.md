@@ -95,3 +95,8 @@
 
 1. [document.location.hash로 기억하게해서 이전페이지 돌아갈 때 active 탭 기억하게하기](https://hyungju-lee.github.io/daily-issue/html/ex07/)
 2. [requestAnimationFrame 활용 - 렌더링 순서에 의해 팝업 밑에서 위로 스르륵 등장하게 하기](https://hyungju-lee.github.io/daily-issue/javascript/script08.js)
+3. [위 코드 추가수정](https://hyungju-lee.github.io/daily-issue/javascript/script09.js)
+    
+    * offset().top 값을 읽기위해선 해당 요소가 렌더링 된 후 읽어야된다. 이번 예시에서 처음에 못읽었던 이유는 display:none 상태에서 읽었기 때문이다. transitionstart 이벤트로 그 값을 읽었다.
+    * 제이쿼리 페이드인아웃 메서드는 동작하는 방식이 달라서인지 transitionend 이벤트가 인식이 안됨
+    * transitionend / transitionstart / animationend / animationstart 이런 이벤트들에 콜백펑션을 걸었을 때 경우에따라선 .off() 메서드로 해제해줘야됨
