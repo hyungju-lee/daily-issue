@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+<html lang="ko-KR">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div class="display">
+    <div class="box">0</div>
+    <div class="box">1</div>
+    <div class="box">2</div>
+</div>
+<div class="btn_box">
+    <button type="button" data-index="0" class="btn">0</button>
+    <button type="button" data-index="1" class="btn">1</button>
+    <button type="button" data-index="2" class="btn">2</button>
+</div>
+
+<br/>
+
+<a href='https://www.google.com/' class="link">Google :)</a>
+
+<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+<script>
+    (function (win, $) {
+        var btn = $('.btn');
+        var display = $('.display');
+        var link = $('.link');
+        var currentTabIndex;
+
+        var checkForHash = function () {
+            if (document.location.hash) {
+                display.find('.box').hide();
+                var HashLocationName = document.location.hash;
+                HashLocationName = HashLocationName.replace("#","");
+                display.find('.box').eq(HashLocationName).show();
+            } else {
+                display.find('.box').hide();
+                display.find('.box').eq(0).show();
+            }
+        }
+
+        var showPage = function (value) {
+            display.find('.box').hide();
+            display.find('.box').eq(value).show();
+        }
+
+        checkForHash();
+
+        btn.on('click', function (e) {
+            currentTabIndex = $(e.target).data('index');
+            showPage(currentTabIndex);
+        })
+        link.on('click', function () {
+            document.location.hash = "#" + currentTabIndex;
+        })
+    })(window, window.jQuery)
+</script>
+</body>
+</html>
