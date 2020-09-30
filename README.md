@@ -121,3 +121,8 @@
     * attr() : html 속성(attribute)을 다룬다.
     * prop() : 자바스크립트 프로퍼티(property)를 다룬다.
     * 이는 자바스크립트에도 있는 차이 - 잘 분간해서 사용하자!! getAttribute, setAttribute, hasAttribute, removeAttribute // 그리고 또 뭐 있었는데..
+    
+5. [레이어팝업 추가수정 javascript target과 currentTarget 차이](https://hyungju-lee.github.io/daily-issue/javascript/script12.js)
+
+    * [참고링크 - currentTarget](https://developer.mozilla.org/en-US/docs/Web/API/Event/currentTarget)
+    * [참고링크 - target](https://developer.mozilla.org/ko/docs/Web/API/Event/target)
