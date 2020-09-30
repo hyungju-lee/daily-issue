@@ -100,3 +100,24 @@
     * offset().top 값을 읽기위해선 해당 요소가 렌더링 된 후 읽어야된다. 이번 예시에서 처음에 못읽었던 이유는 display:none 상태에서 읽었기 때문이다. transitionstart 이벤트로 그 값을 읽었다.
     * 제이쿼리 페이드인아웃 메서드는 동작하는 방식이 달라서인지 transitionend 이벤트가 인식이 안됨
     * transitionend / transitionstart / animationend / animationstart 이런 이벤트들에 콜백펑션을 걸었을 때 경우에따라선 .off() 메서드로 해제해줘야됨
+    * 제이쿼리 $.map() 사용 = 자바스크립트 .map() 메서드와 동일
+    
+### 20200930
+    
+1. [레이어팝업 추가수정](https://hyungju-lee.github.io/daily-issue/javascript/script10.js)
+2. [아코디언 텝메뉴 $.map() 사용](https://hyungju-lee.github.io/daily-issue/javascript/script11.js)
+2. [iOS 간헐적으로 첫클릭 이벤트 적용 안되는 이슈 추정이유](https://developer.mozilla.org/en-US/docs/Web/API/Touch_events/Supporting_both_TouchEvent_and_MouseEvent)
+
+    * 메인페이지에서 iOS 모바일로 볼시 클릭이 처음 한번은 안먹히는 이유
+    * 복합적인 이유가 섞인듯, 위 mdn 설명처럼 터치이벤트 상호작용 발생시 클릭이벤트가 실행 안되는 이유 + 스와이퍼 플러그인 (2016이전버전) 으로 인해 여러가지 복합적으로 겹치면서 이런 이슈가 발생한것으로 보임
+    
+3. [제이쿼리 offset(), position() 차이](http://blog.naver.com/PostView.nhn?blogId=pjh445&logNo=221023705219&redirect=Dlog&widgetTypeCall=true&directAccess=false)
+
+    * offset()은 document 기준 절대좌표
+    * position()은 부모..(relative나 absolute나 fixed가 선언된)를 기준 상대좌표
+
+4. [제이쿼리 attr(), prop() 차이](https://electronic-moongchi.tistory.com/41)
+
+    * attr() : html 속성(attribute)을 다룬다.
+    * prop() : 자바스크립트 프로퍼티(property)를 다룬다.
+    * 이는 자바스크립트에도 있는 차이 - 잘 분간해서 사용하자!! getAttribute, setAttribute, hasAttribute, removeAttribute // 그리고 또 뭐 있었는데..
