@@ -131,5 +131,7 @@
     
 ### 20201002
 
-1. 제이쿼리 `scrollTop` 또는 자바스크립트 `scrollTo` 메서드를 사용할 때 스크롤되는 영역을 잘 파악하는 것이 중요하다.  
-2. 스크롤 되는 영역을 기준으로 하기 위해선 해당 요소에 `position:relative`를 주고 제이쿼리의 `position().top`을 사용해야된다.
+* [레이어팝업 추가수정 - undefined 잘 활용해야됨](https://hyungju-lee.github.io/daily-issue/javascript/script13.js)
+    
+    1. 제이쿼리 `scrollTop` 또는 자바스크립트 `scrollTo` 메서드를 사용할 때 스크롤되는 영역을 잘 파악하는 것이 중요하다.  
+    2. 스크롤 되는 영역을 기준으로 하기 위해선 해당 요소에 `position:relative`를 주고 제이쿼리의 `position().top`을 사용해야된다.
