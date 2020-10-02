@@ -102,6 +102,8 @@
     * transitionend / transitionstart / animationend / animationstart 이런 이벤트들에 콜백펑션을 걸었을 때 경우에따라선 .off() 메서드로 해제해줘야됨
     * 제이쿼리 $.map() 사용 = 자바스크립트 .map() 메서드와 동일
     
+    * $(e.currentTarget).find('a').index() 값이 계속 0으로 나왔던건 당연한 것. 해당 클릭당한 버튼의 자식요소로 a태그는 하나밖에 없으니까~!
+    
 ### 20200930
     
 1. [레이어팝업 추가수정](https://hyungju-lee.github.io/daily-issue/javascript/script10.js)
