@@ -135,3 +135,19 @@
     
     1. 제이쿼리 `scrollTop` 또는 자바스크립트 `scrollTo` 메서드를 사용할 때 스크롤되는 영역을 잘 파악하는 것이 중요하다.  
     2. 스크롤 되는 영역을 기준으로 하기 위해선 해당 요소에 `position:relative`를 주고 제이쿼리의 `position().top`을 사용해야된다.
+    
+### 20201003
+
+* [iOS, AOS 저버전에서 작동을 안하는 코드](https://hyungju-lee.github.io/daily-issue/javascript/script14.js)
+
+    1. transitionstart가 ios12~13버전 이상부터 적용이된다. ios 저버전에선 지원을 안한다.
+    2. transitionend가 ios6 부터 적용인데 transitionstart가 지원안될줄은 몰랐다. 
+    3. 때문에 코드를 약간 수정해줬다. transitionstart를 아예 빼고 해당 이벤트 인식시 발생하는 콜백함수를 requestAnimationFrame 두번째 실행 함수에게로 옮겼다.
+    4. 처음부터 이렇게했어야 했는데, 생각이 짧았다.
+    
+* [Swiper Observer 옵션 IE10에선 미지원](https://hyungju-lee.github.io/daily-issue/javascript/script15.js)
+
+    1. IE10에선 swiper observer 옵션이 지원이 안된다.
+    2. 텝메뉴를 클릭할 때마다 스와이퍼 슬라이드를 update 해줬지만,, 기능은되는데 페이지네이션이 바로 적용안되는 부족함이 있음.
+    3. 그래서 할수없이 텝메뉴를 클릭할 때마다 즉 display:none -> block으로 변할 때마다 destroy했다가 다시 생성하는 방식으로 바꿨다.
+    4. 그랬더니 아주 잘된다. IE10에서도.
