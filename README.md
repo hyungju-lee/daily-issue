@@ -154,7 +154,7 @@
     
 ### 20201005
 
-* [Swiper Observer 옵션 IE10에선 미지원 해결방법](https://hyungju-lee.github.io/daily-issue/javascript/ex01/)
+* [Swiper Observer 옵션 IE10에선 미지원 해결방법](https://github.com/hyungju-lee/daily-issue/tree/master/javascript/ex01)
 
     1. IE10 observer / observeParents 속성 적용 안되는 이슈 해결하기  
        destroy() 후 다시 재생성 하는 방법을 사용  
