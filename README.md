@@ -151,3 +151,11 @@
     2. 텝메뉴를 클릭할 때마다 스와이퍼 슬라이드를 update 해줬지만,, 기능은되는데 페이지네이션이 바로 적용안되는 부족함이 있음.
     3. 그래서 할수없이 텝메뉴를 클릭할 때마다 즉 display:none -> block으로 변할 때마다 destroy했다가 다시 생성하는 방식으로 바꿨다.
     4. 그랬더니 아주 잘된다. IE10에서도.
+    
+### 20201005
+
+* [Swiper Observer 옵션 IE10에선 미지원 해결방법](https://hyungju-lee.github.io/daily-issue/javascript/ex01/)
+
+    1. IE10 observer / observeParents 속성 적용 안되는 이슈 해결하기  
+       destroy() 후 다시 재생성 하는 방법을 사용  
+       IE10에서만 적용되도록 if ( navigator.appName == "Microsoft Internet Explorer" ) {} 코드 이용
