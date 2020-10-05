@@ -159,3 +159,7 @@
     1. IE10 observer / observeParents 속성 적용 안되는 이슈 해결하기  
        destroy() 후 다시 재생성 하는 방법을 사용  
        IE10에서만 적용되도록 if ( navigator.appName == "Microsoft Internet Explorer" ) {} 코드 이용
+       
+* [caseview에 위 코드 적용하기](https://hyungju-lee.github.io/daily-issue/javascript/script16.js)
+
+    1. 케이스뷰에도 적용해야될 거 같아서 위와 같은 방법으로 했다.
