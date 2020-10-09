@@ -167,3 +167,24 @@
 * [자바스크립트 getBoundingClientRect()메서드로 offset().top 구현](https://hyungju-lee.github.io/daily-issue/javascript/script17.js)
 * [자바스크립트 getBoundingClientRect()메서드로 offset().top 구현2](https://hyungju-lee.github.io/daily-issue/javascript/script18.js)
 * [이벤트 두번실행되지 않게!! 반복문 사용할 때 항상 조심! + 이벤트 위임(delegate) 사용해!](https://hyungju-lee.github.io/daily-issue/javascript/script19.js)
+
+### 20201009
+
+1. 처음부터 보이는 슬라이드인지 아니면 처음부터 display:none인지 구분   
+   그거에따라 observer 적용 , destroy() 하고 재생성 적용할지말지 결정
+   
+2. 스와이퍼 플러그인 옵션 : watchOverflow
+
+3. [https://caniuse.com/?search=%3A%3A-webkit-scrollbar](https://caniuse.com/?search=%3A%3A-webkit-scrollbar)
+
+4. ejs 2중 for문 가능
+
+5. [tabMenu center](https://hyungju-lee.github.io/daily-issue/html/ex08/)
+
+6. [allcheck](https://hyungju-lee.github.io/daily-issue/javascript/script20.js)
+
+7. [validator](https://hyungju-lee.github.io/daily-issue/javascript/script21.js)
+
+8. [dropdown box](https://hyungju-lee.github.io/daily-issue/javascript/script22.js)
+
+9. [right to left slide popup](https://hyungju-lee.github.io/daily-issue/javascript/script23.js)
