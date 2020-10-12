@@ -25,12 +25,11 @@ switch (true) {
     case (this.opts.effect === 'slide-btt' || this.opts.effect === 'slide-ttb'
         || this.opts.effect === 'slide-rtl' || this.opts.effect === 'slide-ltr') :
         var effectArr = this.opts.effect.split('-');
-        this.dimmedObj.css({
+        this.layerWrap.css({
             'opacity': 0,
             'transition': 'all 0.25s'
         })
         this.layerObj.css({
-            'opacity': 0,
             'transform':
                 effectArr[1] === 'btt' ? 'translate3d(0, 100%, 0)' :
                     effectArr[1] === 'ttb' ? 'translate3d(0, -100%, 0)' :
@@ -41,15 +40,14 @@ switch (true) {
         this.layerObj.on('transitionend', function () {
             _this.layerObj.off('transitionend');
             _this.layerObj.css({
-                'display': 'none',
                 'transform': '',
                 'transition': ''
             })
-            _this.dimmedObj.css({
+            _this.layerWrap.css({
                 'opacity': '',
-                'transition': ''
+                'transition': '',
+                'display': 'none'
             })
-            _this.layerWrap.hide();
         })
         break;
     default :
