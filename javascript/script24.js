@@ -40,7 +40,6 @@ switch (true) {
             'opacity': 0,
         })
         this.layerObj.css({
-            'display' : 'block',
             'transform':
                 effectArr[1] === 'btt' ? 'translate3d(0, 100%, 0)' :
                     effectArr[1] === 'ttb' ? 'translate3d(0, -100%, 0)' :
