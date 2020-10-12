@@ -25,12 +25,6 @@ switch (true) {
                 }
             })
         })
-        this.layerWrap.on('transitionend', function () {
-            _this.layerWrap.off('transitionend');
-            _this.layerWrap.css({
-                'transition': ''
-            })
-        })
         break;
     case (this.opts.effect === 'slide-btt' || this.opts.effect === 'slide-ttb'
         || this.opts.effect === 'slide-rtl' || this.opts.effect === 'slide-ltr') :
@@ -56,17 +50,6 @@ switch (true) {
                     'transform': 'translate3d(0, 0, 0)',
                     'transition': 'all 0.25s'
                 })
-            })
-        })
-        this.layerObj.on('transitionend', function () {
-            _this.layerObj.off('transitionend');
-            _this.layerObj.css({
-                'transform': '',
-                'transition': ''
-            })
-            _this.layerWrap.css({
-                'opacity': '',
-                'transition': ''
             })
         })
         break;

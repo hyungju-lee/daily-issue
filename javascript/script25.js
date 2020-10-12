@@ -35,13 +35,11 @@ switch (true) {
                     effectArr[1] === 'ttb' ? 'translate3d(0, -100%, 0)' :
                         effectArr[1] === 'rtl' ? 'translate3d(100%, 0, 0)' :
                             'translate3d(-100%, 0, 0)',
-            'transition': 'all 0.25s'
         })
         this.layerObj.on('transitionend', function () {
             _this.layerObj.off('transitionend');
             _this.layerObj.css({
                 'transform': '',
-                'transition': ''
             })
             _this.layerWrap.css({
                 'opacity': '',
