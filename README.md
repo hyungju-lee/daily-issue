@@ -188,3 +188,8 @@
 8. [dropdown box](https://hyungju-lee.github.io/daily-issue/javascript/script22.js)
 
 9. [right to left slide popup](https://hyungju-lee.github.io/daily-issue/javascript/script23.js)
+
+### 20201012
+
+1. [팝업 slide 효과 - 열기](https://hyungju-lee.github.io/daily-issue/javascript/script24.js)
+2. [팝업 slide 효과 - 닫기](https://hyungju-lee.github.io/daily-issue/javascript/script25.js)
