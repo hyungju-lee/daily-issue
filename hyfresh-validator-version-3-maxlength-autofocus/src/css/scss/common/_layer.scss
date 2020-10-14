@@ -1,0 +1,978 @@
+// layer popup
+$common-layer: '.common-layer';
+.common-layer {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  margin: 0 auto;
+  max-width: $screen-max-width;
+  min-width: 320px;
+  z-index: common-z-index(layer);
+  -webkit-overflow-scrolling: touch;
+  &__dimmed {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 100%;
+    transform: translateX(-50%);
+    max-width: $screen-max-width;
+    background: rgba(#000, 0.9);
+  }
+  &__wrapper {
+    overflow: hidden;
+    overflow-y: auto;
+    position: relative;
+    z-index: 1;
+    height: 100%;
+  }
+  &__inner {
+  }
+  &__header {}
+  &__title {}
+  &__content {}
+  &__fixed-wrap {
+    display: flex;
+    width: 100%;
+  }
+  &__box-btn-close {}
+  &__btn-close {}
+}
+
+// main feed layer
+.main-feed-layer {
+  $block: '.main-feed-detail';
+  #{$common-layer}__wrapper {
+    overflow: hidden;
+    overflow-y: auto;
+    position: relative;
+    padding: 35px 15px;
+    height: 100%;
+    box-sizing: border-box;
+  }
+  #{$common-layer}__inner {
+    position: relative;
+    padding-top: 32px;
+  }
+  #{$block} {
+    background: $white;
+    padding-bottom: 18px;
+    &__box-media {
+      overflow: hidden;
+      position: relative;
+      padding-top: 100%;
+      img {
+        position: absolute;
+        width: 100%;
+        top: 0;
+        left: 0;
+      }
+      iframe,
+      video {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 100%;
+        &::-webkit-media-controls-panel,
+        &::-webkit-media-controls-play-button,
+        &::-webkit-media-controls-start-playback-button {
+          display: none !important;
+          -webkit-appearance: none;
+        }
+      }
+    }
+    &__btn-video {
+      overflow: hidden;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+      background: url('../img/main/ico_play_video_feed_large.png') no-repeat;
+      background-size: cover;
+      width: 9.49%;
+      height: 10.38%;
+      line-height: 999px;
+      white-space: nowrap;
+      &.is-hide {
+        display: none;
+      }
+    }
+    &__title {
+      overflow: hidden;
+      display: block;
+      margin: 18px 0 0 18px;
+      @include rfonts(18, 18, 700);
+      color: $black;
+      letter-spacing: -0.03em;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+    &__text {
+      display: block;
+      max-height: 7.6rem;
+      margin: 14px 0 0 18px;
+      @include rfonts(13, 20, 300);
+      color: $dark;
+      letter-spacing: -0.03em;
+      @include multi-ellipsis(4);
+    }
+    &__link {
+      display: inline-block;
+      margin: 43px 0 0 18px;
+      @include rfonts(11, 20, 700);
+      color: $black;
+      letter-spacing: -0.01em;
+      text-decoration: underline;
+      &:after {
+        display: inline-block;
+        margin-left: 6px;
+        @include use-common('ico_main_feed_link');
+        vertical-align: middle;
+        content: '';
+      }
+    }
+  }
+  #{$common-layer}__box-btn-close {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+  #{$common-layer}__btn-close {
+    display: inline-block;
+    @include blind();
+    @include use-common('ico_close_layer_white');
+  }
+}
+
+// toast popup
+.toast-popup {
+  visibility: hidden;
+  position: fixed;
+  z-index: common-z-index(layer);
+  bottom: 0;
+  left: 50%;
+  width: calc(100% - 30px);
+  max-width: $screen-max-width - 30px;
+  transform: translateX(-50%);
+  padding: 15px;
+  border-radius: 5px;
+  background-color: $green;
+  text-align: center;
+  opacity: 0;
+  transition: all 0.3s;
+  box-sizing: border-box;
+  &.is-show {
+    visibility: visible;
+    opacity: 1;
+    bottom: 15px;
+    bottom: calc(15px + constant(safe-area-inset-bottom) * 0.4);
+    bottom: calc(15px + env(safe-area-inset-bottom) * 0.4);
+  }
+  &__text {
+    @include rfonts(13, 24, 300);
+    color: $white;
+    letter-spacing: -0.03em;
+  }
+}
+
+.layer-upper {
+  $block: '.layer-upper';
+
+  #{$common-layer}__dimmed {
+    background: rgba($dark, 0.5);
+  }
+
+  #{$common-layer}__inner {
+    position: absolute;
+    top: auto;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding-top: 40px;
+    background: $white;
+    border-radius: 12px 12px 0 0;
+    overflow: hidden;
+    overflow-y: auto;
+    max-height: 100%;
+    box-sizing: border-box;
+  }
+
+  .product-grid {
+    padding: 0 15px;
+    box-sizing: border-box;
+
+    &__box-info {
+      padding: 0;
+    }
+
+    &__badge {
+      margin-right: 8px;
+    }
+  }
+
+  &__form {
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid #ccc;
+  }
+
+  &__form-row {
+    padding: 0 15px;
+
+    & + #{$block}__form-row {
+      margin-top: 24px;
+    }
+
+    .label {
+      display: block;
+      margin-bottom: 5px;
+      @include rfonts(12,24,400);
+      letter-spacing: -0.03em;
+    }
+  }
+
+  &__amount {
+    position: relative;
+    height: 35px;
+    padding: 0 39px;
+    box-sizing: border-box;
+
+    input[type='number'] {
+      display: block;
+      width: 100%;
+      height: 100%;
+      border: 0;
+      text-align: center;
+      box-sizing: border-box;
+      outline: 0;
+      border-radius: 0;
+      border: solid #dedede;
+      border-width: 1px 0 1px 0;
+      @include rfonts(13,false,500);
+      letter-spacing: -0.5em;
+    }
+
+    button {
+      @include blind(39px,35px);
+      background: #f8f8f8;
+      border-radius: 0;
+      border: 1px solid #dedede;
+      outline: 0;
+
+      &:before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 12px;
+        height: 2px;
+        margin-left: -6px;
+        margin-top: -1px;
+        border-radius: 1px;
+        background: $black;
+      }
+    }
+
+    .btn-minus {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+    }
+
+    .btn-plus {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+
+      &:after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 12px;
+        height: 2px;
+        margin-left: -6px;
+        margin-top: -1px;
+        border-radius: 1px;
+        background: $black;
+        transform: rotate(90deg)
+      }
+    }
+  }
+
+  &__sel {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 35px;
+    border: 1px solid #dedede;
+    box-sizing: border-box;
+
+    &:before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      right: 11px;
+      margin-top: -3px;
+      @include use-common('ico_sel_arr');
+      z-index: 10;
+    }
+
+    select {
+      display: block;
+      border: 0;
+      width: 100%;
+      height: 100%;
+      text-indent: 5px;
+      @include rfonts(13,false,400);
+      letter-spacing: -0.03em;
+      background: $white;
+    }
+  }
+
+  &__box-radio {
+    padding: 0 5px;
+    font-size: 0;
+    @include clearfix;
+
+    input[type='radio'] {
+      display: none;
+
+      &:checked {
+
+        & + label {
+
+          &:before {
+            @include use-common('ico_radio_check_on');
+          }
+        }
+      }
+
+      & + label {
+        display: block;
+        position: relative;
+        height: 25px;
+        line-height: 25px;
+        padding-left: 33px;
+        
+        &:before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          @include use-common('ico_radio_check_off');
+        }
+      }
+    }
+
+    label {
+      @include rfonts(13,false,400);
+    }
+
+    #{$block}__radio {
+      float: left;
+      margin-right: 28px;
+    }
+
+    .shipping-tag {
+      display: inline-block;
+      margin-left: 5px;
+      padding-right: 5px;
+      color: $green;
+      @include rfonts(11,16,600);
+      @include use-common('ico_promotion_tag');
+      vertical-align: middle;
+      text-align: right;
+      box-sizing: border-box;
+    }
+  }
+
+  &__box-btn {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 20px;
+  }
+
+  &__form-btn {
+    flex: 1 0 auto;
+    height: 53px;
+    background: $green;
+    color: $white;
+    @include rfonts(16,false,700);
+    letter-spacing: -0.02em;
+    padding-bottom: constant(safe-area-inset-bottom);
+    padding-bottom: env(safe-area-inset-bottom);  
+    box-sizing: content-box;
+    & + #{$block}__form-btn {
+      margin-left: 9px;
+    }
+  }
+
+  #{$common-layer}__box-btn-close {
+    position: absolute;
+    top: 2px;
+    left: 0;
+    width: 100%;
+    height: 38px;
+  }
+
+  #{$common-layer}__btn-close {
+    position: relative;
+    padding: 8px;
+    @include blind(100%,38px);
+
+    &:before {
+      content: '';
+      position: absolute;
+      top: 8px;
+      left: 50%;
+      margin-left: -10px;
+      @include use-common('ico_title_more');
+      transform: rotate(90deg);
+      vertical-align: top;
+    }
+  }
+
+  .delivery_request {
+    position: relative;
+    border: 1px solid #dedede;
+    box-sizing: border-box;
+
+    &:before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      right: 11px;
+      margin-top: -3px;
+      @include use-common('ico_sel_arr');
+      z-index: 10;
+    }
+
+    input {
+      width: 100%;
+      height: 35px;
+      padding-right: 40px;
+      text-indent: 5px;
+      border: 0;
+      border-radius: 0;
+      @include rfonts(13,false,500);
+      box-sizing: border-box;
+    }
+  }
+}
+
+.layer-login-prompt {
+  $block: '.layer-login-prompt';
+  text-align: center;
+
+  #{$common-layer}__dimmed {
+    background: rgba($dark, 0.5);
+  }
+
+  #{$common-layer}__wrapper {
+    overflow: visible;
+    position: absolute;
+    top: 50%;
+    left: 15px;
+    right: 15px;
+    padding: 0 15px 18px 15px;
+    background: $white;
+    border-radius: 12px;
+    transform: translateY(-50%);
+    height: auto;
+  }
+
+  &__text {
+    padding: 35px 0 25px 0;
+    @include rfonts(15,24,false);
+  }
+
+  &__btn {
+    display: block;
+    width: 100%;
+    height: 45px;
+    color: $white;
+
+    & + #{$block}__btn {
+      margin-top: 10px;
+    }
+
+    &--login {
+      background: $green;
+    }
+
+    &--non {
+      background: #999;
+    }
+  }
+
+  #{$common-layer}__box-btn-close {
+    position: absolute;
+    top: -40px;
+    right: -8px;
+    margin-left: -19px;
+  }
+
+  #{$common-layer}__btn-close {
+    width: 38px;
+    height: 38px;
+    padding: 8px;    
+    @include blind(38px,38px);
+
+    &:before {
+      content: '';
+      display: inline-block;
+      @include use-common('ico_layer_alert_close');
+      transform: rotate(90deg);
+      vertical-align: top;
+    }
+  }
+}
+
+// layer full type
+.common-layer--full {
+  #{$common-layer}__wrapper {
+    overflow-y: hidden;
+  }
+  #{$common-layer}__inner {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    height: 100%;
+    background: $white;
+  }
+  #{$common-layer}__content {
+    overflow: hidden;
+    overflow-y: auto;
+    position: relative;
+    flex: 1;
+    height: 100%;
+  }
+  #{$common-layer}__header {
+    flex-shrink: 0;
+    padding: 0 50px;
+    height: 53px;
+  }
+  #{$common-layer}__title {
+    overflow: hidden;
+    @include rfonts(17, 53, 500);
+    letter-spacing: -0.04em;
+    color: $dark;
+    text-align: center;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    &--large {
+      @include rfonts(21, 53, 400);
+    }
+  }
+  #{$common-layer}__box-btn-close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 50px;
+  }
+  #{$common-layer}__btn {
+    width: 100%;
+    flex: 1;
+    background: $greenery;
+    height: 45px;
+    @include rfonts(14, 45, 500);
+    letter-spacing: -0.04em;
+    color: $white;
+    box-sizing: border-box;
+    &:not(:first-child) {
+      margin-left: 9px;
+    }
+    &--cancel {
+      border: 1px solid #ccc;
+      background: $white;
+      color: #888;
+    }
+    &-wrap {
+      display: flex;
+      margin: 0 15px 30px;
+    }
+    &:disabled {
+      background: #ccc;
+      color: $white;
+    }
+  }
+  #{$common-layer}__btn-close {
+    overflow: hidden;
+    position: relative;
+    width: 50px;
+    height: 50px;
+    padding: 14px;
+    white-space: nowrap;
+    line-height: 999px;
+    &:after {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      @include use-common('ico_layer_full_close');
+      vertical-align: top;
+      content: '';
+    }
+  }
+}
+// 배송 및 주문 안내
+.delivery-info {
+  border-top: 1px solid #222;
+  padding: 0 15px 50px;
+  &__title {
+    padding-top: 40px;
+    @include rfonts(13, 20, 700);
+    letter-spacing: -0.04em;
+    color: $dark;
+  }
+  &__list {
+    margin-top: 10px;
+    border-top: 1px solid #ccc;
+    .title {
+      display: block;
+      margin-top: 16px;
+      @include rfonts(13, 20, 700);
+      letter-spacing: -0.04em;
+      color: $greenery;
+    }
+    .desc {
+      display: block;
+      margin-top: 10px;
+      @include rfonts(12, 20, 300);
+      color: $dark;
+      letter-spacing: -0.04em;
+    }
+    .text-sub {
+      display: block;
+      @include rfonts(11, 23, 300);
+      letter-spacing: -0.04em;
+      color: $dark;
+    }
+    .text-point {
+      font-weight: 400;
+    }
+  }
+}
+
+// 성분&인증서 상세
+.product-info {
+  $block: &;
+  &:not(:first-of-type) {
+    margin-top: 45px;
+  }
+  &__title {
+    display: block;
+    @include rfonts(15, 45, 700);
+    color: $white;
+    letter-spacing: -0.04em;
+    background: #222;
+    text-indent: 15px
+  }
+  &__content {
+    margin-top: 25px;
+    padding-bottom: 45px;
+  }
+  &__sub-title {
+    display: block;
+    margin: 25px 15px 0;
+    padding-bottom: 6px;
+    border-bottom: 2px solid $green;
+    @include rfonts(15, 19, 700);
+    letter-spacing: -0.04em;
+    color: $green;
+  }
+  &__list {
+    padding: 0 15px;
+  }
+  &__item {
+    margin-top: 24px;
+    text-align: center;
+    &:not(:first-child) {
+      .product-info-certificate {
+        margin-top: 50px;
+      }
+    }
+    .title {
+      display: block;
+      @include rfonts(14, 23, 700);
+      letter-spacing: -0.04em;
+      color: $dark;
+      text-align: left;
+    }
+    .desc {
+      display: block;
+      margin-top: 6px;
+      @include rfonts(13, 23, 300);
+      letter-spacing: -0.04em;
+      color: $dark;
+      text-align: left;
+    }
+    .link {
+      display: inline-block;
+      margin-top: 28px;
+      padding: 0 32px;
+      border: 1px solid $black;
+      @include rfonts(12, 40, 400);
+      letter-spacing: -0.04em;
+      color: #222;
+      &:after {
+        display: inline-block;
+        margin-left: 24px;
+        @include use-common('ico_arrow_link_large');
+        vertical-align: -1px;
+        content: '';
+      }
+    }
+  }
+}
+.product-info-certificate {
+  margin-bottom: 19px;
+  padding: 24px 0 17px;
+  background: #f7f7f7;
+  text-align: center;
+  &__sub-title {
+    @include rfonts(15, 25, 400);
+    letter-spacing: -0.04em;
+    color: $dark;
+  }
+  &__title {
+    display: block;
+    margin: 3px 0;
+    @include rfonts(21, 27, 700);
+    letter-spacing: -0.04em;
+    color: $green;
+  }
+  .box-image {
+    overflow: hidden;
+    width: 180px;
+    height: 180px;
+    margin: 0 auto;
+  }
+  img {
+    width: 100%;
+  }
+}
+// sns공유하기
+.share-sns-layer {
+  #{$common-layer}__inner {
+    position: absolute;
+    top: 50%;
+    left: 15px;
+    right: 15px;
+    transform: translateY(-50%);
+    padding: 35px 15px 40px;
+    background: $white;
+    border-radius: 12px;
+    box-sizing: border-box;
+  }
+  #{$common-layer}__content {
+    text-align: center;
+  }
+  #{$common-layer}__box-btn-close {
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 21px;
+    margin-top: -27px;
+  }
+  #{$common-layer}__btn-close {
+    @include blind(21px,21px);
+    &:before {
+      display: inline-block;
+      @include use-common('ico_layer_alert_close');
+      vertical-align: top;
+      content: '';
+    }
+  }
+}
+.share-sns {
+  &__title {
+    @include rfonts(15, 24, 300);
+    letter-spacing: -0.04em;
+    color: $black;
+  }
+  .text-semi-point {
+    @include rfonts(15, 24, 500);
+    letter-spacing: -0.04em;
+    color: $greenery;
+  }
+  .text-point {
+    @include rfonts(15, 24, 700);
+    letter-spacing: -0.04em;
+    color: $greenery;
+  }
+  &__list {
+    margin-top: 22px;
+    font-size: 0;
+  }
+  &__item {
+    display: inline-block;
+    margin: 0 6px;
+    vertical-align: top;
+  }
+  &__btn {
+    display: inline-block;
+    &--facebook {
+      @include use-common('ico_layer_share_sns_facebook');
+    }
+    &--twitter {
+      @include use-common('ico_layer_share_sns_twitter');
+    }
+    &--kakaotalk {
+      @include use-common('ico_layer_share_sns_kakaotalk');
+    }
+    &--copy {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: #34af36;
+      @include rfonts(11, 14, 500);
+      letter-spacing: -0.04em;
+      color: $white;
+    }
+  }
+}
+// 리뷰작성팝업
+.review-layer-section {
+  $block: &;
+  margin: 0 15px;
+  &__title {
+    @include rfonts(24, 32, 300);
+    letter-spacing: -0.04em;
+    color: $black;
+    .text-point {
+      font-weight: 700;
+      color: $green;
+    }
+  }
+  &__desc {
+    display: block;
+    margin-top: 8px;
+    @include rfonts(11, 27, 400);
+    letter-spacing: -0.04em;
+    color: $dark-gray;
+  }
+  .textarea-wrap {
+    margin-top: 32px;
+  }
+  .input-file-wrap {
+    margin: 35px 0 65px;
+  }
+}
+.rating-wrap {
+  position: relative;
+  margin-top: 29px;
+  padding: 29px 48px 0;
+  border-top: 3px solid $black;
+  text-align: center;
+  &__title {
+    display: block;
+    @include rfonts(17, 32, 700);
+    letter-spacing: -0.04em;
+    color: $black;
+  }
+  .star {
+    display: inline-block;
+    position: relative;
+    margin-top: 18px;
+    &:before {
+      display: block;
+      @include use-common('ico_review_star_large');
+      content: '';
+    }
+    .rating {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1;
+      @include use-common('ico_review_star_rating_large');
+    }
+    .value {
+      display: block;
+      margin-top: 16px;
+    }
+    .score {
+      @include rfonts(17, 24, 700);
+      color: $green;
+    }
+    .sub-value {
+      @include rfonts(13, false, 400);
+      color: $green;
+    }
+  }
+  &__btn {
+    position: absolute;
+    top: 75px;
+    &--minus {
+      left: 0;
+      @include use-common('ico_rating_minus');
+    }
+    &--plus {
+      right: 0;
+      @include use-common('ico_rating_plus');
+    }
+  }
+}
+// 문의 작성 팝업
+.inquiry-layer-section {
+  $block: &;
+  margin: 0 15px 43px;
+  &__title {
+    @include rfonts(24, 32, 300);
+    letter-spacing: -0.04em;
+    color: $black;
+    .text-point {
+      font-weight: 700;
+      color: $green;
+    }
+  }
+  &__desc {
+    display: block;
+    margin-top: 8px;
+    @include rfonts(11, 27, 400);
+    letter-spacing: -0.04em;
+    color: $dark-gray;
+  }
+  .textarea-wrap {
+    margin-top: 32px;
+  }
+  .checkbox-wrap {
+    margin-top: 10px;
+  }
+  &__list {
+    margin-top: 37px;
+    padding-top: 15px;
+    border-top: 1px solid #d6d6d6;
+  }
+  &__item {
+    @include rfonts(11, 20, 300);
+    letter-spacing: -0.03em;
+    color: $dark-gray;
+    .text-point {
+      font-weight: 500;
+      color: $green;
+    }
+  }
+}
+// 약관동의리스트
+.terms-agree {
+  margin: 40px 0 76px;
+  &__item {
+    display: flex;
+    align-items: flex-start;
+    margin-top: 14px;
+  }
+  &__link {
+    @include rfonts(12, 23, 300);
+    letter-spacing: -0.04em;
+    color: #222;
+  }
+}

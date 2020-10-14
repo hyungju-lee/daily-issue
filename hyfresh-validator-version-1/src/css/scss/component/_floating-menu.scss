@@ -1,0 +1,90 @@
+.floating-menu {
+  display: flex;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  z-index: common-z-index(floatingMenu);
+  width: 100%;
+  max-width: $screen-max-width;
+  align-items: center;
+  justify-content: space-between;
+  &__util {
+    height: 53px;
+    padding: 0 12px;
+    padding: 0 12px constant(safe-area-inset-bottom);
+    padding: 0 12px env(safe-area-inset-bottom);
+    background: $greenery;
+    font-size: 0;
+  }
+  [class^="btn-"] {
+    overflow: hidden;
+    position: relative;
+    width: 41px;
+    height: 53px;
+    padding-bottom: constant(safe-area-inset-bottom);
+    padding-bottom: env(safe-area-inset-bottom);
+    text-align: center;
+    line-height: 999px;
+    vertical-align: top;
+    box-sizing: content-box;
+    &:before {
+      position: absolute;
+      top: 0;
+      left: 50%;
+    }
+  }
+  .btn-text {
+    display: block;
+    flex: 1;
+    background: #0d6543;
+    @include rfonts(16, 53, 700);
+    letter-spacing: -0.04em;
+    color: $white;
+  }
+  .checkbox__wish {
+    display: inline-block;
+    vertical-align: top;
+    .inp {
+      display: none;
+      &:checked + .label:before {
+        @include use-common('ico_wish_large_white_on');
+      }
+    }
+    .label {
+      display: inline-block;
+      overflow: hidden;
+      position: relative;
+      width: 41px;
+      height: 53px;
+      text-align: center;
+      line-height: 999px;
+      vertical-align: middle;
+      cursor: pointer;
+      &:before {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin: -9px 0 0 -9px;
+        @include use-common('ico_wish_large_white_off');
+        content: '';
+      }
+    }
+  }
+  .btn-gift:before {
+    margin: 17px 0 0 -10px;
+    @include use-common('ico_gift_large_white');
+    content: '';
+  }
+  .btn-cart:before {
+    margin: 17px 0 0 -10px;
+    @include use-common('ico_cart_large_white');
+    content: '';
+  }
+  .btn-share:before {
+    margin: 17px 0 0 -10px;
+    @include use-common('ico_event_share_white');
+    content: '';
+  }
+}

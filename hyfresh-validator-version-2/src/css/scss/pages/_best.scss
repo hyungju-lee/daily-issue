@@ -1,0 +1,130 @@
+/* best */
+.wrap-best{
+	// tab category
+	.tab {
+		$block: '.tab';
+
+		&-category {
+
+			&__area {
+				position: relative;
+				// position: absolute;
+				// top: 0;
+				// left: 50%;
+				// transform: translateX(-50%);
+				width: 100%;
+				max-width: $screen-max-width;
+				padding: 12px 0;
+				z-index: common-z-index(gnb);
+				background: $white;
+				box-sizing: border-box;
+			}
+
+			&__list {
+				position: relative;
+				padding-bottom: 28px;
+				font-size: 0;
+				white-space: nowrap;
+			}
+
+			&__item {
+				display: inline-block;
+				margin-left: 26px;
+
+				&:first-child {
+					margin-left: 0;
+				}
+
+				&.is-selected {
+
+					#{$block}-category__link {
+						position: relative;
+						color: $black;
+
+						&:before {
+							position: absolute;
+							top: 0;
+							left: 50%;
+							width: 6px;
+							height: 6px;
+							border-radius: 3px;
+							background: $green;
+							transform: translate(-50%,0);
+							content: '';
+						}
+					}
+
+					#{$block}-sub {
+						display: block;
+					}
+				}
+
+				@media (max-width: 359px) {
+					margin-left: 20px;
+				}
+			}
+
+			&__link {
+				display: block;
+				padding: 12px 0 15px 0;
+				color: #999;
+				@include rfonts(13,13,700);
+				letter-spacing: -0.026em;
+			}
+		}
+
+		&-sub {
+			display: none;
+			position: absolute;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			z-index: common-z-index(default);
+
+			&__list {
+				font-size: 0;
+				white-space: nowrap;
+			}
+
+			&__item {
+				display: inline-block;
+				width: auto;
+
+				&.is-active {
+
+					#{$block}-sub__link {
+						border-color: #222;
+						background: #222;
+						color: $white;
+					}
+				}
+			}
+
+			&__link {
+				display: block;
+				padding: 0 12px;
+				color: #444;
+				@include rfonts(12,28,400);
+				letter-spacing: -0.07em;
+				border: 1px solid #ccc;
+				box-sizing: border-box;
+			}
+		}
+	}
+}
+
+.best {
+
+	&__banner {
+
+		&-link {
+			display: block;
+		}
+
+		&-img {
+			display: block;
+			width: 100%;
+			height: auto;
+		}
+	}
+}

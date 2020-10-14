@@ -1,0 +1,55 @@
+.wrap-lifestyle {
+  .common-form {
+    margin: 14px 0 0;
+  }
+}
+.lifestyle {
+  &__list {
+    padding: 0 15px;
+    border-bottom: 15px solid #f7f7f7;
+  }
+  &__item {
+    border-top: 1px solid #d6d6d6;
+    padding: 17px 0 18px;
+    &:first-child {
+      border-top: 0;
+      padding-top: 0;
+    }
+  }
+  &__desc {
+    display: block;
+    margin: 30px 15px 22px;
+    @include rfonts(13, 19, 300);
+    letter-spacing: -0.05em;
+    .text-point {
+      font-weight: 700;
+      color: $green;
+    }
+    .text-sub {
+      display: block;
+      @include rfonts(12);
+      color: $dark-gray;
+    }
+  }
+  &__btn {
+    display: block;
+    width: 100%;
+    background: #222;
+    @include rfonts(13, 40, 500);
+    letter-spacing: -0.05em;
+    color: $white;
+    text-align: center;
+    &-text {
+      display: inline-block;
+      margin-top: 10px;
+      @include rfonts(11, 30, 300);
+      letter-spacing: -0.05em;
+      color: $dark-gray;
+      text-decoration: underline;
+    }
+    &-wrap {
+      margin: 30px 15px 0;
+      text-align: center;
+    }
+  }
+}

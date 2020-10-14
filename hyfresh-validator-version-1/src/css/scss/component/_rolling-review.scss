@@ -1,0 +1,85 @@
+.rolling-review {
+  margin: 0 15px;
+  padding: 35px 0 38px;
+  background: #f8f8f8;
+  text-align: center;
+  &__star-wrap {
+    position: relative;
+    padding-top: 27px;
+    .text {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      @include rfonts(15, 24, 700);
+      color: $green;
+      letter-spacing: -0.01em;
+    }
+  }
+  &__star {
+    display: inline-block;
+    position: relative;
+    @include blind;
+    @include use-common('ico_main_review_star');
+    .rating {
+      position: absolute;
+      top: 0;
+      left: 0;
+      @include use-common('ico_main_review_star_rating');
+    }
+  }
+  &__summary {
+    display: block;
+    margin-top: 8px;
+    @include rfonts(11, 18, 400);
+    color: $dark;
+    .tag {
+      color: $greenery;
+      letter-spacing: -0.03em;
+    }
+  }
+}
+.review-auto-slide {
+  position: relative;
+  margin-top: 19px;
+  height: 88px;
+  padding: 0 58px;
+  &:before {
+    position: absolute;
+    top: 0;
+    left: 42px;
+    @include use-common('ico_review_quote_left');
+    content: '';
+  }
+  &:after {
+    position: absolute;
+    top: 0;
+    right: 42px;
+    @include use-common('ico_review_quote_right');
+    content: '';
+  }
+  &__item {
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding-bottom: 26px;
+    box-sizing: border-box;
+    text-align: center;
+    .text {
+      @include multi-ellipsis(3);
+      @include rfonts(14, 18, 300);
+      max-height: 5.4rem;
+      width: 100%;
+      color: $black;
+      letter-spacing: -0.03em;
+    }
+    .name {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      @include rfonts(11, 18, 300);
+      color: #777;
+    }
+  }
+}

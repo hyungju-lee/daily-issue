@@ -1,0 +1,13 @@
+.page-search {
+    height: 100%;
+    background-color: #f8f9fb;
+
+    .section {
+        &:last-child {
+            padding: {
+                bottom: env(safe-area-inset-bottom);
+                bottom: constant(safe-area-inset-bottom);
+            };
+        }
+    }
+}

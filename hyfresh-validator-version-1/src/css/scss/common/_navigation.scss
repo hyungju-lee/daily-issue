@@ -1,0 +1,86 @@
+.navigation {
+  $block: &;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  z-index: common-z-index(navigation);
+  width: 100%;
+  max-width: $screen-max-width;
+  padding: $common-layout-margin;
+  padding: $common-layout-margin constant(safe-area-inset-bottom);
+  padding: $common-layout-margin env(safe-area-inset-bottom);
+  border-top: 1px solid #999;
+  background: $white;
+  box-sizing: border-box;
+  transition: all 0.3s;
+  &.is-hide {
+    visibility: hidden;
+    transform: translateY(100%);
+  }
+  &__list {
+    display: flex;
+    justify-content: space-between;
+  }
+  &__item {
+    flex: 0 0 48px;
+    &.is-selected {
+      #{$block}__link {
+        color: $greenery;
+      }
+      #{$block}__icon {
+        &--home:before {
+          @include use-common('ico_navigation_home_on');
+        }
+        &--category:before {
+          @include use-common('ico_navigation_category_on');
+        }
+        &--mypage:before {
+          @include use-common('ico_navigation_mypage_on');
+        }
+        &--recent:before {
+          @include use-common('ico_navigation_recent_on');
+        }
+        &--delivery:before {
+          @include use-common('ico_navigation_delivery_on');
+        }
+      }
+    }
+  }
+  &__link {
+    display: block;
+    padding: 6px 0;
+    @include rfonts(10, 16, 400);
+    color: $gray;
+    text-align: center;
+    letter-spacing: -0.03em;
+  }
+  &__icon {
+    display: block;
+    position: relative;
+    height: 25px;
+    &:before {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+      content: '';
+    }
+    &--home:before {
+      @include use-common('ico_navigation_home');
+    }
+    &--category:before {
+      @include use-common('ico_navigation_category');
+    }
+    &--mypage:before {
+      @include use-common('ico_navigation_mypage');
+    }
+    &--recent:before {
+      @include use-common('ico_navigation_recent');
+    }
+    &--delivery:before {
+      @include use-common('ico_navigation_delivery');
+    }
+  }
+}

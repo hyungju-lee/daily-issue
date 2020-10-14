@@ -1,0 +1,563 @@
+.wrap-mypage {
+  .header__inner {
+    background: $beige;
+  }
+}
+
+.hy-common-mypage {
+  box-sizing: content-box;
+  max-width: $screen-max-width;
+  margin: 0 auto;
+  .section2 {
+    position: relative;
+    &.first {
+      border-top: 1px solid #bfb3a9;
+      padding: 34px 15px 19px;
+      background: linear-gradient(0deg, $white 35%, $beige 35%);
+    }
+    .user_info {
+      a:first-child {
+        margin-right: 0;
+      }
+      .left p {
+        display: inline-block;
+        @include rfonts(38, false, 500);
+        letter-spacing: -0.05em;
+        color: $black;
+        vertical-align: middle;
+      }
+      .grade {
+        display: inline-block;
+        border-radius: 50%;
+        width: 56px;
+        height: 56px;
+        background: $green;
+        @include rfonts(12, 58, 700);
+        letter-spacing: -0.02em;
+        text-align: center;
+        color: $white;
+        vertical-align: 3px;
+      }
+      .btn_box {
+        position: absolute;
+        top: 15px;
+        right: 12px;
+      }
+      .btn_noti {
+        position: relative;
+        @include blind(16px,16px);
+        padding: 5px;
+        &:after {
+          position: absolute;
+          top: 5px;
+          left: 5px;
+          @include use-hy-common('ico_mypage_notification');
+          content: '';
+        }
+      }
+      .btn_setting {
+        position: relative;
+        @include blind(16px,16px);
+        padding: 5px;
+        &:after {
+          position: absolute;
+          top: 5px;
+          left: 5px;
+          @include use-hy-common('ico_mypage_setting');
+          content: '';
+        }
+      }
+    }
+    .btn_list.v2 {
+      &.btn_delivery {
+        display: inline-block;
+        &:after {
+          display: inline-block;
+          margin-left: 4px;
+          @include use-hy-common('ico_link_more');
+          vertical-align: -4px;
+          content: '';
+        }
+        .section_header {
+          display: inline-block;
+        }
+        h2 {
+          display: inline-block;
+          @include rfonts(15, 25, 700);
+          letter-spacing: -0.05em;
+          color: $black;
+        }
+      }
+    }
+    .mypage_list_title {
+      display: block;
+      border-bottom: 2px solid #222;
+      @include rfonts(13, 25, 700);
+      letter-spacing: -0.05em;
+      color: $black;
+    }
+    .mypage_list {
+      padding: 0;
+      border-top: 0;
+      li {
+        position: relative;
+        border-bottom: 1px solid #e6e6e6;
+        padding-left: 8px;
+        &.active {
+          .regular_order_num {
+            &,
+            em {
+              color: $black;
+            }
+          }
+        }
+        &:before {
+          position: absolute;
+          top: 50%;
+          left: 0;
+          width: 3px;
+          height: 3px;
+          margin-top: -3px;
+          border-radius: 50%;
+          background: $black;
+          content: '';
+        }
+      }
+      .btn_list {
+        display: block;
+        position: relative;
+        padding: 0 18px 0 0;
+        &.none_arrow:after {
+          display: none;
+        }
+        &:after {
+          position: absolute;
+          top: 50%;
+          right: 0;
+          margin-top: -5px;
+          @include use-hy-common('ico_arrow_mypage_link');
+          content: '';
+        }
+          h2 {
+          @include rfonts(13, 45, 400);
+          letter-spacing: -0.05em;
+          color: $black;
+        }
+      }
+      .regular_order_num {
+        right: 0;
+        @include rfonts(10, 45, 300);
+        color: $gray;
+        em {
+          @include rfonts(15, 45, 700);
+          color: $gray;
+        }
+      }
+    }
+    .mypage_util_list {
+      display: flex;
+      width: 100%;
+      margin-top: 15px;
+      li {
+        flex: 1;
+        margin-left: 4px;
+        &:first-child {
+          margin-left: 0;
+        }
+      }
+      a {
+        display: block;
+        padding: 11px 11px 12px;
+        text-align: center;
+        background: #264557;
+        @include rfonts(13, 20, 400);
+        letter-spacing: -0.05em;
+        color: $white;
+      }
+    }
+  }
+  .barcode_wrap {
+    width: 100%;
+    max-width: 360px;
+    padding: 28px 34px 16px;
+    box-sizing: border-box;
+    .barcode {
+      padding: 0;
+      img {
+        width: 100%;
+        height: auto;
+      }
+    }
+    .code {
+      margin-top: 8px;
+      @include rfonts(12, 24, 500);
+      color: $dark;
+      letter-spacing: 0.05em;
+    }
+  }
+  .mypage_slide {
+    margin: 25px -15px 0;
+    text-align: center;
+    .swiper-wrapper {
+      align-items: stretch;
+      box-sizing: border-box;
+    }
+    .swiper-slide {
+      padding: 0 15px;
+    }
+    .swiper-slide__inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+      background: $white;
+      box-shadow: 8px 8px 8px rgba(#000,0.06);
+    }
+    .swiper-pagination {
+      margin-top: 20px;
+      @include commonSlidePagination;
+    }
+  }
+  .membership_table {
+    width: 100%;
+    padding: 22px 15px 13px;
+    text-align: center;
+    box-sizing: border-box;
+    .table {
+      width: 100%;
+      table-layout: fixed;
+      th {
+        padding: 11px 0;
+        @include rfonts(12, 20, 500);
+        letter-spacing: -0.05em;
+        color: $black;
+        text-align: center;
+        border-bottom: 1px solid $black;
+      }
+      td {
+        padding: 14px 0 8px;
+        text-align: center;
+        @include rfonts(12, 20, 500);
+        letter-spacing: -0.05em;
+        color: $black;
+        word-break: break-all;
+      }
+      .text-point-color {
+        color: $green;
+      }
+      .text-point {
+        @include rfonts(13, false, 700);
+      }
+    }
+  }
+  .btn_membership {
+    display: inline-block;
+    margin: 0 0 23px;
+    @include rfonts(12, 20, 300);
+    letter-spacing: -0.05em;
+    color: $dark-gray;
+    text-decoration: underline;
+  }
+  .membership_banner {
+    width: 100%;
+    padding: 18px 15px 10px;
+    text-align: center;
+    box-sizing: border-box;
+    & + .btn_membership {
+      margin-bottom: 11px;
+    }
+    .tit {
+      display: block;
+      @include rfonts(13, 20, 500);
+      color: $black;
+      letter-spacing: -0.05em;
+    }
+    .txt {
+      display: block;
+      @include rfonts(11, 19, 300);
+      letter-spacing: -0.05em;
+      color: $dark-gray;
+    }
+  }
+  .banner_list {
+    margin: 10px -8px 0;
+    font-size: 0;
+    li {
+      display: inline-block;
+      width: calc(50% - 8px);
+      margin: 0 4px;
+      padding: 5px 9px;
+      border: 4px solid #f1f1f1;
+      vertical-align: top;
+      box-sizing: border-box;
+      color: $greenery;
+    }
+    .type {
+      @include rfonts(12, 20, 500);
+      letter-spacing: -0.05em;
+    }
+    .price {
+      display: block;
+      @include rfonts(11, 20, 300);
+      letter-spacing: -0.05em;
+    }
+    .text-point {
+      @include rfonts(16, 20, 700);
+      letter-spacing: 0;
+    }
+  }
+  .mypage_reward {
+    margin: -28px -16px 28px;
+    border-top: 3px solid #222;
+    @include rfonts(10, 28, 300);
+    color: $black;
+    .left_cont {
+      margin: 0;
+      padding: 0;
+      border-top: 0;
+    }
+    .sum_reward {
+      position: relative;
+      padding: 40px 14px 6px;
+      background: #f7f7f7;
+      text-align: right;
+      @include rfonts(11, 28, 300);
+      letter-spacing: -0.05em;
+      color: $black;
+      & + div {
+        padding-top: 0;
+      }
+      .tit {
+        float: none;
+        position: absolute;
+        top: 17px;
+        left: 14px;
+        margin: 0;
+        padding: 0;
+        @include rfonts(16, 22, 700);
+        letter-spacing: -0.06em;
+        color: $black;
+      }
+      .sub_tit {
+        @include rfonts(12, 22, 500);
+        letter-spacing: -0.05em;
+        color: $green;
+      }
+      .price {
+        @include rfonts(25, 28, 700);
+      }
+    }
+    .mgR23,
+    .event {
+      position: relative;
+      padding: 11px 14px 10px;
+      text-align: right;
+      box-sizing: border-box;
+      @include rfonts(12, 22, 400);
+      .history_inquiry {
+        overflow: hidden;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        white-space: nowrap;
+        line-height: 999px;
+        padding: 0;
+        border: 0;
+        background: 0;
+        margin: 0;
+        border-radius: 0;
+      }
+    }
+    .tit {
+      position: absolute;
+      top: 15px;
+      left: 14px;
+      margin-bottom: 0;
+      @include rfonts(12, 22, 400);
+    }
+    .price {
+      @include rfonts(15, 28, 600);
+      letter-spacing: -0.02em;
+      color: $green;
+    }
+  }
+  .membership_point {
+    padding: 22px 0;
+    &:after {
+      display: block;
+      clear: both;
+      content: '';
+    }
+    .btn_arrow_right {
+      float: left;
+      @include rfonts(15, 22, 700);
+      letter-spacing: -0.05em;
+      color: $black;
+      & + a {
+        float: right;
+      }
+    }
+    .initial {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      margin-right: 5px;
+      border-radius: 50%;
+      background: $green;
+      @include rfonts(12, 20, 700);
+      color: $white;
+      text-align: center;
+      letter-spacing: 0;
+      vertical-align: 1px;
+    }
+    .num {
+      @include rfonts(18, 22, 700);
+      letter-spacing: -0.02em;
+      color: $black;
+      &:before {
+        display: none;
+      }
+    }
+    .unit {
+      @include rfonts(10, 22, 400);
+      color: $dark;
+    }
+  }
+  .txt_caution {
+    float: left;
+    width: 100%;
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px solid #222;
+    @include rfonts(11, 22, 300);
+    letter-spacing: -0.05em;
+    color: #fa4441;
+    text-align: left;
+  }
+  .my_coupon {
+    margin: 28px -16px 6px;
+    border-top: 2px solid #222;
+    font-size: 0;
+    li {
+      display: inline-block;
+      float: none;
+      width: 50%;
+      padding: 18px 15px;
+      border-bottom: 1px solid #ccc;
+      box-sizing: border-box;
+      &:nth-child(even) {
+        border-left: 1px solid #ccc;
+      }
+      &:after {
+        display: block;
+        clear: both;
+        content: '';
+      }
+    }
+    .btn_arrow_right {
+      float: left;
+      @include rfonts(13, 22, 400);
+      letter-spacing: -0.05em;
+      color: $black;
+      & + a {
+        float: right;
+      }
+    }
+    .num {
+      display: inline-block;
+      margin: 0;
+      height: auto;
+      padding: 0;
+      @include rfonts(15, 22, 700);
+      letter-spacing: -0.02em;
+      color: $black;
+    }
+    .unit {
+      @include rfonts(10, false, 300);
+      color: $black;
+      vertical-align: 6px;
+    }
+  }
+  .section_summary {
+    position: absolute;
+    top: 27px;
+    right: 16px;
+    @include rfonts(11, 25, 400);
+    letter-spacing: -0.05em;
+    color: $dark;
+    .text_point {
+      @include rfonts(13, 25, 500);
+      color: #fa4441;
+    }
+    .unit {
+      @include rfonts(10, 25, 300);
+      letter-spacing: -0.05em;
+      color: $dark;
+    }
+  }
+  .deliveryStep_wrap {
+    margin: 4px -15px 0;
+    padding: 0 27px;
+    background: #264557;
+    .deliveryStep {
+      display: flex;
+      li {
+        position: relative;
+        flex: 1;
+        &,
+        &:first-child,
+        &:nth-child(2),
+        &:nth-child(3),
+        &:nth-child(4),
+        &:nth-child(5){
+          width: auto;
+          padding-right: 23px;
+          background: none;
+          box-sizing: border-box;
+          &:after {
+            position: absolute;
+            top: 65px;
+            right: 7px;
+            @include use-hy-common('ico_arrow_mypage_step');
+            content: '';
+          }
+        }
+        &:nth-child(5) {
+          padding: 0;
+          &:after {
+            display: none;
+          }
+        }
+        &.active {
+          .cnt {
+            color: #ffea03;
+          }
+        }
+        a {
+          display: block;
+          padding: 23px 0;
+        }
+        .cnt {
+          @include rfonts(25, 24, 700);
+          letter-spacing: -0.02em;
+          color: $beige;
+        }
+        .tit {
+          margin-top: 10px;
+          @include rfonts(12, 25, 400);
+          letter-spacing: -0.06em;
+          color: $beige;
+        }
+      }
+    }
+  }
+  @media (max-width:359px) {
+    .deliveryStep_wrap {
+      padding: 0;
+    }
+  }
+}

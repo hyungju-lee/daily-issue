@@ -1,0 +1,355 @@
+.hy-common-coupon {
+  .tab_wrap {
+    @include commonTab;
+  }
+  .section_body {
+    &.type2 {
+      background: $white;
+    }
+    .couponList_wrap {
+      width: auto;
+      min-width: 0;
+      margin: 46px 15px 0;
+      padding: 0;
+    }
+    .coupon_list {
+      display: block;
+      li {
+        display: block;
+        position: relative;
+        max-width: none;
+        min-width: 0;
+        margin-top: 32px;
+        padding-top: 24px;
+        &.done {
+          .state_wrap {
+            .fc_type {
+              &1,
+              &2 {
+                color: #fa4441;
+              }
+            }
+          }
+        }
+        .coupon_inner {
+          position: relative;
+          min-height: 0;
+          padding: 36px 64px 12px 17px;
+          border: 3px solid $beige;
+          border-right: 0;
+          border-radius: 0;
+          box-sizing: border-box;
+          &:before {
+            position: absolute;
+            top: 8px;
+            right: 64px;
+            bottom: 8px;
+            width: 2px;
+            background: url(../img/mypage/ico_coupon_bg_border.png) repeat-y;
+            background-size: 100% auto;
+            content: '';
+          }
+          &:after {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            width: 23px;
+            background: url('../img/mypage/ico_coupon_bg_right.png') no-repeat;
+            background-size: 100% auto;
+            content: '';
+          }
+        }
+        .prodInfo {
+          margin-top: 0;
+        }
+        .badge {
+          overflow: hidden;
+          position: absolute;
+          top: 50%;
+          right: 24px;
+          white-space: nowrap;
+          line-height: 999px;
+          &_life {
+            margin-top: -6px;
+            @include use-hy-common('ico_coupon_mall_badge_life');
+          }
+          &_food {
+            margin-top: -5px;
+            @include use-hy-common('ico_coupon_mall_badge_food');
+          }
+        }
+        .type {
+          position: absolute;
+          top: 16px;
+          left: 17px;
+          padding: 0 7px;
+          border-radius: 3px;
+          background: $greenery;
+          @include rfonts(11, 17, 400);
+          color: $white;
+          letter-spacing: -0.06em;
+        }
+        .price {
+          margin-top: 3px;
+          @include rfonts(27, 32, 700);
+          letter-spacing: -0.02em;
+          color: $black;
+          text-align: left;
+          .unit {
+            @include rfonts(11, 28, 400);
+            letter-spacing: -0.06em;
+            vertical-align: 1px;
+          }
+        }
+        .explain {
+          margin: 0;
+          padding: 0;
+          @include rfonts(12, 20, 400);
+          letter-spacing: -0.04em;
+          color: $black;
+          text-align: left;
+        }
+        .termsInfo {
+          margin-top: 13px;
+          padding: 0;
+          @include rfonts(11, 18, 300);
+          letter-spacing: -0.05em;
+          color: $gray;
+          text-align: left;
+        }
+        .btn_coupon_info {
+          @include rfonts(11, 18, 300);
+          letter-spacing: -0.04em;
+          color: $gray;
+          text-decoration: underline;
+          &:before {
+            display: inline-block;
+            margin: 0 5px 0 6px;
+            width: 1px;
+            height: 11px;
+            background: #c3c3c3;
+            vertical-align: middle;
+            content: '';
+          }
+        }
+      }
+      .state_wrap {
+        display: block;
+        top: 0;
+        left: 0;
+        width: auto;
+        height: auto;
+        margin: 0;
+        background: none;
+        z-index: inherit;
+        .state {
+          display: block;
+          font-size: 0;
+          .fc_type {
+            &1 {
+              @include rfonts(12, 18, 700);
+              letter-spacing: -0.05em;
+              color: $black;
+            }
+            &2 {
+              margin-left: 2px;
+              @include rfonts(11, 18, 300);
+              letter-spacing: -0.05rem;
+              color: $black;
+              .period {
+                @include rfonts(11, 18, 400);
+                letter-spacing: -0.05em;
+                color: inherit;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .coupon_category {
+    margin: 68px 15px 0;
+    padding-bottom: 6px;
+    border-bottom: 1px solid #d6d6d6;
+    &:first-of-type {
+      margin-top: 37px;
+    }
+    .category_title {
+      @include rfonts(15, 20, 700);
+      letter-spacing: -0.08em;
+      color: $black;
+    }
+    .count {
+      margin-left: 2px;
+      @include rfonts(13, 20, 500);
+      letter-spacing: 0;
+    }
+  }
+  .coupon_group_slide {
+    margin: 0 0 21px;
+    .couponList_wrap {
+      margin: 21px 0 0;
+    }
+    .coupon_list {
+      width: auto;
+      margin: 0 15px;
+      li:first-child {
+        margin-top: 0;
+      }
+    }
+    .swiper-pagination {
+      margin-top: 31px;
+      @include commonSlidePagination;
+    }
+  }
+  .coupon_btn_box {
+    margin: 24px 15px 0;
+  }
+  .btn_all_coupon {
+    display: block;
+    width: 100%;
+    border: 1px solid $black;
+    @include rfonts(12, 39, 400);
+    letter-spacing: -0.07em;
+    color: #222;
+    &:after {
+      display: inline-block;
+      margin-left: 16px;
+      @include use-hy-common('ico_download');
+      vertical-align: -2px;
+      content: '';
+    }
+  }
+  .section_footer {
+    margin: 63px 15px 0;
+    .tit_wrap .arrow {
+      height: auto;
+      margin-top: 0;
+      background: none;
+      @include rfonts(13, 40, 700);
+      letter-spacing: -0.07em;
+      color: $black;
+    }
+    .contArea_type5 {
+      margin-top: 0;
+      border-top: 0;
+      padding: 0;
+      background: none;
+      .step_wrap {
+        padding: 11px;
+        background: #f7f7f7;
+      }
+    }
+    .dl_type5 li {
+      position: relative;
+      padding-left: 8px;
+      @include rfonts(11, 21, 300);
+      letter-spacing: -0.06em;
+      color: #555;
+      &:not(:first-child) {
+        margin-top: 5px;
+      }
+      &:before {
+        position: absolute;
+        top: 8px;
+        left: 0;
+        width: 2px;
+        height: 2px;
+        border-radius: 50%;
+        background: #555;
+        content: '';
+      }
+    }
+  }
+}
+// 쿠폰등록 영역
+.coupon_reg {
+  margin: 24px 15px 0;
+  border: 1px solid $black;
+  border-radius: 5px;
+  &.is-expanded {
+    .btn_toggle:after {
+      transform: rotate(0);
+    }
+    .coupon_reg_content {
+      display: block;
+    }
+  }
+  .btn_toggle {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 44px;
+    padding: 0 20px 0 14px;
+    @include rfonts(15, 44, 700);
+    letter-spacing: -0.07em;
+    color: $black;
+    text-align: left;
+    &:after {
+      position: absolute;
+      top: 50%;
+      right: 14px;
+      margin-top: -3px;
+      transform: rotate(180deg);
+      @include use-hy-common('ico_arrow_toggle');
+      content: '';
+    }
+  }
+  &_content {
+    display: none;
+    border-top: 1px solid #d6d6d6;
+    margin: 0 14px;
+    padding: 20px 0 16px;
+    .input_wrap {
+      font-size: 0;
+    }
+    input {
+      height: 40px;
+      padding: 0 8px;
+      border-radius: 0;
+      border: 2px solid $black;
+      @include rfonts(12, 40, 400);
+      color: $black;
+      text-align: left;
+      letter-spacing: -0.07em;
+      &::placeholder,
+      &:-ms-input-placeholder {
+        color: #999;
+      }
+    }
+    .btn {
+      height: 40px;
+      margin-left: 4px;
+      padding: 0 15px;
+      background: $black;
+      border: 0;
+      @include rfonts(13, 20, 500);
+      letter-spacing: -0.07em;
+      color: $white;
+    }
+  }
+  &_list {
+    margin-top: 18px;
+    li {
+      position: relative;
+      padding-left: 9px;
+      @include rfonts(11, 20, 300);
+      letter-spacing: -0.07em;
+      color: #555;
+      &:not(:first-child) {
+        margin-top: 6px;
+      }
+      &:before {
+        position: absolute;
+        top: 9px;
+        left: 1px;
+        width: 2px;
+        height: 2px;
+        border-radius: 50%;
+        background: #555;
+        content: '';
+      }
+    }
+  }
+}

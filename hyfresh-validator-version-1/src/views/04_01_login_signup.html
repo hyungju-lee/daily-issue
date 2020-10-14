@@ -1,0 +1,43 @@
+@@include('./include/head.html',{"title": "회원가입 - HYFRESH", "list_title": "sign up : Login/order", "cssFile": "hyfresh-common"})
+<body data-pagestatus="new : 2020.10.05">
+<div class="common-layer common-layer--full" id="inquiry-layer" style="display:block;">
+  <div class="common-layer__dimmed"></div>
+  <div class="common-layer__wrapper">
+    <div class="common-layer__inner" role="dialog">
+      <div class="common-layer__header">
+        <h1 class="blind">회원 로그인</h1>
+      </div>
+      <div class="common-layer__content">
+        <!-- [D] 기존 코드 개선 영역 (실 컨텐츠 영역, 앱 개발 참고) -->
+        <div class="content_body hy-common-login">
+          <div class="section type_login">
+            <h2 class="section_title">회원가입</h2>
+            <div class="login_group">
+              <strong class="section_sub_title">일반 회원가입</strong>
+              <p class="section_desc">아이디/비밀번호 등록으로 회원가입 합니다.</p>
+              <a href="/member/newJoinStep02.do" class="btn_hyfreshjoin">통합 회원 가입</a>
+            </div>
+            <div class="login_group joining">
+              <strong class="section_sub_title">SNS 계정으로 간편 회원가입</strong>
+              <p class="section_desc">사용 중인 SNS 계정으로 빠르고 간편하게 회원가입 합니다</p>
+              <ul>
+                <li><a href="#;" id="btnSnsNaver">네이버로 쉬운 가입</a></li>
+                <li><a href="#;" id="btnSnsKakao">카카오로 쉬운 가입</a></li>
+                <li><a href="#;" id="btnSnsGoogle">구글로 쉬운 가입</a></li>
+                <li><a href="#;" id="btnSnsFacebook">페이스북으로 쉬운 가입</a></li>
+                <li><a href="#;" id="btnSnsApple">Apple로 등록</a></li>
+              </ul>
+            </div>
+          </div>
+      </div>
+      <!-- //[D] 기존 코드 개선 영역 (실 컨텐츠 영역, 앱 개발 참고) -->
+      </div>
+      <div class="common-layer__box-btn-close">
+        <button type="button" class="common-layer__btn-close">팝업 닫기</button>
+      </div>
+    </div>
+  </div>
+</div>
+@@include('./include/script.html',{"type":""})
+</body>
+</html>

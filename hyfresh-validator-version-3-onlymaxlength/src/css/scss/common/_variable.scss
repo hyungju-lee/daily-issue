@@ -1,0 +1,40 @@
+$screen-xsm: 320px;
+$screen-sm: 828px;
+$screen-md: 1024px;
+$screen-lg: 1366px;
+$screen-xlg: 1920px;
+
+$root-em: 10;
+
+$screen-max-width: 720px;
+$header-height: 48px;
+$gnb-height: 55px;
+$common-layout-margin: 0 15px;
+
+$black: #111;
+$dark: #333;
+$dark-gray: #666;
+$gray: #888;
+$light-gray: #f7f7f7;
+$white: #fff;
+$green: #0da562;
+$greenery: #127652;
+$yellow: #ffec1c;
+$brown: #282828;
+$cherry: #fa5654;
+$beige: #ebdccf;
+
+/* z-index */
+$z-indexes: (
+  default: 10,
+  dropdown: 20,
+  gnb: 40,
+  header: 50,
+  stickyWrap: 50,
+  floatingMenu: 50,
+  navigation: 50,
+  alert: 90,
+  btn: 90,
+  layer: 100,
+  max: 1000
+)

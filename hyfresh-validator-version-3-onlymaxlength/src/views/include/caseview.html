@@ -1,0 +1,14 @@
+<style>
+  .case-view{position:fixed;bottom:30px;right:30px;padding:10px;background:rgba(0,0,0,0.4);z-index:1000}
+  .case-view__list{margin-bottom:5px}
+  .case-view__btn{font-size:1.3rem;color:#fff}
+  .case-view__btn-close{display:block;padding:5px;font-size:1.3rem;font-weight:bold;color:#000;background:#fff;text-align:center}
+</style>
+<div class="case-view">
+  <ul class="case-view__list">
+@@for(i=0;i < item.length; i++){<li class="case-view__item">
+    <a href="#" class="case-view__btn" onclick="`+item[i].func+`;return false;">`+(i+1)+`. `+item[i].text+`</a>
+  </li>}
+  </ul>
+  <a href="#" class="case-view__btn-close" onclick="$('.case-view__list').toggle();return false;">toggle view</a>
+</div>

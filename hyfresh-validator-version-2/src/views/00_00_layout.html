@@ -1,0 +1,71 @@
+@@include('./include/head.html',{"title": "공통 레이아웃 - HYFRESH", "list_title": "Common Layout : Common", "cssFile": "hyfresh"})
+<body data-pagestatus="new : 2020.09.15">
+@@include('./include/skipnavigation.html')
+
+<div class="wrap">
+  <!-- header -->
+@@include('./include/header.html',{"type":"default"})
+  <!-- //header -->
+  <!-- gnb -->
+@@include('./include/gnb.html')
+  <!-- //gnb -->
+  <!-- navigation -->
+@@include('./include/navigation.html')
+  <!-- //navigation -->
+  <!-- content -->
+  <main id="content" class="content">
+    <div style="height:1500px"></div>
+    @@include('./include/notice-bar.html')
+  </main>
+  <!-- //content -->
+  <!-- footer -->
+@@include('./include/footer.html')
+  <!-- //footer -->
+</div>
+<div class="sticky-wrap">
+  <!-- 상단이동버튼 -->
+  <a href="#" class="btn-top">페이지 상단으로 이동</a>
+  <!-- 솔드아웃 알림 -->
+  <div class="flag flag--soldout">
+    <button type="button" class="flag__btn-toggle"><span class="blind">soldout 알림 보기</span></button>
+    <div class="flag__inner">
+      <span class="text">품절임박! 현재 <em class="text-point">30</em>개 남았습니다.</span>
+    </div>
+  </div>
+  <!-- 주문마감 알림 -->
+  <div class="flag flag--limit">
+    <button type="button" class="flag__btn-toggle"><span class="blind">주문마감 알림 보기</span></button>
+    <div class="flag__inner">
+      <span class="text">주문마감. <em class="text-point">01 : 32 : 52</em><span class="text-sub">(09월 24일 18시)</span></span>
+    </div>
+  </div>
+</div>
+@@include('./include/script.html',{"type":""})
+<!-- [D] 마크업 case view. 개발 적용 시 제외 영역 -->
+<script>
+  function selectMall() {
+    $('.header').toggleClass('is-opened');
+  }
+  function cart() {
+    if($('.badge').text().length == 1) {
+      $('.badge').text('333');
+    } else {
+      $('.badge').text('3');
+    }
+  }
+</script>
+@@include('./include/caseview.html',{
+  "item": [
+    {
+      "text":"mall 선택(토글)",
+      "func": "selectMall()"
+    },
+    {
+      "text":"장바구니 수량 변경(토글)",
+      "func": "cart()"
+    }
+  ]
+})
+<!-- //[D] 마크업 case view. 개발 적용 시 제외 영역 -->
+</body>
+</html>

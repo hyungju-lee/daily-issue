@@ -1,0 +1,134 @@
+@@include('./include/head.html',{"title": "components guide - HYFRESH", "list_title": "components guide : Common", "cssFile": "hyfresh"})
+<body>
+@@include('./include/skipnavigation.html')
+<style>
+  .guide-wrap{max-width:720px;margin:0 auto;padding:30px 15px;font-size:14px;color:#333;text-align:center;box-sizing:border-box}
+  .guide-title{font-size:28px;font-weight:700;text-align:center;line-height:3;color:#127652}
+  .guide-list li{position:relative;margin-top:5px;padding-left:10px;text-align:left}
+  .guide-list li:before{position:absolute;top:9px;left:0;width:3px;height:3px;background:#127652;border-radius:50%;content:''}
+  .title{display:block;margin-top:20px;padding-left:5px;background:#127652;border-top:1pxsolid #d6d6d6;font-size:16px;font-weight:700;line-height:2;text-align:center;color:#fff;text-align:left}
+  .point{font-weight:bold;background-image:linear-gradient(transparent 60%,#ffec1c 40%);background-repeat:no-repeat;background-size:100% 100%}
+  .guide{margin-top:10px;padding:10px;background:#e8e8e8;text-align:left}
+  .guide p{margin-top:10px}
+  strong{display:block;margin-top: 10px;font-weight:bold}
+  .code{margin:0 3px;padding:0 5px;border-radius:4px;border:1px solid #d6d6d6;background:#fff;}
+</style>
+<div class="guide-wrap">
+  <h1 class="guide-title">Markup components guide</h1>
+  <ul class="guide-list">
+  <li><span class="code">js-{layout}</span> class는 <span class="point">css selector로 사용하지 않습니다.</span></li>
+  <li><span class="code">js-</span>프리픽스가 붙지 않은 class는 디자인에 맞춰 변경하여 사용 가능합니다.</li>
+  <li>프리픽스 적용된 <span class="point">구조가 유지될 수 있도록 유의</span>하여 사용해주세요.</li>
+  </ul>
+  <p></p>
+  <!-- 아코디언 -->
+  <strong class="title">아코디언</strong>
+  <div class="guide">
+    <strong>기본 구조</strong>
+    <p>-<span class="code">.js-accordion-list</span> 아코디언 wrapper</p>
+    <p>-<span class="code">.js-accordion-item</span> 아코디언 탭&컨텐츠를 감싸는 영역</p>
+    <p>-<span class="code">.js-accordion-tab</span> 아코디언 탭. aria-controls="{컨텐츠ID}" 속성 적용</p>
+    <p>-<span class="code">.js-accordion-content</span> 아코디언 컨텐츠. 탭 aria-controls 속성과 연결된 id 적용</p>
+    <p>- <span class="point">탭-컨텐츠 연결은 index 기준</span></p>
+    <strong>상태 별 가이드</strong>
+    <ul>
+    <li>* 펼침 상태가 기본인 형태 :
+        <ul>
+        <li>- 해당 <span class="code">.js-accordion-item</span> 에 <span class="code">is-expanded</span> class를 추가합니다.</li>
+        <li>- 해당 <span class="code">.js-accordion-tab</span>에 <span class="code">aria-expanded</span> 속성을 <span class="point">true</span>로 적용합니다.</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  <!-- code -->
+  <ul class="accordion__list js-accordion-list">
+  <li class="accordion__item js-accordion-item">
+    <button type="button" class="accordion__btn js-accordion-tab" aria-controls="accordion01" aria-expanded="false">tab01</button>
+    <div class="accordion__content js-accordion-content" id="accordion01">
+      contents01
+    </div>
+  </li>
+  <li class="accordion__item js-accordion-item">
+    <button type="button" class="accordion__btn js-accordion-tab" aria-controls="accordion02" aria-expanded="false">tab02</button>
+    <div class="accordion__content js-accordion-content" id="accordion02">
+      contents02
+    </div>
+  </li>
+  </ul>
+  <!-- //code -->
+  <!-- //아코디언 -->
+
+  <!-- 탭 -->
+  <strong class="title">탭</strong>
+  <div class="guide">
+    <strong>기본 구조</strong>
+    <p>- <span class="code">.js-tab-wrap</span> 탭 wrapper</p>
+    <p>- <span class="code">.js-tab-list</span> 탭 영역 list</p>
+    <p>- <span class="code">.js-tab-item</span> 탭 영역 list item</p>
+    <p>- <span class="code">.js-tab-btn</span> 탭. <span class="code">aria-controls="{패널ID}"</span> 속성 적용 </p>
+    <p>- <span class="code">.js-tab-penl</span> 탭 패널(컨텐츠 영역). id엔 탭 aria-controls 속성과 연결된 id 적용</p>
+    <p>- <span class="point">탭-컨텐츠 연결은 index 기준</span></p>
+  </div>
+  <!-- code -->
+  <div class="tab-wrap js-tab-wrap">
+    <ul class="tab__list js-tab-list" role="tablist">
+    <li class="tab__item js-tab-item is-selected">
+    <!-- [D] 연결할 컨텐츠의 id와 aria-controls="id" 동일하게 적용(ID 변경 시 참고) -->
+    <a href="#" class="tab__btn js-tab-btn" role="tab" aria-selected="true" aria-controls="tab01"><span class="text">tab01</span></a>
+    </li>
+    <li class="tab__item js-tab-item">
+    <a href="#" class="tab__btn js-tab-btn" role="tab" aria-selected="false" aria-controls="tab02"><span class="text">tab02<span class="count">86</span></span></a>
+    </li>
+    <li class="tab__item js-tab-item">
+    <a href="#" class="tab__btn js-tab-btn" role="tab" aria-selected="false" aria-controls="tab03"><span class="text">tab03<span class="count">37</span></span></a>
+    </li>
+    <li class="tab__item js-tab-item">
+    <a href="#" class="tab__btn js-tab-btn" role="tab" aria-selected="false" aria-controls="tab04"><span class="text">tab04</span></a>
+    </li>
+    </ul>
+    <div class="tab-panel js-tab-panel" role="tabpanel" id="tab01">tab contents01</div>
+    <div class="tab-panel js-tab-panel" role="tabpanel" id="tab02">tab contents02</div>
+    <div class="tab-panel js-tab-panel" role="tabpanel" id="tab03">tab contents03</div>
+    <div class="tab-panel js-tab-panel" role="tabpanel" id="tab04">tab contents04</div>
+  </div>
+  <!-- //code -->
+  <!-- //탭 -->
+
+  <!-- index check 팝업 -->
+  <strong class="title">check index scroll 팝업</strong>
+  <div class="guide">
+    <strong>기본 구조</strong>
+    <p>- <span class="code">layer-popup-opener</span>에 <span class="code">data-offset={targetName}</span> 적용</p>
+    <p>- 팝업 오픈 시 opener와 연동할 컨텐츠에게 <span class="code">data-offset={targetName}</span> 적용</p>
+  </div>
+  <!-- code -->
+  <a href="#" class="layer-popup-opener" data-layer-target="#test-layer" data-offset="0">test opener</a>
+  <a href="#" class="layer-popup-opener" data-layer-target="#test-layer" data-offset="1">test opener2</a>
+  <a href="#" class="layer-popup-opener" data-layer-target="#test-layer" data-offset="2">test opener3</a>
+  <!-- //code -->
+  <!-- //index check 팝업 -->
+</div>
+
+<!-- index check 팝업 -->
+<div class="common-layer common-layer--full" id="test-layer" style="display:none;">
+  <div class="common-layer__dimmed"></div>
+  <div class="common-layer__wrapper">
+    <div class="common-layer__inner" role="dialog">
+      <div class="common-layer__header">
+        <h1 class="common-layer__title">check index scroll popup</h1>
+      </div>
+      <div class="common-layer__content">
+        <div style="height:1000px;background:red" data-offset="0">test opener contents1</div>
+        <div style="height:1000px;background:green" data-offset="1">test opener contents2</div>
+        <div style="height:1000px;background:blue" data-offset="2">test opener contents3</div>
+      </div>
+      <div class="common-layer__box-btn-close">
+        <button type="button" class="common-layer__btn-close">팝업 닫기</button>
+      </div>
+    </div>
+  </div>
+</div>
+@@include('./include/script.html',{"type":""})
+
+</body>
+</html>

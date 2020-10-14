@@ -1,0 +1,35 @@
+/* new */
+.wrap-new{}
+
+.new {
+
+	&-marketing-banner {
+		padding: 0 15px 30px;
+
+		&__item {
+			width: 100%;
+		}
+
+		&__link {
+			display: block;
+		}
+
+		&__box-image {
+			overflow: hidden;
+			position: relative;
+			padding-top: 54.52%;
+
+			img {
+				position: absolute;
+				top: 0;
+				right: 0;
+				width: 100%;
+			}
+		}
+
+		&__pagination {
+			@include commonSlidePagination;
+			margin-top: 31px;
+		}
+	}
+}

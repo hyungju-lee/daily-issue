@@ -1,0 +1,41 @@
+.sticky-wrap {
+  position: fixed;
+  bottom: 63px;
+  bottom: calc(63px + constant(safe-area-inset-bottom) * 1.8);
+  bottom: calc(63px + env(safe-area-inset-bottom) * 1.8);
+  right: 15px;
+  z-index: common-z-index(stickyWrap);
+  font-size: 0;
+  text-align: right;
+  @media screen and (min-width: 721px) {
+    right: calc(50% - 360px + 15px);
+  }
+  &:after {
+    display: block;
+    clear: both;
+    content: '';
+  }
+}
+.btn-top {
+  display: inline-block;
+  visibility: hidden;
+  position: relative;
+  border-radius: 50%;
+  @include blind(35px,35px);
+  background: #222;
+  opacity: 0;
+  transition: all 0.3s;
+  box-shadow: 2px 3px 4px rgba(#000,0.15);
+  &.is-show {
+    visibility: visible;
+    opacity: 1;
+  }
+  &:before {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    @include use-hy-common('btn-top');
+    content: '';
+  }
+}
