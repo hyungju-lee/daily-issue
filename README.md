@@ -196,8 +196,8 @@
 
 ### 20201014
 
-1. [validator input num 자릿수 체크 + 오토포커스](https://hyungju-lee.github.io/daily-issue/hyfresh-validator-version-1/)
-2. [validator input num 자릿수,연월일 체크 + 오토포커스](https://hyungju-lee.github.io/daily-issue/hyfresh-validator-version-2/)
-3. [validator input num 자릿수 체크 + 오토포커스](https://hyungju-lee.github.io/daily-issue/hyfresh-validator-version-3-maxlength-autofocus/)
-4. [validator input num 자릿수 체크](https://hyungju-lee.github.io/daily-issue/hyfresh-validator-version-3-onlymaxlength/)
-5. [gulp-nh 개선 및 페이지작업](https://hyungju-lee.github.io/daily-issue/life_shopping_201014/)
+1. [validator input num 자릿수 체크 + 오토포커스](https://github.com/hyungju-lee/daily-issue/tree/master/hyfresh-validator-version-1/)
+2. [validator input num 자릿수,연월일 체크 + 오토포커스](https://github.com/hyungju-lee/daily-issue/tree/master/hyfresh-validator-version-2)
+3. [validator input num 자릿수 체크 + 오토포커스](https://github.com/hyungju-lee/daily-issue/tree/master/hyfresh-validator-version-3-maxlength-autofocus)
+4. [validator input num 자릿수 체크](https://github.com/hyungju-lee/daily-issue/tree/master/hyfresh-validator-version-3-onlymaxlength)
+5. [gulp-nh 개선 및 페이지작업](https://github.com/hyungju-lee/daily-issue/tree/master/life_shopping_201014)
