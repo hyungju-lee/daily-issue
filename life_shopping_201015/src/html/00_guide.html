@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Guide : UIO Guide</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,viewport-fit=cover">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" href="../css/style.css">
+    <style type="text/css">
+        main {
+            overflow: hidden
+        }
+        .uio__box {
+            float: left;
+            width: calc(100% - 20px);
+            max-width: 405px;
+            margin: 5px 10px;
+            border: 1px solid #444;
+            vertical-align: top;
+            box-sizing: border-box;
+        }
+        .uio__tit-lv1 {
+            margin: 0 10px;
+            padding: .8em 0 .6em .1em;
+            font-size: 1.5em;
+        }
+        .uio__tit-lv2 {
+            margin: 0 10px;
+            padding: 30px 0 3px 0;
+            font-weight: 600;
+            font-size: 20px;
+            color: #F44336;
+            clear: both;
+        }
+        .uio__tit-lv2:first-of-type {
+            margin-top: 0
+        }
+        .uio__tit-lv3 {
+            position: relative;
+            margin: 15px 0;
+            padding: 2px 0;
+            background: #444;
+            font-size: 14px;
+            line-height: 30px;
+            font-weight: 600;
+            color: #fff;
+            text-align: center;
+            clear: both
+        }
+        .uio__tit-lv3:first-of-type {
+            margin-top: 0;
+        }
+        .uio__tit-lv4 {
+            position: relative;
+            padding: 2px 0;
+            font-size: 14px;
+            line-height: 30px;
+            color: #F44336
+        }
+        .uio__tit-lv2+.uio__tit-lv3 {
+            margin-top: 0;
+        }
+        .uio__tit-lv2+.uio__tit-lv3::after {
+            display: none;
+        }
+        .footer-sticky, .tooltip {
+            position: relative
+        }
+        .layer {
+            margin: 0 -20px;
+        }
+    </style>
+</head>
+
+<body>
+<div class="wrap">
+    <!-- container -->
+    <main>
+        <h1 class="uio__tit-lv1">PAYCO LIFE - UIO - Guide</h1>
+        <h2 class="uio__tit-lv2">제목</h2>
+        <div class="uio__box">
+            <div class="header">
+                <h1 class="tit">브랜드 전체</h1>
+                <div class="btn-area">
+                    <button type="button" class="btn btn-before"><span class="blind">뒤로가기</span></button>
+                </div>
+            </div>
+        </div>
+        <h2 class="uio__tit-lv2">검색창</h2>
+        <div class="uio__box">
+            <h3 class="uio__tit-lv3">검색창</h3>
+            <div class="search">
+                <input type="text" id="search_input" class="search__inp inp" placeholder="브랜드명을 입력해주세요">
+                <label for="search_input" class="blind">검색창</label>
+                <button type="button" class="btn search__before"><span class="blind">이전</span></button>
+                <button type="button" class="btn search__clear"><span class="blind">지우기</span></button>
+            </div>
+            <br>
+            <div class="search search--type2">
+                <input type="text" id="search_input2" class="search__inp inp" placeholder="원하는 브랜드를 검색해보세요!">
+                <label for="search_input2" class="blind">검색창</label>
+                <button type="button" class="btn search__glass"><span class="blind">이전</span></button>
+            </div>
+            <h3 class="uio__tit-lv3">최근 검색한 검색어</h3>
+            <div class="search-result search-result--pb2">
+                <div class="tit-area tit-area--pt tit-area--btn">
+                    <h2 class="tit">최근 검색한 브랜드</h2>
+                    <button type="button" class="btn btn-total">전체 삭제</button>
+                </div>
+                <ul class="list-search">
+                    <li class="list-search__item">
+                        <span class="txt">나이키</span>
+                        <button type="button" class="btn btn-delete"><span class="blind">지우기</span></button>
+                    </li>
+                    <li class="list-search__item">
+                        <span class="txt">아티제</span>
+                        <button type="button" class="btn btn-delete"><span class="blind">지우기</span></button>
+                    </li>
+                    <li class="list-search__item">
+                        <span class="txt">젤라또팩토리</span>
+                        <button type="button" class="btn btn-delete"><span class="blind">지우기</span></button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <h2 class="uio__tit-lv2">검색결과</h2>
+        <div class="uio__box">
+            <h3 class="uio__tit-lv3">검색결과 없음</h3>
+            <div class="search-result cont-flex__item cont-flex__item--center">
+                <p class="search-result__txt">검색하신 브랜드가 없습니다.</p>
+            </div>
+            <h3 class="uio__tit-lv3">검색결과 없음2</h3>
+            <div class="no-result">
+                <span class="no-result__img"><img src="../img/common/no-result.png" alt="결과가 없습니다."></span>
+                <p class="no-result__txt">찜한 브랜드가 없습니다.</p>
+            </div>
+            <h3 class="uio__tit-lv3">검색결과 있음</h3>
+            <div class="search-result search-result--pb">
+                <div class="tit-area tit-area--pt tit-area--mb">
+                    <h2 class="tit">총 3개의 검색결과</h2>
+                </div>
+                <ul class="list-result">
+                    <li class="list-result__item">
+                        <figure class="item-result">
+                            <span class="item-result__img"><img src="../img/common/logo-subway.png" alt="서브웨이"></span>
+                            <figcaption class="item-result__captions">
+                                <p class="txt">안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요</p>
+                                <span class="benefit">쇼핑적립 3.6%</span>
+                            </figcaption>
+                        </figure>
+                        <div class="inp-area">
+                            <input type="checkbox" id="inpnum1" name="" value="" class="inp-chk blind">
+                            <label for="inpnum1" class="inp-chk-label"><span class="blind">해당인풋설명</span></label>
+                        </div>
+                    </li>
+                    <li class="list-result__item">
+                        <figure class="item-result">
+                            <span class="item-result__img"><img src="../img/common/logo-subway.png" alt="서브웨이"></span>
+                            <figcaption class="item-result__captions">
+                                <p class="txt">안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요</p>
+                            </figcaption>
+                        </figure>
+                        <div class="inp-area">
+                            <input type="checkbox" id="inpnum2" name="" value="" class="inp-chk blind">
+                            <label for="inpnum2" class="inp-chk-label"><span class="blind">해당인풋설명</span></label>
+                        </div>
+                    </li>
+                    <li class="list-result__item">
+                        <figure class="item-result">
+                            <span class="item-result__img"><img src="../img/common/logo-subway.png" alt="서브웨이"></span>
+                            <figcaption class="item-result__captions">
+                                <p class="txt">안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요안녕하세요</p>
+                                <span class="benefit">쇼핑적립 3.6%</span>
+                            </figcaption>
+                        </figure>
+                        <div class="inp-area">
+                            <input type="checkbox" id="inpnum3" name="" value="" class="inp-chk blind">
+                            <label for="inpnum3" class="inp-chk-label"><span class="blind">해당인풋설명</span></label>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <h3 class="uio__tit-lv3">검색결과 있음 - 뱃지</h3>
+            <ul class="list-result">
+                <li class="list-result__item">
+                    <figure class="item-result">
+                        <span class="item-result__img"><img src="../img/common/logo-artisee2.png" alt="아티제"></span>
+                        <figcaption class="item-result__captions">
+                            <p class="txt">일이삼사오륙칠팔구십일이삼사오륙칠팔구십일이삼사오륙칠팔구십일이삼사오륙칠팔구십일이삼사오륙칠팔구십 <em class="badge"><span class="blind">최근 결제</span></em></p>
+                            <span class="benefit">쇼핑적립 3.6%</span>
+                        </figcaption>
+                    </figure>
+                    <div class="inp-area">
+                        <input type="checkbox" id="inpnum1" name="" value="" class="inp-chk blind">
+                        <label for="inpnum1" class="inp-chk-label"><span class="blind">해당인풋설명</span></label>
+                    </div>
+                </li>
+                <li class="list-result__item">
+                    <figure class="item-result">
+                        <span class="item-result__img"><img src="../img/common/logo-musinsa2.png" alt="무신사"></span>
+                        <figcaption class="item-result__captions">
+                            <p class="txt">무신사 <em class="badge"><span class="blind">최근 결제</span></em></p>
+                            <span class="benefit">쇼핑적립 3.4%</span>
+                        </figcaption>
+                    </figure>
+                    <div class="inp-area">
+                        <input type="checkbox" id="inpnum2" name="" value="" class="inp-chk blind">
+                        <label for="inpnum2" class="inp-chk-label"><span class="blind">해당인풋설명</span></label>
+                    </div>
+                </li>
+                <li class="list-result__item">
+                    <figure class="item-result">
+                        <span class="item-result__img"><img src="../img/common/logo-hyundai2.png" alt="현대백화점"></span>
+                        <figcaption class="item-result__captions">
+                            <p class="txt">현대백화점</p>
+                            <span class="benefit">쇼핑적립 3.6%</span>
+                        </figcaption>
+                    </figure>
+                    <div class="inp-area">
+                        <input type="checkbox" id="inpnum3" name="" value="" class="inp-chk blind">
+                        <label for="inpnum3" class="inp-chk-label"><span class="blind">해당인풋설명</span></label>
+                    </div>
+                </li>
+                <li class="list-result__item">
+                    <figure class="item-result">
+                        <span class="item-result__img"><img src="../img/common/logo-oliveyoung2.png" alt="올리브영"></span>
+                        <figcaption class="item-result__captions">
+                            <p class="txt">현대백화점</p>
+                            <span class="benefit">쇼핑적립 3.6%</span>
+                        </figcaption>
+                    </figure>
+                    <div class="inp-area">
+                        <input type="checkbox" id="inpnum4" name="" value="" class="inp-chk blind">
+                        <label for="inpnum4" class="inp-chk-label"><span class="blind">해당인풋설명</span></label>
+                    </div>
+                </li>
+                <li class="list-result__item">
+                    <figure class="item-result">
+                        <span class="item-result__img"><img src="../img/common/logo-yogiyo2.png" alt="요기요"></span>
+                        <figcaption class="item-result__captions">
+                            <p class="txt">현대백화점 <em class="badge"><span class="blind">최근 결제</span></em></p>
+                            <span class="benefit">쇼핑적립 3.6%</span>
+                        </figcaption>
+                    </figure>
+                    <div class="inp-area">
+                        <input type="checkbox" id="inpnum5" name="" value="" class="inp-chk blind">
+                        <label for="inpnum5" class="inp-chk-label"><span class="blind">해당인풋설명</span></label>
+                    </div>
+                </li>
+                <li class="list-result__item">
+                    <figure class="item-result">
+                        <span class="item-result__img"><img src="../img/common/logo-parisbaguette2.png" alt="파리바게트"></span>
+                        <figcaption class="item-result__captions">
+                            <p class="txt">현대백화점</p>
+                            <span class="benefit">쇼핑적립 3.6%</span>
+                        </figcaption>
+                    </figure>
+                    <div class="inp-area">
+                        <input type="checkbox" id="inpnum6" name="" value="" class="inp-chk blind">
+                        <label for="inpnum6" class="inp-chk-label"><span class="blind">해당인풋설명</span></label>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <h2 class="uio__tit-lv2">리스트</h2>
+        <div class="uio__box">
+            <h3 class="uio__tit-lv3">횡스크롤 리스트</h3>
+            <div class="section cont-flex__item2">
+                <div class="tit-area">
+                    <h2 class="tit">지금 주목해야하는 브랜드</h2>
+                </div>
+                <ul class="list-scroll">
+                    <li class="list-scroll__item">
+                        <figure class="item">
+                            <span class="item__img"><img src="../img/common/logo-artisee.png" alt="아티제"></span>
+                            <figcaption class="item__captions">일이삼사오륙일이삼사오륙일이삼사오륙일이삼사오륙일이삼사오륙</figcaption>
+                        </figure>
+                    </li>
+                    <li class="list-scroll__item">
+                        <figure class="item">
+                            <span class="item__img"><img src="../img/common/logo-hyundai.png" alt="현대"></span>
+                            <figcaption class="item__captions">일이삼사오륙</figcaption>
+                        </figure>
+                    </li>
+                    <li class="list-scroll__item">
+                        <figure class="item">
+                            <span class="item__img"><img src="../img/common/logo-musinsa.png" alt="무신사"></span>
+                            <figcaption class="item__captions">일이삼사오륙</figcaption>
+                        </figure>
+                    </li>
+                    <li class="list-scroll__item">
+                        <figure class="item">
+                            <span class="item__img"><img src="../img/common/logo-oliveyoung.png" alt="올리브영"></span>
+                            <figcaption class="item__captions">일이삼사오륙</figcaption>
+                        </figure>
+                    </li>
+                    <li class="list-scroll__item">
+                        <figure class="item">
+                            <span class="item__img"><img src="../img/common/logo-oliveyoung.png" alt="올리브영"></span>
+                            <figcaption class="item__captions">일이삼사오륙</figcaption>
+                        </figure>
+                    </li>
+                    <li class="list-scroll__item">
+                        <figure class="item">
+                            <span class="item__img"><img src="../img/common/logo-oliveyoung.png" alt="올리브영"></span>
+                            <figcaption class="item__captions">일이삼사오륙</figcaption>
+                        </figure>
+                    </li>
+                    <li class="list-scroll__item">
+                        <figure class="item">
+                            <span class="item__img"><img src="../img/common/logo-oliveyoung.png" alt="올리브영"></span>
+                            <figcaption class="item__captions">일이삼사오륙</figcaption>
+                        </figure>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <h2 class="uio__tit-lv2">선택</h2>
+        <div class="uio__box">
+            <h3 class="uio__tit-lv3">선택</h3>
+            <ul class="inp-area inp-area--radio">
+                <li class="inp-area--radio__item">
+                    <input type="radio" id="all" name="radio1" class="inp-radio blind">
+                    <label for="all" class="inp-radio-label inp-radio-label--text">전체</label>
+                </li>
+                <li class="inp-area--radio__item">
+                    <input type="radio" id="shopping" name="radio1" class="inp-radio blind">
+                    <label for="shopping" class="inp-radio-label inp-radio-label--text">쇼핑적립</label>
+                </li>
+                <li class="inp-area--radio__item">
+                    <input type="radio" id="payment" name="radio1" class="inp-radio blind">
+                    <label for="payment" class="inp-radio-label inp-radio-label--text">최근결제</label>
+                </li>
+                <li class="inp-area--radio__item">
+                    <input type="radio" id="choice" name="radio1" class="inp-radio blind">
+                    <label for="choice" class="inp-radio-label inp-radio-label--icon"><span class="blind">내가찜한거</span></label>
+                </li>
+            </ul>
+        </div>
+
+
+    </main>
+    <!-- //container -->
+</div>
+</body>
+
+</html>

@@ -201,3 +201,7 @@
 3. [validator input num 자릿수 체크 + 오토포커스](https://github.com/hyungju-lee/daily-issue/tree/master/hyfresh-validator-version-3-maxlength-autofocus)
 4. [validator input num 자릿수 체크](https://github.com/hyungju-lee/daily-issue/tree/master/hyfresh-validator-version-3-onlymaxlength)
 5. [gulp-nh 개선 및 페이지작업](https://github.com/hyungju-lee/daily-issue/tree/master/life_shopping_201014)
+
+### 20201015
+
+1. [gulp-nh 개선 두번째](https://github.com/hyungju-lee/daily-issue/tree/master/life_shopping_201015)

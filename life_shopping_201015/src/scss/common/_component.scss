@@ -1,0 +1,380 @@
+// 검색영역
+.search {
+    position: relative;
+    margin: 0 24px;
+    .btn {
+        padding: 10px;
+    }
+    &__before, &__clear {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        &:before {
+            display: block;
+            content: '';
+        }
+    }
+    &__before {
+        left: -14px;
+        &:before {
+            @include use-sprite('arrow-before');
+        }
+    }
+    &__clear {
+        right: -7px;
+        &:before {
+            @include use-sprite('btn-close');
+        }
+    }
+    &__inp {
+        display: block;
+        width: 100%;
+        padding: 8px 34px;
+        border-bottom: 2px solid #111;
+        border-radius: 0;
+        @include rfonts(20, 28, 400);
+        &::placeholder {
+            @include rfonts(20, 28, 400);
+            color: rgba(17,17,17,0.2);
+        }
+    }
+    &--type2 {
+        .search__inp {
+            padding: 11px 42px 13px;
+            border-radius: 8px;
+            border: 1px solid rgba(17, 17, 17, 0.12);
+            box-shadow: 0 5px 5px 0 rgba(17, 17, 17, 0.05);
+            &::placeholder {
+                @include rfonts(16, 22, 400);
+                color: rgba(17,17,17,0.4);
+            }
+        }
+        .search__glass {
+            position: absolute;
+            left: 0;
+            top: 50%;
+            padding: 0;
+            transform: translateY(-50%);
+            &:before {
+                display: block;
+                @include use-sprite("icon-search");
+                content: "";
+            }
+        }
+    }
+}
+
+// 검색결과 영역
+.search-result {
+    &__txt {
+        padding: 11px 0;
+        @include rfonts(18, 28, 700);
+        color: rgba(17,17,17,0.4);
+    }
+    &--pb {
+        padding-bottom: 14px;
+    }
+    &--pb2 {
+        padding-bottom: 30px;
+    }
+}
+
+// h2 제목영역
+.tit-area {
+    margin-bottom: 16px;
+    padding: 36px 24px 0;
+    .tit {
+        @include rfonts(18, 25, 700);
+        color: #111;
+    }
+    &--pt {
+        padding-top: 30px;
+    }
+    &--mb {
+        margin-bottom: 9px;
+    }
+    &--btn {
+        display: flex;
+        .tit, .btn {
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .btn {
+            margin-left: auto;
+            @include rfonts(14, 19, 400);
+            color: rgba(17,17,17,0.6);
+        }
+    }
+}
+
+// h1 제목영역
+.header {
+    position: relative;
+    .tit {
+        padding: 13px 0;
+        @include rfonts(16, 22, 700);
+        color: #111;
+        text-align: center;
+    }
+    .btn-area {
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+    .btn-before {
+        padding: 12px 13px;
+        &:before {
+            display: block;
+            @include use-sprite("arrow-before");
+            content: "";
+        }
+    }
+}
+
+// 플렉스 박스 영역
+.cont-flex {
+    display: flex;
+    flex-direction: column;
+    &__item {
+        flex: 1 0 auto;
+
+    }
+    &__item2 {
+        flex: 2 0 auto;
+    }
+    &--center {
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+// y 스트롤 리스트
+.list-scroll {
+    overflow-x: scroll;
+    padding: 0 24px;
+    font-size: 0;
+    white-space: nowrap;
+    &__item {
+        display: inline-block;
+        &:not(:first-child) {
+            margin-left: 4px;
+        }
+    }
+}
+
+// 사진 + 설명1
+.item {
+    width: 74px;
+    &__img {
+        display: block;
+        width: 54px;
+        height: 54px;
+        margin: 0 auto;
+        border-radius: 50%;
+        border: 1px solid rgba(17, 17, 17, 0.08);
+        img {
+            width: 100%;
+            vertical-align: top;
+        }
+    }
+    &__captions {
+        overflow: hidden;
+        margin-top: 8px;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        @include rfonts(12, 16, 400);
+        color: rgba(17,17,17,0.6);
+    }
+}
+
+// 검색결과 리스트
+.list-result {
+    padding: 0 24px;
+    &__item {
+        display: flex;
+        border-bottom: 1px solid rgba(17, 17, 17, 0.04);
+        .item-result {
+            flex: 1 1 auto;
+        }
+        .inp-area {
+            position: relative;
+            flex: 0 0 auto;
+            align-items: center;
+        }
+        &:last-child {
+            border-bottom: none;
+        }
+    }
+}
+
+// 사진 + 설명2
+.item-result {
+    display: flex;
+    min-width: 0;
+    align-items: center;
+    padding: 23px 0;
+    &__img {
+        flex: 0 0 auto;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        img {
+            width: 100%;
+            vertical-align: top;
+        }
+    }
+    &__captions {
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        flex: 1 1 auto;
+        padding-left: 15px;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        .txt {
+            overflow: hidden;
+            min-width: 0;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            @include rfonts(18, 22, 700);
+            color: #111;
+        }
+        .benefit {
+            margin-top: 4px;
+            @include rfonts(13, 16, 400);
+            color: #8923ee;
+        }
+    }
+    .badge {
+        display: inline-block;
+        vertical-align: top;
+        &:before {
+            display: block;
+            @include use-sprite("badge-latest-payment");
+            content: "";
+        }
+    }
+}
+
+// 최근 검색 리스트
+.list-search {
+    padding: 0 24px;
+    .list-search__item {
+        display: flex;
+        &:not(:first-child) {
+            margin-top: 10px;
+        }
+    }
+    .txt {
+        @include rfonts(18,28,400);
+        color: #111;
+    }
+    .btn-delete {
+        margin-left: auto;
+        @include use-sprite('btn-close2');
+    }
+}
+
+// 섹션
+.section {
+    padding: {
+        right: env(safe-area-inset-right);
+        right: constant(safe-area-inset-right);
+        left: env(safe-area-inset-left);
+        left: constant(safe-area-inset-left);
+    }
+    margin-top: 10px;
+    background-color: #fff;
+    &:first-child {
+        margin-top: 0;
+    }
+    &--mt {
+        margin-top: 0;
+    }
+    &--mt6 {
+        margin-top: 6px;
+    }
+    &--pt20 {
+        padding-top: 20px;
+    }
+}
+
+// input type checkbox radio
+
+.inp-area {
+    display: flex;
+    .inp-chk {
+        &:checked + .inp-chk-label:before {
+            @include use-sprite("icon-star-on");
+        }
+    }
+    .inp-chk-label {
+        &:before {
+            display: block;
+            @include use-sprite("icon-star-off");
+            content: "";
+        }
+    }
+    &--radio {
+        padding: 0 20px;
+        &__item {
+            margin-left: 6px;
+            flex: 1 1 auto;
+            &:first-child {
+                margin-left: 0;
+            }
+        }
+    }
+    .inp-radio-label {
+        display: block;
+        border-radius: 20px;
+        border: solid 1px rgba(17, 17, 17, 0.12);
+        @include rfonts(15, 19, 400);
+        color: rgba(17, 17, 17, 0.4);
+        text-align: center;
+        &--text {
+            padding: 10px 17px;
+        }
+        &--icon {
+            padding: 8px 15px;
+            &:before {
+                display: inline-block;
+                @include use-sprite("icon-star-off2");
+                vertical-align: top;
+                content: "";
+            }
+        }
+    }
+    .inp-radio:checked {
+        & + .inp-radio-label {
+            font-weight: 700;
+            color: #fff;
+            background-image: linear-gradient(300deg,#7234d5,#694ef5);
+            &--icon {
+                &:before {
+                    @include  use-sprite("icon-star-on2");
+                }
+            }
+        }
+    }
+}
+
+// 브랜드 결과 없음
+.no-result {
+    &__img {
+        display: block;
+        width: 155px;
+        margin: 0 auto;
+        img {
+            width: 100%;
+            vertical-align: top;
+        }
+    }
+    &__txt {
+        margin-top: 13px;
+        text-align: center;
+        @include rfonts(16, 19, 700);
+        color: rgba(17,17,17,0.4);
+    }
+}

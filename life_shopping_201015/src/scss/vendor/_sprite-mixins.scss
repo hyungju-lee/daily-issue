@@ -1,0 +1,111 @@
+$sprite-vars: (
+    'arrow-before': (
+    offset-x: 0px / 2,
+    offset-y: -196px / 2,
+    width: 48px / 2,
+    height: 48px / 2,
+    total-width: 268px / 2,
+    total-height: 244px / 2,
+    imageSrc: '../img/sprite.png'
+    ),
+    'badge-latest-payment': (
+    offset-x: -80px / 2,
+    offset-y: -104px / 2,
+    width: 100px / 2,
+    height: 40px / 2,
+    total-width: 268px / 2,
+    total-height: 244px / 2,
+    imageSrc: '../img/sprite.png'
+    ),
+    'btn-close': (
+    offset-x: -80px / 2,
+    offset-y: -148px / 2,
+    width: 40px / 2,
+    height: 40px / 2,
+    total-width: 268px / 2,
+    total-height: 244px / 2,
+    imageSrc: '../img/sprite.png'
+    ),
+    'btn-close2': (
+    offset-x: -208px / 2,
+    offset-y: 0px / 2,
+    width: 60px / 2,
+    height: 60px / 2,
+    total-width: 268px / 2,
+    total-height: 244px / 2,
+    imageSrc: '../img/sprite.png'
+    ),
+    'icon-search': (
+    offset-x: 0px / 2,
+    offset-y: -104px / 2,
+    width: 76px / 2,
+    height: 88px / 2,
+    total-width: 268px / 2,
+    total-height: 244px / 2,
+    imageSrc: '../img/sprite.png'
+    ),
+    'icon-star-off': (
+    offset-x: 0px / 2,
+    offset-y: 0px / 2,
+    width: 100px / 2,
+    height: 100px / 2,
+    total-width: 268px / 2,
+    total-height: 244px / 2,
+    imageSrc: '../img/sprite.png'
+    ),
+    'icon-star-off2': (
+    offset-x: -208px / 2,
+    offset-y: -64px / 2,
+    width: 50px / 2,
+    height: 48px / 2,
+    total-width: 268px / 2,
+    total-height: 244px / 2,
+    imageSrc: '../img/sprite.png'
+    ),
+    'icon-star-on': (
+    offset-x: -104px / 2,
+    offset-y: 0px / 2,
+    width: 100px / 2,
+    height: 100px / 2,
+    total-width: 268px / 2,
+    total-height: 244px / 2,
+    imageSrc: '../img/sprite.png'
+    ),
+    'icon-star-on2': (
+    offset-x: -208px / 2,
+    offset-y: -116px / 2,
+    width: 50px / 2,
+    height: 48px / 2,
+    total-width: 268px / 2,
+    total-height: 244px / 2,
+    imageSrc: '../img/sprite.png'
+    ),
+);
+$sprite-origin: (
+total-width: 268px / 2,
+total-height: 244px / 2,
+imageSrc: '../img/sprite.png'
+);
+
+    @mixin sprite-size($image) {
+    background-size: map-get($image, 'total-width') map-get($image, 'total-height');
+    }
+
+    @mixin sprite-image($image) {
+    $image-path: map-get($image, 'imageSrc');
+    background-image: url($image-path);
+    }
+
+    @mixin set-sprite {
+    @include sprite-size($sprite-origin);
+    @include sprite-image($sprite-origin);
+    }
+
+    @mixin use-sprite($image, $size: true) {
+    @include set-sprite;
+    background-position: map-get(map-get($sprite-vars, $image), 'offset-x') map-get(map-get($sprite-vars, $image), 'offset-y');
+    @if $size {
+    width: map-get(map-get($sprite-vars, $image), 'width');
+    height: map-get(map-get($sprite-vars, $image), 'height');
+    }
+    }
