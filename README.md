@@ -205,3 +205,7 @@
 ### 20201015
 
 1. [gulp-nh 개선 두번째](https://github.com/hyungju-lee/daily-issue/tree/master/life_shopping_201015)
+
+### 20201016
+
+1. [swiper destroy 이슈 - 인스턴스관련 문제](https://hyungju-lee.github.io/issue/2020/10/16/issue2.html)
