@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<pre>
+    <code>
+1. jquery / javascript 차이
+
+    $(el).prop("checked") // jQuery
+    el.checked // javaScript
+
+2. 유효성 검사
+
+    js-validator 클래스명 , data-type="인풋타입값"
+        ㄴ input
+        ㄴ input
+        ㄴ input
+
+    이렇게있으면
+
+    bindEvents : function () {
+      this.btnNextStep.on("click", $.proxy(this.nextStepFunc, this))
+      this.btnPrevStep.on("click", $.proxy(this.prevStepFunc, this))
+    },
+    nextStepFunc: function (e) {
+      this.validatorRadioFunc();
+      if ($(".js-validator." + this.invalid).length) {
+        e.preventDefault();
+      }
+      if(this.status < 3) {
+        this.status += 1;
+        this.obj.data("step", this.status);
+      }
+    },
+    prevStepFunc: function (e) {
+      if(this.status > 1) {
+        this.status -= 1;
+        this.obj.data("step", this.status);
+      }
+    },
+    validatorRadioFunc: function () {
+      var _this = this;
+      var eachValidator = document.querySelectorAll(".js-validator");
+
+      eachValidator.forEach(function (el) {
+        switch (true) {
+          case ($(el).data("type") === "radio") :
+            _this.eachValidator = false;
+            el.querySelectorAll("[type=radio]").forEach(function (childEl) {
+              if ($(childEl).prop("checked")) {
+                _this.eachValidator = true;
+              }
+              if (_this.eachValidator) {
+                $(el).removeClass(_this.invalid)
+              } else {
+                $(el).addClass(_this.invalid)
+              }
+            })
+            break
+          case ($(el).data("type") === "number") :
+            _this.eachValidator = false;
+            el.querySelectorAll("[type=number]").forEach(function (childEl) {
+              if (!!$(childEl).val()) {
+                _this.eachValidator = true;
+              } else {
+                _this.eachValidator = false;
+              }
+            })
+            if (_this.eachValidator) {
+              $(el).removeClass(_this.invalid)
+            } else {
+              $(el).addClass(_this.invalid)
+            }
+            break
+          default :
+            break
+        }
+
+      })
+    },
+
+이런식으로 체크
+    </code>
+</pre>
+</body>
+</html>

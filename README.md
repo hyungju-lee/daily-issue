@@ -209,3 +209,7 @@
 ### 20201016
 
 1. [swiper destroy 이슈 - 인스턴스관련 문제](https://hyungju-lee.github.io/issue/2020/10/16/issue2.html)
+
+### 20201018
+
+1. [jquery prop 으로 유효성검사(validator)](https://hyungju-lee.github.io/daily-issue/html/ex09/)
