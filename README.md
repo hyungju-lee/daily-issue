@@ -168,6 +168,54 @@
 * [자바스크립트 getBoundingClientRect()메서드로 offset().top 구현2](https://hyungju-lee.github.io/daily-issue/javascript/script18.js)
 * [이벤트 두번실행되지 않게!! 반복문 사용할 때 항상 조심! + 이벤트 위임(delegate) 사용해!](https://hyungju-lee.github.io/daily-issue/javascript/script19.js)
 
+### 20201009
+
+1. 처음부터 보이는 슬라이드인지 아니면 처음부터 display:none인지 구분   
+   그거에따라 observer 적용 , destroy() 하고 재생성 적용할지말지 결정
+   
+2. 스와이퍼 플러그인 옵션 : watchOverflow
+
+3. [https://caniuse.com/?search=%3A%3A-webkit-scrollbar](https://caniuse.com/?search=%3A%3A-webkit-scrollbar)
+
+4. ejs 2중 for문 가능
+
+5. [tabMenu center](https://hyungju-lee.github.io/daily-issue/html/ex08/)
+
+6. [allcheck](https://hyungju-lee.github.io/daily-issue/javascript/script20.js)
+
+7. [validator](https://hyungju-lee.github.io/daily-issue/javascript/script21.js)
+
+8. [dropdown box](https://hyungju-lee.github.io/daily-issue/javascript/script22.js)
+
+9. [right to left slide popup](https://hyungju-lee.github.io/daily-issue/javascript/script23.js)
+
+### 20201012
+
+1. [팝업 slide 효과 - 열기](https://hyungju-lee.github.io/daily-issue/javascript/script24.js)
+2. [팝업 slide 효과 - 닫기](https://hyungju-lee.github.io/daily-issue/javascript/script25.js)
+
+### 20201014
+
+1. [validator input num 자릿수 체크 + 오토포커스](https://github.com/hyungju-lee/daily-issue/tree/master/hyfresh-validator-version-1/)
+2. [validator input num 자릿수,연월일 체크 + 오토포커스](https://github.com/hyungju-lee/daily-issue/tree/master/hyfresh-validator-version-2)
+3. [validator input num 자릿수 체크 + 오토포커스](https://github.com/hyungju-lee/daily-issue/tree/master/hyfresh-validator-version-3-maxlength-autofocus)
+4. [validator input num 자릿수 체크](https://github.com/hyungju-lee/daily-issue/tree/master/hyfresh-validator-version-3-onlymaxlength)
+5. [gulp-nh 개선 및 페이지작업](https://github.com/hyungju-lee/daily-issue/tree/master/life_shopping_201014)
+
+### 20201015
+
+1. [gulp-nh 개선 두번째](https://github.com/hyungju-lee/daily-issue/tree/master/life_shopping_201015)
+
+### 20201016
+
+1. [swiper destroy 이슈 - 인스턴스관련 문제](https://hyungju-lee.github.io/issue/2020/10/16/issue2.html)
+
+### 20201018
+
+1. [jquery prop 으로 유효성검사(validator)](https://hyungju-lee.github.io/daily-issue/html/ex09/)
+2. [gulp-file-include if문 for문 사용하기](https://hyungju-lee.github.io/daily-issue/html/ex10/)
+3. [IE foreach 안먹히는 이슈 대응 - 폴리필](https://hyungju-lee.github.io/daily-issue/html/ex11/)
+
 ### 20201020
 
 1. [아이프레임 이슈 참고자료](http://hyungju12.dothome.co.kr/06_portfolio/new_study/hivework/#id19)

@@ -1,0 +1,37 @@
+.wrap-intro {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  max-width: $screen-max-width;
+  margin: 0 auto;
+}
+.intro {
+  &__box-image {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: auto;
+    height: 100%;
+    min-width: 100%;
+    transform: translate(-50%,-50%);
+    text-align: center;
+    img {
+      height: 100%;
+    }
+  }
+  &__link {
+    position: absolute;
+    left: 0;
+    right: 0;
+    z-index: common-z-index(default);
+    height: 50%;
+    &--hyfresh {
+      top: 0;
+    }
+    &--fredit {
+      top: 50%;
+    }
+  }
+}

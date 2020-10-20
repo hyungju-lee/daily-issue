@@ -1,0 +1,292 @@
+$hy-common-vars: (
+  'btn-top': (
+  offset-x: -76px / 2,
+  offset-y: -278px / 2,
+  width: 20px / 2,
+  height: 24px / 2,
+  total-width: 324px / 2,
+  total-height: 310px / 2,
+  imageSrc: '../img/sprites/hy-common.png'
+  ),
+  'ico_arrow_footer': (
+  offset-x: -242px / 2,
+  offset-y: -130px / 2,
+  width: 8px / 2,
+  height: 14px / 2,
+  total-width: 324px / 2,
+  total-height: 310px / 2,
+  imageSrc: '../img/sprites/hy-common.png'
+  ),
+  'ico_arrow_header_prev': (
+  offset-x: 0px / 2,
+  offset-y: -242px / 2,
+  width: 42px / 2,
+  height: 32px / 2,
+  total-width: 324px / 2,
+  total-height: 310px / 2,
+  imageSrc: '../img/sprites/hy-common.png'
+  ),
+  'ico_arrow_mypage_link': (
+  offset-x: -116px / 2,
+  offset-y: -278px / 2,
+  width: 12px / 2,
+  height: 20px / 2,
+  total-width: 324px / 2,
+  total-height: 310px / 2,
+  imageSrc: '../img/sprites/hy-common.png'
+  ),
+  'ico_arrow_mypage_step': (
+  offset-x: -100px / 2,
+  offset-y: -278px / 2,
+  width: 12px / 2,
+  height: 20px / 2,
+  total-width: 324px / 2,
+  total-height: 310px / 2,
+  imageSrc: '../img/sprites/hy-common.png'
+  ),
+  'ico_arrow_toggle': (
+  offset-x: -282px / 2,
+  offset-y: -222px / 2,
+  width: 20px / 2,
+  height: 12px / 2,
+  total-width: 324px / 2,
+  total-height: 310px / 2,
+  imageSrc: '../img/sprites/hy-common.png'
+  ),
+  'ico_coupon_mall_badge_food': (
+  offset-x: -46px / 2,
+  offset-y: -242px / 2,
+  width: 60px / 2,
+  height: 18px / 2,
+  total-width: 324px / 2,
+  total-height: 310px / 2,
+  imageSrc: '../img/sprites/hy-common.png'
+  ),
+  'ico_coupon_mall_badge_life': (
+  offset-x: -188px / 2,
+  offset-y: -148px / 2,
+  width: 60px / 2,
+  height: 22px / 2,
+  total-width: 324px / 2,
+  total-height: 310px / 2,
+  imageSrc: '../img/sprites/hy-common.png'
+  ),
+  'ico_download': (
+  offset-x: -254px / 2,
+  offset-y: -188px / 2,
+  width: 22px / 2,
+  height: 24px / 2,
+  total-width: 324px / 2,
+  total-height: 310px / 2,
+  imageSrc: '../img/sprites/hy-common.png'
+  ),
+  'ico_header_cart': (
+  offset-x: -282px / 2,
+  offset-y: -178px / 2,
+  width: 36px / 2,
+  height: 40px / 2,
+  total-width: 324px / 2,
+  total-height: 310px / 2,
+  imageSrc: '../img/sprites/hy-common.png'
+  ),
+  'ico_header_home': (
+  offset-x: -282px / 2,
+  offset-y: 0px / 2,
+  width: 42px / 2,
+  height: 42px / 2,
+  total-width: 324px / 2,
+  total-height: 310px / 2,
+  imageSrc: '../img/sprites/hy-common.png'
+  ),
+  'ico_header_search': (
+  offset-x: -282px / 2,
+  offset-y: -92px / 2,
+  width: 40px / 2,
+  height: 40px / 2,
+  total-width: 324px / 2,
+  total-height: 310px / 2,
+  imageSrc: '../img/sprites/hy-common.png'
+  ),
+  'ico_layer_full_close': (
+  offset-x: -282px / 2,
+  offset-y: -46px / 2,
+  width: 42px / 2,
+  height: 42px / 2,
+  total-width: 324px / 2,
+  total-height: 310px / 2,
+  imageSrc: '../img/sprites/hy-common.png'
+  ),
+  'ico_layer_prev': (
+  offset-x: -252px / 2,
+  offset-y: -148px / 2,
+  width: 26px / 2,
+  height: 22px / 2,
+  total-width: 324px / 2,
+  total-height: 310px / 2,
+  imageSrc: '../img/sprites/hy-common.png'
+  ),
+  'ico_link_more': (
+  offset-x: -282px / 2,
+  offset-y: -136px / 2,
+  width: 38px / 2,
+  height: 38px / 2,
+  total-width: 324px / 2,
+  total-height: 310px / 2,
+  imageSrc: '../img/sprites/hy-common.png'
+  ),
+  'ico_login_arrow_link': (
+  offset-x: -36px / 2,
+  offset-y: -278px / 2,
+  width: 36px / 2,
+  height: 26px / 2,
+  total-width: 324px / 2,
+  total-height: 310px / 2,
+  imageSrc: '../img/sprites/hy-common.png'
+  ),
+  'ico_login_check_off': (
+  offset-x: -188px / 2,
+  offset-y: -94px / 2,
+  width: 50px / 2,
+  height: 50px / 2,
+  total-width: 324px / 2,
+  total-height: 310px / 2,
+  imageSrc: '../img/sprites/hy-common.png'
+  ),
+  'ico_login_check_on': (
+  offset-x: 0px / 2,
+  offset-y: -188px / 2,
+  width: 50px / 2,
+  height: 50px / 2,
+  total-width: 324px / 2,
+  total-height: 310px / 2,
+  imageSrc: '../img/sprites/hy-common.png'
+  ),
+  'ico_login_facebook': (
+  offset-x: -94px / 2,
+  offset-y: 0px / 2,
+  width: 90px / 2,
+  height: 90px / 2,
+  total-width: 324px / 2,
+  total-height: 310px / 2,
+  imageSrc: '../img/sprites/hy-common.png'
+  ),
+  'ico_login_gg': (
+  offset-x: 0px / 2,
+  offset-y: 0px / 2,
+  width: 90px / 2,
+  height: 90px / 2,
+  total-width: 324px / 2,
+  total-height: 310px / 2,
+  imageSrc: '../img/sprites/hy-common.png'
+  ),
+  'ico_login_icloud': (
+  offset-x: -188px / 2,
+  offset-y: 0px / 2,
+  width: 90px / 2,
+  height: 90px / 2,
+  total-width: 324px / 2,
+  total-height: 310px / 2,
+  imageSrc: '../img/sprites/hy-common.png'
+  ),
+  'ico_login_kakao': (
+  offset-x: -94px / 2,
+  offset-y: -94px / 2,
+  width: 90px / 2,
+  height: 90px / 2,
+  total-width: 324px / 2,
+  total-height: 310px / 2,
+  imageSrc: '../img/sprites/hy-common.png'
+  ),
+  'ico_login_naver': (
+  offset-x: 0px / 2,
+  offset-y: -94px / 2,
+  width: 90px / 2,
+  height: 90px / 2,
+  total-width: 324px / 2,
+  total-height: 310px / 2,
+  imageSrc: '../img/sprites/hy-common.png'
+  ),
+  'ico_mypage_notification': (
+  offset-x: -242px / 2,
+  offset-y: -94px / 2,
+  width: 32px / 2,
+  height: 32px / 2,
+  total-width: 324px / 2,
+  total-height: 310px / 2,
+  imageSrc: '../img/sprites/hy-common.png'
+  ),
+  'ico_mypage_setting': (
+  offset-x: 0px / 2,
+  offset-y: -278px / 2,
+  width: 32px / 2,
+  height: 32px / 2,
+  total-width: 324px / 2,
+  total-height: 310px / 2,
+  imageSrc: '../img/sprites/hy-common.png'
+  ),
+  'ico_sns_facebook': (
+  offset-x: -104px / 2,
+  offset-y: -188px / 2,
+  width: 46px / 2,
+  height: 46px / 2,
+  total-width: 324px / 2,
+  total-height: 310px / 2,
+  imageSrc: '../img/sprites/hy-common.png'
+  ),
+  'ico_sns_tistory': (
+  offset-x: -154px / 2,
+  offset-y: -188px / 2,
+  width: 46px / 2,
+  height: 46px / 2,
+  total-width: 324px / 2,
+  total-height: 310px / 2,
+  imageSrc: '../img/sprites/hy-common.png'
+  ),
+  'ico_sns_twitter': (
+  offset-x: -54px / 2,
+  offset-y: -188px / 2,
+  width: 46px / 2,
+  height: 46px / 2,
+  total-width: 324px / 2,
+  total-height: 310px / 2,
+  imageSrc: '../img/sprites/hy-common.png'
+  ),
+  'ico_sns_youtube': (
+  offset-x: -204px / 2,
+  offset-y: -188px / 2,
+  width: 46px / 2,
+  height: 46px / 2,
+  total-width: 324px / 2,
+  total-height: 310px / 2,
+  imageSrc: '../img/sprites/hy-common.png'
+  ),
+);
+$hy-common-origin: (
+total-width: 324px / 2,
+total-height: 310px / 2,
+imageSrc: '../img/sprites/hy-common.png'
+);
+
+  @mixin sprite-size($image) {
+  background-size: map-get($image, 'total-width') map-get($image, 'total-height');
+  }
+
+  @mixin sprite-image($image) {
+  $image-path: map-get($image, 'imageSrc');
+  background-image: url($image-path);
+  }
+
+  @mixin set-hy-common {
+  @include sprite-size($hy-common-origin);
+  @include sprite-image($hy-common-origin);
+  }
+
+  @mixin use-hy-common($image, $size: true) {
+  @include set-hy-common;
+  background-position: map-get(map-get($hy-common-vars, $image), 'offset-x') map-get(map-get($hy-common-vars, $image), 'offset-y');
+  @if $size {
+  width: map-get(map-get($hy-common-vars, $image), 'width');
+  height: map-get(map-get($hy-common-vars, $image), 'height');
+  }
+  }
+

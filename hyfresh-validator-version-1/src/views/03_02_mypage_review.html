@@ -1,0 +1,234 @@
+@@include('./include/head.html',{"title": "리뷰(리뷰작성,내가 쓴 리뷰,체험단 리뷰) - HYFRESH", "list_title": "리뷰(리뷰작성,내가 쓴 리뷰,체험단 리뷰) : mypage", "cssFile": "hyfresh"})
+<body data-pagestatus="new : 2020.10.20">
+@@include('./include/skipnavigation.html')
+
+<div class="wrap wrap-review">
+  <!-- header -->
+@@include('./include/header.html',{"type":"detail","title":"최근 쇼핑 내역"})
+  <!-- //header -->
+  <!-- content -->
+  <main id="content" class="content">
+    <div class="tab-wrap js-tab-wrap">
+      <ul class="tab__list js-tab-list" role="tablist">
+      <li class="tab__item js-tab-item is-selected">
+        <!-- [D] 연결할 컨텐츠의 id와 aria-controls="id" 동일하게 적용(ID 변경 시 참고) -->
+        <a href="#" class="tab__btn js-tab-btn" role="tab" aria-selected="true" aria-controls="tab01"><span class="text">리뷰 작성<span class="count">3</span></span></a>
+      </li>
+      <li class="tab__item js-tab-item">
+        <a href="#" class="tab__btn js-tab-btn" role="tab" aria-selected="false" aria-controls="tab02"><span class="text">내가 쓴 리뷰<span class="count">2</span></span></a>
+      </li>
+      <li class="tab__item js-tab-item">
+        <a href="#" class="tab__btn js-tab-btn" role="tab" aria-selected="false" aria-controls="tab03"><span class="text">체험단 리뷰<span class="count">3</span></span></a>
+      </li>
+      </ul>
+      <!-- tab panel : 리뷰 작성 -->
+      <div class="tab-panel js-tab-panel" role="tabpanel" id="tab01">
+        <div class="products">
+          <div class="js-remove-history-wrap">
+            <div class="js-remove-history-content">
+              <div class="history-util">
+                <span class="text">배송 완료일 :</span>
+                <span class="date">2020.09.23</span>
+                <button type="button" class="btn-delete js-remove-history-btn"><span class="blind">해당일자 내역 삭제</span></button>
+              </div>
+              <ul class="mypage-review__list">
+              <li class="mypage-review__item">
+                <a href="#" class="mypage-review__link">
+                  <span class="badge badge--life">life몰 상품</span>
+                  <div class="mypage-review__box-image">
+                    <img src="../img/@tmp/@tmp_product.jpg" alt="">
+                  </div>
+                  <div class="mypage-review__box-info">
+                    <span class="brand">베베스킨</span>
+                    <strong class="title">베베스킨 베리 베리 핸드워시 350㎖ 1개베베스킨 베리 베리 핸드워시 350㎖ 1개</strong>
+                    <div class="review-score-wrap review-score-wrap--flat">
+                      <span class="star">
+                        <span class="rating" style="width:80%">별점</span>
+                      </span>
+                      <strong class="average">4.8</strong>
+                      <!-- [D] 별점 비율에 따라 style width값 변경 -->
+                      <span class="count">(228명)</span>
+                    </div>
+                    <div class="tag-wrap">
+                      <em class="tag">#천연</em><em class="tag">#핸드워시</em><em class="tag">#가족</em>에 관심있는 분들이 구매했어요.
+                    </div>
+                  </div>
+                </a>
+                <button type="button" class="mypage-review__btn layer-popup-opener" data-layer-target="#review-layer">리뷰 남기기</button>
+              </li>
+              <li class="mypage-review__item">
+                <a href="#" class="mypage-review__link">
+                  <span class="badge badge--life">life몰 상품</span>
+                  <div class="mypage-review__box-image">
+                    <img src="../img/@tmp/@tmp_product.jpg" alt="">
+                  </div>
+                  <div class="mypage-review__box-info">
+                    <span class="brand">베베스킨</span>
+                    <strong class="title">베베스킨 베리 베리 핸드워시 350㎖ 1개</strong>
+                    <div class="review-score-wrap review-score-wrap--flat">
+                      <span class="star">
+                        <span class="rating" style="width:80%">별점</span>
+                      </span>
+                      <strong class="average">4.8</strong>
+                      <!-- [D] 별점 비율에 따라 style width값 변경 -->
+                      <span class="count">(228명)</span>
+                    </div>
+                    <div class="tag-wrap">
+                      <em class="tag">#천연</em><em class="tag">#핸드워시</em><em class="tag">#가족</em>에 관심있는 분들이 구매했어요.
+                    </div>
+                  </div>
+                </a>
+                <button type="button" class="mypage-review__btn layer-popup-opener" data-layer-target="#review-layer">리뷰 남기기</button>
+              </li>
+              </ul>
+            </div>
+            <div class="js-remove-history-content">
+              <div class="history-util">
+                <span class="text">배송 완료일 :</span>
+                <span class="date">2020.09.21</span>
+                <button type="button" class="btn-delete js-remove-history-btn"><span class="blind">해당일자 내역 삭제</span></button>
+              </div>
+              <ul class="mypage-review__list">
+              <li class="mypage-review__item">
+                <a href="#" class="mypage-review__link">
+                  <span class="badge badge--food">food몰 상품</span>
+                  <div class="mypage-review__box-image">
+                    <img src="../img/@tmp/@tmp_product2.jpg" alt="">
+                  </div>
+                  <div class="mypage-review__box-info">
+                    <span class="brand">한국야쿠르트</span>
+                    <strong class="title">멀티비타 프로바이오틱스</strong>
+                    <div class="review-score-wrap review-score-wrap--flat">
+                      <span class="star">
+                        <span class="rating" style="width:80%">별점</span>
+                      </span>
+                      <strong class="average">4.8</strong>
+                      <!-- [D] 별점 비율에 따라 style width값 변경 -->
+                      <span class="count">(228명)</span>
+                    </div>
+                    <div class="tag-wrap">
+                      <em class="tag">#유산균</em><em class="tag">#장건강</em><em class="tag">#정기배송</em>에 관심있는 분들이 구매했어요.
+                    </div>
+                  </div>
+                </a>
+                <button type="button" class="mypage-review__btn layer-popup-opener" data-layer-target="#review-layer">리뷰 남기기</button>
+              </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="no-data-wrap" style="display:none;">
+          <span class="no-data__text">위시리스트에 등록된 상품이 없습니다.</span>
+          <div class="no-data__image">
+            <img src="../img/mypage/ico_nodata_wish.png" alt="">
+          </div>
+          <a href="#" class="no-data__link">지금 바로 쇼핑하러 가기</a>
+        </div>
+      </div>
+      <!-- //tab panel : 리뷰 작성 -->
+      <!-- tab panel : 내가 쓴 리뷰 -->
+      <div class="tab-panel js-tab-panel" role="tabpanel" aria-controls="tab02" style="display:none">
+        
+      </div>
+      <!-- //tab panel : 내가 쓴 리뷰 -->
+      <!-- tab panel : 체험단 리뷰 -->
+      <div class="tab-panel js-tab-panel" role="tabpanel" aria-controls="tab03" style="display:none">
+        
+      </div>
+      <!-- //tab panel : 체험단 리뷰 -->
+    </div>
+  </main>
+  <!-- //content -->
+  <!-- footer -->
+@@include('./include/footer.html')
+  <!-- //footer -->
+</div>
+<div class="sticky-wrap">
+  <!-- 상단이동버튼 -->
+  <a href="#" class="btn-top">페이지 상단으로 이동</a>
+</div>
+<!-- [D] Layer popup -->
+<!-- [D] Layer popup : 리뷰 작성 팝업 -->
+<div class="common-layer common-layer--full" id="review-layer" style="display:none;">
+  <div class="common-layer__dimmed"></div>
+  <div class="common-layer__wrapper">
+    <div class="common-layer__inner" role="dialog">
+      <div class="common-layer__header">
+        <h1 class="blind">리뷰 작성</h1>
+      </div>
+      <div class="common-layer__content">
+        <div class="review-layer-section">
+          <h2 class="review-layer-section__title"><em class="text-point">박보검</em>님<br>사용해보신 제품은 어떠셨나요?</h2>
+          <div class="rating-wrap js-rating-wrap">
+            <strong class="rating-wrap__title">상품은 만족하셨나요?</strong>
+            <span class="star">
+              <span class="rating js-rating" data-score="5" style="width:100%"></span>
+              <span class="value"><span class="score js-score">5.0</span> <span class="sub-value js-sub-value">(최고예요!)</span></span>
+            </span>
+            <button type="button" class="rating-wrap__btn rating-wrap__btn--minus js-rating-btn-minus"><span class="blind">별점내리기</span></button>
+            <button type="button" class="rating-wrap__btn rating-wrap__btn--plus js-rating-btn-plus"><span class="blind">별점올리기</span></button>
+          </div>
+          <div class="textarea-wrap textarea-wrap--small">
+            <label for="textarea" class="label">한 줄 소개</label>
+            <textarea id="textarea" cols="30" rows="10"  placeholder="상품에 대한 한 줄 소개를 입력해주세요." class="textarea"></textarea>
+            <span class="value"><span class="count">25 </span>/ 100</span>
+          </div>
+          <div class="textarea-wrap">
+            <label for="textarea2" class="label">상품리뷰작성폼</label>
+            <textarea id="textarea2" cols="30" rows="10"  placeholder="상품에 대한 사용 후기를 입력해 주세요." class="textarea"></textarea>
+            <span class="value"><span class="count">25 </span>/ 1,000</span>
+          </div>
+          <div class="input-file-wrap">
+            <input type="file" id="file" name="file" class="inp">
+            <label for="file" class="label">사진 첨부하기</label>
+            <!-- 첨부한 사진 영역 -->
+            <ul class="input-file__list">
+            <li class="input-file__item">
+              <img src="../img/@tmp/@tmp_review.png" alt="">
+              <button type="button" class="input-file__btn-delete">첨부파일 삭제</button>
+            </li>
+            <li class="input-file__item">
+              <img src="../img/@tmp/@tmp_review.png" alt="">
+              <button type="button" class="input-file__btn-delete">첨부파일 삭제</button>
+            </li>
+            <li class="input-file__item">
+              <img src="../img/@tmp/@tmp_review.png" alt="">
+              <button type="button" class="input-file__btn-delete">첨부파일 삭제</button>
+            </li>
+            <li class="input-file__item">
+              <img src="../img/@tmp/@tmp_review.png" alt="">
+              <button type="button" class="input-file__btn-delete">첨부파일 삭제</button>
+            </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="common-layer__btn-wrap">
+        <button type="button" class="common-layer__btn common-layer__btn--cancel">취소</button>
+        <button type="submit" class="common-layer__btn">리뷰 등록</button>
+      </div>
+      <div class="common-layer__box-btn-close">
+        <button type="button" class="common-layer__btn-close">팝업 닫기</button>
+      </div>
+    </div>
+  </div>
+</div>
+@@include('./include/script.html',{"type":""})
+<!-- [D] 마크업 case view. 개발 적용 시 제외 영역 -->
+<script>
+  function showNoData() {
+    $('.page-header, .products').hide();
+    $('.no-data-wrap').show();
+  }
+  </script>
+  @@include('./include/caseview.html',{
+    "item": [
+      {
+        "text":"최근 본 상품 없음",
+        "func": "showNoData()"
+      }
+    ]
+  })
+  <!-- //[D] 마크업 case view. 개발 적용 시 제외 영역 -->
+</body>
+</html>

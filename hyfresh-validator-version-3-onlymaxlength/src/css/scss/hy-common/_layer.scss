@@ -1,0 +1,127 @@
+// layer popup
+$common-layer: '.common-layer';
+.common-layer {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  margin: 0 auto;
+  max-width: $screen-max-width;
+  min-width: 320px;
+  z-index: common-z-index(layer);
+  -webkit-overflow-scrolling: touch;
+  &__dimmed {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 100%;
+    transform: translateX(-50%);
+    max-width: $screen-max-width;
+    background: rgba(#000, 0.9);
+  }
+  &__wrapper {
+    overflow: hidden;
+    overflow-y: auto;
+    position: relative;
+    z-index: 1;
+    height: 100%;
+  }
+  &__link-prev {
+    position: absolute;
+    top: 10px;
+    left: 5px;
+    padding: 10px;
+    @include rfonts(12, false, 400);
+    letter-spacing: -0.04em;
+    color: #222;
+    &:before {
+      display: inline-block;
+      margin-right: 5px;
+      @include use-hy-common('ico_layer_prev');
+      vertical-align: -1px;
+      content: '';
+    }
+  }
+}
+// layer full type
+.common-layer--full {
+  #{$common-layer}__wrapper {
+    overflow-y: hidden;
+  }
+  #{$common-layer}__inner {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    height: 100%;
+    background: $white;
+  }
+  #{$common-layer}__content {
+    overflow: hidden;
+    overflow-y: auto;
+    position: relative;
+    flex: 1;
+    height: 100%;
+  }
+  #{$common-layer}__header {
+    flex-shrink: 0;
+    padding: 0 50px;
+    height: 53px;
+  }
+  #{$common-layer}__title {
+    overflow: hidden;
+    @include rfonts(17, 53, 500);
+    letter-spacing: -0.04em;
+    color: $dark;
+    text-align: center;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+  #{$common-layer}__box-btn-close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 50px;
+  }
+  #{$common-layer}__btn {
+    flex: 1;
+    background: $greenery;
+    height: 45px;
+    @include rfonts(14, 45, 500);
+    letter-spacing: -0.04em;
+    color: $white;
+    box-sizing: border-box;
+    &:not(:first-child) {
+      margin-left: 9px;
+    }
+    &--cancel {
+      border: 1px solid #ccc;
+      background: $white;
+      color: #888;
+    }
+    &-wrap {
+      display: flex;
+      margin: 0 15px 30px;
+    }
+
+  }
+  #{$common-layer}__btn-close {
+    overflow: hidden;
+    position: relative;
+    width: 50px;
+    height: 50px;
+    padding: 14px;
+    white-space: nowrap;
+    line-height: 999px;
+    &:after {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      @include use-hy-common('ico_layer_full_close');
+      vertical-align: top;
+      content: '';
+    }
+  }
+}

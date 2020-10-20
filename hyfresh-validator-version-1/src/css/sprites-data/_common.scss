@@ -1,0 +1,1003 @@
+$common-vars: (
+  'bg_event_coupon': (
+  offset-x: 0px / 2,
+  offset-y: -140px / 2,
+  width: 156px / 2,
+  height: 110px / 2,
+  total-width: 696px / 2,
+  total-height: 690px / 2,
+  imageSrc: '../img/sprites/common.png'
+  ),
+  'btn-top': (
+  offset-x: -610px / 2,
+  offset-y: -434px / 2,
+  width: 20px / 2,
+  height: 24px / 2,
+  total-width: 696px / 2,
+  total-height: 690px / 2,
+  imageSrc: '../img/sprites/common.png'
+  ),
+  'ico_arrow_event_noti': (
+  offset-x: -680px / 2,
+  offset-y: -282px / 2,
+  width: 16px / 2,
+  height: 30px / 2,
+  total-width: 696px / 2,
+  total-height: 690px / 2,
+  imageSrc: '../img/sprites/common.png'
+  ),
+  'ico_arrow_footer': (
+  offset-x: -314px / 2,
+  offset-y: -326px / 2,
+  width: 8px / 2,
+  height: 14px / 2,
+  total-width: 696px / 2,
+  total-height: 690px / 2,
+  imageSrc: '../img/sprites/common.png'
+  ),
+  'ico_arrow_header': (
+  offset-x: -256px / 2,
+  offset-y: -434px / 2,
+  width: 34px / 2,
+  height: 34px / 2,
+  total-width: 696px / 2,
+  total-height: 690px / 2,
+  imageSrc: '../img/sprites/common.png'
+  ),
+  'ico_arrow_header_prev': (
+  offset-x: -342px / 2,
+  offset-y: -180px / 2,
+  width: 42px / 2,
+  height: 32px / 2,
+  total-width: 696px / 2,
+  total-height: 690px / 2,
+  imageSrc: '../img/sprites/common.png'
+  ),
+  'ico_arrow_link_large': (
+  offset-x: -312px / 2,
+  offset-y: -216px / 2,
+  width: 32px / 2,
+  height: 26px / 2,
+  total-width: 696px / 2,
+  total-height: 690px / 2,
+  imageSrc: '../img/sprites/common.png'
+  ),
+  'ico_arrow_main_certificate': (
+  offset-x: -586px / 2,
+  offset-y: -476px / 2,
+  width: 52px / 2,
+  height: 40px / 2,
+  total-width: 696px / 2,
+  total-height: 690px / 2,
+  imageSrc: '../img/sprites/common.png'
+  ),
+  'ico_arrow_main_feed': (
+  offset-x: 0px / 2,
+  offset-y: -646px / 2,
+  width: 34px / 2,
+  height: 44px / 2,
+  total-width: 696px / 2,
+  total-height: 690px / 2,
+  imageSrc: '../img/sprites/common.png'
+  ),
+  'ico_arrow_main_product': (
+  offset-x: -482px / 2,
+  offset-y: -360px / 2,
+  width: 24px / 2,
+  height: 20px / 2,
+  total-width: 696px / 2,
+  total-height: 690px / 2,
+  imageSrc: '../img/sprites/common.png'
+  ),
+  'ico_arrow_main_slide_next': (
+  offset-x: -322px / 2,
+  offset-y: -476px / 2,
+  width: 60px / 2,
+  height: 48px / 2,
+  total-width: 696px / 2,
+  total-height: 690px / 2,
+  imageSrc: '../img/sprites/common.png'
+  ),
+  'ico_arrow_main_slide_prev': (
+  offset-x: -258px / 2,
+  offset-y: -476px / 2,
+  width: 60px / 2,
+  height: 48px / 2,
+  total-width: 696px / 2,
+  total-height: 690px / 2,
+  imageSrc: '../img/sprites/common.png'
+  ),
+  'ico_arrow_notice_bar': (
+  offset-x: -378px / 2,
+  offset-y: -216px / 2,
+  width: 12px / 2,
+  height: 20px / 2,
+  total-width: 696px / 2,
+  total-height: 690px / 2,
+  imageSrc: '../img/sprites/common.png'
+  ),
+  'ico_arrow_product_review_toggle': (
+  offset-x: -602px / 2,
+  offset-y: -202px / 2,
+  width: 16px / 2,
+  height: 10px / 2,
+  total-width: 696px / 2,
+  total-height: 690px / 2,
+  imageSrc: '../img/sprites/common.png'
+  ),
+  'ico_arrow_select_box': (
+  offset-x: -676px / 2,
+  offset-y: -360px / 2,
+  width: 20px / 2,
+  height: 12px / 2,
+  total-width: 696px / 2,
+  total-height: 690px / 2,
+  imageSrc: '../img/sprites/common.png'
+  ),
+  'ico_arrow_toggle': (
+  offset-x: -628px / 2,
+  offset-y: -360px / 2,
+  width: 20px / 2,
+  height: 12px / 2,
+  total-width: 696px / 2,
+  total-height: 690px / 2,
+  imageSrc: '../img/sprites/common.png'
+  ),
+  'ico_badge_food': (
+  offset-x: 0px / 2,
+  offset-y: -476px / 2,
+  width: 68px / 2,
+  height: 68px / 2,
+  total-width: 696px / 2,
+  total-height: 690px / 2,
+  imageSrc: '../img/sprites/common.png'
+  ),
+  'ico_badge_life': (
+  offset-x: -314px / 2,
+  offset-y: -254px / 2,
+  width: 68px / 2,
+  height: 68px / 2,
+  total-width: 696px / 2,
+  total-height: 690px / 2,
+  imageSrc: '../img/sprites/common.png'
+  ),
+  'ico_cart_large_white': (
+  offset-x: -298px / 2,
+  offset-y: -602px / 2,
+  width: 34px / 2,
+  height: 38px / 2,
+  total-width: 696px / 2,
+  total-height: 690px / 2,
+  imageSrc: '../img/sprites/common.png'
+  ),
+  'ico_checkbox_off': (
+  offset-x: -108px / 2,
+  offset-y: -548px / 2,
+  width: 50px / 2,
+  height: 50px / 2,
+  total-width: 696px / 2,
+  total-height: 690px / 2,
+  imageSrc: '../img/sprites/common.png'
+  ),
+  'ico_checkbox_on': (
+  offset-x: -54px / 2,
+  offset-y: -548px / 2,
+  width: 50px / 2,
+  height: 50px / 2,
+  total-width: 696px / 2,
+  total-height: 690px / 2,
+  imageSrc: '../img/sprites/common.png'
+  ),
+  'ico_checkbox_small_off': (
+  offset-x: -308px / 2,
+  offset-y: -548px / 2,
+  width: 42px / 2,
+  height: 42px / 2,
+  total-width: 696px / 2,
+  total-height: 690px / 2,
+  imageSrc: '../img/sprites/common.png'
+  ),
+  'ico_checkbox_small_on': (
+  offset-x: -446px / 2,
+  offset-y: -548px / 2,
+  width: 42px / 2,
+  height: 42px / 2,
+  total-width: 696px / 2,
+  total-height: 690px / 2,
+  imageSrc: '../img/sprites/common.png'
+  ),
+  'ico_close_layer_white': (
+  offset-x: -492px / 2,
+  offset-y: -548px / 2,
+  width: 42px / 2,
+  height: 42px / 2,
+  total-width: 696px / 2,
+  total-height: 690px / 2,
+  imageSrc: '../img/sprites/common.png'
+  ),
+  'ico_event_badge': (
+  offset-x: -202px / 2,
+  offset-y: -388px / 2,
+  width: 96px / 2,
+  height: 42px / 2,
+  total-width: 696px / 2,
+  total-height: 690px / 2,
+  imageSrc: '../img/sprites/common.png'
+  ),
+  'ico_event_badge2': (
+  offset-x: -498px / 2,
+  offset-y: -216px / 2,
+  width: 138px / 2,
+  height: 62px / 2,
+  total-width: 696px / 2,
+  total-height: 690px / 2,
+  imageSrc: '../img/sprites/common.png'
+  ),
+  'ico_event_badge3': (
+  offset-x: -84px / 2,
+  offset-y: -388px / 2,
+  width: 114px / 2,
+  height: 42px / 2,
+  total-width: 696px / 2,
+  total-height: 690px / 2,
+  imageSrc: '../img/sprites/common.png'
+  ),
+  'ico_event_share': (
+  offset-x: -142px / 2,
+  offset-y: -476px / 2,
+  width: 54px / 2,
+  height: 54px / 2,
+  total-width: 696px / 2,
+  total-height: 690px / 2,
+  imageSrc: '../img/sprites/common.png'
+  ),
+  'ico_event_share_white': (
+  offset-x: -176px / 2,
+  offset-y: -434px / 2,
+  width: 36px / 2,
+  height: 36px / 2,
+  total-width: 696px / 2,
+  total-height: 690px / 2,
+  imageSrc: '../img/sprites/common.png'
+  ),
+  'ico_evt_wish_off': (
+  offset-x: -200px / 2,
+  offset-y: -476px / 2,
+  width: 54px / 2,
+  height: 54px / 2,
+  total-width: 696px / 2,
+  total-height: 690px / 2,
+  imageSrc: '../img/sprites/common.png'
+  ),
+  'ico_evt_wish_on': (
+  offset-x: -640px / 2,
+  offset-y: -216px / 2,
+  width: 54px / 2,
+  height: 54px / 2,
+  total-width: 696px / 2,
+  total-height: 690px / 2,
+  imageSrc: '../img/sprites/common.png'
+  ),
+  'ico_flag_close': (
+  offset-x: -606px / 2,
+  offset-y: -360px / 2,
+  width: 18px / 2,
+  height: 18px / 2,
+  total-width: 696px / 2,
+  total-height: 690px / 2,
+  imageSrc: '../img/sprites/common.png'
+  ),
+  'ico_flag_limit': (
+  offset-x: -216px / 2,
+  offset-y: -434px / 2,
+  width: 36px / 2,
+  height: 36px / 2,
+  total-width: 696px / 2,
+  total-height: 690px / 2,
+  imageSrc: '../img/sprites/common.png'
+  ),
+  'ico_flag_soldout': (
+  offset-x: -216px / 2,
+  offset-y: -548px / 2,
+  width: 42px / 2,
+  height: 44px / 2,
+  total-width: 696px / 2,
+  total-height: 690px / 2,
+  imageSrc: '../img/sprites/common.png'
+  ),
+  'ico_gift_large_white': (
+  offset-x: -172px / 2,
+  offset-y: -602px / 2,
+  width: 38px / 2,
+  height: 38px / 2,
+  total-width: 696px / 2,
+  total-height: 690px / 2,
+  imageSrc: '../img/sprites/common.png'
+  ),
+  'ico_header_cart': (
+  offset-x: -38px / 2,
+  offset-y: -646px / 2,
+  width: 36px / 2,
+  height: 40px / 2,
+  total-width: 696px / 2,
+  total-height: 690px / 2,
+  imageSrc: '../img/sprites/common.png'
+  ),
+  'ico_header_home': (
+  offset-x: -354px / 2,
+  offset-y: -548px / 2,
+  width: 42px / 2,
+  height: 42px / 2,
+  total-width: 696px / 2,
+  total-height: 690px / 2,
+  imageSrc: '../img/sprites/common.png'
+  ),
+  'ico_header_search': (
+  offset-x: -44px / 2,
+  offset-y: -602px / 2,
+  width: 40px / 2,
+  height: 40px / 2,
+  total-width: 696px / 2,
+  total-height: 690px / 2,
+  imageSrc: '../img/sprites/common.png'
+  ),
+  'ico_input_file_camera': (
+  offset-x: -654px / 2,
+  offset-y: -388px / 2,
+  width: 36px / 2,
+  height: 30px / 2,
+  total-width: 696px / 2,
+  total-height: 690px / 2,
+  imageSrc: '../img/sprites/common.png'
+  ),
+  'ico_input_file_delete': (
+  offset-x: 0px / 2,
+  offset-y: -602px / 2,
+  width: 40px / 2,
+  height: 40px / 2,
+  total-width: 696px / 2,
+  total-height: 690px / 2,
+  imageSrc: '../img/sprites/common.png'
+  ),
+  'ico_inquiry_lock': (
+  offset-x: -582px / 2,
+  offset-y: -434px / 2,
+  width: 24px / 2,
+  height: 30px / 2,
+  total-width: 696px / 2,
+  total-height: 690px / 2,
+  imageSrc: '../img/sprites/common.png'
+  ),
+  'ico_layer_alert_close': (
+  offset-x: -400px / 2,
+  offset-y: -548px / 2,
+  width: 42px / 2,
+  height: 42px / 2,
+  total-width: 696px / 2,
+  total-height: 690px / 2,
+  imageSrc: '../img/sprites/common.png'
+  ),
+  'ico_layer_full_close': (
+  offset-x: -262px / 2,
+  offset-y: -548px / 2,
+  width: 42px / 2,
+  height: 42px / 2,
+  total-width: 696px / 2,
+  total-height: 690px / 2,
+  imageSrc: '../img/sprites/common.png'
+  ),
+  'ico_layer_share_sns_facebook': (
+  offset-x: -394px / 2,
+  offset-y: -112px / 2,
+  width: 100px / 2,
+  height: 100px / 2,
+  total-width: 696px / 2,
+  total-height: 690px / 2,
+  imageSrc: '../img/sprites/common.png'
+  ),
+  'ico_layer_share_sns_kakaotalk': (
+  offset-x: -498px / 2,
+  offset-y: -112px / 2,
+  width: 100px / 2,
+  height: 100px / 2,
+  total-width: 696px / 2,
+  total-height: 690px / 2,
+  imageSrc: '../img/sprites/common.png'
+  ),
+  'ico_layer_share_sns_twitter': (
+  offset-x: -394px / 2,
+  offset-y: -216px / 2,
+  width: 100px / 2,
+  height: 100px / 2,
+  total-width: 696px / 2,
+  total-height: 690px / 2,
+  imageSrc: '../img/sprites/common.png'
+  ),
+  'ico_main_certificate_detail': (
+  offset-x: -622px / 2,
+  offset-y: -202px / 2,
+  width: 14px / 2,
+  height: 10px / 2,
+  total-width: 696px / 2,
+  total-height: 690px / 2,
+  imageSrc: '../img/sprites/common.png'
+  ),
+  'ico_main_feed_link': (
+  offset-x: -332px / 2,
+  offset-y: -434px / 2,
+  width: 32px / 2,
+  height: 32px / 2,
+  total-width: 696px / 2,
+  total-height: 690px / 2,
+  imageSrc: '../img/sprites/common.png'
+  ),
+  'ico_main_product_more': (
+  offset-x: -88px / 2,
+  offset-y: -602px / 2,
+  width: 38px / 2,
+  height: 38px / 2,
+  total-width: 696px / 2,
+  total-height: 690px / 2,
+  imageSrc: '../img/sprites/common.png'
+  ),
+  'ico_main_review_quote_left': (
+  offset-x: -510px / 2,
+  offset-y: -360px / 2,
+  width: 20px / 2,
+  height: 18px / 2,
+  total-width: 696px / 2,
+  total-height: 690px / 2,
+  imageSrc: '../img/sprites/common.png'
+  ),
+  'ico_main_review_quote_right': (
+  offset-x: -558px / 2,
+  offset-y: -360px / 2,
+  width: 20px / 2,
+  height: 18px / 2,
+  total-width: 696px / 2,
+  total-height: 690px / 2,
+  imageSrc: '../img/sprites/common.png'
+  ),
+  'ico_main_review_star': (
+  offset-x: -394px / 2,
+  offset-y: -320px / 2,
+  width: 222px / 2,
+  height: 36px / 2,
+  total-width: 696px / 2,
+  total-height: 690px / 2,
+  imageSrc: '../img/sprites/common.png'
+  ),
+  'ico_main_review_star_rating': (
+  offset-x: -160px / 2,
+  offset-y: -140px / 2,
+  width: 222px / 2,
+  height: 36px / 2,
+  total-width: 696px / 2,
+  total-height: 690px / 2,
+  imageSrc: '../img/sprites/common.png'
+  ),
+  'ico_main_slide_more': (
+  offset-x: -224px / 2,
+  offset-y: -254px / 2,
+  width: 86px / 2,
+  height: 86px / 2,
+  total-width: 696px / 2,
+  total-height: 690px / 2,
+  imageSrc: '../img/sprites/common.png'
+  ),
+  'ico_main_slide_more_large': (
+  offset-x: 0px / 2,
+  offset-y: -254px / 2,
+  width: 130px / 2,
+  height: 130px / 2,
+  total-width: 696px / 2,
+  total-height: 690px / 2,
+  imageSrc: '../img/sprites/common.png'
+  ),
+  'ico_mall_badge_food': (
+  offset-x: -302px / 2,
+  offset-y: -388px / 2,
+  width: 64px / 2,
+  height: 38px / 2,
+  total-width: 696px / 2,
+  total-height: 690px / 2,
+  imageSrc: '../img/sprites/common.png'
+  ),
+  'ico_mall_badge_life': (
+  offset-x: -370px / 2,
+  offset-y: -388px / 2,
+  width: 64px / 2,
+  height: 38px / 2,
+  total-width: 696px / 2,
+  total-height: 690px / 2,
+  imageSrc: '../img/sprites/common.png'
+  ),
+  'ico_navigation_category': (
+  offset-x: -566px / 2,
+  offset-y: -388px / 2,
+  width: 40px / 2,
+  height: 32px / 2,
+  total-width: 696px / 2,
+  total-height: 690px / 2,
+  imageSrc: '../img/sprites/common.png'
+  ),
+  'ico_navigation_category_on': (
+  offset-x: -610px / 2,
+  offset-y: -388px / 2,
+  width: 40px / 2,
+  height: 32px / 2,
+  total-width: 696px / 2,
+  total-height: 690px / 2,
+  imageSrc: '../img/sprites/common.png'
+  ),
+  'ico_navigation_delivery': (
+  offset-x: -630px / 2,
+  offset-y: -548px / 2,
+  width: 42px / 2,
+  height: 40px / 2,
+  total-width: 696px / 2,
+  total-height: 690px / 2,
+  imageSrc: '../img/sprites/common.png'
+  ),
+  'ico_navigation_delivery_on': (
+  offset-x: -584px / 2,
+  offset-y: -548px / 2,
+  width: 42px / 2,
+  height: 40px / 2,
+  total-width: 696px / 2,
+  total-height: 690px / 2,
+  imageSrc: '../img/sprites/common.png'
+  ),
+  'ico_navigation_home': (
+  offset-x: -642px / 2,
+  offset-y: -476px / 2,
+  width: 42px / 2,
+  height: 40px / 2,
+  total-width: 696px / 2,
+  total-height: 690px / 2,
+  imageSrc: '../img/sprites/common.png'
+  ),
+  'ico_navigation_home_on': (
+  offset-x: -538px / 2,
+  offset-y: -548px / 2,
+  width: 42px / 2,
+  height: 40px / 2,
+  total-width: 696px / 2,
+  total-height: 690px / 2,
+  imageSrc: '../img/sprites/common.png'
+  ),
+  'ico_navigation_mypage': (
+  offset-x: -78px / 2,
+  offset-y: -646px / 2,
+  width: 34px / 2,
+  height: 40px / 2,
+  total-width: 696px / 2,
+  total-height: 690px / 2,
+  imageSrc: '../img/sprites/common.png'
+  ),
+  'ico_navigation_mypage_on': (
+  offset-x: -116px / 2,
+  offset-y: -646px / 2,
+  width: 34px / 2,
+  height: 40px / 2,
+  total-width: 696px / 2,
+  total-height: 690px / 2,
+  imageSrc: '../img/sprites/common.png'
+  ),
+  'ico_navigation_recent': (
+  offset-x: -214px / 2,
+  offset-y: -602px / 2,
+  width: 38px / 2,
+  height: 38px / 2,
+  total-width: 696px / 2,
+  total-height: 690px / 2,
+  imageSrc: '../img/sprites/common.png'
+  ),
+  'ico_navigation_recent_on': (
+  offset-x: -256px / 2,
+  offset-y: -602px / 2,
+  width: 38px / 2,
+  height: 38px / 2,
+  total-width: 696px / 2,
+  total-height: 690px / 2,
+  imageSrc: '../img/sprites/common.png'
+  ),
+  'ico_play_video': (
+  offset-x: 0px / 2,
+  offset-y: -388px / 2,
+  width: 80px / 2,
+  height: 84px / 2,
+  total-width: 696px / 2,
+  total-height: 690px / 2,
+  imageSrc: '../img/sprites/common.png'
+  ),
+  'ico_product_detail_share': (
+  offset-x: -72px / 2,
+  offset-y: -476px / 2,
+  width: 66px / 2,
+  height: 66px / 2,
+  total-width: 696px / 2,
+  total-height: 690px / 2,
+  imageSrc: '../img/sprites/common.png'
+  ),
+  'ico_product_grid_cart': (
+  offset-x: -404px / 2,
+  offset-y: -434px / 2,
+  width: 32px / 2,
+  height: 32px / 2,
+  total-width: 696px / 2,
+  total-height: 690px / 2,
+  imageSrc: '../img/sprites/common.png'
+  ),
+  'ico_product_grid_gift': (
+  offset-x: -368px / 2,
+  offset-y: -434px / 2,
+  width: 32px / 2,
+  height: 32px / 2,
+  total-width: 696px / 2,
+  total-height: 690px / 2,
+  imageSrc: '../img/sprites/common.png'
+  ),
+  'ico_product_grid_order': (
+  offset-x: -512px / 2,
+  offset-y: -434px / 2,
+  width: 32px / 2,
+  height: 32px / 2,
+  total-width: 696px / 2,
+  total-height: 690px / 2,
+  imageSrc: '../img/sprites/common.png'
+  ),
+  'ico_products_filter': (
+  offset-x: -286px / 2,
+  offset-y: -344px / 2,
+  width: 28px / 2,
+  height: 28px / 2,
+  total-width: 696px / 2,
+  total-height: 690px / 2,
+  imageSrc: '../img/sprites/common.png'
+  ),
+  'ico_products_sort': (
+  offset-x: -348px / 2,
+  offset-y: -344px / 2,
+  width: 26px / 2,
+  height: 26px / 2,
+  total-width: 696px / 2,
+  total-height: 690px / 2,
+  imageSrc: '../img/sprites/common.png'
+  ),
+  'ico_progress_bar_on': (
+  offset-x: -394px / 2,
+  offset-y: -360px / 2,
+  width: 24px / 2,
+  height: 24px / 2,
+  total-width: 696px / 2,
+  total-height: 690px / 2,
+  imageSrc: '../img/sprites/common.png'
+  ),
+  'ico_promotion_tag': (
+  offset-x: -620px / 2,
+  offset-y: -320px / 2,
+  width: 68px / 2,
+  height: 34px / 2,
+  total-width: 696px / 2,
+  total-height: 690px / 2,
+  imageSrc: '../img/sprites/common.png'
+  ),
+  'ico_radio_check_off': (
+  offset-x: 0px / 2,
+  offset-y: -548px / 2,
+  width: 50px / 2,
+  height: 50px / 2,
+  total-width: 696px / 2,
+  total-height: 690px / 2,
+  imageSrc: '../img/sprites/common.png'
+  ),
+  'ico_radio_check_on': (
+  offset-x: -162px / 2,
+  offset-y: -548px / 2,
+  width: 50px / 2,
+  height: 50px / 2,
+  total-width: 696px / 2,
+  total-height: 690px / 2,
+  imageSrc: '../img/sprites/common.png'
+  ),
+  'ico_rating_minus': (
+  offset-x: -602px / 2,
+  offset-y: -112px / 2,
+  width: 86px / 2,
+  height: 86px / 2,
+  total-width: 696px / 2,
+  total-height: 690px / 2,
+  imageSrc: '../img/sprites/common.png'
+  ),
+  'ico_rating_plus': (
+  offset-x: -134px / 2,
+  offset-y: -254px / 2,
+  width: 86px / 2,
+  height: 86px / 2,
+  total-width: 696px / 2,
+  total-height: 690px / 2,
+  imageSrc: '../img/sprites/common.png'
+  ),
+  'ico_recent_delete': (
+  offset-x: -548px / 2,
+  offset-y: -434px / 2,
+  width: 30px / 2,
+  height: 30px / 2,
+  total-width: 696px / 2,
+  total-height: 690px / 2,
+  imageSrc: '../img/sprites/common.png'
+  ),
+  'ico_review_help': (
+  offset-x: -294px / 2,
+  offset-y: -434px / 2,
+  width: 34px / 2,
+  height: 34px / 2,
+  total-width: 696px / 2,
+  total-height: 690px / 2,
+  imageSrc: '../img/sprites/common.png'
+  ),
+  'ico_review_quote_left': (
+  offset-x: -582px / 2,
+  offset-y: -360px / 2,
+  width: 20px / 2,
+  height: 18px / 2,
+  total-width: 696px / 2,
+  total-height: 690px / 2,
+  imageSrc: '../img/sprites/common.png'
+  ),
+  'ico_review_quote_left_large': (
+  offset-x: -422px / 2,
+  offset-y: -360px / 2,
+  width: 26px / 2,
+  height: 22px / 2,
+  total-width: 696px / 2,
+  total-height: 690px / 2,
+  imageSrc: '../img/sprites/common.png'
+  ),
+  'ico_review_quote_right': (
+  offset-x: -534px / 2,
+  offset-y: -360px / 2,
+  width: 20px / 2,
+  height: 18px / 2,
+  total-width: 696px / 2,
+  total-height: 690px / 2,
+  imageSrc: '../img/sprites/common.png'
+  ),
+  'ico_review_quote_right_large': (
+  offset-x: -452px / 2,
+  offset-y: -360px / 2,
+  width: 26px / 2,
+  height: 22px / 2,
+  total-width: 696px / 2,
+  total-height: 690px / 2,
+  imageSrc: '../img/sprites/common.png'
+  ),
+  'ico_review_star': (
+  offset-x: -160px / 2,
+  offset-y: -180px / 2,
+  width: 178px / 2,
+  height: 32px / 2,
+  total-width: 696px / 2,
+  total-height: 690px / 2,
+  imageSrc: '../img/sprites/common.png'
+  ),
+  'ico_review_star_large': (
+  offset-x: 0px / 2,
+  offset-y: -70px / 2,
+  width: 390px / 2,
+  height: 66px / 2,
+  total-width: 696px / 2,
+  total-height: 690px / 2,
+  imageSrc: '../img/sprites/common.png'
+  ),
+  'ico_review_star_medium': (
+  offset-x: -394px / 2,
+  offset-y: -56px / 2,
+  width: 302px / 2,
+  height: 52px / 2,
+  total-width: 696px / 2,
+  total-height: 690px / 2,
+  imageSrc: '../img/sprites/common.png'
+  ),
+  'ico_review_star_rating': (
+  offset-x: -498px / 2,
+  offset-y: -282px / 2,
+  width: 178px / 2,
+  height: 32px / 2,
+  total-width: 696px / 2,
+  total-height: 690px / 2,
+  imageSrc: '../img/sprites/common.png'
+  ),
+  'ico_review_star_rating_large': (
+  offset-x: 0px / 2,
+  offset-y: 0px / 2,
+  width: 390px / 2,
+  height: 66px / 2,
+  total-width: 696px / 2,
+  total-height: 690px / 2,
+  imageSrc: '../img/sprites/common.png'
+  ),
+  'ico_review_star_rating_medium': (
+  offset-x: -394px / 2,
+  offset-y: 0px / 2,
+  width: 302px / 2,
+  height: 52px / 2,
+  total-width: 696px / 2,
+  total-height: 690px / 2,
+  imageSrc: '../img/sprites/common.png'
+  ),
+  'ico_review_star_rating_small': (
+  offset-x: -134px / 2,
+  offset-y: -344px / 2,
+  width: 148px / 2,
+  height: 28px / 2,
+  total-width: 696px / 2,
+  total-height: 690px / 2,
+  imageSrc: '../img/sprites/common.png'
+  ),
+  'ico_review_star_small': (
+  offset-x: -160px / 2,
+  offset-y: -216px / 2,
+  width: 148px / 2,
+  height: 28px / 2,
+  total-width: 696px / 2,
+  total-height: 690px / 2,
+  imageSrc: '../img/sprites/common.png'
+  ),
+  'ico_sel_arr': (
+  offset-x: -652px / 2,
+  offset-y: -360px / 2,
+  width: 20px / 2,
+  height: 12px / 2,
+  total-width: 696px / 2,
+  total-height: 690px / 2,
+  imageSrc: '../img/sprites/common.png'
+  ),
+  'ico_sns_facebook': (
+  offset-x: -436px / 2,
+  offset-y: -476px / 2,
+  width: 46px / 2,
+  height: 46px / 2,
+  total-width: 696px / 2,
+  total-height: 690px / 2,
+  imageSrc: '../img/sprites/common.png'
+  ),
+  'ico_sns_tistory': (
+  offset-x: -386px / 2,
+  offset-y: -476px / 2,
+  width: 46px / 2,
+  height: 46px / 2,
+  total-width: 696px / 2,
+  total-height: 690px / 2,
+  imageSrc: '../img/sprites/common.png'
+  ),
+  'ico_sns_twitter': (
+  offset-x: -536px / 2,
+  offset-y: -476px / 2,
+  width: 46px / 2,
+  height: 46px / 2,
+  total-width: 696px / 2,
+  total-height: 690px / 2,
+  imageSrc: '../img/sprites/common.png'
+  ),
+  'ico_sns_youtube': (
+  offset-x: -486px / 2,
+  offset-y: -476px / 2,
+  width: 46px / 2,
+  height: 46px / 2,
+  total-width: 696px / 2,
+  total-height: 690px / 2,
+  imageSrc: '../img/sprites/common.png'
+  ),
+  'ico_title_more': (
+  offset-x: -130px / 2,
+  offset-y: -602px / 2,
+  width: 38px / 2,
+  height: 38px / 2,
+  total-width: 696px / 2,
+  total-height: 690px / 2,
+  imageSrc: '../img/sprites/common.png'
+  ),
+  'ico_toggle_off': (
+  offset-x: -438px / 2,
+  offset-y: -388px / 2,
+  width: 60px / 2,
+  height: 32px / 2,
+  total-width: 696px / 2,
+  total-height: 690px / 2,
+  imageSrc: '../img/sprites/common.png'
+  ),
+  'ico_toggle_on': (
+  offset-x: -502px / 2,
+  offset-y: -388px / 2,
+  width: 60px / 2,
+  height: 32px / 2,
+  total-width: 696px / 2,
+  total-height: 690px / 2,
+  imageSrc: '../img/sprites/common.png'
+  ),
+  'ico_view_mode_default': (
+  offset-x: -318px / 2,
+  offset-y: -344px / 2,
+  width: 26px / 2,
+  height: 26px / 2,
+  total-width: 696px / 2,
+  total-height: 690px / 2,
+  imageSrc: '../img/sprites/common.png'
+  ),
+  'ico_view_mode_two_col': (
+  offset-x: -348px / 2,
+  offset-y: -216px / 2,
+  width: 26px / 2,
+  height: 26px / 2,
+  total-width: 696px / 2,
+  total-height: 690px / 2,
+  imageSrc: '../img/sprites/common.png'
+  ),
+  'ico_wish_large_white_off': (
+  offset-x: -84px / 2,
+  offset-y: -434px / 2,
+  width: 42px / 2,
+  height: 36px / 2,
+  total-width: 696px / 2,
+  total-height: 690px / 2,
+  imageSrc: '../img/sprites/common.png'
+  ),
+  'ico_wish_large_white_on': (
+  offset-x: -130px / 2,
+  offset-y: -434px / 2,
+  width: 42px / 2,
+  height: 36px / 2,
+  total-width: 696px / 2,
+  total-height: 690px / 2,
+  imageSrc: '../img/sprites/common.png'
+  ),
+  'ico_wish_off': (
+  offset-x: -440px / 2,
+  offset-y: -434px / 2,
+  width: 32px / 2,
+  height: 32px / 2,
+  total-width: 696px / 2,
+  total-height: 690px / 2,
+  imageSrc: '../img/sprites/common.png'
+  ),
+  'ico_wish_on': (
+  offset-x: -476px / 2,
+  offset-y: -434px / 2,
+  width: 32px / 2,
+  height: 32px / 2,
+  total-width: 696px / 2,
+  total-height: 690px / 2,
+  imageSrc: '../img/sprites/common.png'
+  ),
+);
+$common-origin: (
+total-width: 696px / 2,
+total-height: 690px / 2,
+imageSrc: '../img/sprites/common.png'
+);
+
+  @mixin sprite-size($image) {
+  background-size: map-get($image, 'total-width') map-get($image, 'total-height');
+  }
+
+  @mixin sprite-image($image) {
+  $image-path: map-get($image, 'imageSrc');
+  background-image: url($image-path);
+  }
+
+  @mixin set-common {
+  @include sprite-size($common-origin);
+  @include sprite-image($common-origin);
+  }
+
+  @mixin use-common($image, $size: true) {
+  @include set-common;
+  background-position: map-get(map-get($common-vars, $image), 'offset-x') map-get(map-get($common-vars, $image), 'offset-y');
+  @if $size {
+  width: map-get(map-get($common-vars, $image), 'width');
+  height: map-get(map-get($common-vars, $image), 'height');
+  }
+  }
+

@@ -1,0 +1,560 @@
+@@include('./include/head.html',{"title": "Fredit 체험단 상세 - HYFRESH", "list_title": "Fredit 체험단 상세 : Event", "cssFile": "hyfresh"})
+<body data-pagestatus="new : 2020.10.07">
+@@include('./include/skipnavigation.html')
+
+<div class="wrap wrap-event">
+  <!-- header -->
+@@include('./include/header.html',{"type":"detail","title":"Freidt 체험단 상세"})
+  <!-- //header -->
+  <!-- content -->
+  <main id="content" class="content">
+    <div class="experience-overview">
+      <div class="experience__box-info">
+        <!-- 
+        체험신청 : experience__badge--apply
+        리뷰작성 : experience__badge--write-review
+        신청마감 : experience__badge--apply-deadline
+        당첨발표 : experience__badge--winning
+        체험종료 : experience__badge--end
+        -->
+        <span class="experience__badge experience__badge--apply">체험신청</span>
+        <div class="experience__option">
+          <em class="experience__recruitment">모집인원. 200명</em> / 신청인원. 128명 <span class="experience__automatic-closing">(자동마감 300명)</span>
+        </div>
+      </div>
+      <div class="experience__box-title">
+        <div class="experience__image">
+          <img src="../img/@tmp/@tmp_group_exp_720x350.jpg" alt="">
+        </div>
+        <div class="experience__title">
+          <img src="../img/@tmp/@tmp_group_event_logo_170x170.png" alt="" class="experience__logo">
+          <strong class="title"><span class="brand">[베베스킨]</span>베리 베리 핸드워시 체험단 모집</strong>
+        </div>
+      </div>
+    </div>
+    <div class="experience-progress">
+      <!-- 
+        experience-progress__list--step1
+        experience-progress__list--step2
+        experience-progress__list--step3
+        -->
+      <ul class="experience-progress__list experience-progress__list--step1">
+        <!-- [D] 활성화 : 'li.experience-progress__item'에 'is-active' 클래스 추가 -->
+        <li class="experience-progress__item is-active">
+          <p class="experience-progress__info">
+            <strong>모집기간</strong>
+            09.20 09:00 <span class="symbol">~</span> 09.30 23:59
+          </p>
+        </li>
+        <li class="experience-progress__item">
+          <p class="experience-progress__info">
+            <strong>당첨자 발표</strong>
+            10.05 09:00
+          </p>
+        </li>
+        <li class="experience-progress__item">
+          <p class="experience-progress__info">
+            <strong>배송/리뷰작성</strong>
+            10.06 09:00 <span class="symbol">~</span> 10.20 23:59
+          </p>
+        </li>
+      </ul>
+    </div>
+    <!-- [D] case : 체험신청, 로그인 이전 -->
+    <div class="state-notice">
+      <p class="state-notice-text">로그인을 하시면 <br><em class="text-point">Fredit 체험단 이벤트</em>에 참여하실 수 있습니다.</p>
+      <a href="#" class="state-notice__btn">로그인</a>
+    </div>
+
+    <!-- [D] case : 체험신청 -->
+    <div class="state-notice">
+      <p class="state-notice-text"><em class="text-point">Fredit 체험단 이벤트에 참여하셨습니다.</em></p>
+      <p class="state-notice-text">당첨자 발표까지 <span class="text-point text-point-color">D-10</span><br> (10.05 09:00)</p>
+    </div>
+
+    <!-- [D] case : 당첨 -->
+    <div class="state-notice">
+      <p class="state-notice-text">박보검님<br><em class="text-bold text-point-color">Fredit 체험단 이벤트에 참여하셨습니다.</em></p>
+      <p class="state-notice-text">회원 가입시 등록하신 주소지로 배송됩니다.<br><span class="text-dim-color">(배송 및 리뷰기간 : 10.06 09:00 ~ 10.20 23:59)</span></p>
+      <a href="#" class="state-notice__btn">배송지 수정하기</a>
+    </div>
+
+    <!-- [D] case : 낙첨 -->
+    <div class="state-notice">
+      <p class="state-notice-text">박보검님<br><em class="text-bold">아쉽지만 당첨되지 않으셨어요.</em></p>
+      <p class="state-notice-text">다음 Fredit 체험단 이벤트에 도전해보세요.<br>박보검님의 당첨을 응원할게요!</p>
+    </div>
+
+    <!-- [D] case : 발표 이후 로그인 이전 -->
+    <div class="state-notice">
+      <p class="state-notice-text">로그인을 하시면 <br><em class="text-point">Fredit 체험단 이벤트</em> 당첨 여부를 확인하실 수 있습니다.</p>
+      <a href="#" class="state-notice__btn">로그인</a>
+    </div>
+
+     <!-- [D] case : 당첨&리뷰 미작성 -->
+     <div class="state-notice">
+      <p class="state-notice-text">박보검님<br><em class="text-bold">사용해보신 체험단 제품은 어떠세요?</em></p>
+      <p class="state-notice-text"><span class="text-dim-color">아직 체험단 제품 리뷰를 남기지 않았어요.<br>리뷰를 남겨주세요~</span></p>
+      <a href="#" class="state-notice__btn layer-popup-opener" data-layer-target="#review-layer">리뷰 남기기</a>
+    </div>
+
+    <div class="product-detail">
+      <div class="product-detail__inner">
+        <div class="box-image box-image--full">
+          <img src="../img/@tmp/@tmp_exp_content.jpg" alt="">
+        </div>
+      </div>
+      <div class="product-detail__btn-wrap">
+        <button type="button" class="product-detail__btn">상세정보 보기</button>
+      </div>
+    </div>
+    <div class="experience-list__area">
+      <strong class="experience-list__title">체험제품 <span>(2개)</span></strong>
+      <ul class="products__list">
+        <li class="products__item">
+        <div class="product-grid">
+          <a href="#" class="product-grid__link">
+            <div class="product-grid__box-image">
+              <img src="../img/@tmp/@tmp_product_img_660x660.jpg" alt="불가리안 로즈 블레미쉬 케어세럼Ⅱ (잡티세럼) 35ml">
+            </div>
+            <div class="product-grid__box-info">
+              <strong class="product-grid__brand-name">아이소이</strong>
+              <p class="product-grid__product-name">불가리안 로즈 블레미쉬 케어세럼Ⅱ (잡티세럼) 35ml</p>
+              <div class="product-grid__price-box">
+              <strong class="product-grid__price">49,000<span class="unit">원</span></strong>
+              <del class="product-grid__origin-price">
+                <span class="num">23,000<span class="unit">원</span></span>
+              </del>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="tester-review-slide swiper-container">
+          <ul class="tester-review-slide__list swiper-wrapper">
+          <li class="tester-review-slide__item swiper-slide">
+            <div class="box-image">
+              <img src="../img/@tmp/@tmp_review.png" alt="">
+            </div>
+            <strong class="title">한줄 소개</strong>
+            <span class="text text--summary">평소에 쿠오카에 관심이 많았어요!!</span>
+            <strong class="title">사용 후기</strong>
+            <span class="text">크림이 끈적이지 않아서 좋구요<br>당기지 않아서 또 좋아요<br>처음 사용해보는데 세럼도 지름신이 올것같아요<br>좋아요</span>
+            <span class="name">송*교</span>
+          </li>
+          <li class="tester-review-slide__item swiper-slide">
+            <div class="box-image">
+              <img src="../img/@tmp/@tmp_review.png" alt="">
+            </div>
+            <strong class="title">한줄 소개</strong>
+            <span class="text text--summary">평소에 쿠오카에 관심이 많았어요!!</span>
+            <strong class="title">사용 후기</strong>
+            <span class="text">크림이 끈적이지 않아서 좋구요<br>당기지 않아서 또 좋아요<br>처음 사용해보는데 세럼도 지름신이 올것같아요<br>좋아요</span>
+            <span class="name">송*교</span>
+          </li>
+          <li class="tester-review-slide__item swiper-slide">
+            <div class="box-image">
+              <img src="../img/@tmp/@tmp_review.png" alt="">
+            </div>
+            <strong class="title">한줄 소개</strong>
+            <span class="text text--summary">평소에 쿠오카에 관심이 많았어요!!</span>
+            <strong class="title">사용 후기</strong>
+            <span class="text">크림이 끈적이지 않아서 좋구요<br>당기지 않아서 또 좋아요<br>처음 사용해보는데 세럼도 지름신이 올것같아요<br>좋아요</span>
+            <span class="name">송*교</span>
+          </li>
+          <!-- [D] 마지막 슬라이드. 더보기 영역 -->
+          <li class="tester-review-slide__item tester-review-slide__item--more swiper-slide">
+            <a href="#" class="tester-review-slide__link">
+              <div class="more-slide-item">
+                <div class="more-slide-item__box-align">
+                <i class="more-slide-item__icon-more"></i>
+                <span class="more-slide-item__text">Fredit 체험단</span>
+                <span class="more-slide-item__text more-slide-item__text--sub">리뷰 더보기</span>
+                </div>
+              </div>
+            </a>
+          </li>
+          </ul>
+          <div class="tester-review-slide__pagination swiper-pagination"></div>
+        </div>
+        </li>
+        <li class="products__item">
+          <div class="product-grid">
+            <a href="#" class="product-grid__link">
+            <div class="product-grid__box-image">
+              <img src="../img/@tmp/@tmp_product_img_660x660.jpg" alt="불가리안 로즈 블레미쉬 케어세럼Ⅱ (잡티세럼) 35ml">
+            </div>
+            <div class="product-grid__box-info">
+              <strong class="product-grid__brand-name">아이소이</strong>
+              <p class="product-grid__product-name">불가리안 로즈 블레미쉬 케어세럼Ⅱ (잡티세럼) 35ml</p>
+              <div class="product-grid__price-box">
+              <strong class="product-grid__price">49,000<span class="unit">원</span></strong>
+              <del class="product-grid__origin-price">
+                <span class="num">23,000<span class="unit">원</span></span>
+              </del>
+              </div>
+            </div>
+            </a>
+          </div>
+          <div class="tester-review-slide swiper-container">
+            <ul class="tester-review-slide__list swiper-wrapper">
+            <li class="tester-review-slide__item swiper-slide">
+              <div class="box-image">
+                <img src="../img/@tmp/@tmp_review.png" alt="">
+              </div>
+              <strong class="title">한줄 소개</strong>
+              <span class="text text--summary">평소에 쿠오카에 관심이 많았어요!!</span>
+              <strong class="title">사용 후기</strong>
+              <span class="text">크림이 끈적이지 않아서 좋구요<br>당기지 않아서 또 좋아요<br>처음 사용해보는데 세럼도 지름신이 올것같아요<br>좋아요</span>
+              <span class="name">송*교</span>
+            </li>
+            <li class="tester-review-slide__item swiper-slide">
+              <div class="box-image">
+                <img src="../img/@tmp/@tmp_review.png" alt="">
+              </div>
+              <strong class="title">한줄 소개</strong>
+              <span class="text text--summary">평소에 쿠오카에 관심이 많았어요!!</span>
+              <strong class="title">사용 후기</strong>
+              <span class="text">크림이 끈적이지 않아서 좋구요<br>당기지 않아서 또 좋아요<br>처음 사용해보는데 세럼도 지름신이 올것같아요<br>좋아요</span>
+              <span class="name">송*교</span>
+            </li>
+            <li class="tester-review-slide__item swiper-slide">
+              <div class="box-image">
+                <img src="../img/@tmp/@tmp_review.png" alt="">
+              </div>
+              <strong class="title">한줄 소개</strong>
+              <span class="text text--summary">평소에 쿠오카에 관심이 많았어요!!</span>
+              <strong class="title">사용 후기</strong>
+              <span class="text">크림이 끈적이지 않아서 좋구요<br>당기지 않아서 또 좋아요<br>처음 사용해보는데 세럼도 지름신이 올것같아요<br>좋아요</span>
+              <span class="name">송*교</span>
+            </li>
+            <!-- [D] 마지막 슬라이드. 더보기 영역 -->
+            <li class="tester-review-slide__item tester-review-slide__item--more swiper-slide">
+              <a href="#" class="tester-review-slide__link">
+                <div class="more-slide-item">
+                  <div class="more-slide-item__box-align">
+                  <i class="more-slide-item__icon-more"></i>
+                  <span class="more-slide-item__text">Fredit 체험단</span>
+                  <span class="more-slide-item__text more-slide-item__text--sub">리뷰 더보기</span>
+                  </div>
+                </div>
+              </a>
+            </li>
+            </ul>
+            <div class="tester-review-slide__pagination swiper-pagination"></div>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="experience-info__area">
+      <strong class="experience-info__title">&#8251; 안내사항</strong>
+      <ul class="experience-info__list">
+        <li class="experience-info__item">Fredit 체험단 제품은 {제품명+용량}, {제품명+용량}, {제품명+용량} 으로  발송됩니다.</li>
+        <li class="experience-info__item">선정된 Fredit 체험단에게는 해당 제품을 무료로 배송합니다.</li>
+        <li class="experience-info__item">리뷰 등록 기간에 맞춰서 리뷰를 등록해야하며, 미 등록 시에는 차후 Fredit 체험단 선정에서 제외될 수 있습니다.</li>
+        <li class="experience-info__item">베스트 리뷰 선정 시에는 {Point}를 지급합니다.</li>
+      </ul>
+    </div>
+
+    <!-- floating menu -->
+    <div class="floating-menu">
+      <div class="floating-menu__util">
+        <button type="button" class="btn-share layer-popup-opener" data-layer-target="#share-sns-layer">Share</button>
+      </div>
+      <a href="#" class="btn-text layer-popup-opener" data-layer-target="#experience-layer">Fredit 체험단 신청하기</a>
+      <a href="#" class="btn-text" style="display:none;">당첨자 확인하기</a>
+    </div>
+    <!-- //floating menu -->
+  </main>
+  <!-- //content -->
+  <!-- footer -->
+@@include('./include/footer.html')
+  <!-- //footer -->
+</div>
+<div class="sticky-wrap">
+  <!-- 상단이동버튼 -->
+  <a href="#" class="btn-top">페이지 상단으로 이동</a>
+</div>
+<!-- [D] Layer popup : sns 공유 -->
+<div class="common-layer share-sns-layer" id="share-sns-layer" style="display:none;">
+  <div class="common-layer__dimmed"></div>
+  <div class="common-layer__wrapper">
+    <div class="common-layer__inner" role="dialog">
+      <div class="common-layer__header">
+        <h1 class="blind">sns 공유</h1>
+      </div>
+      <div class="common-layer__content">
+        <div class="share-sns">
+          <strong class="share-sns__title"><em class="text-semi-point">Fredit만의 특별함</em>을 <em class="text-point">SNS</em>에 <em class="text-point">공유</em>해보세요.</strong>
+          <ul class="share-sns__list">
+          <li class="share-sns__item">
+            <button type="button" class="share-sns__btn share-sns__btn--facebook"><span class="blind">페이스북</span></button>
+          </li>
+          <li class="share-sns__item">
+            <button type="button" class="share-sns__btn share-sns__btn--twitter"><span class="blind">트위터</span></button>
+          </li>
+          <li class="share-sns__item">
+            <button type="button" class="share-sns__btn share-sns__btn--kakaotalk"><span class="blind">카카오톡</span></button>
+          </li>
+          <li class="share-sns__item">
+            <button type="button" class="share-sns__btn share-sns__btn--copy">URL<br>복사</button>
+          </li>
+          </ul>
+        </div>
+      </div>
+      <div class="common-layer__box-btn-close">
+        <button type="button" class="common-layer__btn-close">팝업 닫기</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- [D] Layer popup : 리뷰 작성 팝업 -->
+<div class="common-layer common-layer--full" id="review-layer" style="display:none;">
+  <div class="common-layer__dimmed"></div>
+  <div class="common-layer__wrapper">
+    <div class="common-layer__inner" role="dialog">
+      <div class="common-layer__header">
+        <h1 class="blind">리뷰 작성</h1>
+      </div>
+      <div class="common-layer__content">
+        <div class="review-layer-section">
+          <h2 class="review-layer-section__title"><em class="text-point">박보검</em>님<br>사용해보신 제품은 어떠셨나요?</h2>
+          <div class="rating-wrap js-rating-wrap">
+            <strong class="rating-wrap__title">상품은 만족하셨나요?</strong>
+            <span class="star">
+              <span class="rating js-rating" data-score="5" style="width:100%"></span>
+              <span class="value"><span class="score js-score">5.0</span> <span class="sub-value js-sub-value">(최고예요!)</span></span>
+            </span>
+            <button type="button" class="rating-wrap__btn rating-wrap__btn--minus js-rating-btn-minus"><span class="blind">별점내리기</span></button>
+            <button type="button" class="rating-wrap__btn rating-wrap__btn--plus js-rating-btn-plus"><span class="blind">별점올리기</span></button>
+          </div>
+          <div class="textarea-wrap textarea-wrap--small">
+            <label for="textarea" class="label">한 줄 소개</label>
+            <textarea id="textarea" cols="30" rows="10"  placeholder="상품에 대한 한 줄 소개를 입력해주세요." class="textarea"></textarea>
+            <span class="value"><span class="count">25 </span>/ 100</span>
+          </div>
+          <div class="textarea-wrap">
+            <label for="textarea2" class="label">상품리뷰작성폼</label>
+            <textarea id="textarea2" cols="30" rows="10"  placeholder="상품에 대한 사용 후기를 입력해 주세요." class="textarea"></textarea>
+            <span class="value"><span class="count">25 </span>/ 1,000</span>
+          </div>
+          <div class="input-file-wrap">
+            <input type="file" id="file" name="file" class="inp">
+            <label for="file" class="label">사진 첨부하기</label>
+            <!-- 첨부한 사진 영역 -->
+            <ul class="input-file__list">
+            <li class="input-file__item">
+              <img src="../img/@tmp/@tmp_review.png" alt="">
+              <button type="button" class="input-file__btn-delete">첨부파일 삭제</button>
+            </li>
+            <li class="input-file__item">
+              <img src="../img/@tmp/@tmp_review.png" alt="">
+              <button type="button" class="input-file__btn-delete">첨부파일 삭제</button>
+            </li>
+            <li class="input-file__item">
+              <img src="../img/@tmp/@tmp_review.png" alt="">
+              <button type="button" class="input-file__btn-delete">첨부파일 삭제</button>
+            </li>
+            <li class="input-file__item">
+              <img src="../img/@tmp/@tmp_review.png" alt="">
+              <button type="button" class="input-file__btn-delete">첨부파일 삭제</button>
+            </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="common-layer__btn-wrap">
+        <button type="button" class="common-layer__btn common-layer__btn--cancel">취소</button>
+        <button type="submit" class="common-layer__btn">리뷰 등록</button>
+      </div>
+      <div class="common-layer__box-btn-close">
+        <button type="button" class="common-layer__btn-close">팝업 닫기</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- [D] Layer popup : 체험단 신청하기 -->
+<div class="common-layer common-layer--full" id="experience-layer" style="display:none;">
+  <div class="common-layer__dimmed"></div>
+  <div class="common-layer__wrapper">
+    <div class="common-layer__inner" role="dialog" data-validator-form="true">
+      <div class="common-layer__header">
+        <h1 class="common-layer__title common-layer__title--large">체험단 신청하기</h1>
+      </div>
+      <div class="common-layer__content" >
+        <div class="experience-overview">
+          <div class="experience__box-info">
+          <!--
+          체험신청 : experience__badge--apply
+          리뷰작성 : experience__badge--write-review
+          신청마감 : experience__badge--apply-deadline
+          당첨발표 : experience__badge--winning
+          체험종료 : experience__badge--end
+          -->
+          <span class="experience__badge experience__badge--apply">체험신청</span>
+          <div class="experience__option">
+            <em class="experience__recruitment">모집인원. 200명</em> / 신청인원. 128명 <span class="experience__automatic-closing">(자동마감 300명)</span>
+          </div>
+          </div>
+          <div class="experience__box-title">
+          <div class="experience__image">
+            <img src="../img/@tmp/@tmp_group_exp_720x350.jpg" alt="">
+          </div>
+          <div class="experience__title">
+            <img src="../img/@tmp/@tmp_group_event_logo_170x170.png" alt="" class="experience__logo">
+            <strong class="title"><span class="brand">[베베스킨]</span>베리 베리 핸드워시 체험단 모집</strong>
+          </div>
+          </div>
+        </div>
+        <div class="experience-progress">
+          <p class="text"><em class="text-point-color">마감일자.</em> 2020.09.30 23:59까지</p>
+        </div>
+
+
+        <form action="" class="common-form">
+          <fieldset>
+            <legend>체험단 신청 정보 입력</legend>
+            <div class="input-wrap">
+              <label for="name" class="label">받는사람<span class="ico-required">필수입력항목</span></label>
+              <input type="text" id="name" class="inp" value="박보검" required>
+            </div>
+            <div class="input-wrap input-wrap--required">
+              <label for="number" class="label">연락처<span class="ico-required">필수입력항목</span></label>
+              <input type="text" id="number" class="inp" value="010-1234-5678" maxlength="14" data-validator-phone="true" required>
+            </div>
+            <div class="input-wrap input-wrap--address">
+              <span class="label">배송주소 <span class="ico-required">필수입력항목</span></span>
+              <div class="input-wrap__zip">
+                <input type="text" id="zipcode" class="inp read-only" title="우편번호" placeholder="우편번호" value="우편번호" readonly>
+                <a href="#" class="input-wrap__btn">주소검색</a>
+              </div>
+              <input type="text" id="address" class="inp read-only" title="기본주소" placeholder="기본주소" value="기본주소" readonly>
+              <input type="text" id="address2" class="inp" title="상세주소" placeholder="상세주소를 입력하세요.">
+            </div>
+            <div class="terms-agree">
+              <ul class="terms-agree__list js-terms-agree-wrap" data-validator-checkall="true">
+              <li class="terms-agree__item js-terms-agree-item">
+                <div class="checkbox-wrap checkbox-wrap--agree">
+                  <input type="checkbox" id="checkbox" class="inp js-terms-agree-input js-terms-agree-input-all">
+                  <label for="checkbox" class="label"><span class="blind">동의하기</span></label>
+                </div>
+                <a href="#" class="terms-agree__link">아래 내용에 전체 동의합니다.</a>
+              </li>
+              <li class="terms-agree__item js-terms-agree-item">
+                <div class="checkbox-wrap checkbox-wrap--agree">
+                  <input type="checkbox" id="checkbox2" class="inp js-terms-agree-input">
+                  <label for="checkbox2" class="label"><span class="blind">동의하기</span></label>
+                </div>
+                <a href="#" class="terms-agree__link">개인정보 수집 및 이용 동의<span class="text-required">(필수)</span></a>
+              </li>
+              <li class="terms-agree__item js-terms-agree-item">
+                <div class="checkbox-wrap checkbox-wrap--agree">
+                  <input type="checkbox" id="checkbox3" class="inp js-terms-agree-input">
+                  <label for="checkbox3" class="label"><span class="blind">동의하기</span></label>
+                </div>
+                <a href="#" class="terms-agree__link">마케팅 정보 제3자 제공에 동의합니다.<span class="text-required">(필수)</span></a>
+              </li>
+              </ul>
+            </div>
+          </fieldset>
+        </form>
+      </div>
+      <div class="common-layer_btn-wrap common-layer_btn-wrap--full">
+        <button type="submit" class="common-layer__btn" disabled>신청하기</button>
+      </div>
+      <div class="common-layer__box-btn-close">
+        <button type="button" class="common-layer__btn-close">팝업 닫기</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+@@include('./include/script.html',{"type":""})
+<!-- [D] 마크업 case view. 개발 적용 시 제외 영역 -->
+<script>
+function checkStateEvent(_class,_text,_value) {
+  var badge = $('.experience__badge'),
+      progressItem = $('.experience-progress__item'),
+      floatingUtil = $('.floating-menu__util'),
+      btnFloatingText = $('.floating-menu .btn-text'),
+      stateNotice = $('.state-notice'),
+      testerReviewSlide = $('.tester-review-slide');
+  (function(){
+    badge.removeClass('experience__badge--apply experience__badge--write-review experience__badge--apply-deadline experience__badge--winning experience__badge--end');
+    badge.addClass('experience__badge--'+_class).text(_text);
+    progressItem.removeClass('is-active');
+    stateNotice.hide();
+    floatingUtil.show();
+    btnFloatingText.hide().eq(0).show();
+    testerReviewSlide.hide();
+  })()
+  switch (_class) {
+    case 'apply':
+      progressItem.eq(0).addClass('is-active');
+      _value ? stateNotice.eq(1).show() : stateNotice.eq(0).show();
+      break;
+    case 'apply-deadline':
+    progressItem.eq(1).addClass('is-active');
+    stateNotice.eq(1).show();
+    break;
+    case 'winning':
+    progressItem.eq(1).addClass('is-active');
+    if(_value == true) {
+      stateNotice.eq(2).show();
+    } else if(_value == false) {
+      stateNotice.eq(4).show();
+    } else if(_value == 'failed'){
+      stateNotice.eq(3).show();
+    }
+    floatingUtil.hide();
+    btnFloatingText.hide().eq(1).show();
+    break;
+    case 'end':
+    progressItem.eq(2).addClass('is-active');
+    stateNotice.eq(5).show();
+    floatingUtil.hide();
+    btnFloatingText.hide().eq(1).show();
+    testerReviewSlide.show();
+    break;
+    break;
+    default:
+      break;
+  }
+}
+</script>
+@@include('./include/caseview.html',{
+  "item": [
+    {
+      "text":"진행상태(체험신청)(로그인 이전)",
+      "func": "checkStateEvent('apply','체험신청', false)"
+    },
+    {
+      "text":"진행상태(체험신청)",
+      "func": "checkStateEvent('apply','체험신청', true)"
+    },
+    {
+      "text":"진행상태(신청마감)",
+      "func": "checkStateEvent('apply-deadline','신청마감', true)"
+    },
+    {
+      "text":"진행상태(당첨발표/당첨)",
+      "func": "checkStateEvent('winning','당첨발표', true)"
+    },
+    {
+      "text":"진행상태(당첨발표/낙첨)",
+      "func": "checkStateEvent('winning','당첨발표', 'failed')"
+    },
+    {
+      "text":"진행상태(당첨발표/로그인 이전)",
+      "func": "checkStateEvent('winning','리뷰작성', false)"
+    },
+    {
+      "text":"진행상태(체험종료)",
+      "func": "checkStateEvent('end','체험종료', true)"
+    },
+  ]
+})
+<!-- //[D] 마크업 case view. 개발 적용 시 제외 영역 -->
+</body>
+</html>

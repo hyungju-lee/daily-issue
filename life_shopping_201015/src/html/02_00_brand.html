@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ko">
+<%- include('includes/head.ejs', {
+    title: "<title>브랜드 : 브랜드 페이지</title>",
+})%>
+<body>
+<div class="wrap cont-flex page-brand">
+    <div class="header">
+        <h1 class="tit">브랜드 전체</h1>
+        <div class="btn-area">
+            <button type="button" class="btn btn-before"><span class="blind">뒤로가기</span></button>
+        </div>
+    </div>
+    <div class="section section--mt6">
+        <div class="search search--type2">
+            <input type="text" id="search_input" class="search__inp inp" placeholder="원하는 브랜드를 검색해보세요!">
+            <label for="search_input" class="blind">검색창</label>
+            <button type="button" class="btn search__glass"><span class="blind">이전</span></button>
+        </div>
+    </div>
+    <div class="section section--mt section--pt20 cont-flex cont-flex__item">
+        <ul class="inp-area inp-area--radio">
+            <li class="inp-area--radio__item">
+                <input type="radio" id="all" name="radio1" class="inp-radio blind" checked>
+                <label for="all" class="inp-radio-label inp-radio-label--text">전체</label>
+            </li>
+            <li class="inp-area--radio__item">
+                <input type="radio" id="shopping" name="radio1" class="inp-radio blind">
+                <label for="shopping" class="inp-radio-label inp-radio-label--text">쇼핑적립</label>
+            </li>
+            <li class="inp-area--radio__item">
+                <input type="radio" id="payment" name="radio1" class="inp-radio blind">
+                <label for="payment" class="inp-radio-label inp-radio-label--text">최근결제</label>
+            </li>
+            <li class="inp-area--radio__item">
+                <input type="radio" id="choice" name="radio1" class="inp-radio blind">
+                <label for="choice" class="inp-radio-label inp-radio-label--icon"><span class="blind">내가찜한거</span></label>
+            </li>
+        </ul>
+        <div class="result-area">
+            <div class="no-result">
+                <span class="no-result__img"><img src="../img/common/no-result.png" alt="결과가 없습니다."></span>
+                <p class="no-result__txt">찜한 브랜드가 없습니다.</p>
+            </div>
+
+
+            <ul class="list-result" style="display: none">
+                <li class="list-result__item">
+                    <figure class="item-result">
+                        <span class="item-result__img"><img src="../img/common/logo-artisee2.png" alt="아티제"></span>
+                        <figcaption class="item-result__captions">
+                            <p class="txt">일이삼사오륙칠팔구십일이삼사오륙칠팔구십일이삼사오륙칠팔구십일이삼사오륙칠팔구십일이삼사오륙칠팔구십 <em class="badge"><span class="blind">최근 결제</span></em></p>
+                            <span class="benefit">쇼핑적립 3.6%</span>
+                        </figcaption>
+                    </figure>
+                    <div class="inp-area">
+                        <input type="checkbox" id="inpnum1" name="" value="" class="inp-chk blind">
+                        <label for="inpnum1" class="inp-chk-label"><span class="blind">해당인풋설명</span></label>
+                    </div>
+                </li>
+                <li class="list-result__item">
+                    <figure class="item-result">
+                        <span class="item-result__img"><img src="../img/common/logo-musinsa2.png" alt="무신사"></span>
+                        <figcaption class="item-result__captions">
+                            <p class="txt">무신사 <em class="badge"><span class="blind">최근 결제</span></em></p>
+                            <span class="benefit">쇼핑적립 3.4%</span>
+                        </figcaption>
+                    </figure>
+                    <div class="inp-area">
+                        <input type="checkbox" id="inpnum2" name="" value="" class="inp-chk blind">
+                        <label for="inpnum2" class="inp-chk-label"><span class="blind">해당인풋설명</span></label>
+                    </div>
+                </li>
+                <li class="list-result__item">
+                    <figure class="item-result">
+                        <span class="item-result__img"><img src="../img/common/logo-hyundai2.png" alt="현대백화점"></span>
+                        <figcaption class="item-result__captions">
+                            <p class="txt">현대백화점</p>
+                            <span class="benefit">쇼핑적립 3.6%</span>
+                        </figcaption>
+                    </figure>
+                    <div class="inp-area">
+                        <input type="checkbox" id="inpnum3" name="" value="" class="inp-chk blind">
+                        <label for="inpnum3" class="inp-chk-label"><span class="blind">해당인풋설명</span></label>
+                    </div>
+                </li>
+                <li class="list-result__item">
+                    <figure class="item-result">
+                        <span class="item-result__img"><img src="../img/common/logo-oliveyoung2.png" alt="올리브영"></span>
+                        <figcaption class="item-result__captions">
+                            <p class="txt">현대백화점</p>
+                            <span class="benefit">쇼핑적립 3.6%</span>
+                        </figcaption>
+                    </figure>
+                    <div class="inp-area">
+                        <input type="checkbox" id="inpnum4" name="" value="" class="inp-chk blind">
+                        <label for="inpnum4" class="inp-chk-label"><span class="blind">해당인풋설명</span></label>
+                    </div>
+                </li>
+                <li class="list-result__item">
+                    <figure class="item-result">
+                        <span class="item-result__img"><img src="../img/common/logo-yogiyo2.png" alt="요기요"></span>
+                        <figcaption class="item-result__captions">
+                            <p class="txt">현대백화점 <em class="badge"><span class="blind">최근 결제</span></em></p>
+                            <span class="benefit">쇼핑적립 3.6%</span>
+                        </figcaption>
+                    </figure>
+                    <div class="inp-area">
+                        <input type="checkbox" id="inpnum5" name="" value="" class="inp-chk blind">
+                        <label for="inpnum5" class="inp-chk-label"><span class="blind">해당인풋설명</span></label>
+                    </div>
+                </li>
+                <li class="list-result__item">
+                    <figure class="item-result">
+                        <span class="item-result__img"><img src="../img/common/logo-parisbaguette2.png" alt="파리바게트"></span>
+                        <figcaption class="item-result__captions">
+                            <p class="txt">현대백화점</p>
+                            <span class="benefit">쇼핑적립 3.6%</span>
+                        </figcaption>
+                    </figure>
+                    <div class="inp-area">
+                        <input type="checkbox" id="inpnum6" name="" value="" class="inp-chk blind">
+                        <label for="inpnum6" class="inp-chk-label"><span class="blind">해당인풋설명</span></label>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!-- [D] 마크업 확인용, 개발시 삭제 -->
+<style>
+    .caseView {position:fixed;top:10px;right:0;z-index:100}
+    .case {display:block;padding:5px 10px;margin:5px 0;background-color:rgba(0, 0, 0, .6);font-size:12px;color:#fff;}
+    .case0 {position: absolute; top: 0; left: 0; transform: translateX(-100%)}
+</style>
+<div class="caseView">
+    <a href="#" class="case case0">닫기</a>
+    <a href="#" class="case case1">찜한브랜드 없음</a>
+    <a href="#" class="case case2">전체</a>
+</div>
+<script src="../js/libs/libs.min.js"></script>
+<script src="../js/script.js"></script>
+<script>
+    (function (win, $) {
+        const caseView = $('.caseView');
+        const noResult = $('.no-result');
+        const listResult = $('.list-result');
+
+        const onAndOffFunc = (e) => {
+            if ($(e.target).text() === '닫기') {
+                $(e.target).text('열기');
+                caseView.css({
+                    "transform": "translate3d(100%, 0, 0)",
+                    "transition": "transform 0.3s"
+                })
+            } else {
+                $(e.target).text('닫기');
+                caseView.css({
+                    "transform": "translate3d(0, 0, 0)",
+                    "transition": "transform 0.3s"
+                })
+            }
+        }
+
+        const caseFunc = (e) => {
+            switch (true) {
+                case ($(e.target).hasClass('case0')) :
+                    onAndOffFunc(e);
+                    break;
+                case ($(e.target).hasClass('case1')) :
+                    noResult.css("display", "block");
+                    listResult.css("display", "none");
+                    break;
+                case ($(e.target).hasClass('case2')) :
+                    noResult.css("display", "none");
+                    listResult.css("display", "block");
+                    break;
+
+                default :
+                    break;
+            }
+        }
+
+
+        caseView.on('click', '.case', (e) => {
+            e.preventDefault();
+            caseFunc(e);
+        })
+    })(window, window.jQuery)
+</script>
+<!-- //[D] 마크업 확인용, 개발시 삭제 -->
+</body>
+</html>

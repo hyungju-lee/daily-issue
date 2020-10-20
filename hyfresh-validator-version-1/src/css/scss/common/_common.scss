@@ -1,0 +1,59 @@
+body,
+input,
+select,
+textarea,
+button {
+  font-family: 'montserrat', 'noto', 'Apple SD Gothic Neo', -apple-system, sans-serif;
+  @include rfonts(14);
+}
+
+*,
+*:before,
+*:after {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+body {
+  -webkit-overflow-scrolling: touch;
+  color: $black;
+}
+.blind,
+caption span,
+legend {
+  position: absolute;
+  @include blind();
+}
+
+.skip {
+  height: 0
+}
+
+.skip a {
+  display: block;
+  position: absolute;
+  left: 0;
+  top: -100px;
+  width: 100%;
+  height: 25px;
+  text-align: center
+}
+
+.skip a:focus,
+#skip a:active {
+  position: absolute;
+  top: 0;
+  z-index: 100;
+  padding: 10px 0;
+  background: #000;
+  font-weight: bold;
+  color: #fff;
+  text-decoration: none
+}
+
+a,
+a:link,
+a:visited {
+  border: initial;
+  color: inherit;
+}

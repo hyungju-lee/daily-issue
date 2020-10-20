@@ -1,0 +1,491 @@
+@@include('./include/head.html',{"title": "쿠폰 - HYFRESH", "list_title": "쿠폰 : mypage", "cssFile": "hyfresh-common"})
+<body data-pagestatus="new : 2020.10.20">
+@@include('./include/skipnavigation.html')
+
+<div class="wrap wrap-coupon">
+  <!-- header -->
+@@include('./include/header.html',{"type":"detail","title":"쿠폰"})
+  <!-- //header -->
+  <!-- content -->
+  <main id="content" class="content">
+    <!-- 기존 코드 영역 -->
+    <div class="content_body coupon_list" style="display:none;">
+      <div class="tab_wrap">
+        <ul class="tab_list num2">
+        <li class="active"><a href="#" id="btnUsableList">사용가능 쿠폰</a></li>
+        <li class=""><a href="#" id="btnUsedList">지난 쿠폰</a></li>
+        </ul>
+        <div class="tab_cont_wrap">
+          <div class="tab_cont on">
+            <section class="section type2">
+              <div class="section_body" style="padding:12px 0px 12px 9px">                                
+                <!-- section :: 쿠폰등록 -->
+                <div class="input_wrap mar_t7">
+                  <input type="text" name="couponIdOrPromoId" id="couponIdOrPromoId" class="c" style="width:calc(100% - 79px)" placeholder="쿠폰번호만 입력하세요.(대소문자 구분)">
+                  <button type="button" id="btnRegCpnNo" name="btnRegCpnNo" class="btn mid blue_bor">쿠폰등록</button>
+                </div>
+                <!-- //section :: 쿠폰등록 -->
+              </div>
+              <div class="section_body type2">
+                <!-- 쿠폰 목록 -->
+                <p class="paragraph1"></p>
+                <div class="couponList_wrap">
+                  <ul class="coupon_list" id="couponList">
+                    <li class="orange">
+                      <div class="coupon_inner">
+                        <p class="tit">카테고리 쿠폰</p>
+                        <div class="prodInfo">
+                          <p class="price">10<span>%</span></p>
+                          <p class="explain">신선간편식 10% 할인쿠폰(왕뚜껑 이벤트)</p>
+                        </div>
+                      </div>
+                    </li>
+                    <p class="termsInfo">사용기간:2020.11.12까지 최대할인:3000원 신선간편식에서만  사용 가능</p>
+                    <li class="orange">
+                      <div class="coupon_inner">
+                        <p class="tit">카테고리 쿠폰</p>
+                        <div class="prodInfo">
+                          <p class="price">10<span>%</span></p>
+                          <p class="explain">신선간편식 10% 할인쿠폰(왕뚜껑 이벤트)</p>
+                        </div>
+                      </div>
+                    </li>
+                    <p class="termsInfo">사용기간:2020.11.12까지 최대할인:3000원 신선간편식에서만  사용 가능</p>
+                    <li class="orange">
+                      <div class="coupon_inner">
+                        <p class="tit">카테고리 쿠폰</p>
+                        <div class="prodInfo">
+                          <p class="price">10<span>%</span></p>
+                          <p class="explain">신선간편식 10% 할인쿠폰(왕뚜껑 이벤트)</p>
+                        </div>
+                      </div>
+                    </li>
+                    <p class="termsInfo">사용기간:2020.11.12까지 최대할인:3000원 신선간편식에서만  사용 가능</p>
+                    <li class="orange">
+                      <div class="coupon_inner">
+                        <p class="tit">카테고리 쿠폰</p>
+                        <div class="prodInfo">
+                          <p class="price">10<span>%</span></p>
+                          <p class="explain">신선간편식 10% 할인쿠폰(왕뚜껑 이벤트)</p>
+                        </div>
+                      </div>
+                    </li>
+                    <p class="termsInfo">사용기간:2020.11.12까지 최대할인:3000원 신선간편식에서만  사용 가능</p>
+                    <li class="orange">
+                      <div class="coupon_inner">
+                        <p class="tit">할인쿠폰</p>
+                        <div class="prodInfo">
+                          <p class="price">34,460<span>원</span></p>
+                          <p class="explain">하나은행 샐러드3</p>
+                        </div>
+                      </div>
+                    </li>
+                    <p class="termsInfo">마감시간 없음  만료일자 미지정</p>
+                    <li class="orange">
+                      <div class="coupon_inner">
+                        <p class="tit">할인쿠폰</p>
+                        <div class="prodInfo">
+                          <p class="price">3<span>%</span></p>
+                          <p class="explain">3천원 할인 쿠폰(브이푸드몰 3% 할인)</p>
+                        </div>
+                      </div>
+                      <div class="state_wrap">
+                        <p class="state">
+                          <span class="fc_type1">미사용</span>
+                          <span class="fc_type2"></span>
+                        </p>
+                      </div>
+                    </li>
+                    <p class="termsInfo">마감시간 종료  사용기간:2016.12.04까지 최대할인:3000원 사용조건:10원 이상 구매시 </p>
+                    <li class="orange">
+                      <div class="coupon_inner">
+                        <p class="tit">할인쿠폰</p>
+                        <div class="prodInfo">
+                          <p class="price">3<span>%</span></p>
+                          <p class="explain">3천원 할인 쿠폰(브이푸드몰 3% 할인)</p>
+                        </div>
+                      </div>
+                      <div class="state_wrap">
+                        <p class="state">
+                          <span class="fc_type1">미사용</span>
+                          <span class="fc_type2"></span>
+                        </p>
+                      </div>
+                    </li>
+                    <p class="termsInfo">마감시간 종료  사용기간:2016.04.03까지 최대할인:3000원 사용조건:10원 이상 구매시 </p>
+                    </ul>
+                </div>
+                <!--// 쿠폰 목록 -->
+              </div>
+
+              <div class="btn_wrap moreView" id="paging" style="display: block;"><a href="#none" class="btn btn_moreview_grey" onclick="biz.moveLocation33('/mypage/getAllUsedCouponList.do?page_currentNumber=2', 'append','paging');"><span class="dis_block explain bg_gray mar_t5">10개 더보기(10/249)</span></a></div>
+              <div class="section_footer">
+                <div class="tit_wrap type1">
+                  <h3 class="arrow l"><span class="ico_help_gray">쿠폰 안내</span></h3>
+                </div>
+                <div class="contArea_type5 dis_none">
+                  <div class="step_wrap">
+                    <dl class="dl_type5">
+                    <dt>유효기간 경과 된 할인쿠폰은 사용하실 수 없습니다.</dt>
+                    <dt>할인 쿠폰은 hyFresh 내에서 사용할 수 있습니다.</dt>
+                    <dt>할인 쿠폰 사용처 및 쿠폰 적용 제품은 향후 변경 및 확대될 수 있습니다.</dt>
+                    <dt>할인 쿠폰은 타 회원 또는 타인에게 양도하거나 담보로 제공할 수 없으며, 발급된 쿠폰의 조회는 야쿠르트 온라인몰(www.hyfresh.co.kr) 또는 고객센터 ARS(1577-3651)에서 가능합니다.</dt>
+                    </dl>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- //기존 코드 영역 -->
+    <!-- [D] 기존 코드 개선 영역 (실 컨텐츠 영역) -->
+    <div class="content_body coupon_list hy-common-coupon">
+      <div class="tab_wrap">
+        <ul class="tab_list num2">
+        <li class="active"><a href="#" id="btnUsableList"><span class="text">내 보유 쿠폰<span class="count">4</span></span></a></li>
+        <li class=""><a href="#" id="btnUsedList"><span class="text">이달의 쿠폰<span class="count">7</span></span></a></li>
+        </ul>
+        <div class="tab_cont_wrap">
+          <!-- 내 보유 쿠폰 -->
+          <div class="tab_cont on">
+            <section class="section type2">
+              <div class="section_body">
+                <!-- section :: 쿠폰등록 -->
+                <div class="coupon_reg js-toggle-wrap is-expanded" data-maxvalue="0">
+                  <button type="button" class="btn_toggle js-toggle-btn">쿠폰 등록</button>
+                  <div class="coupon_reg_content js-toggle-content">
+                    <div class="input_wrap">
+                      <input type="text" name="couponIdOrPromoId" id="couponIdOrPromoId"style="width:calc(100% - 79px)" placeholder="쿠폰번호를 입력하세요. (대소문자 구분)">
+                      <button type="button" id="btnRegCpnNo" name="btnRegCpnNo" class="btn">쿠폰등록</button>
+                    </div>
+                    <ul class="coupon_reg_list">
+                    <li>메일, 모바일, 인쇄물 등에서 받은 쿠폰 번호를 입력해 주세요.</li>
+                    <li>쿠폰 번호는 한글, 영문, 숫자 혼합으로 이루어져 있습니다.</li>
+                    <li>쿠폰번호는 영문 대/소문자를 구분합니다.</li>
+                    <li>쿠폰은 유효 기간이 있으며, 쿠폰에 따라 최소 구매 금액이나 최대 할인 금액 제한이 있을 수 있습니다.</li>
+                    <li>타 쿠폰과 중복 사용이 불가할 수 있으며, 일부 브랜드/품목은 쿠폰 사용에 제한이 있을 수 있습니다.</li>
+                    </ul>
+                  </div>
+                </div>
+                <!-- //section :: 쿠폰등록 -->
+              </div>
+              <div class="section_body type2">
+                <!-- 쿠폰 목록 -->
+                <div class="couponList_wrap">
+                  <ul class="coupon_list" id="couponList">
+                    <!-- life / 미사용 / 지정금액 -->
+                    <li class="orange">
+                      <div class="coupon_inner">
+                        <div class="prodInfo">
+                          <span class="badge badge_life">Life몰 쿠폰</span>
+                          <span class="type">할인</span>
+                          <p class="price">5,000<span class="unit">원</span></p>
+                          <p class="explain">[LIFE] 10월 인기상품 5,000원 할인 쿠폰</p>
+                        </div>
+                        <p class="termsInfo">50,000원 이상 구매 시 <a href="#" class="btn_coupon_info">사용조건</a></p>
+                      </div>
+                      <div class="state_wrap">
+                        <p class="state">
+                          <span class="fc_type1">미사용</span>
+                          <span class="fc_type2">(사용기한 : <span class="period">~ 2020.09. 30</span>)</span>
+                        </p>
+                      </div>
+                    </li>
+                    <!-- food / 미사용 / 할인율 -->
+                    <li class="orange">
+                      <div class="coupon_inner">
+                        <div class="prodInfo">
+                          <span class="badge badge_food">Food몰 쿠폰</span>
+                          <span class="type">할인</span>
+                          <p class="price">30%</p>
+                          <p class="explain">[FOOD] 인기레시피 상품 30% 할인 쿠폰</p>
+                        </div>
+                        <p class="termsInfo">50,000원 이상 구매 시 <a href="#" class="btn_coupon_info">사용조건</a></p>
+                      </div>
+                      <div class="state_wrap">
+                        <p class="state">
+                          <span class="fc_type1">미사용</span>
+                          <span class="fc_type2">(사용기한 : <span class="period">~ 2020.09. 30</span>)</span>
+                        </p>
+                      </div>
+                    </li>
+                    <!-- life / 사용완료 / 지정금액 -->
+                    <!-- [D] 사용완료 or 사용만료 시 done class 추가 -->
+                    <li class="orange done">
+                      <div class="coupon_inner">
+                        <div class="prodInfo">
+                          <span class="badge badge_food">Food몰 쿠폰</span>
+                          <span class="type">할인</span>
+                          <p class="price">30%</p>
+                          <p class="explain">[FOOD] 인기레시피 상품 30% 할인 쿠폰</p>
+                        </div>
+                        <p class="termsInfo">50,000원 이상 구매 시 <a href="#" class="btn_coupon_info">사용조건</a></p>
+                      </div>
+                      <div class="state_wrap">
+                        <p class="state">
+                          <span class="fc_type1">사용완료</span>
+                          <span class="fc_type2">(<span class="period">2020.09. 30</span>)</span>
+                        </p>
+                      </div>
+                    </li>
+                    <!-- food / 사용만료 / 지정금액 -->
+                    <!-- [D] 사용완료 or 사용만료 시 done class 추가 -->
+                    <li class="orange done">
+                      <div class="coupon_inner">
+                        <div class="prodInfo">
+                          <span class="badge badge_food">Food몰 쿠폰</span>
+                          <span class="type">할인</span>
+                          <p class="price">5,000<span class="unit">원</span></p>
+                          <p class="explain">[FOOD] 인기레시피 상품 30% 할인 쿠폰</p>
+                        </div>
+                        <p class="termsInfo">50,000원 이상 구매 시 <a href="#" class="btn_coupon_info">사용조건</a></p>
+                      </div>
+                      <div class="state_wrap">
+                        <p class="state">
+                          <span class="fc_type1">사용만료</span>
+                          <span class="fc_type2">(사용기한 : <span class="period">~ 2020.09. 30</span>)</span>
+                        </p>
+                      </div>
+                    </li>
+                    </ul>
+                </div>
+                <!--// 쿠폰 목록 -->
+              </div>
+              <!-- [D] 토글 기능 제거 필요. -->
+              <div class="section_footer">
+                <div class="tit_wrap type1">
+                  <h3 class="arrow l">※ 쿠폰 안내</h3>
+                </div>
+                <div class="contArea_type5">
+                  <div class="step_wrap">
+                    <ul class="dl_type5">
+                    <li>사용기한이 경과 된 할인쿠폰은 사용하실 수 없으며, 한 달 후 목록에서 삭제됩니다.</li>
+                    <li>할인 쿠폰은 Fredit 내에서 사용할 수 있습니다.</li>
+                    <li>할인 쿠폰 사용처 및 쿠폰 적용 제품은 향후 변경 및 확대될 수 있습니다.</li>
+                    <li>할인 쿠폰은 타 회원 또는 타인에게 양도하거나 담보로 제공할 수 없으며, 발급된 쿠폰의 조회는 고객센터 ARS(1577-3651)에서 확인이 가능합니다.</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+          <!-- 이달의 쿠폰 -->
+          <div class="tab_cont">
+            <section class="section type2">
+              <div class="section_body">
+                <div class="coupon_category">
+                  <strong class="category_title">첫 구매 쿠폰<span class="count">(4)</span></strong>
+                </div>
+                <div class="coupon_group_slide">
+                  <div class="swiper-container">
+                    <!-- 쿠폰 목록 -->
+                    <div class="couponList_wrap swiper-wrapper">
+                      <div class="swiper-slide">
+                        <ul class="coupon_list" id="couponList">
+                        <!-- life / 미사용 / 지정금액 -->
+                        <li class="orange">
+                          <div class="coupon_inner">
+                            <div class="prodInfo">
+                              <span class="badge badge_life">Life몰 쿠폰</span>
+                              <span class="type">할인</span>
+                              <p class="price">5,000<span class="unit">원</span></p>
+                              <p class="explain">[LIFE] 10월 인기상품 5,000원 할인 쿠폰</p>
+                            </div>
+                            <p class="termsInfo">50,000원 이상 구매 시 <a href="#" class="btn_coupon_info">사용조건</a></p>
+                          </div>
+                          <div class="state_wrap">
+                            <p class="state">
+                              <span class="fc_type1">미사용</span>
+                              <span class="fc_type2">(사용기한 : <span class="period">~ 2020.09. 30</span>)</span>
+                            </p>
+                          </div>
+                        </li>
+                        <!-- food / 미사용 / 할인율 -->
+                        <li class="orange">
+                          <div class="coupon_inner">
+                            <div class="prodInfo">
+                              <span class="badge badge_food">Food몰 쿠폰</span>
+                              <span class="type">할인</span>
+                              <p class="price">30%</p>
+                              <p class="explain">[FOOD] 인기레시피 상품 30% 할인 쿠폰</p>
+                            </div>
+                            <p class="termsInfo">50,000원 이상 구매 시 <a href="#" class="btn_coupon_info">사용조건</a></p>
+                          </div>
+                          <div class="state_wrap">
+                            <p class="state">
+                              <span class="fc_type1">미사용</span>
+                              <span class="fc_type2">(사용기한 : <span class="period">~ 2020.09. 30</span>)</span>
+                            </p>
+                          </div>
+                        </li>
+                        </ul>
+                      </div>
+                      <div class="swiper-slide">
+                        <ul class="coupon_list" id="couponList">
+                        <!-- life / 미사용 / 지정금액 -->
+                        <li class="orange">
+                          <div class="coupon_inner">
+                            <div class="prodInfo">
+                              <span class="badge badge_life">Life몰 쿠폰</span>
+                              <span class="type">할인</span>
+                              <p class="price">5,000<span class="unit">원</span></p>
+                              <p class="explain">[LIFE] 10월 인기상품 5,000원 할인 쿠폰</p>
+                            </div>
+                            <p class="termsInfo">50,000원 이상 구매 시 <a href="#" class="btn_coupon_info">사용조건</a></p>
+                          </div>
+                          <div class="state_wrap">
+                            <p class="state">
+                              <span class="fc_type1">미사용</span>
+                              <span class="fc_type2">(사용기한 : <span class="period">~ 2020.09. 30</span>)</span>
+                            </p>
+                          </div>
+                        </li>
+                        <!-- food / 미사용 / 할인율 -->
+                        <li class="orange">
+                          <div class="coupon_inner">
+                            <div class="prodInfo">
+                              <span class="badge badge_food">Food몰 쿠폰</span>
+                              <span class="type">할인</span>
+                              <p class="price">30%</p>
+                              <p class="explain">[FOOD] 인기레시피 상품 30% 할인 쿠폰</p>
+                            </div>
+                            <p class="termsInfo">50,000원 이상 구매 시 <a href="#" class="btn_coupon_info">사용조건</a></p>
+                          </div>
+                          <div class="state_wrap">
+                            <p class="state">
+                              <span class="fc_type1">미사용</span>
+                              <span class="fc_type2">(사용기한 : <span class="period">~ 2020.09. 30</span>)</span>
+                            </p>
+                          </div>
+                        </li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                    <!--// 쿠폰 목록 -->
+                  </div>
+                  <div class="coupon_btn_box">
+                    <button type="button" class="btn_all_coupon">쿠폰 모두 받기</button>
+                  </div>
+                </div>
+                <div class="coupon_category">
+                  <strong class="category_title">추석 선물세트 할인 쿠폰<span class="count">(3)</span></strong>
+                </div>
+                <div class="coupon_group_slide">
+                  <div class="swiper-container">
+                    <!-- 쿠폰 목록 -->
+                    <div class="couponList_wrap swiper-wrapper">
+                      <div class="swiper-slide">
+                        <ul class="coupon_list" id="couponList">
+                        <!-- life / 미사용 / 지정금액 -->
+                        <li class="orange">
+                          <div class="coupon_inner">
+                            <div class="prodInfo">
+                              <span class="badge badge_life">Life몰 쿠폰</span>
+                              <span class="type">할인</span>
+                              <p class="price">5,000<span class="unit">원</span></p>
+                              <p class="explain">[LIFE] 10월 인기상품 5,000원 할인 쿠폰</p>
+                            </div>
+                            <p class="termsInfo">50,000원 이상 구매 시 <a href="#" class="btn_coupon_info">사용조건</a></p>
+                          </div>
+                          <div class="state_wrap">
+                            <p class="state">
+                              <span class="fc_type1">미사용</span>
+                              <span class="fc_type2">(사용기한 : <span class="period">~ 2020.09. 30</span>)</span>
+                            </p>
+                          </div>
+                        </li>
+                        <!-- food / 미사용 / 할인율 -->
+                        <li class="orange">
+                          <div class="coupon_inner">
+                            <div class="prodInfo">
+                              <span class="badge badge_food">Food몰 쿠폰</span>
+                              <span class="type">할인</span>
+                              <p class="price">30%</p>
+                              <p class="explain">[FOOD] 인기레시피 상품 30% 할인 쿠폰</p>
+                            </div>
+                            <p class="termsInfo">50,000원 이상 구매 시 <a href="#" class="btn_coupon_info">사용조건</a></p>
+                          </div>
+                          <div class="state_wrap">
+                            <p class="state">
+                              <span class="fc_type1">미사용</span>
+                              <span class="fc_type2">(사용기한 : <span class="period">~ 2020.09. 30</span>)</span>
+                            </p>
+                          </div>
+                        </li>
+                        </ul>
+                      </div>
+                      <div class="swiper-slide">
+                        <ul class="coupon_list" id="couponList">
+                        <!-- life / 미사용 / 지정금액 -->
+                        <li class="orange">
+                          <div class="coupon_inner">
+                            <div class="prodInfo">
+                              <span class="badge badge_life">Life몰 쿠폰</span>
+                              <span class="type">할인</span>
+                              <p class="price">5,000<span class="unit">원</span></p>
+                              <p class="explain">[LIFE] 10월 인기상품 5,000원 할인 쿠폰</p>
+                            </div>
+                            <p class="termsInfo">50,000원 이상 구매 시 <a href="#" class="btn_coupon_info">사용조건</a></p>
+                          </div>
+                          <div class="state_wrap">
+                            <p class="state">
+                              <span class="fc_type1">미사용</span>
+                              <span class="fc_type2">(사용기한 : <span class="period">~ 2020.09. 30</span>)</span>
+                            </p>
+                          </div>
+                        </li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                    <!--// 쿠폰 목록 -->
+                  </div>
+                  <div class="coupon_btn_box">
+                    <button type="button" class="btn_all_coupon">쿠폰 모두 받기</button>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <!-- //content -->
+  <!-- footer -->
+@@include('./include/footer.html')
+  <!-- //footer -->
+</div>
+<div class="sticky-wrap">
+  <!-- 상단이동버튼 -->
+  <a href="#" class="btn-top">페이지 상단으로 이동</a>
+</div>
+@@include('./include/script.html',{"type":""})
+<!-- [D] 마크업 case view. 개발 적용 시 제외 영역 -->
+<script>
+  function caseView(_index) {
+    var hyCommonLayout = $('.hy-common-coupon'),
+        tab = hyCommonLayout.find('.tab_list li'),
+        tabContent = hyCommonLayout.find('.tab_cont');
+    tab.removeClass('active').eq(_index).addClass('active');
+    tabContent.removeClass('on').eq(_index).addClass('on');
+  }
+  </script>
+  @@include('./include/caseview.html',{
+    "item": [
+      {
+        "text":"내 보유쿠폰 탭",
+        "func": "caseView(0)"
+      },
+      {
+        "text":"이달의 쿠폰 탭",
+        "func": "caseView(1)"
+      },
+    ]
+  })
+  <!-- //[D] 마크업 case view. 개발 적용 시 제외 영역 -->
+</body>
+</html>

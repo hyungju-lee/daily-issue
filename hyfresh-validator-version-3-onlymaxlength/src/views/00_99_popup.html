@@ -1,0 +1,57 @@
+@@include('./include/head.html',{"title": "레이어 팝업 - HYFRESH", "list_title": "Common Layer Popup : Common", "cssFile": "hyfresh"})
+<body data-pagestatus="new : 2020.09.22">
+
+<a href="#" class="layer-popup-opener" data-layer-target="#common-layer1">layer popup button</a>
+
+<!-- [D] Layer popup -->
+<div class="common-layer" id="common-layer1" style="display:none;">
+  <div class="common-layer__dimmed"></div>
+  <div class="common-layer__wrapper">
+    <div class="common-layer__inner" role="dialog">
+      <div class="common-layer__header">
+        <h1 class="common-layer__title">layer title</h1>
+      </div>
+      <div class="common-layer__content">
+        blah~~
+      </div>
+      <div class="common-layer__fixed-wrap">
+        고정영역
+      </div>
+      <div class="common-layer__box-btn-close">
+        <button type="button" class="common-layer__btn-close">팝업 닫기</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- //[D] Layer popup -->
+
+<!-- [D] toast popup -->
+<!-- [D]
+  토스트 팝업 노출 조건 : .is-show 추가,
+  정해진 시간 뒤 노출 조건 클래스 제거 필요. (개발 요청)
+ -->
+<div class="toast-popup">
+  <span class="toast-popup__text">Lorem, ipsum dolor.</span>
+</div>
+<!-- //[D] toast popup -->
+@@include('./include/script.html',{"type":""})
+<!-- [D] 마크업 case view. 개발 적용 시 제외 영역 -->
+<script>
+  function showToastPopup() {
+    $('.toast-popup').addClass('is-show');
+    setTimeout(() => {
+      $('.toast-popup').removeClass('is-show');
+    }, 2500);
+  }
+</script>
+@@include('./include/caseview.html',{
+  "item": [
+    {
+      "text":"toast 팝업 노출",
+      "func": "showToastPopup()"
+    }
+  ]
+})
+<!-- //[D] 마크업 case view. 개발 적용 시 제외 영역 -->
+</body>
+</html>

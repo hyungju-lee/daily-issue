@@ -1,0 +1,48 @@
+@@if(type=='default'){<header id="header_wrap" class="header">
+  <div class="header__inner">
+    <h1 class="header__title"><a href="#" class="header__btn"><img src="../img/common/logo_header.png" alt=""><span class="blind">신선한 라이프스타일 Fredit</span></a></h1>
+    <div class="header-mall">
+      <h2 class="blind">몰 선택 영역</h2>
+      <ul class="header-mall__list">
+      <li class="header-mall__item">
+        <a href="#" class="header-mall__link">
+          <img src="../img/common/header_mall_hyfresh.png" alt="">
+          <span class="blind">신선하고 건강한 식품 hyfresh 이동</span>
+        </a>
+      </li>
+      <li class="header-mall__item">
+        <a href="#" class="header-mall__link">
+          <img src="../img/common/header_mall_fredit.png" alt="">
+          <span class="blind">신선한 라이프스타일 Fredit 이동</span>
+        </a>
+      </li>
+      </ul>
+    </div>
+    <div class="header-util">
+      <button type="button" class="header-util__btn-search">검색</button>
+      <!-- [D] badge는 장바구니에 담긴 물건이 존재할 경우에만 노출 -->
+      <a href="#" class="header-util__link-cart"><span class="blind">장바구니</span><span class="badge">3</span></a>
+    </div>
+  </div>
+</header>}@@if(type=='detail'){<!-- 상세화면헤더 --><header id="header_detail_wrap" class="header header--detail">
+<div class="header__inner">
+  <h1 class="blind">@@title</h1>
+  <a href="#" class="header__link-prev">이전 페이지 이동</a>
+  <div class="header-util">
+    <a href="#" class="header-util__link-home">메인 이동</a>
+    <button type="button" class="header-util__btn-search">검색</button>
+    <!-- [D] badge는 장바구니에 담긴 물건이 존재할 경우에만 노출 -->
+    <a href="#" class="header-util__link-cart"><span class="blind">장바구니</span><span class="badge">3</span></a>
+  </div>
+</div>
+</header>}@@if(type=='logo'){<!-- 좌측로고+상세화면헤더 --><header id="header_detail_wrap" class="header header--detail">
+  <div class="header__inner">
+    <h1 class="header__title">@@title</h1>
+    <div class="header-util">
+      <a href="#" class="header-util__link-home">메인 이동</a>
+      <button type="button" class="header-util__btn-search">검색</button>
+      <!-- [D] badge는 장바구니에 담긴 물건이 존재할 경우에만 노출 -->
+      <a href="#" class="header-util__link-cart"><span class="blind">장바구니</span><span class="badge">3</span></a>
+    </div>
+  </div>
+  </header>}

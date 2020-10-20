@@ -1,0 +1,1310 @@
+@@include('./include/head.html',{"title": "상품 상세 - HYFRESH", "list_title": "상품 상세 : Product", "cssFile": "hyfresh"})
+<body data-pagestatus="new : 2020.10.05">
+@@include('./include/skipnavigation.html')
+
+<div class="wrap wrap-product-detail">
+  <!-- header -->
+@@include('./include/header.html',{"type":"detail","title":"상품 상세"})
+  <!-- //header -->
+  <!-- content -->
+  <main id="content" class="content">
+    <h2 class="blind">상품 상세</h2>
+    <!-- 상품 이미지(슬라이드) 및 기본 정보 -->
+    <div class="product-overview">
+      <div class="product-overview-slide swiper-container">
+        <ul class="product-overview-slide__list swiper-wrapper">
+        <li class="product-overview-slide__item swiper-slide">
+          <div class="product-overview-slide__box-image">
+            <img src="../img/@tmp/@tmp_product.jpg" alt="쿠오카트러플 테크놀로지 크림블렌드 30㎖">
+          </div>
+        </li>
+        <li class="product-overview-slide__item swiper-slide">
+          <div class="product-overview-slide__box-image">
+            <img src="../img/@tmp/@tmp_product.jpg" alt="쿠오카트러플 테크놀로지 크림블렌드 30㎖">
+          </div>
+        </li>
+        <li class="product-overview-slide__item swiper-slide">
+          <div class="product-overview-slide__box-image">
+            <img src="../img/@tmp/@tmp_product.jpg" alt="쿠오카트러플 테크놀로지 크림블렌드 30㎖">
+          </div>
+        </li>
+        </ul>
+        <div class="product-overview-slide__pagination swiper-pagination"></div>
+        <button type="button" class="product-overview__btn-share layer-popup-opener" data-layer-target="#share-sns-layer">위시리스트/SNS 공유하기</button>
+      </div>
+      <span class="product-overview__brand">쿠오카</span>
+      <h3 class="product-overview__title">트리플트러플TM 테크놀로지 - 크림 블렌드 30ml</h3>
+      <div class="product-overview__price-wrap">
+        <span class="rate">20<span class="unit">%</span></span>
+        <span class="price"><span class="blind">할인가격</span>96,000<span class="unit">원</span></span>
+        <span class="original-price"><span class="blind">기존가격</span>120,000<span class="unit">원</span></span>
+      </div>
+      <div class="product-overview__discount-wrap">
+        <span class="type">정기배송</span>
+        <span class="badge">5%</span>
+        <span class="price"><span class="blind">할인가격</span>91,200<span class="unit">원</span></span>
+      </div>
+      <div class="product-overview__tag-wrap">
+        <a href="#" class="btn-tag">#Kuoca</a>
+        <a href="#" class="btn-tag">#수분개선크림</a>
+        <a href="#" class="btn-tag">#스킨케어</a>
+        <a href="#" class="btn-tag">#난소중하니까</a>
+        <a href="#" class="btn-tag">#화이트트러플</a>
+        <a href="#" class="btn-tag">#보습크림</a>
+        <a href="#" class="btn-tag">#피부광채</a>
+        <a href="#" class="btn-tag">#피부보호</a>
+      </div>
+      <div class="accordion">
+        <ul class="accordion__list js-accordion-list">
+        <!-- 성분&인증서 -->
+        <li class="accordion__item js-accordion-item">
+          <!-- [D] 연결할 컨텐츠의 id와 aria-controls="id" 동일하게 적용(ID 변경 시 참고) -->
+          <button type="button" class="accordion__btn js-accordion-tab" aria-controls="accordion01" aria-expanded="false">성분&amp;인증서</button>
+          <div class="accordion__content js-accordion-content" id="accordion01">
+            <strong class="accordion__sub-title">성분</strong>
+            <dl class="list-ingredient">
+            <dt class="title">자연유래</dt>
+            <!-- [D] 해당 성분과 동일한 product-info__item에 data-offset={n} 연결 -->
+            <dd class="desc"><a href="#" class="btn-ingredient layer-popup-opener" data-layer-target="#product-info-layer" data-offset="0">로즈마리잎수</a>, 글리세린, <a href="#" class="btn-ingredient layer-popup-opener" data-layer-target="#product-info-layer" data-offset="1">로즈힙씨오일</a>, 정제수, <a href="#" class="btn-ingredient layer-popup-opener" data-layer-target="#product-info-layer" data-offset="2">아르간커넬오일</a>, 프로폴리스추출물, 에틸헥실올리베이트, 흰서양송로추출물, 달팽이점액여과물, 초피나무열매추출물</dd>
+            <dt class="title">천연원료</dt>
+            <dd class="desc">베타인, <a href="#" class="btn-ingredient layer-popup-opener" data-layer-target="#product-info-layer" data-offset="3">토코페롤</a>, 아데노신, 세라마이드엔피, 팔미토일펜타펩타이드, <a href="#" class="btn-ingredient layer-popup-opener" data-layer-target="#product-info-layer" data-offset="4">유비퀴논</a>, 팔미틱/스테아릭트라이글리세라이드, 토코페롤아세테이트, 카프릴릭/카프릭트라이글리세라이드</dd>
+            <dt class="title">기타</dt>
+            <dd class="desc">소듐데하이드로아세테이트, 세테아릴올리베이트, 세테아릴알코올, 시트로넬올, 제라니올, 리날룰</dd>
+            </dl>
+            <strong class="accordion__sub-title">인증서</strong>
+            <ul class="list-certificate">
+            <li class="item-certificate">
+              <button type="button" class="btn-certificate layer-popup-opener" data-layer-target="#product-info-layer" data-offset="5">
+                <span class="blind">인증서 상세 팝업</span>
+                <img src="../img/@tmp/@tmp_certificate.png" alt="EWG VERIFIED">
+              </button>
+            </li>
+            <li class="item-certificate">
+              <button type="button" class="btn-certificate layer-popup-opener" data-layer-target="#product-info-layer" data-offset="6">
+                <span class="blind">인증서 상세 팝업</span>
+                <img src="../img/@tmp/@tmp_certificate.png" alt="EWG VERIFIED">
+              </button>
+            </li>
+            <li class="item-certificate">
+              <button type="button" class="btn-certificate layer-popup-opener" data-layer-target="#product-info-layer" data-offset="7">
+                <span class="blind">인증서 상세 팝업</span>
+                <img src="../img/@tmp/@tmp_certificate.png" alt="EWG VERIFIED">
+              </button>
+            </li>
+            <li class="item-certificate">
+              <button type="button" class="btn-certificate layer-popup-opener" data-layer-target="#product-info-layer" data-offset="8">
+                <span class="blind">인증서 상세 팝업</span>
+                <img src="../img/@tmp/@tmp_certificate.png" alt="EWG VERIFIED">
+              </button>
+            </li>
+            </ul>
+          </div>
+        </li>
+        <!-- //성분&인증서 -->
+        <!-- 배송정보 -->
+        <li class="accordion__item js-accordion-item">
+          <button type="button" class="accordion__btn js-accordion-tab" aria-controls="accordion02" aria-expanded="false">배송정보<span class="value">내일 (금) 도착 예정</span></button>
+          <div class="accordion__content js-accordion-content" id="accordion02">
+            <ul class="list-order-info">
+            <li class="item-order-info">
+              <span class="key">- 도착예정</span>
+              <span class="value">내일 (금) 도착</span>
+            </li>
+            <li class="item-order-info">
+              <span class="key">- 배송비</span>
+              <span class="value">무료배송</span>
+            </li>
+            <li class="item-order-info">
+              <span class="key">- 배송형태</span>
+              <span class="value">매니저 배송</span>
+            </li>
+            <li class="item-order-info">
+              <span class="key">- 배송방식</span>
+              <span class="value">일반배송</span>
+            </li>
+            </ul>
+          </div>
+        </li>
+        <!-- //배송정보 -->
+        <!-- 할인 및 혜택 -->
+        <li class="accordion__item js-accordion-item">
+          <button type="button" class="accordion__btn js-accordion-tab" aria-controls="accordion03" aria-expanded="false">할인 및 혜택<span class="value">20% 할인 / 1% 적립 예정</span></button>
+          <div class="accordion__content js-accordion-content" id="accordion03">
+            <ul class="list-order-info">
+            <li class="item-order-info">
+              <span class="key">- 할인 적용 가격</span>
+              <span class="value value--point">20% 할인 / 96,000원</span>
+            </li>
+            <li class="item-order-info">
+              <span class="key">- 정기배송 적용 시 가격</span>
+              <span class="value value--point">23% 할인 / 92,400원</span>
+            </li>
+            <li class="item-order-info">
+              <span class="key">- 적립 예정 포인트</span>
+              <span class="value value--point">1% 적립 예정</span>
+            </li>
+            </ul>
+          </div>
+        </li>
+        <!-- //할인 및 혜택 -->
+        <!-- 상품정보 -->
+        <li class="accordion__item js-accordion-item">
+          <button type="button" class="accordion__btn js-accordion-tab" aria-controls="accordion04" aria-expanded="false">상품정보</button>
+          <div class="accordion__content js-accordion-content" id="accordion04">
+            <ul class="list-order-info list-order-info--product">
+            <li class="item-order-info">
+              <span class="key">- 제조사</span>
+              <span class="value">(주)쿠오카스킨</span>
+            </li>
+            <li class="item-order-info">
+              <span class="key">- 브랜드</span>
+              <span class="value">Kuoca</span>
+            </li>
+            <li class="item-order-info">
+              <span class="key">- 제품명</span>
+              <span class="value">Cream Blend</span>
+            </li>
+            <li class="item-order-info">
+              <span class="key">- 용량</span>
+              <span class="value">30㎖</span>
+            </li>
+            <li class="item-order-info">
+              <span class="key">- 사용기한</span>
+              <span class="value">용기표시 - 개봉 후 6개월 / 제조 후 1년</span>
+            </li>
+            <li class="item-order-info">
+              <span class="key">- 사용방법</span>
+              <span class="value">적당량을 덜어 얼굴과 목에 고르게 발라주세요.</span>
+            </li>
+            <li class="item-order-info">
+              <span class="key">- 기능성 여부</span>
+              <span class="value">주름개선</span>
+            </li>
+            </ul>
+          </div>
+        </li>
+        <!-- //상품정보 -->
+        </ul>
+      </div>
+      <!-- 리뷰 오토 슬라이드 -->
+      <!-- [D] 노출 시 IE10 대응 위해 swiper instance 재생성 필요 (IE 10 observer 미지원) -->
+      <div class="rolling-review">
+        <div class="rolling-review__star-wrap">
+          <span class="rolling-review__star">
+            <!-- [D] 별점 비율에 따라 style width값 변경 -->
+            <span class="rating" style="width:80%">상품 별점</span>
+          </span>
+          <em class="text">4.8</em>
+        </div>
+        <span class="rolling-review__summary">
+          <em class="tag">#해피얼쓰</em><em class="tag">#재활용</em><em class="tag">#친환경</em>에<br>관심있는 분들이 구매했어요.
+        </span>
+        <div class="review-auto-slide swiper-container">
+          <ul class="review-auto-slide__list swiper-wrapper">
+          <li class="review-auto-slide__item swiper-slide">
+            <p class="text">환경을 생각해서 플라스틱 덜 쓰려고 주문했어요. 빨대 세척 솔이 길고 적당한 두께라 마음에 들어요</p>
+            <span class="name">박*검</span>
+          </li>
+          <li class="review-auto-slide__item swiper-slide">
+            <p class="text">환경을 생각해서 플라스틱 덜 쓰려고 주문했어요. 빨대 세척 솔이 길고 적당한 두께라 마음에 들어요</p>
+            <span class="name">박*검</span>
+          </li>
+          </ul>
+        </div>
+      </div>
+      <!-- //리뷰 오토 슬라이드 -->
+    </div>
+    <!-- //상품 이미지(슬라이드) 및 기본 정보 -->
+
+    <!-- floating menu -->
+    <div class="floating-menu">
+      <div class="floating-menu__util">
+        <div class="checkbox__wish">
+          <input type="checkbox" name="wishList" id="productWish1" class="inp">
+          <label for="productWish1" class="label">위시리스트</label>
+        </div>
+        <button type="button" class="btn-gift layer-popup-opener" data-layer-target="#add-gift">선물하기</button>
+        <button type="button" class="btn-cart layer-popup-opener" data-layer-target="#add-cart">장바구니</button>
+      </div>
+      <a href="#" class="btn-text layer-popup-opener" data-layer-target="#add-order">주문하기</a>
+    </div>
+    <!-- //floating menu -->
+
+    <!-- tab -->
+    <div class="tab-wrap js-tab-wrap">
+      <ul class="tab__list js-tab-list" role="tablist">
+      <li class="tab__item js-tab-item is-selected">
+        <!-- [D] 연결할 컨텐츠의 id와 aria-controls="id" 동일하게 적용(ID 변경 시 참고) -->
+        <a href="#" class="tab__btn js-tab-btn" role="tab" aria-selected="true" aria-controls="tab01"><span class="text">상품소개</span></a>
+      </li>
+      <li class="tab__item js-tab-item">
+        <a href="#" class="tab__btn js-tab-btn" role="tab" aria-selected="false" aria-controls="tab02"><span class="text">리뷰<span class="count">86</span></span></a>
+      </li>
+      <li class="tab__item js-tab-item">
+        <a href="#" class="tab__btn js-tab-btn" role="tab" aria-selected="false" aria-controls="tab03"><span class="text">문의<span class="count">37</span></span></a>
+      </li>
+      </ul>
+      <!-- tab panel : 상품소개 -->
+      <div class="tab-panel js-tab-panel" role="tabpanel" id="tab01">
+        <div class="product-detail">
+          <div class="product-detail__inner">
+            <!-- [D] 여백없이 꽉 찬 이미지로 노출할 경우 box-{image or video}--full class 추가 -->
+            <div class="box-image box-image--full">
+              <img src="../img/@tmp/@tmp_product_detail.jpg" alt="">
+            </div>
+            <strong class="title">CREAM BLEND</strong>
+            <p class="desc">이탈리아 Alba의 화이트 트러플이 주는 광채.<br>즉각적인 편안함, 지속되는 수분감, 축적되는 피부의 힘.</p>
+            <div class="box-image">
+              <img src="../img/@tmp/@tmp_product_detail2.jpg" alt="">
+            </div>
+            <strong class="sub-title">TRIPLE TRUFFLE ™</strong>
+            <p class="sub-desc">화이트 트러플, 리피듀어 PMB, 베테인 최상급 천연 원료의 힘을 피부에 제대로 전달하기 위해 쿠오카가 개발한 혁신적인 원료 배합 기술 트리플트러플™ 테크놀로지.<br>독자 기술로 배합한 고보습항산화복합체가  피부 산화 작용을  원천 차단하고, 피부 면역력과 피부 탄력, 피부 속보습을 극대화합니다.</p>
+            <div class="box-image">
+              <img src="../img/@tmp/@tmp_product_detail3.jpg" alt="">
+            </div>
+            <strong class="sub-title">핵심원료 - 화이트트러플</strong>
+            <p class="sub-desc">산소는 우리에게 꼭 필요하지만, 과연 체내에서도 그럴까요?<br>산소가 화학작용을 거쳐 불안정한 상태로 변한 것을 활성산소라고 해요. 활성산소의 산화반응으로 인해 체내 조직과 세포는 손상을 입습니다.<br>화이트 트러플에는 활성산소를 분해하는 효소가 풍부하게 들어있어요. 활성산소의 산화반응을 막아 피부 조직의 손상을 예방하여 피부 노화를 방지합니다</p>
+            <div class="box-image">
+              <img src="../img/@tmp/@tmp_product_detail4.jpg" alt="">
+            </div>
+            <strong class="sub-title">핵심원료 - 리피듀어&reg; PMB</strong>
+            <p class="sub-desc">리피듀어는 뛰어난 보습력과 보습 유지력을 가지고 있습니다.<br>널리 알려진 히알루론산보다 한 차원 높은 보습력에 피부 호보능력까지 갖춘 고효능 보습제로, 의료 분야에서 널리 활용되고 있는 안전한 성분이에요. 물로 씻어내도 보습력이 유지되어 세수한 직후에도 촉촉함을 유지해줍니다.</p>
+            <div class="box-image box-image--full">
+              <img src="../img/@tmp/@tmp_product_detail5.jpg" alt="">
+            </div>
+            <strong class="sub-title">BENEFIT</strong>
+            <ol class="list">
+            <li>1. 화학방부제, 인공색소, 인공향료를 전면 배제하여 민감한 피부에도 안심하고 사용할 수 있습니다.</li>
+            <li>2. 독자적 배합기술로 탄생시킨 고보습 항산화 복합체가 피부 속까지 고밀도의 수분을 전달합니다.</li>
+            <li>3. 축적된 항산화 스트레스를 완화하여 피부에 즉각적으로 윤기와 활력을 찾아줍니다.</li>
+            <li>4. 피부에 유해한 외부 자극으로부터 피부를 지켜주는 효과적인 피부 보호막을 형성합니다.</li>
+            </ol>
+            <div class="box-image">
+              <img src="../img/@tmp/@tmp_product_detail6.jpg" alt="">
+            </div>
+            <strong class="sub-title">피부 선순환을 만듭니다.</strong>
+            <p class="sub-desc">밤새도록 속건조를 채우는 샘 같은 보습으로 얼굴이 편안하고 탄력있어 보여요. 항산화로 쌓은 속살의 힘은 부드러운 여운으로 새벽빛처럼 피부를 빛나게 합니다.<br>바르자마자 촉촉하고, 속까지 채워주고, 다음날까지 유지되는 보습.<br>&apos;쿠오카의 약속&apos;입니다.</p>
+            <div class="box-image">
+              <img src="../img/@tmp/@tmp_product_detail7.jpg" alt="">
+            </div>
+            <strong class="sub-title">TEXTURE</strong>
+            <p class="sub-desc">노란 색의 고운 커스터드 같은 크림입니다.<br>금세 얼굴에 수분감이 스며들고, 실크처럼 얼굴을 감싸요.<br>밀릴 만큼 두껍지는 않지만, 수분이 마를 만큼 얇지는 않습니다.</p>
+            <div class="box-image box-image--full">
+              <img src="../img/@tmp/@tmp_product.jpg" alt="">
+            </div>
+            <strong class="sub-title">FRAGRANCE</strong>
+            <p class="sub-desc">쿠오카는 자연에서 추출한 유기농 천연향만을 사용합니다.<br>피부를 자극하고 알러지를 유발하는 인공 합성 향료가 아닌<br>100% 천연원료에서 유기농 공법으로 추출된 고귀한 향.<br>자연스럽게 피부에 녹아드는 매력적인 천연의 향기를 만나보세요.</p>
+            <div class="box-image">
+              <img src="../img/@tmp/@tmp_product_detail8.jpg" alt="">
+            </div>
+            <strong class="sub-title">ROYAL PEONY</strong>
+            <p class="sub-desc">Tender and sensual, delicate, feminine note that carries a perfect summery fragrance.<br>크림블렌드의 유니크한 향은 조향계의 피카소로 불리는 프랑스 Jean-Charles Sommerard 교수의 작품으로, 자연 그대로의 숲과 바다, 꽃과 열매가 주는 복합적인 정서를 표현합니다.</p>
+            <div class="box-video box-video">
+              <iframe width="100%" height="100%" src="https://www.youtube.com/embed/29ycT6fA-Rs" title="쿠오카 트리플트러플 테크놀로지 소개영상"></iframe>
+            </div>
+            <div class="box-video">
+              <video poster="../img/@tmp/@tmp_video_poster.jpg" playsinline muted autoplay>
+              <source src="../video/@tmp_video.mp4" type="video/mp4">
+              Sorry, your browser doesn't support embedded videos.
+              </video>
+            </div>
+            <div class="box-image box-image--full">
+              <img src="../img/@tmp/@tmp_product_detail9.jpg" alt="크림이 나오지 않아도 당황하지마세요! 쿠오카 크림블렌드에 실리콘 대신 사용되는 천연 왁스 성분이 낮은 온도에서 굳어져 간혹 펌핑이 어려울 수 있으나, 피부에 바르시면 체온에 녹아들어 보습과 피부 보호를 위해 정상적으로 작용합니다. 제형이 펌프 입구로 내려올 수 있도록 용기를 아래로 강하게 털어서 사용해 주세요.">
+            </div>
+          </div>
+          <div class="product-detail__btn-wrap">
+            <button type="button" class="product-detail__btn">상품정보 더보기</button>
+          </div>
+        </div>
+        <div class="product-accordion">
+          <ul class="product-accordion__list js-accordion-list">
+          <li class="product-accordion__item js-accordion-item is-expanded">
+            <button type="button" class="product-accordion__btn js-accordion-tab" aria-controls="accordion05" aria-expanded="true">브랜드 정보</button>
+            <div class="product-accordion__content js-accordion-content" id="accordion05">
+              <div class="box-image">
+                <img src="../img/@tmp/@tmp_product_brand.jpg" alt="">
+              </div>
+              <strong class="title">쿠오카</strong>
+              <span class="desc">가장 신선한, 가장 효과적인,<br>내 피부를 위한 파인다이닝, 쿠오카를 만나보세요.</span>
+              <a href="#" class="link">브랜드 스토리 바로가기</a>
+            </div>
+          </li>
+          <li class="product-accordion__item js-accordion-item is-expanded">
+            <button type="button" class="product-accordion__btn js-accordion-tab" aria-controls="accordion06" aria-expanded="true">추천 상품</button>
+            <div class="product-accordion__content js-accordion-content" id="accordion06">
+              <div class="recommend-slide swiper-container">
+                <ul class="recommend-slide__list swiper-wrapper">
+                <li class="recommend-slide__item swiper-slide">
+                  <a href="#" class="recommend-slide__link">
+                    <div class="box-image">
+                      <img src="../img/@tmp/@tmp_recommned.jpg.png" alt="">
+                    </div>
+                    <span class="brand">쿠오카</span>
+                    <strong class="title">SERUM BLEND 30㎖</strong>
+                    <span class="price">110,000<span class="unit">원</span></span>
+                  </a>
+                </li>
+                <li class="recommend-slide__item swiper-slide">
+                  <a href="#" class="recommend-slide__link">
+                    <div class="box-image">
+                      <img src="../img/@tmp/@tmp_recommned.jpg.png" alt="">
+                    </div>
+                    <span class="brand">쿠오카</span>
+                    <strong class="title">SERUM BLEND 30㎖</strong>
+                    <span class="price">110,000<span class="unit">원</span></span>
+                  </a>
+                </li>
+                <li class="recommend-slide__item swiper-slide">
+                  <a href="#" class="recommend-slide__link">
+                    <div class="box-image">
+                      <img src="../img/@tmp/@tmp_recommned.jpg.png" alt="">
+                    </div>
+                    <span class="brand">쿠오카</span>
+                    <strong class="title">SERUM BLEND 30㎖</strong>
+                    <span class="price">110,000<span class="unit">원</span></span>
+                  </a>
+                </li>
+                <li class="recommend-slide__item swiper-slide">
+                  <a href="#" class="recommend-slide__link">
+                    <div class="box-image">
+                      <img src="../img/@tmp/@tmp_recommned.jpg.png" alt="">
+                    </div>
+                    <span class="brand">쿠오카</span>
+                    <strong class="title">SERUM BLEND 30㎖</strong>
+                    <span class="price">110,000 <span class="unit">원</span></span>
+                  </a>
+                </li>
+                <li class="recommend-slide__item swiper-slide">
+                  <a href="#" class="recommend-slide__link">
+                    <div class="box-image">
+                      <img src="../img/@tmp/@tmp_recommned.jpg.png" alt="">
+                    </div>
+                    <span class="brand">쿠오카</span>
+                    <strong class="title">SERUM BLEND 30㎖</strong>
+                    <span class="price">110,000 <span class="unit">원</span></span>
+                  </a>
+                </li>
+                <li class="recommend-slide__item swiper-slide">
+                  <a href="#" class="recommend-slide__link">
+                    <div class="box-image">
+                      <img src="../img/@tmp/@tmp_recommned.jpg.png" alt="">
+                    </div>
+                    <span class="brand">쿠오카</span>
+                    <strong class="title">SERUM BLEND 30㎖</strong>
+                    <span class="price">110,000 <span class="unit">원</span></span>
+                  </a>
+                </li>
+                <li class="recommend-slide__item swiper-slide">
+                  <a href="#" class="recommend-slide__link">
+                    <div class="box-image">
+                      <img src="../img/@tmp/@tmp_recommned.jpg.png" alt="">
+                    </div>
+                    <span class="brand">쿠오카</span>
+                    <strong class="title">SERUM BLEND 30㎖</strong>
+                    <span class="price">110,000 <span class="unit">원</span></span>
+                  </a>
+                </li>
+                </ul>
+                <div class="recommend-slide__pagination swiper-pagination"></div>
+              </div>
+            </div>
+          </li>
+          </ul>
+        </div>
+        <div class="delivery__btn-wrap">
+          <button type="button" class="delivery__btn layer-popup-opener" data-layer-target="#delivery-info-layer">배송 및 주문 안내<span class="sub-text">(취소/교환/환불)</span></button>
+        </div>
+      </div>
+      <!-- //tab panel : 상품소개 -->
+      <!-- tab panel : 리뷰 -->
+      <div class="tab-panel product-review js-tab-panel" role="tabpanel" aria-controls="tab02" style="display:none">
+        <!-- 미로그인 상태 -->
+        <div class="state-guide">
+          <span class="text">로그인을 하시면<br>상품에 대한 <em class="text-point">리뷰</em>를 남기실 수 있습니다.</span>
+          <a href="#" class="link">로그인</a>
+        </div>
+        <!-- 로그인 + 실 구매자 -->
+        <div class="state-guide">
+          <span class="text">09월 21일에 구매하신 제품에 리뷰를 아직 남기지 않았어요.<br><em class="text-point">리뷰</em>를 남겨 주시면 <em class="text-point">포인트</em>를 지급해드려요.</span>
+          <a href="#" class="link link--point layer-popup-opener" data-layer-target="#review-layer">리뷰 남기기</a>
+        </div>
+        <div class="review-score">
+          <div class="review-score__box">
+            <strong class="average">4.8</strong>
+            <span class="count">(328명)</span>
+            <span class="star">
+              <!-- [D] 별점 비율에 따라 style width값 변경 -->
+              <span class="rating" style="width:80%">상품 별점</span>
+            </span>
+          </div>
+          <div class="review-score__box">
+            <div class="box-image">
+              <img src="../img/review/ico_review_emoji.png" alt="">
+            </div>
+            <span class="text">추천해요!</span>
+          </div>
+          <div class="review-score__box">
+            <div class="review-score-graph">
+              <ul class="review-score-graph__list">
+              <li class="review-score-graph__item">
+                <span class="graph">
+                  <span class="value">5점</span>
+                  <!-- [D] 비율에 따라 style height값 변경 -->
+                  <span class="rating" style="height:62%">평점 비율</span>
+                  <span class="percentage">62%</span>
+                </span>
+              </li>
+              <li class="review-score-graph__item">
+                <span class="graph">
+                  <span class="value">4점</span>
+                  <span class="rating" style="height:28%">평점 비율</span>
+                  <span class="percentage">28%</span>
+                </span>
+              </li>
+              <li class="review-score-graph__item">
+                <span class="graph">
+                  <span class="value">3점</span>
+                  <span class="rating" style="height:6%">평점 비율</span>
+                  <span class="percentage">6%</span>
+                </span>
+              </li>
+              <li class="review-score-graph__item">
+                <span class="graph">
+                  <span class="value">2점</span>
+                  <span class="rating" style="height:4%">평점 비율</span>
+                  <span class="percentage">4%</span>
+                </span>
+              </li>
+              <li class="review-score-graph__item">
+                <span class="graph">
+                  <span class="value">1점</span>
+                  <span class="rating" style="height:0">평점 비율</span>
+                  <span class="percentage">0%</span>
+                </span>
+              </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="review-age-group">
+          <ul class="review-age-group__list">
+          <li class="review-age-group__item">
+            <span class="graph">
+              <span class="value">10대</span>
+              <!-- [D] 비율에 따라 style height값 변경 -->
+              <span class="rating" style="height:100%"><span class="blind">리뷰 작성 비율</span><span class="percentage">20%</span></span>
+            </span>
+          </li>
+          <li class="review-age-group__item">
+            <span class="graph">
+              <span class="value">20대</span>
+              <span class="rating" style="height:100%"><span class="blind">리뷰 작성 비율</span><span class="percentage">20%</span></span>
+            </span>
+          </li>
+          <!-- [D] 비율 제일 높은 연령대에 review-age-group__item--point class 추가 -->
+          <li class="review-age-group__item review-age-group__item--point">
+            <span class="graph">
+              <span class="value">30대</span>
+              <span class="rating" style="height:100%"><span class="blind">리뷰 작성 비율</span><span class="percentage">20%</span></span>
+            </span>
+          </li>
+          <li class="review-age-group__item">
+            <span class="graph">
+              <span class="value">40대</span>
+              <span class="rating" style="height:50%"><span class="blind">리뷰 작성 비율</span><span class="percentage">20%</span></span>
+            </span>
+          </li>
+          <li class="review-age-group__item">
+            <span class="graph">
+              <span class="value">50대~</span>
+              <span class="rating" style="height:50%"><span class="blind">리뷰 작성 비율</span><span class="percentage">20%</span></span>
+            </span>
+          </li>
+          </ul>
+        </div>
+        <div class="common-section">
+          <h3 class="common-section__title">Fredit 체험단 리뷰</h3>
+          <div class="tester-review-slide swiper-container">
+            <ul class="tester-review-slide__list swiper-wrapper">
+            <li class="tester-review-slide__item swiper-slide">
+              <a href="#" class="tester-review-slide__link">
+                <div class="box-image">
+                  <img src="../img/@tmp/@tmp_review.png" alt="">
+                </div>
+                <strong class="title">한줄 소개</strong>
+                <span class="text text--summary">평소에 쿠오카에 관심이 많았어요!!</span>
+                <strong class="title">사용 후기</strong>
+                <span class="text">크림이 끈적이지 않아서 좋구요<br>당기지 않아서 또 좋아요<br>처음 사용해보는데 세럼도 지름신이 올것같아요<br>좋아요</span>
+                <span class="name">송*교</span>
+              </a>
+            </li>
+            <li class="tester-review-slide__item swiper-slide">
+              <a href="#" class="tester-review-slide__link">
+                <div class="box-image">
+                  <img src="../img/@tmp/@tmp_review.png" alt="">
+                </div>
+                <strong class="title">한줄 소개</strong>
+                <span class="text text--summary">평소에 쿠오카에 관심이 많았어요!!</span>
+                <strong class="title">사용 후기</strong>
+                <span class="text">크림이 끈적이지 않아서 좋구요<br>당기지 않아서 또 좋아요<br>처음 사용해보는데 세럼도 지름신이 올것같아요<br>좋아요</span>
+                <span class="name">송*교</span>
+              </a>
+            </li>
+            <li class="tester-review-slide__item swiper-slide">
+              <a href="#" class="tester-review-slide__link">
+                <div class="box-image">
+                  <img src="../img/@tmp/@tmp_review.png" alt="">
+                </div>
+                <strong class="title">한줄 소개</strong>
+                <span class="text text--summary">평소에 쿠오카에 관심이 많았어요!!</span>
+                <strong class="title">사용 후기</strong>
+                <span class="text">크림이 끈적이지 않아서 좋구요<br>당기지 않아서 또 좋아요<br>처음 사용해보는데 세럼도 지름신이 올것같아요<br>좋아요</span>
+                <span class="name">송*교</span>
+              </a>
+            </li>
+            <!-- [D] 마지막 슬라이드. 더보기 영역 -->
+            <li class="tester-review-slide__item tester-review-slide__item--more swiper-slide">
+              <a href="#" class="tester-review-slide__link">
+                <div class="more-slide-item">
+                  <div class="more-slide-item__box-align">
+                  <i class="more-slide-item__icon-more"></i>
+                  <span class="more-slide-item__text">Fredit 체험단</span>
+                  <span class="more-slide-item__text more-slide-item__text--sub">리뷰 더보기</span>
+                  </div>
+                </div>
+              </a>
+            </li>
+            </ul>
+            <div class="tester-review-slide__pagination swiper-pagination"></div>
+          </div>
+        </div>
+        <div class="common-section">
+          <h3 class="common-section__title">제품 사용 후기</h3>
+          <div class="product-review-tab">
+            <ul class="product-review-tab__list">
+            <li class="product-review-tab__item">
+              <button type="button" class="btn-recommend">추천순</button>
+            </li>
+            <li class="product-review-tab__item js-btn-toggle-wrap">
+              <button type="button" class="btn-toggle js-btn-toggle">내 맞춤 리뷰</button>
+            </li>
+            <li class="product-review-tab__item">
+              <button type="button" class="btn-filter">필터</button>
+            </li>
+            </ul>
+          </div>
+          <ul class="product-review__list">
+          <li class="product-review__item">
+            <div class="product-review__summary">
+              <span class="star">
+                <!-- [D] 별점 비율에 따라 style width값 변경 -->
+                <span class="rating" style="width:100%">별점</span>
+              </span>
+              <span class="value">5</span>
+              <span class="date">방금 전</span>
+              <button type="button" class="btn-help"><span class="blind">리뷰 공감 수</span><span class="count">3</span></button>
+            </div>
+            <div class="product-review__box-image">
+              <img src="../img/@tmp/@tmp_review2.png" alt="toner blend 리뷰 사진">
+            </div>
+            <div class="product-review__text-wrap">
+              <p class="product-review__text">화장품이 좋다는건 익히 알고 있었는데, 손등에 바르는 순간 향이 너무 좋아요.!! 스킨하나만 발라도 촉촉하고 속당김이 없어서 너무 만족입니다. 패키지도 고급스럽고 소중한 분께도 선물하기 딱입니다. 무엇보다 제조일이 적혀 있어 믿고 사용할 수 있습니다.화장품이 좋다는건 익히 알고 있었는데, 손등에 바르는 순간 향이 너무 좋아요.!! 스킨하나만 발라도 촉촉하고 속당김이 없어서 너무 만족입니다. 패키지도 고급스럽고 소중한 분께도 선물하기 딱입니다. 무엇보다 제조일이 적혀 있어 믿고 사용할 수 있습니다.</p>
+              <!-- [D] 3줄 이상일 경우 product-review__btn-toggle 버튼 노출 -->
+              <button type="button" class="product-review__btn-toggle"><span class="text">펼치기</span></button>
+            </div>
+            <div class="product-review__writer-wrap">
+              <span class="product-review__writer">전*현</span>
+              <div class="tag-wrap">
+                <span class="tag">#26세</span>
+                <span class="tag">#유기농</span>
+                <span class="tag">#천연</span>
+                <span class="tag">#화이트닝</span>
+                <span class="tag">#펫푸드</span>
+              </div>
+            </div>
+            <a href="#" class="product-review__btn-report">*신고</a>
+          </li>
+          <li class="product-review__item">
+            <div class="product-review__summary">
+              <span class="star">
+                <!-- [D] 별점 비율에 따라 style width값 변경 -->
+                <span class="rating" style="width:100%">별점</span>
+              </span>
+              <span class="value">5</span>
+              <span class="date">방금 전</span>
+              <button type="button" class="btn-help"><span class="blind">리뷰 공감 수</span><span class="count">3</span></button>
+            </div>
+            <div class="product-review__text-wrap">
+              <p class="product-review__text">화장품이 좋다는건 익히 알고 있었는데</p>
+            </div>
+            <div class="product-review__writer-wrap">
+              <span class="product-review__writer">전*현</span>
+              <div class="tag-wrap">
+                <span class="tag">#26세</span>
+                <span class="tag">#유기농</span>
+                <span class="tag">#천연</span>
+                <span class="tag">#화이트닝</span>
+                <span class="tag">#펫푸드</span>
+              </div>
+            </div>
+            <a href="#" class="product-review__btn-report">*신고</a>
+          </li>
+          <li class="product-review__item">
+            <div class="product-review__summary">
+              <span class="star">
+                <!-- [D] 별점 비율에 따라 style width값 변경 -->
+                <span class="rating" style="width:100%">별점</span>
+              </span>
+              <span class="value">5</span>
+              <span class="date">방금 전</span>
+              <button type="button" class="btn-help"><span class="blind">리뷰 공감 수</span><span class="count">3</span></button>
+            </div>
+            <div class="product-review__box-image">
+              <img src="../img/@tmp/@tmp_review2.png" alt="toner blend 리뷰 사진">
+            </div>
+            <div class="product-review__text-wrap">
+              <p class="product-review__text">화장품이 좋다는건 익히 알고 있었는데, 좋네요~~~</p>
+            </div>
+            <div class="product-review__writer-wrap">
+              <span class="product-review__writer">전*현</span>
+              <div class="tag-wrap">
+                <span class="tag">#26세</span>
+                <span class="tag">#유기농</span>
+                <span class="tag">#천연</span>
+                <span class="tag">#화이트닝</span>
+                <span class="tag">#펫푸드</span>
+              </div>
+            </div>
+            <a href="#" class="product-review__btn-report">*신고</a>
+          </li>
+          </ul>
+        </div>
+      </div>
+      <!-- //tab panel : 리뷰 -->
+      <!-- tab panel : 문의 -->
+      <div class="tab-panel js-tab-panel" role="tabpanel" aria-controls="tab03" style="display:none">
+        <!-- 미로그인 상태 -->
+        <div class="state-guide" >
+          <span class="text">로그인을 하시면<br>상품에 대한 <em class="text-point">문의</em>를 남기실 수 있습니다.</span>
+          <a href="#" class="link">로그인</a>
+        </div>
+        <!--  로그인 상태 -->
+        <div class="state-guide">
+          <span class="text">배송 및 주문(취소/교환/환불) 관련 문의는<br><em class="text-point">마이페이지 &gt; 1:1 문의</em>를 이용해주시기 바랍니다.</span>
+          <a href="#" class="link link--point layer-popup-opener" data-layer-target="#inquiry-layer">문의 남기기</a>
+        </div>
+        <div class="inquiry-tab">
+          <ul class="inquiry-tab__list">
+          <!-- [D] 선택할 시 is-selected class 추가 -->
+          <li class="inquiry-tab__item is-selected">
+            <button type="button" class="inquiry-tab__btn">전체</button>
+          </li>
+          <li class="inquiry-tab__item">
+            <button type="button" class="inquiry-tab__btn">답변완료</button>
+          </li>
+          <li class="inquiry-tab__item">
+            <button type="button" class="inquiry-tab__btn">답변대기</button>
+          </li>
+          </ul>
+          <div class="inquiry-tab__btn-toggle-wrap js-btn-toggle-wrap">
+            <button type="button" class="inquiry-tab__btn-toggle js-btn-toggle">내 문의 보기</button>
+          </div>
+        </div>
+        <ul class="inquiry__list">
+        <!-- 비밀글&답변대기 -->
+        <li class="inquiry__item">
+          <span class="name">송*교</span>
+          <!-- 비밀글일 경우 -->
+          <div class="inquiry__text-wrap">
+            <span class="text-secret">비밀글입니다.</span>
+          </div>
+          <div class="inquiry__state">
+            <span class="value">답변대기</span>
+            <span class="date">2020.09.24</span>
+          </div>
+        </li>
+        <!-- 답변 대기 -->
+        <li class="inquiry__item">
+          <span class="name">송*교</span>
+          <div class="inquiry__text-wrap">
+            <span class="text">선물용으로 구입했는데~~선물용으로 구입했는데~~선물용으로 구입했는데~~선물용으로 구입했는데~~선물용으로 구입했는데~~선물용으로 구입했는데~~선물용으로 구입했는데~~선물용으로 구입했는데~~선물용으로 구입했는데~~선물용으로 구입했는데~~선물용으로 구입했는데~~선물용으로 구입했는데~~선물용으로 구입했는데~~선물용으로 구입했는데~~선물용으로 구입했는데~~선물용으로 구입했는데~~선물용으로 구입했는데~~선물용으로 구입했는데~~선물용으로 구입했는데~~선물용으로 구입했는데~~선물용으로 구입했는데~~선물용으로 구입했는데~~선물용으로 구입했는데~~선물용으로 구입했는데~~선물용으로 구입했는데~~선물용으로 구입했는데~~선물용으로 구입했는데~~선물용으로 구입했는데~~선물용으로 구입했는데~~선물용으로 구입했는데~~선물용으로 구입했는데~~선물용으로 구입했는데~~선물용으로 구입했는데~~선물용으로 구입했는데~~</span>
+          </div>
+          <div class="inquiry__state">
+            <span class="value">답변대기</span>
+            <span class="date">2020.09.24</span>
+          </div>
+          <button type="button" class="inquiry__btn-toggle">문의 상세 보기</button>
+        </li>
+        <!-- 답변 완료 -->
+        <li class="inquiry__item is-expanded">
+          <span class="name">송*교</span>
+          <div class="inquiry__text-wrap">
+            <span class="text">선물용으로 구입했는데~~선물용으로 구입했는데~~선물용으로 구입했는데~~선물용으로 구입했는데~~선물용으로 구입했는데~~선물용으로 구입했는데~~선물용으로 구입했는데~~선물용으로 구입했는데~~선물용으로 구입했는데~~선물용으로 구입했는데~~선물용으로 구입했는데~~선물용으로 구입했는데~~선물용으로 구입했는데~~선물용으로 구입했는데~~선물용으로 구입했는데~~선물용으로 구입했는데~~선물용으로 구입했는데~~선물용으로 구입했는데~~선물용으로 구입했는데~~선물용으로 구입했는데~~선물용으로 구입했는데~~선물용으로 구입했는데~~선물용으로 구입했는데~~선물용으로 구입했는데~~선물용으로 구입했는데~~선물용으로 구입했는데~~</span>
+          </div>
+          <!-- [D] 답변완료 상태일 경우 is-done class 추가 -->
+          <div class="inquiry__state is-done">
+            <span class="value">답변완료</span>
+            <span class="date">2020.09.24</span>
+          </div>
+          <div class="inquiry__answer">
+            <span class="name">Fredit</span>
+            <span class="text">안녕하세요. Fredit입니다. 어제 발송된 건은 금일 수령가능 하십니다.  택배사와 당일배송조건으로 계약되어 있어 금일 꼭 수령 가능하실거에요^^  혹시 금일 수령 안될 경우다시 연락주세요~</span>
+          </div>
+          <button type="button" class="inquiry__btn-toggle">문의 상세 보기</button>
+        </li>
+        </ul>
+      </div>
+      <!-- tab panel : 문의 -->
+    </div>
+    <!-- //tab -->
+    @@include('./include/notice-bar.html')
+  </main>
+  <!-- //content -->
+  <!-- footer -->
+@@include('./include/footer.html')
+  <!-- //footer -->
+</div>
+
+<div class="sticky-wrap">
+  <a href="#" class="btn-top">페이지 상단으로 이동</a>
+  <div class="flag flag--soldout">
+    <button type="button" class="flag__btn-toggle"><span class="blind">soldout 알림 보기</span></button>
+    <div class="flag__inner">
+      <span class="text">품절임박! 현재 <em class="text-point">30</em>개 남았습니다.</span>
+    </div>
+  </div>
+  <div class="flag flag--limit">
+    <button type="button" class="flag__btn-toggle"><span class="blind">주문마감 알림 보기</span></button>
+    <div class="flag__inner">
+      <span class="text">주문마감. <em class="text-point">01 : 32 : 52</em><span class="text-sub">(09월 24일 18시)</span></span>
+    </div>
+  </div>
+</div>
+
+<!-- [D] Layer popup : 배송 및 주문 안내 -->
+<div class="common-layer common-layer--full" id="delivery-info-layer" style="display:none;">
+  <div class="common-layer__dimmed"></div>
+  <div class="common-layer__wrapper">
+    <div class="common-layer__inner" role="dialog">
+      <div class="common-layer__header">
+        <h1 class="common-layer__title">배송 및 주문 안내</h1>
+      </div>
+      <div class="common-layer__content">
+        <div class="delivery-info">
+          <h2 class="delivery-info__title">일반 배송안내</h2>
+          <dl class="delivery-info__list">
+          <dt class="title">배송비</dt>
+          <dd class="desc">
+            배송비는 상품 배송 형태에 따라 상이하며, 자세한 내용은 배송서비스 안내를 참고 바랍니다.
+            <span class="text-sub">※도서/산간지역의 경우 추가 배송비가 부과될 수 있습니다.</span>
+          </dd>
+          <dt class="title">배송안내</dt>
+          <dd class="desc">
+            <ul>
+            <li><em class="text-point">- 매니저 상품 : Fresh 매니저 직접 배송</em></li>
+            <li><em class="text-point">- 택배 상품 : 계약 택배사 배송</em></li>
+            </ul>
+            <span class="text-sub">단, 매니저 상품 중 매니저 전달 불가 지역은 택배 배송되며 (택배 배송비 기준 적용), 일부 상품은 배송이 불가합니다.</span>
+          </dd>
+          <dt class="title">배송 유형별 배송비 안내</dt>
+          <dd class="desc">
+            <ul>
+            <li><em class="text-point">- 매니저 배송 시,</em> 주문 가능 기준 : 동일 날짜에 3,500원 이상 배송 요청 시</li>
+            <li>- 무료 배송 기준:
+              <ul>
+              <li>① 무료 배송으로 표시된 상품 구매시</li>
+              <li>② 무료 배송이 포함된 상품과 함께 동일 날짜에 배송 요청 시</li>
+              </ul>
+            </li>
+            <li><em class="text-point">택배 배송 시,</em> 기본 배송비 : 3천원 (도서산간 6천원)</li>
+            <li>- 무료 배송 기준:
+              <ul>
+              <li>① 무료 배송으로 표시된 상품 구매 시</li>
+              <li>② 해당 센터별 동일날짜 배송 요청 4만원 이상 구매 시 (프레시센터 A, 프레시 센터 B)</li>
+              </ul>
+            </li>
+            </ul>
+          </dd>
+          </dl>
+          <h2 class="delivery-info__title">교환 및 반품 안내</h2>
+          <dl class="delivery-info__list">
+          <dt class="blind">교환 및 반품 기본 정보</dt>
+          <dd class="desc">
+            <ul>
+            <li>- 교환 및 환불을 원하실 경우, 우선 상담센터 1577-3651로 전화하여 주시기 바랍니다.</li>
+            <li>- 하기 기재된 교환 및 반품 가능한 경우에 한하여 환불 및 보상이 가능하며, 재판매가 불가한 신선 식품의 상품 특성상 주문마감(D-1 오후 4시 이후), 단순 변심 등의 사유로 환불이 불가하능합니다.</li>
+            </ul>
+          </dd>
+          <dt class="title">주문 취소/변경 관련</dt>
+          <dd class="desc">
+            <ul>
+            <li>- 수령일 기준 D-1 오후 4시까지 주문취소, 변경(배송지, 연락처)이 가능합니다.</li>
+            <li>- D-1 오후 4시 이후에는 재료 수급이 진행되므로 상품의 취소 및 수령일 변경이 불가합니다.</li>
+            </ul>
+          </dd>
+          <dt class="title">교환 및 환불 관련</dt>
+          <dd class="desc">
+            교환 및 환불을 원하시는 경우, [하이프레시 hyfresh.co.kr 로그인 → 마이페이지 → 주문배송조회 → "주문내역 상세보기" → 교환 or 반품 신청] 또는 고객센터 (☎ 1577-3561)로 전화하여 주시기 바랍니다.
+          </dd>
+          </dl>
+        </div>
+      </div>
+      <div class="common-layer__box-btn-close">
+        <button type="button" class="common-layer__btn-close">팝업 닫기</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- [D] Layer popup : 성분 & 인증서 -->
+<div class="common-layer common-layer--full" id="product-info-layer" style="display:none;">
+  <div class="common-layer__dimmed"></div>
+  <div class="common-layer__wrapper">
+    <div class="common-layer__inner" role="dialog">
+      <div class="common-layer__header">
+        <h1 class="common-layer__title">성분 및 인증서</h1>
+      </div>
+      <div class="common-layer__content">
+        <div class="product-info">
+          <h2 class="product-info__title">성분 정보</h2>
+          <div class="product-info__content">
+            <h3 class="product-info__sub-title">자연유래</h3>
+            <ul class="product-info__list">
+            <!-- [D] 해당 성분과 동일한 product-info__item에 data-offset={n} 연결 -->
+            <li class="product-info__item" data-offset="0">
+              <strong class="title">로즈마리잎수 (Rosmarinus Officinalis Leaf Water)</strong>
+              <p class="desc">이 원료는 로즈마리의 잎을 수증기 증류하여 얻은 수용액 성분입니다. 피부에 유해한 외부 물질의 활성을 잃게 하거나 제거함으로써 피부  과민 반응 및 문제성 피부 관리에 관여하며, 민감해진 피부를 부드럽고 편안하게 진정시키는데 도움을 줍니다. 피부에 청량감을 제공하고, 활성 산소에 대한 보호 능력을 가져 피부의 산화적 손상을 예방하여 생기 있는 피부로 가꾸는데 도움을 줍니다.</p>
+            </li>
+            <li class="product-info__item" data-offset="1">
+              <strong class="title">로즈힙씨오일 (Rosa Canina Fruit Oil)</strong>
+              <p class="desc">이 원료는 향기로운 향을 가진 허브의 한 종류인 로즈힙의 빨간 열매에서 얻은 오일 성분입니다. 로즈힙열매오일에 함유된 비타민 B, C, E 및 불포화지방산 성분은 지친 피부에 생기를 불어 넣어줍니다. 가볍고 매끄러운 질감으로 피부결을 부드럽고 윤택하게 해 주고 피부에 활력을 부여하는데 도움을 줍니다. 피부 주기의 순환을 활성화시켜 피부 상태를 개선하여 건강한 피부로 가꾸는데 도움을 줍니다.</p>
+            </li>
+            <li class="product-info__item" data-offset="2">
+              <strong class="title">아르간커넬오일</strong>
+              <p class="desc">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fuga consequuntur iusto ipsam eius libero repudiandae non eaque molestiae, obcaecati dolorem maxime ab incidunt, aperiam ea voluptatibus vel saepe ratione ducimus laboriosam deleniti quasi perspiciatis dignissimos. Saepe aperiam reprehenderit laudantium explicabo, sunt maxime voluptatum, culpa rem provident, magni mollitia nam repudiandae.</p>
+            </li>
+            </ul>
+            <h3 class="product-info__sub-title">천연원료</h3>
+            <ul class="product-info__list">
+            <li class="product-info__item" data-offset="3">
+              <strong class="title">토코페롤</strong>
+              <p class="desc">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fuga consequuntur iusto ipsam eius libero repudiandae non eaque molestiae, obcaecati dolorem maxime ab incidunt, aperiam ea voluptatibus vel saepe ratione ducimus laboriosam deleniti quasi perspiciatis dignissimos. Saepe aperiam reprehenderit laudantium explicabo, sunt maxime voluptatum, culpa rem provident, magni mollitia nam repudiandae.</p>
+            </li>
+            <li class="product-info__item" data-offset="4">
+              <strong class="title">유비퀴논</strong>
+              <p class="desc">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fuga consequuntur iusto ipsam eius libero repudiandae non eaque molestiae, obcaecati dolorem maxime ab incidunt, aperiam ea voluptatibus vel saepe ratione ducimus laboriosam deleniti quasi perspiciatis dignissimos. Saepe aperiam reprehenderit laudantium explicabo, sunt maxime voluptatum, culpa rem provident, magni mollitia nam repudiandae.</p>
+            </li>
+            </ul>
+          </div>
+          <h2 class="product-info__title">인증서 정보</h2>
+          <div class="product-info__content">
+            <ul class="product-info__list">
+            <li class="product-info__item" data-offset="5">
+              <div class="product-info-certificate">
+                <span class="product-info-certificate__sub-title">건강을 위한 새로운 표준,</span>
+                <strong class="product-info-certificate__title">EWG VERIFIED™</strong>
+                <div class="box-image">
+                  <img src="../img/@tmp/@tmp_certificate.png" alt="">
+                </div>
+              </div>
+              <strong class="title">화장품 성분 안정성 평가 인증</strong>
+              <p class="desc">미국에서 가장 영향력있는 비영리 환경단체 중 하나인 EWG은 화장품 제조업체가 안전하고 친환경적인 원료를 사용하도록 장려하기 위해서 자체적인 화장품 원료의 유해성 조사를 통해  1~10까지의 등급을 부여하고 각 성분에 대한 올바른 정보를 소비자에게 제공하여 소비자가 더욱 안전한 제품을 선택할 수 있도록 도와줍니다.</p>
+              <a href="#" class="link">인증서 제품 보러가기</a>
+            </li>
+            <li class="product-info__item" data-offset="6">
+              <div class="product-info-certificate">
+                <span class="product-info-certificate__sub-title">건강을 위한 새로운 표준,</span>
+                <strong class="product-info-certificate__title">EWG VERIFIED™</strong>
+                <div class="box-image">
+                  <img src="../img/@tmp/@tmp_certificate.png" alt="">
+                </div>
+              </div>
+              <strong class="title">화장품 성분 안정성 평가 인증</strong>
+              <p class="desc">미국에서 가장 영향력있는 비영리 환경단체 중 하나인 EWG은 화장품 제조업체가 안전하고 친환경적인 원료를 사용하도록 장려하기 위해서 자체적인 화장품 원료의 유해성 조사를 통해  1~10까지의 등급을 부여하고 각 성분에 대한 올바른 정보를 소비자에게 제공하여 소비자가 더욱 안전한 제품을 선택할 수 있도록 도와줍니다.</p>
+              <a href="#" class="link">인증서 제품 보러가기</a>
+            </li>
+            <li class="product-info__item" data-offset="7">
+              <div class="product-info-certificate">
+                <span class="product-info-certificate__sub-title">건강을 위한 새로운 표준,</span>
+                <strong class="product-info-certificate__title">EWG VERIFIED™</strong>
+                <div class="box-image">
+                  <img src="../img/@tmp/@tmp_certificate.png" alt="">
+                </div>
+              </div>
+              <strong class="title">화장품 성분 안정성 평가 인증</strong>
+              <p class="desc">미국에서 가장 영향력있는 비영리 환경단체 중 하나인 EWG은 화장품 제조업체가 안전하고 친환경적인 원료를 사용하도록 장려하기 위해서 자체적인 화장품 원료의 유해성 조사를 통해  1~10까지의 등급을 부여하고 각 성분에 대한 올바른 정보를 소비자에게 제공하여 소비자가 더욱 안전한 제품을 선택할 수 있도록 도와줍니다.</p>
+              <a href="#" class="link">인증서 제품 보러가기</a>
+            </li>
+            <li class="product-info__item" data-offset="8">
+              <div class="product-info-certificate">
+                <span class="product-info-certificate__sub-title">유기농의 대표 인증,</span>
+                <strong class="product-info-certificate__title"> ECO CERT®</strong>
+                <div class="box-image">
+                  <img src="../img/@tmp/@tmp_certificate.png" alt="">
+                </div>
+              </div>
+              <strong class="title">프랑스 친환경 유기농 인증 제품</strong>
+              <p class="desc">Ecocert는 1991년 프랑스에 설립 된 유기농 인증 기관으로, 유럽에 기반을두고 있지만 80개국 이상에서 검사를 실시하여 세계 최대의 유기농 인증 기관 중 하나 입니다.95% 이상의 천연 성분을 함유하거나, 5~10% 이상의 유기농 성분이 들어간 제품에 발행해 주는 인증입니다.</p>
+              <a href="#" class="link">인증서 제품 보러가기</a>
+            </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="common-layer__box-btn-close">
+        <button type="button" class="common-layer__btn-close">팝업 닫기</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- [D] Layer popup : 장바구니 팝업 -->
+<div class="common-layer layer-upper layer-add-cart" id="add-cart" style="display:none;">
+  <div class="common-layer__dimmed"></div>
+  <div class="common-layer__wrapper">
+    <div class="common-layer__inner" role="dialog">
+      <div class="common-layer__content">
+        <div class="product-grid">
+          <div class="product-grid__box-info">
+            <strong class="product-grid__brand-name">아이소이</strong>
+            <p class="product-grid__product-name">불가리안 로즈 블레미쉬 케어세럼Ⅱ (잡티세럼) 35ml</p>
+            <div class="product-grid__price-box">
+              <span class="product-grid__badge product-grid__badge--rate">
+                <span class="blind">할인율</span>30<span class="unit">%</span>
+              </span>
+              <strong class="product-grid__price">49,000<span class="unit">원</span></strong>
+              <del class="product-grid__origin-price">
+                <span class="num">23,000<span class="unit">원</span></span>
+              </del>
+            </div>
+          </div>
+        </div>
+        <div class="layer-upper__form">
+          <form action="">
+            <div class="layer-upper__form-row">
+              <label for="num_product_cart" class="label">수량 선택</label>
+              <div class="layer-upper__amount">
+                <button type="button" class="btn-minus">minus</button>
+                <input type="number" name="number-product" id="num_product_cart" readonly value="1">
+                <button type="button" class="btn-plus">plus</button>
+              </div>
+            </div>
+            <div class="layer-upper__form-row">
+              <label for="product_options_cart" class="label">상품 옵션</label>
+              <div class="layer-upper__sel">
+                <select id="product_options_cart" disabled>
+                  <option value="">옵션을 선택해 주세요.</option>
+                </select>
+              </div>
+            </div>
+            <div class="layer-upper__form-row">
+              <strong class="label">배송 옵션</strong>
+              <ul class="layer-upper__box-radio">
+                <li class="layer-upper__radio">
+                  <input type="radio" name="shipping_options_cart" id="shipping_cart_options1">
+                  <label for="shipping_cart_options1">1회 구매</label>
+                </li>
+                <li class="layer-upper__radio">
+                  <input type="radio" name="shipping_options_cart" id="shipping_cart_options2">
+                  <label for="shipping_cart_options2">정기배송 <span class="shipping-tag">5%</span></label>
+                </li>
+              </ul>
+            </div>
+            <div class="layer-upper__box-btn">
+              <button type="submit" class="layer-upper__form-btn">장바구니 담기</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="common-layer__box-btn-close">
+        <button type="button" class="common-layer__btn-close">팝업 닫기</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- [D] Layer popup : 선물하기 팝업 -->
+<div class="common-layer layer-upper layer-add-gift" id="add-gift" style="display:none;">
+  <div class="common-layer__dimmed"></div>
+  <div class="common-layer__wrapper">
+    <div class="common-layer__inner" role="dialog">
+      <div class="common-layer__content">
+        <div class="product-grid">
+          <div class="product-grid__box-info">
+            <strong class="product-grid__brand-name">아이소이</strong>
+            <p class="product-grid__product-name">불가리안 로즈 블레미쉬 케어세럼Ⅱ (잡티세럼) 35ml</p>
+            <div class="product-grid__price-box">
+              <span class="product-grid__badge product-grid__badge--rate">
+                <span class="blind">할인율</span>30<span class="unit">%</span>
+              </span>
+              <strong class="product-grid__price">49,000<span class="unit">원</span></strong>
+              <del class="product-grid__origin-price">
+                <span class="num">23,000<span class="unit">원</span></span>
+              </del>
+            </div>
+          </div>
+        </div>
+        <div class="layer-upper__form">
+          <form action="">
+            <div class="layer-upper__form-row">
+              <label for="num_product_gift" class="label">수량 선택</label>
+              <div class="layer-upper__amount">
+                <button type="button" class="btn-minus">minus</button>
+                <input type="number" name="number-product" id="num_product_gift" readonly value="1">
+                <button type="button" class="btn-plus">plus</button>
+              </div>
+            </div>
+            <div class="layer-upper__form-row">
+              <label for="product_options_gift" class="label">상품 옵션</label>
+              <div class="layer-upper__sel">
+                <select id="product_options_gift" disabled>
+                  <option value="">옵션을 선택해 주세요.</option>
+                </select>
+              </div>
+            </div>
+            <div class="layer-upper__box-btn">
+              <button type="submit" class="layer-upper__form-btn">선물하기</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="common-layer__box-btn-close">
+        <button type="button" class="common-layer__btn-close">팝업 닫기</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- [D] Layer popup : 주문하기 팝업 -->
+<div class="common-layer layer-upper layer-add-order" id="add-order" style="display:none;">
+  <div class="common-layer__dimmed"></div>
+  <div class="common-layer__wrapper">
+    <div class="common-layer__inner" role="dialog">
+      <div class="common-layer__content">
+        <div class="product-grid">
+          <div class="product-grid__box-info">
+            <strong class="product-grid__brand-name">아이소이</strong>
+            <p class="product-grid__product-name">불가리안 로즈 블레미쉬 케어세럼Ⅱ (잡티세럼) 35ml</p>
+            <div class="product-grid__price-box">
+              <span class="product-grid__badge product-grid__badge--rate">
+                <span class="blind">할인율</span>30<span class="unit">%</span>
+              </span>
+              <strong class="product-grid__price">49,000<span class="unit">원</span></strong>
+              <del class="product-grid__origin-price">
+                <span class="num">23,000<span class="unit">원</span></span>
+              </del>
+            </div>
+          </div>
+        </div>
+        <div class="layer-upper__form">
+          <form action="">
+            <div class="layer-upper__form-row">
+              <label for="num_product_order" class="label">수량 선택</label>
+              <div class="layer-upper__amount">
+                <button type="button" class="btn-minus">minus</button>
+                <input type="number" name="number-product" id="num_product_order" readonly value="1">
+                <button type="button" class="btn-plus">plus</button>
+              </div>
+            </div>
+            <div class="layer-upper__form-row">
+              <label for="product_options_order" class="label">상품 옵션</label>
+              <div class="layer-upper__sel">
+                <select id="product_options_order" disabled>
+                  <option value="">옵션을 선택해 주세요.</option>
+                </select>
+              </div>
+            </div>
+            <div class="layer-upper__form-row">
+              <strong class="label">배송 옵션</strong>
+              <ul class="layer-upper__box-radio">
+                <li class="layer-upper__radio">
+                  <input type="radio" name="shipping_options_order" id="shipping_order_options1">
+                  <label for="shipping_order_options1">1회 구매</label>
+                </li>
+                <li class="layer-upper__radio">
+                  <input type="radio" name="shipping_options_order" id="shipping_order_options2">
+                  <label for="shipping_order_options2">정기배송 <span class="shipping-tag">5%</span></label>
+                </li>
+              </ul>
+            </div>
+            <div class="layer-upper__form-row">
+              <label for="delivery_request_date" class="label">배송 옵션</label>
+              <div class="delivery_request">
+                <input type="text" id="delivery_request_date" readonly value="2020-09-21(월)">
+              </div>
+            </div>
+            <div class="layer-upper__box-btn">
+              <button type="submit" class="layer-upper__form-btn">주문하기</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="common-layer__box-btn-close">
+        <button type="button" class="common-layer__btn-close">팝업 닫기</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- [D] Layer popup : sns 공유 -->
+<div class="common-layer share-sns-layer" id="share-sns-layer" style="display:none;">
+  <div class="common-layer__dimmed"></div>
+  <div class="common-layer__wrapper">
+    <div class="common-layer__inner" role="dialog">
+      <div class="common-layer__header">
+        <h1 class="blind">sns 공유</h1>
+      </div>
+      <div class="common-layer__content">
+        <div class="share-sns">
+          <strong class="share-sns__title"><em class="text-semi-point">Fredit만의 특별함</em>을 <em class="text-point">SNS</em>에 <em class="text-point">공유</em>해보세요.</strong>
+          <ul class="share-sns__list">
+          <li class="share-sns__item">
+            <button type="button" class="share-sns__btn share-sns__btn--facebook"><span class="blind">페이스북</span></button>
+          </li>
+          <li class="share-sns__item">
+            <button type="button" class="share-sns__btn share-sns__btn--twitter"><span class="blind">트위터</span></button>
+          </li>
+          <li class="share-sns__item">
+            <button type="button" class="share-sns__btn share-sns__btn--kakaotalk"><span class="blind">카카오톡</span></button>
+          </li>
+          <li class="share-sns__item">
+            <button type="button" class="share-sns__btn share-sns__btn--copy">URL<br>복사</button>
+          </li>
+          </ul>
+        </div>
+      </div>
+      <div class="common-layer__box-btn-close">
+        <button type="button" class="common-layer__btn-close">팝업 닫기</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- [D] Layer popup : 리뷰 작성 팝업 -->
+<div class="common-layer common-layer--full" id="review-layer" style="display:none;">
+  <div class="common-layer__dimmed"></div>
+  <div class="common-layer__wrapper">
+    <div class="common-layer__inner" role="dialog">
+      <div class="common-layer__header">
+        <h1 class="blind">리뷰 작성</h1>
+      </div>
+      <div class="common-layer__content">
+        <div class="review-layer-section">
+          <h2 class="review-layer-section__title"><em class="text-point">리뷰</em>를 남겨주시면<br><em class="text-point">적립금</em>을 즉시 지급해 드립니다.</h2>
+          <span class="review-layer-section__desc">※일반 텍스트 리뷰 50원, 포토리뷰 100원 적립!</span>
+          <div class="rating-wrap js-rating-wrap">
+            <strong class="rating-wrap__title">상품은 만족하셨나요?</strong>
+            <span class="star">
+              <span class="rating js-rating" data-score="5" style="width:100%"></span>
+              <span class="value"><span class="score js-score">5.0</span> <span class="sub-value js-sub-value">(최고예요!)</span></span>
+            </span>
+            <button type="button" class="rating-wrap__btn rating-wrap__btn--minus js-rating-btn-minus"><span class="blind">별점내리기</span></button>
+            <button type="button" class="rating-wrap__btn rating-wrap__btn--plus js-rating-btn-plus"><span class="blind">별점올리기</span></button>
+          </div>
+          <div class="textarea-wrap">
+            <label for="textarea" class="blind">상품리뷰작성폼</label>
+            <textarea id="textarea" cols="30" rows="10"  placeholder="상품에 대한 사용 후기를 입력해 주세요." class="textarea"></textarea>
+            <span class="value"><span class="count">25 </span>/ 1,000</span>
+          </div>
+          <div class="input-file-wrap">
+            <input type="file" id="file" name="file" class="inp">
+            <label for="file" class="label">사진 첨부하기</label>
+            <!-- 첨부한 사진 영역 -->
+            <ul class="input-file__list">
+            <li class="input-file__item">
+              <img src="../img/@tmp/@tmp_review.png" alt="">
+              <button type="button" class="input-file__btn-delete">첨부파일 삭제</button>
+            </li>
+            <li class="input-file__item">
+              <img src="../img/@tmp/@tmp_review.png" alt="">
+              <button type="button" class="input-file__btn-delete">첨부파일 삭제</button>
+            </li>
+            <li class="input-file__item">
+              <img src="../img/@tmp/@tmp_review.png" alt="">
+              <button type="button" class="input-file__btn-delete">첨부파일 삭제</button>
+            </li>
+            <li class="input-file__item">
+              <img src="../img/@tmp/@tmp_review.png" alt="">
+              <button type="button" class="input-file__btn-delete">첨부파일 삭제</button>
+            </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="common-layer__btn-wrap">
+        <button type="button" class="common-layer__btn common-layer__btn--cancel">취소</button>
+        <button type="submit" class="common-layer__btn">리뷰 등록</button>
+      </div>
+      <div class="common-layer__box-btn-close">
+        <button type="button" class="common-layer__btn-close">팝업 닫기</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- [D] Layer popup : 문의 작성 팝업 -->
+<div class="common-layer common-layer--full" id="inquiry-layer" style="display:none;">
+  <div class="common-layer__dimmed"></div>
+  <div class="common-layer__wrapper">
+    <div class="common-layer__inner" role="dialog">
+      <div class="common-layer__header">
+        <h1 class="blind">문의 작성</h1>
+      </div>
+      <div class="common-layer__content">
+        <div class="inquiry-layer-section">
+          <h2 class="inquiry-layer-section__title"><em class="text-point">상품 문의</em>를 남겨주시면<br>최대한 빠르게 도와드려요~</h2>
+          <div class="textarea-wrap">
+            <label for="textarea2" class="blind">상품문의작성폼</label>
+            <textarea id="textarea2" cols="30" rows="10"  placeholder="상품에 대한 문의 내용을 입력해 주세요." class="textarea"></textarea>
+            <span class="value"><span class="count">25 </span>/ 1,000</span>
+          </div>
+          <div class="checkbox-wrap">
+            <input type="checkbox" id="checkbox" class="inp">
+            <label for="checkbox" class="label">비공개로 등록하기</label>
+          </div>
+          <ul class="inquiry-layer-section__list">
+          <li class="inquiry-layer-section__item">- 배송, 결제, 교환/반품에 대한 문의는 <em class="text-point">마이페이지 &gt; 1:1 상담</em> 문의를 이용해주세요.</li>
+          <li class="inquiry-layer-section__item">- 답변은 <em class="text-point">마이페이지 &gt; 상품문의</em>에서 확인 가능합니다.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="common-layer__btn-wrap">
+        <button type="button" class="common-layer__btn common-layer__btn--cancel">취소</button>
+        <button type="submit" class="common-layer__btn">문의 등록</button>
+      </div>
+      <div class="common-layer__box-btn-close">
+        <button type="button" class="common-layer__btn-close">팝업 닫기</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- //[D] Layer popup -->
+@@include('./include/script.html',{"type":""})
+<!-- [D] 마크업 case view. 개발 적용 시 제외 영역 -->
+<script>
+    function toggleRollingReview() {
+    var productDetail = HYFRESH.productDetail;
+    $('.rolling-review').toggle();
+    if ($('.rolling-review').css('display') === 'block') {
+      productDetail.swiperObjs.productReviewAutoSwiperObj
+        = new Swiper(productDetail.productReviewAutoSwiper, productDetail.swiperOpts.productReviewAutoSwiperOpts);
+      var rectInfo = document.querySelector('.rolling-review').getBoundingClientRect();
+      scrollTo(0, rectInfo.top + pageYOffset - (innerHeight - rectInfo.height) / 2);
+    } else {
+      productDetail.swiperObjs.productReviewAutoSwiperObj.destroy();
+      var overviewRect = document.querySelector('.product-overview').getBoundingClientRect();
+      scrollTo(0, overviewRect.bottom + pageYOffset - innerHeight / 2);
+    }
+  }
+</script>
+@@include('./include/caseview.html',{
+  "item": [
+    {
+      "text":"오토롤링리뷰(토글)",
+      "func": "toggleRollingReview()"
+    },
+  ]
+})
+<!-- //[D] 마크업 case view. 개발 적용 시 제외 영역 -->
+</body>
+</html>

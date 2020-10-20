@@ -1,0 +1,47 @@
+{
+  "name": "life_shopping",
+  "version": "1.0.0",
+  "description": "life_shopping's Gulp File",
+  "repository": {
+    "type": "",
+    "url": ""
+  },
+  "bugs": {
+    "url": ""
+  },
+  "main": "gulpfile.babel.js",
+  "scripts": {
+    "start": "gulp",
+    "build": "NODE_ENV=production gulp build"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.12.0",
+    "@babel/preset-env": "^7.12.0",
+    "@babel/register": "^7.12.0",
+    "browser-sync": "^2.26.7",
+    "cheerio": "^1.0.0-rc.3",
+    "del": "^6.0.0",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^7.0.1",
+    "gulp-babel": "^8.0.0",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-ejs": "^5.1.0",
+    "gulp-eslint": "^6.0.0",
+    "gulp-imagemin": "^7.1.0",
+    "gulp-newer": "^1.4.0",
+    "gulp-sass": "^4.1.0",
+    "gulp-sass-glob": "^1.1.0",
+    "gulp-sort": "^2.0.0",
+    "gulp-svg-sprite": "^1.5.0",
+    "gulp-zip": "^5.0.1",
+    "gulp.spritesmith-multi": "^3.1.0",
+    "jquery": "^3.5.1",
+    "merge-stream": "^2.0.0",
+    "normalize.css": "^8.0.1",
+    "vinyl-buffer": "^1.0.1",
+    "win-node-env": "^0.4.0"
+  }
+}

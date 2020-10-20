@@ -1,0 +1,336 @@
+.common-form {
+  margin: 14px 15px 0;
+}
+
+// textarea
+.textarea {
+  overflow: auto;
+  width: 100%;
+  height: 224px;
+  padding: 14px;
+  border: 1px solid #dedede;
+  background: #f7f7f7;
+  @include rfonts(13, 21, 400);
+  letter-spacing: -0.04em;
+  color: $dark;
+  box-sizing: border-box;
+  caret-color: $dark;
+  &::-webkit-resizer {
+    display: none;
+  }
+  &:focus {
+    border-color: $dark;
+    background: $white;
+  }
+  &:placeholder-shown {
+    color: red;
+  }
+  &::placeholder {
+    @include rfonts(13, 21, 400);
+    color: #999;
+  }
+  &-wrap {
+    position: relative;
+    font-size: 0;
+    &--small .textarea {
+      height: 91px;
+    }
+    .label {
+      display: block;
+      margin-bottom: 8px;
+      @include rfonts(13, false, 500);
+      letter-spacing: -0.05em;
+      color: $black;
+    }
+    .value {
+      position: absolute;
+      bottom: 5px;
+      right: 10px;
+      @include rfonts(11, 24, 400);
+      letter-spacing: -0.02em;
+      color: $dark-gray;
+    }
+    .count {
+      margin-right: 3px;
+      color: $dark;
+    }
+  }
+}
+// input type file
+.input-file {
+  &-wrap {
+    position: relative;
+    .inp {
+      position: absolute;
+      left: -999px;
+      @include blind(1px,1px);
+    }
+    .label {
+      display: block;
+      border: 1px dashed $black;
+      @include rfonts(13, 54, 500);
+      letter-spacing: -0.04em;
+      color: $black;
+      text-align: center;
+      &:before {
+        display: inline-block;
+        margin-right: 6px;
+        @include use-common('ico_input_file_camera');
+        vertical-align: -2px;
+        content: '';
+      }
+    }
+  }
+  &__list {
+    margin: 15px 0 0 -9px;
+    font-size: 0;
+  }
+  &__item {
+    display: inline-block;
+    overflow: hidden;
+    position: relative;
+    width: 104px;
+    height: 104px;
+    margin: 0 0 9px 9px;
+    img {
+      width: 100%;
+    }
+  }
+  &__btn-delete {
+    position: absolute;
+    top: 0;
+    right: 0;
+    @include blind;
+    @include use-common('ico_input_file_delete');
+  }
+}
+// input type checkbox
+.checkbox {
+  $block: &;
+  &-wrap {
+    position: relative;
+    font-size: 0;
+    &.checkbox-wrap--agree {
+      .inp:checked + .label:before {
+        @include use-common('ico_checkbox_small_on');
+      }
+      .label {
+        padding-left: 29px;
+        height: 22px;
+        @include rfonts(13, 22, 400);
+        &:before {
+          @include use-common('ico_checkbox_small_off');
+        }
+      }
+    }
+    .inp {
+      position: absolute;
+      left: -999px;
+      @include blind(1px,1px);
+      &:checked + .label:before {
+        @include use-common('ico_checkbox_on');
+      }
+    }
+    .label {
+      display: inline-block;
+      position: relative;
+      padding-left: 33px;
+      @include rfonts(13, 25, 400);
+      letter-spacing: -0.04em;
+      color: $dark;
+      &:before {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%);
+        @include use-common('ico_checkbox_off');
+        content: '';
+      }
+    }
+  }
+}
+// input text type
+.input-wrap {
+  position: relative;
+  margin-top: 30px;
+  .label {
+    display: block;
+    @include rfonts(13, 18, 500);
+    color: $black;
+    letter-spacing: -0.05em;
+    .ico-required {
+      overflow: hidden;
+      display: inline-block;
+      width: 5px;
+      height: 5px;
+      margin: -2px 0 0 5px;
+      border-radius: 50%;
+      background: $green;
+      vertical-align: middle;
+      line-height: 999px;
+    }
+  }
+  .inp {
+    display: block;
+    width: 100%;
+    margin-top: 8px;
+    padding: 9px 10px;
+    border: 1px solid #dedede;
+    background: $white;
+    color: $black;
+    box-sizing: border-box;
+    &.read-only {
+      background: #f7f7f7;
+      color: #999;
+    }
+    &:read-only {
+      background: #f7f7f7;
+      color: #999;
+    }
+    &:placeholder {
+      color: #999;
+    }
+    &:-ms-input-placeholder {
+      color: #999;
+    }
+  }
+  &__zip {
+    display: flex;
+    .inp {
+      flex: 1;
+    }
+    .input-wrap__btn {
+      margin: 8px 0 0 3px;
+    }
+  }
+  &__btn {
+    display: inline-block;
+    padding: 0 13px;
+    background: $black;
+    @include rfonts(12, 38, 400);
+    letter-spacing: -0.05em;
+    color: $white;
+    white-space: nowrap;
+  }
+}
+.checkbox__wish {
+
+  input[type='checkbox'] {
+    display: none;
+    &:checked + label {
+      &:before {
+        @include use-common('ico_wish_on');
+      }
+    }
+  }
+
+  label {
+    display: block;
+    padding: 8px;
+    box-sizing: border-box;
+
+    &:before {
+      display: inline-block;
+      @include use-common('ico_wish_off');
+      vertical-align: top;
+      content: '';
+    }
+  }
+}
+// 옵션타입input
+.input-option-wrap {
+  $block: '.input';
+  margin: 0 -3px;
+  font-size: 0;
+  &__title {
+    display: block;
+    @include rfonts(13, 25, 500);
+    letter-spacing: -0.05em;
+    color: $black;
+
+  }
+  #{$block}__inner {
+    display: inline-block;
+    margin: 2px;
+    font-size: 0;
+    vertical-align: top;
+  }
+  .inp {
+    &[type="radio"],
+    &[type="checkbox"] {
+      display: none;
+    }
+    &:checked + .label {
+      border-color: $greenery;
+      background: $greenery;
+      color: $white;
+    }
+  }
+  .label {
+    display: inline-block;
+    min-width: 80px;
+    border: 1px solid #8fcbb6;
+    border-radius: 4px;
+    @include rfonts(12, 29, 400);
+    letter-spacing: -0.05em;
+    color: $dark;
+    text-align: center;
+  }
+}
+// text group
+.input-group-wrap {
+  $block: '.input';
+  display: inline-block;
+  font-size: 0;
+  &__title {
+    display: block;
+    @include rfonts(13, 25, 500);
+    letter-spacing: -0.05em;
+    color: $black;
+  }
+  #{$block}__group {
+    display: inline-block;
+    margin-top: 1px;
+    padding: 0 10px;
+    border-bottom: 1px solid #8fcbb6;
+    font-size: 0;
+    vertical-align: top;
+  }
+  #{$block}__inner {
+    display: inline-block;
+    font-size: 0;
+    vertical-align: top;
+    &:not(:first-of-type) {
+      margin-left: 5px;
+    }
+  }
+  .inp {
+    width: 22px;
+    padding: 0;
+    border: 0;
+    @include rfonts(15, 22, 500);
+    letter-spacing: -0.01em;
+    color: $dark;
+    &--large {
+      width: 41px;
+    }
+    &:placeholder {
+      color: #9f9f9f;
+    }
+    &:-ms-input-placeholder {
+      color: #9f9f9f;
+    }
+  }
+  .text-sub {
+    @include rfonts(11, 22, 400);
+    color: #9f9f9f;
+    vertical-align: middle;
+  }
+  .input-dash {
+    display: inline-block;
+    margin: 7px 15px 0;
+    @include rfonts(15, 22, 400);
+    color: $dark;
+    vertical-align: middle;
+  }
+}

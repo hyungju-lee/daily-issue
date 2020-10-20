@@ -1,0 +1,39 @@
+.notice-bar {
+  margin: 80px 15px -80px;
+  padding: 17px 0 15px;
+  border-top: 1px solid $black;
+  &__inner {
+    display: flex;
+    align-items: center;
+    width: 100%;
+  }
+  &__type {
+    flex-shrink: 0;
+    border-radius: 13px;
+    padding: 4px 12px;
+    background: #1e1e1e;
+    @include rfonts(13, 19, 300);
+    color: $white;
+    letter-spacing: -0.03em;
+  }
+  &__link {
+    overflow: hidden;
+    flex: 1;
+    position: relative;
+    margin-left: 10px;
+    padding-right: 8px;
+    @include rfonts(13, 19, 300);
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    color: $dark;
+    &:after {
+      position: absolute;
+      top: 50%;
+      right: 0;
+      transform: translateY(-50%);
+      margin-top: -1px;
+      @include use-common('ico_arrow_notice_bar');
+      content: '';
+    }
+  }
+}
