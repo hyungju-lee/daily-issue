@@ -219,5 +219,5 @@
 ### 20201020
 
 1. [아이프레임 이슈 참고자료](http://hyungju12.dothome.co.kr/06_portfolio/new_study/hivework/#id19)
-2. [아이프레임 position: fixed 등 예시파일1](https://hyungju-lee.github.io/daily-issue/html/iframe-example/ex01)
-2. [아이프레임 position: fixed 등 예시파일2](https://hyungju-lee.github.io/daily-issue/html/iframe-example/ex02)
+2. [아이프레임 position: fixed 등 예시파일1](https://hyungju-lee.github.io/daily-issue/html/iframe-example/ex01/index.html)
+2. [아이프레임 position: fixed 등 예시파일2](https://hyungju-lee.github.io/daily-issue/html/iframe-example/ex02/index.html)
