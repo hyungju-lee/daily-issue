@@ -167,3 +167,9 @@
 * [자바스크립트 getBoundingClientRect()메서드로 offset().top 구현](https://hyungju-lee.github.io/daily-issue/javascript/script17.js)
 * [자바스크립트 getBoundingClientRect()메서드로 offset().top 구현2](https://hyungju-lee.github.io/daily-issue/javascript/script18.js)
 * [이벤트 두번실행되지 않게!! 반복문 사용할 때 항상 조심! + 이벤트 위임(delegate) 사용해!](https://hyungju-lee.github.io/daily-issue/javascript/script19.js)
+
+### 20201020
+
+1. [아이프레임 이슈 참고자료](http://hyungju12.dothome.co.kr/06_portfolio/new_study/hivework/#id19)
+2. [아이프레임 position: fixed 등 예시파일1](https://hyungju-lee.github.io/daily-issue/html/iframe-example/ex01)
+2. [아이프레임 position: fixed 등 예시파일2](https://hyungju-lee.github.io/daily-issue/html/iframe-example/ex02)

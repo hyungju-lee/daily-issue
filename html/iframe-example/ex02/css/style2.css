@@ -1,0 +1,12 @@
+*{margin:0;padding:0;border:0;box-sizing:border-box}
+html,body{height:100%;-webkit-overflow-scrolling:touch}
+
+#iframe_conts{overflow:auto;height:100%;padding-bottom:50px}
+.btn_pop{display:block;width:100%;height:50px;background-color:#eee}
+
+.popup{display:none;overflow:auto;position:fixed;top:0;left:0;width:100%;height:100%;padding-bottom:50px;background:#f5f5f3}
+.btn_close{position:absolute;top:20px;right:20px;padding:10px;background-color:#ccc}
+
+.foot{position:fixed;bottom:0;left:0;width:100%;height:50px;background-color:#eee}
+
+.inp_txt{display:block;width:100%;height:50px;border:1px solid #000;font-size:16px}
