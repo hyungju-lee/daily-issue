@@ -216,6 +216,17 @@
 2. [gulp-file-include if문 for문 사용하기](https://hyungju-lee.github.io/daily-issue/html/ex10/)
 3. [IE foreach 안먹히는 이슈 대응 - 폴리필](https://hyungju-lee.github.io/daily-issue/html/ex11/)
 
+### 20201020
+
+1. [아이프레임 이슈 참고자료](http://hyungju12.dothome.co.kr/06_portfolio/new_study/hivework/#id19)
+2. [아이프레임 position: fixed 등 예시파일1](https://hyungju-lee.github.io/daily-issue/html/iframe-example/ex01/index.html)
+3. [아이프레임 position: fixed 등 예시파일2](https://hyungju-lee.github.io/daily-issue/html/iframe-example/ex02/index.html)
+4. [아이프레임 position: fixed 등 예시파일 - fixed 방법](https://hyungju-lee.github.io/daily-issue/html/iframe-example/ex03/index.html)
+5. [아이프레임 position: fixed 등 예시파일 - fixed 방법](https://hyungju-lee.github.io/daily-issue/html/iframe-example/ex04/index.html)
+6. [스와이퍼 destroy, for in, requestAnimationFrame](https://hyungju-lee.github.io/issue/2020/10/20/issue2.html)
+6. [별점 코드정리](https://hyungju-lee.github.io/issue/2020/10/20/issue3.html)
+7. [유효성검사 코드정리기법](https://hyungju-lee.github.io/daily-issue/javascript/script26.js)
+
 ### 20201023
 
-1. [팝업스르륵열리고 닫히고 - requestAnimationFrame](https://hyungju-lee.github.io/daily-issue/javascript/script26.js)
+1. [팝업스르륵열리고 닫히고 - requestAnimationFrame](https://hyungju-lee.github.io/daily-issue/javascript/script27.js)

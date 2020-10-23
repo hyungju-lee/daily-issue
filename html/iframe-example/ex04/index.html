@@ -1,0 +1,34 @@
+<!DOCTYPE HTML>
+<html lang="ko-KR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <link rel="stylesheet" href="css/style.css" />
+    <title>아이프레임 예제</title>
+    <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('#head').on('click', function(){
+                alert('dd')
+            })
+        });
+    </script>
+</head>
+
+<body>
+<div id="wrap">
+    <header id="head">
+        index.html 헤더
+    </header>
+    <div id="container">
+        <div id="contents">
+            <iframe id="iframe" src="index2.html" frameborder="0"></iframe>
+        </div>
+    </div>
+    <footer id="foot">
+        index.html 푸터
+    </footer>
+</div>
+</body>
+</html>
