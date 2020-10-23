@@ -215,3 +215,7 @@
 1. [jquery prop 으로 유효성검사(validator)](https://hyungju-lee.github.io/daily-issue/html/ex09/)
 2. [gulp-file-include if문 for문 사용하기](https://hyungju-lee.github.io/daily-issue/html/ex10/)
 3. [IE foreach 안먹히는 이슈 대응 - 폴리필](https://hyungju-lee.github.io/daily-issue/html/ex11/)
+
+### 20201023
+
+1. [팝업스르륵열리고 닫히고 - requestAnimationFrame](https://hyungju-lee.github.io/daily-issue/javascript/script26.js)
