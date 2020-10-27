@@ -230,3 +230,12 @@
 ### 20201023
 
 1. [팝업스르륵열리고 닫히고 - requestAnimationFrame](https://hyungju-lee.github.io/daily-issue/javascript/script27.js)
+
+### 20201027
+
+1. [swiper slide 갯수에따라 touchmove 되게할지 말게할지 정의](https://hyungju-lee.github.io/daily-issue/javascript/script28.js)
+
+    * 특정옵션보다 swiper-no-swiping 클래스를 활용하는 것이 좋다. 이에 대한 옵션은 noSwiping 이 있다.
+    * 처음엔 destroy() 메서드를 활용하려고 했다. 하지만 이는 swiper 자체가 적용이안돼서 그를 방지해 css를 추가적으로 줘야되는 단점이 있다.  
+      그리고 현재 사용하는 스와이퍼 라이브러리 버전이 옛날꺼라 그런진 모르겠으나 에러메시지도 뜬다. (기능엔 문제없지만)
+    * 그래서 위와 같은 방법으로 바꿨다.
