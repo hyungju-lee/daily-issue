@@ -230,6 +230,7 @@
 ### 20201023
 
 1. [팝업스르륵열리고 닫히고 - requestAnimationFrame](https://hyungju-lee.github.io/daily-issue/javascript/script27.js)
+1. [팝업스르륵열리고 닫히고 - requestAnimationFrame2](https://hyungju-lee.github.io/daily-issue/javascript/script27-1.js)
 
 ### 20201027
 
