@@ -243,4 +243,4 @@
     
 ### 20201029
 
-1. [이벤트위임 및 data- 속성사용](https://hyungju-lee.github.io/daily-issue/javascript/script29.js)
+1. [이벤트위임 및 data- 속성사용, if문 대신 삼항연산자 사용](https://hyungju-lee.github.io/daily-issue/javascript/script29.js)
