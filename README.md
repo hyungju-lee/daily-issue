@@ -251,3 +251,7 @@
 
     * Math.random() 난수생성
     * reverse()로 배열 반전
+    
+2. [숫자 촤르르르르르륵 움직이는 인터렉션2](https://hyungju-lee.github.io/daily-issue/javascript/script30.js)
+
+    * transition-duration 소숫점 - IE에서 삐뚤빼뚤. 정확한 시간계산이안되니 덜가거나이래서 그런듯. 딱 떨어지는 정수줘!! Math.round()
