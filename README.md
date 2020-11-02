@@ -248,3 +248,6 @@
 ### 20201102
 
 1. [숫자 촤르르르르르륵 움직이는 인터렉션](https://hyungju-lee.github.io/daily-issue/javascript/script30.js)
+
+    * Math.random() 난수생성
+    * reverse()로 배열 반전
