@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<pre>
+    <code>
+&lt;div class="category-slide swiper-container"&gt;
+    &lt;div class="category-slide__pagination swiper-pagination"&gt;
+      &lt;span class="swiper-pagination-bullet"&gt;All22&lt;/span&gt;
+      &lt;span class="swiper-pagination-bullet"&gt;BEAUTY&lt;/span&gt;
+      &lt;span class="swiper-pagination-bullet"&gt;LIFE&lt;/span&gt;
+      &lt;span class="swiper-pagination-bullet"&gt;WOMEM&lt;/span&gt;
+      &lt;span class="swiper-pagination-bullet"&gt;BABY&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;ul class="category-slide__list swiper-wrapper"&gt;
+
+-------------------------------------------------------------------------------------------------
+
+categorySwiperOpts: {
+        slidePerView        : 1,
+        autoHeight          : true,
+        threshold           : 10,
+        pagination          : '.category-slide__pagination',
+        paginationType      : 'custom',
+        paginationClickable : true,
+        onInit: function (swiper) {
+          var pagi = $(swiper.paginationContainer[0]).find(".swiper-pagination-bullet");
+          pagi.eq(swiper.realIndex).addClass("swiper-pagination-bullet-active");
+          pagi.on("click", function () {
+            $(this).addClass("swiper-pagination-bullet-active").siblings().removeClass("swiper-pagination-bullet-active");
+            swiper.slideTo($(this).index())
+          })
+        },
+      },
+    </code>
+</pre>
+</body>
+</html>

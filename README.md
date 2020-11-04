@@ -252,6 +252,12 @@
     * Math.random() 난수생성
     * reverse()로 배열 반전
     
-2. [숫자 촤르르르르르륵 움직이는 인터렉션2](https://hyungju-lee.github.io/daily-issue/javascript/script30.js)
+2. [숫자 촤르르르르르륵 움직이는 인터렉션2](https://hyungju-lee.github.io/daily-issue/javascript/script31.js)
 
     * transition-duration 소숫점 - IE에서 삐뚤빼뚤. 정확한 시간계산이안되니 덜가거나이래서 그런듯. 딱 떨어지는 정수줘!! Math.round()
+
+### 20201104
+
+1. [스와이퍼 페이지네이션 custom 모드](https://hyungju-lee.github.io/daily-issue/html/ex12/)
+
+    * 웹스톰에 꼭 해당 라이브러리 등록해서 작업해! 진짜 메서드, 프로퍼티 다 뜨네. 넘나 편한것
