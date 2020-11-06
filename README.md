@@ -261,3 +261,9 @@
 1. [스와이퍼 페이지네이션 custom 모드](https://hyungju-lee.github.io/daily-issue/html/ex12/)
 
     * 웹스톰에 꼭 해당 라이브러리 등록해서 작업해! 진짜 메서드, 프로퍼티 다 뜨네. 넘나 편한것
+    
+### 20201106
+
+1. [전체동의 여러개 같이있을 때 개별로 인식못해서 생기는 오류해결](https://hyungju-lee.github.io/daily-issue/html/ex13/)
+
+    * 변수에 이전 클릭했던 target 값을 담고, 그 후에 비교 -> 다르면 갱신 -> 같으면 그냥 진행
