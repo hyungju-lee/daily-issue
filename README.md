@@ -267,3 +267,7 @@
 1. [전체동의 여러개 같이있을 때 개별로 인식못해서 생기는 오류해결](https://hyungju-lee.github.io/daily-issue/html/ex13/)
 
     * 변수에 이전 클릭했던 target 값을 담고, 그 후에 비교 -> 다르면 갱신 -> 같으면 그냥 진행
+    
+### 20201107
+
+1. [swiper 2개 연동 - 2016년 이전버전 기준으로 작업한거라 API 이름이 좀 다름. 최신꺼쓰면 최신꺼에 맞춰 수정 ㄱㄱ](https://hyungju-lee.github.io/daily-issue/html/ex14/)

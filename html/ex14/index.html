@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<pre>
+    <code>
+    brandStorySwiper    : '.brand-story-slide',
+      brandStorySwiperOpts: {
+        pagination         : '.brand-story-slide__pagination',
+        spaceBetween       : 15,
+        paginationClickable: true,
+        isThisEvent: false,
+        onTouchStart: function () {
+          this.isThisEvent = true
+        },
+        onTransitionStart: function (swiper) {
+          if (this.isThisEvent) {
+            defParams.exampleSwiperObj.slideTo(swiper.realIndex);
+          }
+        },
+        onTransitionEnd: function () {
+          this.isThisEvent = false;
+        },
+      },
+
+    ---------------------------------------------------
+
+      exampleSwiper : '.swiper-example',
+      exampleOpts : {
+        customNum : 0,
+        isThisEvent: false,
+        onSliderMove: function () {
+          this.isThisEvent = true
+        },
+        onTransitionStart: function (swiper) {
+          if (this.isThisEvent) {
+            defParams.brandStorySwiperObj.slideTo(swiper.realIndex);
+          }
+        },
+        onTransitionEnd: function () {
+          this.isThisEvent = false
+        }
+      },
+    </code>
+</pre>
+</body>
+</html>
