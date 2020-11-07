@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<pre>
+    <code>
+    bindEvents: function () {
+      this.tabCategoryTab.on('click', $.proxy(this.categoryTabFunc, this));
+      this.tabSubTab.on('click', $.proxy(this.subTabFunc, this));
+    },
+    buildSwiper: function () {
+      this.swiperObj = new Swiper(this.bestTabSub, this.swiperOpts);
+    },
+    categoryTabFunc: function (e) {
+      e.preventDefault();
+      var target = $(e.currentTarget),
+        targetParent = target.parent(),
+        targetParentIndex = targetParent.index(),
+        _this = this;
+
+      target.next().hasClass("tab-sub") ?
+        target.parents(".tab-category__list").removeClass("no-padding") :
+        target.parents(".tab-category__list").addClass("no-padding");
+
+      this.tabCategoryItem.removeClass(this.opts.selectClass).eq(targetParentIndex).addClass(this.opts.selectClass);
+      this.tabCategoryItem.eq(targetParentIndex).find(this.tabSubItem).removeClass(this.opts.activeClass).eq(0).addClass(this.opts.activeClass);
+
+      if (navigator.appName === "Microsoft Internet Explorer") {
+        this.swiperObj[targetParentIndex].destroy()
+        this.swiperObj[targetParentIndex] = new Swiper(this.bestTabSub.eq(targetParentIndex), this.swiperOpts);
+      }
+
+      this.swiperObj[targetParentIndex].wrapper[0].style.transform = "translate3d(0, 0, 0)" // IE, Safari를 위한코드, 랜더링될때 requestAnimationFrame이 제일 마지막이기 때문에...
+      requestAnimationFrame(function () {
+        _this.swiperObj[targetParentIndex].wrapper[0].style.transform = "translate3d(0, 0, 0)"
+      });
+    },
+    </code>
+</pre>
+</body>
+</html>
