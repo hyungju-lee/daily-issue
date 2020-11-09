@@ -276,3 +276,4 @@
 ### 20201109
 
 1. [swiper 2개 연동 - 사파리 이슈 해결, 하지만 손가락 두개 터치할때 이슈는 아직 미해결](https://hyungju-lee.github.io/daily-issue/html/ex16/)
+2. [swiper 2개 연동 - 스와이프 될 때마다 텍스트 변환](https://hyungju-lee.github.io/daily-issue/html/ex17/)

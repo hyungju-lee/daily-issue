@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<pre>
+    <code>
+      brandStorySwiper    : '.brand-story-slide',
+      brandStorySwiperOpts: {
+        pagination         : '.brand-story-slide__pagination',
+        spaceBetween       : 15,
+        paginationClickable: true,
+        isThisEvent        : false,
+        onInit: function (swiper) {
+          $(".brand-section__box-btn .btn-more span")
+            .text("\'"+$(".brand-story-slide .brand-name")
+              .eq(swiper.realIndex).text()+"\' 제품 더보기");
+        },
+        onTouchStart : function (swiper, event) {
+          this.isThisEvent = true;
+        },
+        onSliderMove       : function () {
+          this.isThisEvent = true
+        },
+        onTransitionStart: function (swiper) {
+          if (this.isThisEvent) {
+            defParams.brandProductSwiperObj.slideTo(swiper.realIndex);
+            $(".brand-section__box-btn .btn-more span")
+              .text("\'"+$(".brand-story-slide .brand-name")
+                .eq(swiper.realIndex).text()+"\' 제품 더보기");
+          }
+        },
+        onTransitionEnd: function () {
+          this.isThisEvent = false;
+        },
+      },
+
+      brandProductSwiper: '.brand-product-slide',
+      brandProductOpts  : {
+        customNum   : 0,
+        isThisEvent : false,
+        onSliderMove: function () {
+          this.isThisEvent = true;
+        },
+        onTransitionStart: function (swiper) {
+          if (this.isThisEvent) {
+            defParams.brandStorySwiperObj.slideTo(swiper.realIndex);
+            $(".brand-section__box-btn .btn-more span")
+              .text("\'"+$(".brand-story-slide .brand-name")
+                .eq(swiper.realIndex).text()+"\' 제품 더보기");
+          }
+        },
+        onTransitionEnd: function () {
+          this.isThisEvent = false;
+        }
+      },
+    </code>
+</pre>
+</body>
+</html>
