@@ -120,11 +120,11 @@
           textInputVali = false;
         }
       })
-
+      <span style="color: red">
       !this.formValidator.find('[data-validator-checkall="true"] input[type=checkbox]').length ? undefined :
         !this.formValidator.find('[data-validator-checkall="true"] input[type=checkbox]').prop('checked') ?
           allCheckoBox = false : undefined;
-
+      </span>
       if (textInputVali && allCheckoBox) {
         this.formValidator.find('.common-layer__btn').prop('disabled', false);
       } else {
