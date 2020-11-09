@@ -272,3 +272,7 @@
 
 1. [swiper 2개 연동 - 2016년 이전버전 기준으로 작업한거라 API 이름이 좀 다름. 최신꺼쓰면 최신꺼에 맞춰 수정 ㄱㄱ](https://hyungju-lee.github.io/daily-issue/html/ex14/)
 2. [삼항연산자 사용](https://hyungju-lee.github.io/daily-issue/html/ex15/)
+
+### 20201109
+
+1. [swiper 2개 연동 - 사파리 이슈 해결, 하지만 손가락 두개 터치할때 이슈는 아직 미해결](https://hyungju-lee.github.io/daily-issue/html/ex16/)
