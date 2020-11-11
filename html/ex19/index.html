@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<pre>
+    <code>
+(function (win, $) {
+  'use strict';
+  win.HYFRESH.common = win.HYFRESH.common || {};
+
+  var UTIL = win.HYFRESH.common.util;
+  win.HYFRESH.brand = (function (container){
+    var defParams = {
+      obj: container,
+
+      brandBannerSwiper    : '.brand-banner-slide',
+      brandBannerSwiperOpts: {
+        pagination          : '.brand-banner-slide__pagination',
+        paginationClickable : true,
+        onPaginationRendered: function(swiperClass, paginationEl) {
+          var bullet = $(paginationEl).find('.swiper-pagination-bullet');
+          for (var i=0; i&lt;bullet.length; i++) {
+            bullet[i].innerText = 'slide' + (i + 1);
+          }
+        }
+      },
+      brandNewSwiper    : '.brand-new-slide',
+      brandNewSwiperOpts: {
+        slidesPerView: 'auto',
+        spaceBetween : 8,
+        loop         : true
+      },
+      brandStorySwiper    : '.brand-story-slide',
+      brandStorySwiperOpts: {
+        pagination         : '.brand-story-slide__pagination',
+        spaceBetween       : 15,
+        paginationClickable: true,
+        isThisEvent        : false,
+        onInit: function (swiper) {
+          <span style="color: red">
+          var brandSectionBtnSpan = swiper.wrapper.parents(".brand-section")
+            .find(".brand-section__box-btn .btn-more span");
+          brandSectionBtnSpan
+            .text("\'"+$(".brand-story-slide .brand-name")
+              .eq(swiper.realIndex).text()+"\' 제품 더보기");
+          </span>
+        },
+        onTouchStart : function (swiper, event) {
+          this.isThisEvent = true;
+        },
+        onSliderMove       : function () {
+          this.isThisEvent = true
+        },
+        onTransitionStart: function (swiper) {
+          if (this.isThisEvent) {
+            defParams.brandProductSwiperObj.slideTo(swiper.realIndex);
+            <span style="color: red">
+            var brandSectionBtnSpan = swiper.wrapper.parents(".brand-section")
+              .find(".brand-section__box-btn .btn-more span");
+            brandSectionBtnSpan
+              .text("\'"+$(".brand-story-slide .brand-name")
+                .eq(swiper.realIndex).text()+"\' 제품 더보기");
+            </span>
+          }
+        },
+        onTransitionEnd: function () {
+          this.isThisEvent = false;
+        },
+      },
+
+      brandProductSwiper: '.brand-product-slide',
+      brandProductOpts  : {
+        customNum   : 0,
+        isThisEvent : false,
+        onSliderMove: function () {
+          this.isThisEvent = true;
+        },
+        onTransitionStart: function (swiper) {
+          if (this.isThisEvent) {
+            defParams.brandStorySwiperObj.slideTo(swiper.realIndex);
+            <span style="color: red">
+            var brandSectionBtnSpan = swiper.wrapper.parents(".brand-section")
+              .find(".brand-section__box-btn .btn-more span");
+            brandSectionBtnSpan
+              .text("\'"+$(".brand-story-slide .brand-name")
+                .eq(swiper.realIndex).text()+"\' 제품 더보기");
+            </span>
+          }
+        },
+        onTransitionEnd: function () {
+          this.isThisEvent = false;
+        }
+      },
+      categorySwiper    : '.category-slide',
+      categorySwiperOpts: {
+        slidePerView        : 1,
+        autoHeight          : true,
+        threshold           : 10,
+        pagination          : '.category-slide__pagination',
+        paginationClickable : true,
+        onPaginationRendered: function(swiperClass, paginationEl) {
+          var bullet  = $(paginationEl).find('.swiper-pagination-bullet'),
+              textArr = HYFRESH.setter.BRAND_SWIPER_CATEGORY;
+          for (var i=0; i&lt;bullet.length; i++) {
+            bullet[i].innerText = textArr[i];
+          }
+        }
+      },
+    }
+    return {
+      init: function() {
+        this.setElements();
+        this.buildSwiper();
+      },
+      setElements : function() {
+        this.obj               = $(defParams.obj);
+        this.brandBannerSwiper = this.obj.find(defParams.brandBannerSwiper);
+        this.brandProductSwiper = this.obj.find(defParams.brandProductSwiper);
+        this.brandNewSwiper    = this.obj.find(defParams.brandNewSwiper);
+        this.brandStorySwiper  = this.obj.find(defParams.brandStorySwiper);
+        this.categorySwiper    = this.obj.find(defParams.categorySwiper);
+        this.searchKeywordLayer = $('.layer-search-keyword');
+      },
+      buildSwiper : function() {
+        defParams.brandBannerSwiperObj = new Swiper(this.brandBannerSwiper, defParams.brandBannerSwiperOpts);
+        defParams.brandProductSwiperObj = new Swiper(this.brandProductSwiper, defParams.brandProductOpts);
+        defParams.brandNewSwiperObj    = new Swiper(this.brandNewSwiper, defParams.brandNewSwiperOpts);
+        defParams.brandStorySwiperObj  = new Swiper(this.brandStorySwiper, defParams.brandStorySwiperOpts);
+        defParams.categorySwiperObj    = new Swiper(this.categorySwiper, defParams.categorySwiperOpts);
+      },
+      toggleKeywordLayer: function (type) {
+        var _this = this;
+        var isKeywordLayerLength = this.searchKeywordLayer ? this.searchKeywordLayer.length : 0;
+        if (!isKeywordLayerLength) return;
+        if (type) {
+          if (!this.searchKeywordLayer.is(":visible")) {
+            var layerHeaderHeight = $('.common-layer__header').outerHeight(),
+              searchAreaHeight = $('.search__area').outerHeight(),
+              result = layerHeaderHeight + searchAreaHeight - 5;
+            $('body').addClass('scroll-lock');
+            this.searchKeywordLayer.css({
+              display: "block",
+            })
+            requestAnimationFrame(function () {
+              requestAnimationFrame(function () {
+                _this.searchKeywordLayer.css({
+                  opacity: 1,
+                  top: result + 'px',
+                })
+              })
+            })
+            this.searchKeywordLayer.on("transitionend", function () {
+              _this.searchKeywordLayer.off("transitionend")
+              HYFRESH['comLayerPopup'].prototype.ariaAccessbility();
+            })
+          }
+        } else {
+          if (this.searchKeywordLayer.is(":visible")) {
+            $('body').removeClass('scroll-lock');
+            requestAnimationFrame(function () {
+              _this.searchKeywordLayer.css({
+                opacity: 0,
+              })
+            })
+            this.searchKeywordLayer.on("transitionend", function () {
+              _this.searchKeywordLayer.off("transitionend")
+              _this.searchKeywordLayer.css({
+                display: "none",
+                opacity: "",
+                top: "",
+              })
+              HYFRESH['comLayerPopup'].prototype.ariaAccessbility();
+            })
+          }
+        }
+      },
+    }
+  })('.content-brand');
+
+  $(function () {
+    if ($('.content-brand').length) {
+      HYFRESH.brand.init();
+    }
+  });
+})(window, window.jQuery);
+    </code>
+</pre>
+</body>
+</html>
