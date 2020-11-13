@@ -290,3 +290,9 @@
 2. [위 코드 토글버튼 common 화](https://hyungju-lee.github.io/daily-issue/html/ex22/)
 3. [개발하다보면 볼륨이커서 컨트롤하기 어려워서그런지 코드실행을 제어하기 어려운 경우가 있다고한다. 이때를 위해 reInit() 함수를 작성한다.](https://hyungju-lee.github.io/daily-issue/html/ex23/)
 4. [swiper destroy를 위한 reInit() 함수 작성법](https://hyungju-lee.github.io/daily-issue/html/ex24/)
+
+5. Lazy loading swiper destroy 할 때 Uncaught ~~ params 에러 대처방법
+
+    * [참고링크](https://github.com/nolimits4web/Swiper/issues/2038)
+        
+        * Ok, swiper.destroy(false); helps https://jsfiddle.net/j9k0xtqo/43/
