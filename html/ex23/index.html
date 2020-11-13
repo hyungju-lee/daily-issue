@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<pre>
+    <code>
+    (function (win, $) {
+       'use strict';
+        win.HYFRESH.common = win.HYFRESH.common || {};
+
+        var UTIL = win.HYFRESH.common.util;
+        win.HYFRESH.intro = (function(container){
+            var defParams = {
+                obj                     : container,
+
+                coachMarkSwiper      : '.swiper-container',
+                coachMarkSwiperOpts: {
+                    slidesPerView       : 'auto',
+                    effect: 'fade',
+                    pagination          : '.swiper-pagination',
+                    paginationClickable : true,
+                    onPaginationRendered: function(swiperClass, paginationEl) {
+                        var bullet = $(paginationEl).find('.swiper-pagination-bullet');
+                        for (var i=0; i&lt;bullet.length; i++) {
+                            bullet[i].innerText = 'slide' + (i + 1);
+                        }
+                    }
+                },
+                screenMaxWdith : 720,
+                btnCloseDefaultPosition: 29
+            };
+            return {
+                <span style="color: red">
+                reInit: function () {
+                  this.destroySwiper();
+                  this.offEvents();
+                  this.init();
+                },
+                </span>
+                init: function() {
+                    this.setElement();
+                    this.bindEvents();
+                    this.buildSwiper();
+                },
+                setElement : function() {
+                    this.obj             = $(defParams.obj);
+                    this.coachMarkSwiper = this.obj.find(defParams.coachMarkSwiper);
+                    this.btnCloseCoachMark = this.obj.find('.coach-mark-wrap__btn-close');
+                },
+                bindEvents: function() {
+                    this.btnCloseCoachMark.on("click", $.proxy(this.closeCoachMark, this));
+                    $(win).on("load resize", $.proxy(this.checkPosition, this));
+                },
+                buildSwiper : function() {
+                    defParams.coachMarkSwiperObj = new Swiper(this.coachMarkSwiper, defParams.coachMarkSwiperOpts);
+                },
+                offEvents: function () {
+                  this.btnCloseCoachMark.off("click", $.proxy(this.closeCoachMark, this));
+                  $(win).off("load resize", $.proxy(this.checkPosition, this));
+                },
+                destroySwiper : function () {
+                    if (!!defParams.coachMarkSwiperObj) {
+                      defParams.coachMarkSwiperObj.destroy();
+                    }
+                },
+                closeCoachMark : function() {
+                    this.obj.hide();
+                },
+                checkPosition : function() {
+                    var targetImage = this.obj.find('img'),
+                        targetImageSize = targetImage.outerWidth();
+                    if(targetImageSize > $(win).width()) {
+                        this.btnCloseCoachMark.css({
+                            right: defParams.btnCloseDefaultPosition + 'px',
+                        })
+                    }
+                    if (targetImageSize < $(win).width()) {
+                        if($(win).width() < defParams.screenMaxWdith) {
+                            var space = ($(win).width() - targetImageSize) / 2;
+                            this.btnCloseCoachMark.css({
+                                right: space + defParams.btnCloseDefaultPosition + 'px',
+                            })
+                        } else {
+                            var space = (defParams.screenMaxWdith - targetImageSize) / 2;
+                            this.btnCloseCoachMark.css({
+                                right: space + defParams.btnCloseDefaultPosition + 'px',
+                            })
+                        }
+                    }
+                }
+            }
+        })('.coach-mark-wrap')
+
+        $(function () {
+            if ($('.coach-mark-wrap').length) {
+                HYFRESH.intro.init();
+            }
+        });
+    })(window, window.jQuery);
+    </code>
+</pre>
+</body>
+</html>
