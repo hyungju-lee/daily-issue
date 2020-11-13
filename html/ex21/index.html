@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<pre>
+    <code>
+    categorySwiper : '.category-slide',
+    categorySwiperOpts : {
+        slidePerView       : 1,
+        autoHeight         : true,
+        threshold          : 10,
+        pagination         : '.category-slide__pagination',
+        paginationClickable: true,
+        <span style="color: red">
+        onInit: function () {
+            $(defParams.categorySwiperViewMode).on("click", function () {
+                var _this = $(this);
+                var boolean = _this.hasClass("type2");
+                var productsList = _this.parents(".products").find(".products__list");
+                boolean ?
+                    _this.removeClass("type2") :
+                    _this.addClass("type2");
+                boolean ?
+                    productsList.addClass("products__list--typeb") :
+                    productsList.removeClass("products__list--typeb");
+                defParams.categorySwiperObj.update();
+            })
+        },
+        </span>
+        onPaginationRendered: function(swiperClass, paginationEl) {
+            var bullet = $(paginationEl).find('.swiper-pagination-bullet'),
+                textArr = HYFRESH.setter.REGULAR_DELIVERY_SWIPER_CATEGORY;
+            for (var i=0; i&lt;bullet.length; i++) {
+                bullet[i].innerText = textArr[i];
+            }
+        }
+    },
+    </code>
+</pre>
+</body>
+</html>

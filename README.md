@@ -283,3 +283,8 @@
 
 1. [swiper 2개 연동 - 스와이프 될 때마다 텍스트 변환 - 모든 버튼 텍스트가 변환되는 이슈 해결](https://hyungju-lee.github.io/daily-issue/html/ex19/)
 2. [아코디언 현상태 유지하도록 수정 - 다른 아코디언 눌러도 펼쳐져있는 아코디언은 펼쳐져있는대로 유지](https://hyungju-lee.github.io/daily-issue/html/ex20/)
+
+### 20201113
+
+1. [swiper 클래스 on/off 될때 update해서 autoheight 되도록하기](https://hyungju-lee.github.io/daily-issue/html/ex21/)
+2. [위 코드 토글버튼 common 화](https://hyungju-lee.github.io/daily-issue/html/ex22/)
