@@ -289,3 +289,4 @@
 1. [swiper 클래스 on/off 될때 update해서 autoheight 되도록하기](https://hyungju-lee.github.io/daily-issue/html/ex21/)
 2. [위 코드 토글버튼 common 화](https://hyungju-lee.github.io/daily-issue/html/ex22/)
 3. [개발하다보면 볼륨이커서 컨트롤하기 어려워서그런지 코드실행을 제어하기 어려운 경우가 있다고한다. 이때를 위해 reInit() 함수를 작성한다.](https://hyungju-lee.github.io/daily-issue/html/ex23/)
+4. [swiper destroy를 위한 reInit() 함수 작성법](https://hyungju-lee.github.io/daily-issue/html/ex24/)

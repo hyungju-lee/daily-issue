@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<pre>
+    <code>
+    (function (win, $) {
+       'use strict';
+        win.HYFRESH.common = win.HYFRESH.common || {};
+
+        var UTIL = win.HYFRESH.common.util;
+        win.HYFRESH.new = (function(container){
+            var defParams = {
+                obj                     : container,
+
+                newMarketingBanner      : '.new-marketing-banner',
+                newMarketingBannerOpts: {
+                    slidesPerView       : 'auto',
+                    spaceBetween        : 9,
+                    speed               : 300,
+                    pagination          : '.swiper-pagination',
+                    paginationClickable : true,
+                    preloadImages       : false,
+                    onPaginationRendered: function(swiperClass, paginationEl) {
+                        var bullet = $(paginationEl).find('.swiper-pagination-bullet');
+                        for (var i=0; i&lt;bullet.length; i++) {
+                            bullet[i].innerText = 'slide' + (i + 1);
+                        }
+                    }
+                },
+                <span style="color: red">
+                swiperObject : {
+
+                },
+                </span>
+            };
+            return {
+                <span style="color: red">
+                reInit: function () {
+                    HYFRESH.destroySwiper(defParams.swiperObject);
+                    this.init();
+                },
+                </span>
+                init: function() {
+                    this.setElement();
+                    this.buildSwiper();
+                },
+                setElement : function() {
+                    this.obj                      = $(defParams.obj);
+                    this.newMarketingBanner       = this.obj.find(defParams.newMarketingBanner);
+                },
+                buildSwiper : function() {
+                    <span style="color: red">
+                    defParams.swiperObject.newMarketingBannerObj       = new Swiper(this.newMarketingBanner, defParams.newMarketingBannerOpts);
+                    </span>
+                },
+            }
+        })('.content-new')
+
+        $(function () {
+            if ($('.content-new').length) {
+                HYFRESH.new.init();
+            }
+        });
+    })(window, window.jQuery);
+
+
+        -------------------------------
+
+        <span style="color: red">
+        (function (win, $, doc) {
+            'use strict';
+            win.HYFRESH = win.HYFRESH || {};
+
+            var UTIL = win.HYFRESH.common.util,
+                pluginName = 'destroySwiper';
+
+            win.HYFRESH[pluginName] = function (swiperObj) {
+              for (var i in swiperObj) {
+                if (!swiperObj[i].length) {
+                  swiperObj[i].destroy ? swiperObj[i].destroy(false) : undefined;
+                } else {
+                  swiperObj[i].forEach(function (val, i) {
+                    val.destroy ? val.destroy(false) : undefined;
+                  })
+                }
+              }
+            };
+        })(window, window.jQuery, window.document);
+        </span>
+    </code>
+</pre>
+</body>
+</html>
