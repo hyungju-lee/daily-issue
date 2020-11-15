@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<pre>
+    <code>
+        (function (win, $) {
+          "use strict";
+          win.HYFRESH = win.HYFRESH || {};
+
+          var UTIL = win.HYFRESH.common.util,
+            pluginName = 'agreeCheckbox';
+
+          win.HYFRESH[pluginName] = function (container, args) {
+            var defParams = {
+              agreeWrap : '.js-terms-agree-wrap',
+              agreeItem :'.js-terms-agree-item',
+              agreeInputAll : '.js-terms-agree-input-all',
+              agreeInput : '.js-terms-agree-input',
+              checkboxWrap : '.checkbox-wrap--agree',
+              label : '.label',
+            };
+            this.obj = container;
+            this.opts = UTIL.def(defParams, (args || {}));
+            this.init();
+          };
+
+          win.HYFRESH[pluginName].prototype = {
+            init : function () {
+              this.setElements();
+              this.bindEvents();
+            },
+            setElements : function () {
+              this.agreeWrap = this.opts.agreeWrap;
+              this.agreeItem = this.opts.agreeItem;
+              this.agreeInputAll = this.opts.agreeInputAll;
+              this.agreeInput = this.opts.agreeInput;
+              this.checkboxWrap = $(this.opts.checkboxWrap);
+              this.label = this.opts.label;
+              this.checkboxWrapLength = 0;
+              this.targetWrap = null;
+            },
+            bindEvents : function () {
+              this.checkboxWrap.on('click', this.label, $.proxy(this.onClickFunc, this));
+            },
+            onClickFunc: function (e) {
+              <span style="color: red">
+              var th = this;
+              var _this = $(e.target);
+              var _thisAgreeWrap = _this.parents(this.agreeWrap);
+              var _thisAgreeAllTrue = _this.prev().hasClass('js-terms-agree-input-all') ? _this.prev() : false;
+              var _thisSiblings = _thisAgreeAllTrue ? _this.parents(this.agreeItem).siblings().find(this.agreeInput) : false;
+              this.checkboxWrapLength = 0;
+              requestAnimationFrame(function () {
+                _thisAgreeWrap.find(th.agreeInput).each(function (index, val) {
+                  $(val).prop("checked") ? th.checkboxWrapLength += 1 : null;
+                })
+                if (_thisAgreeAllTrue) {
+                  if (_thisAgreeAllTrue.prop("checked")) {
+                    _thisSiblings.prop('checked', true);
+                    th.checkboxWrapLength = _thisAgreeWrap.find(th.agreeItem).length - 1;
+                  } else {
+                    _thisSiblings.prop('checked', false);
+                    th.checkboxWrapLength = 0;
+                  }
+                } else {
+                  if (_this.prev().prop("checked")) {
+                    if (th.checkboxWrapLength === _thisAgreeWrap.find(th.agreeItem).length - 1) {
+                      _thisAgreeWrap.find(th.agreeInputAll).prop("checked", true);
+                    }
+                  } else {
+                    _thisAgreeWrap.find(th.agreeInputAll).prop("checked", false);
+                  }
+                }
+              })
+              </span>
+            }
+          };
+          $.fn[pluginName] = function (args) {
+            var _this = this;
+            new win.HYFRESH[pluginName](_this, args);
+          };
+
+          $(function () {
+            $('.js-terms-agree-wrap').agreeCheckbox();
+          });
+        })(window, window.jQuery);
+    </code>
+</pre>
+</body>
+</html>

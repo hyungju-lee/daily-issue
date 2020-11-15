@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<pre>
+    <code>
+        (function (win, $) {
+         'use strict';
+          win.HYFRESH.common = win.HYFRESH.common || {};
+
+          var UTIL = win.HYFRESH.common.util;
+          win.HYFRESH.new = (function(container){
+              var defParams = {
+                  obj                     : container,
+
+                  newMarketingBanner      : '.new-marketing-banner',
+                  newMarketingBannerOpts: {
+                      slidesPerView       : 'auto',
+                      spaceBetween        : 9,
+                      speed               : 300,
+                      pagination          : '.swiper-pagination',
+                      paginationClickable : true,
+                      preloadImages       : false,
+                      onPaginationRendered: function(swiperClass, paginationEl) {
+                          var bullet = $(paginationEl).find('.swiper-pagination-bullet');
+                          for (var i=0; i&lt;bullet.length; i++) {
+                              bullet[i].innerText = 'slide' + (i + 1);
+                          }
+                      }
+                  },
+              };
+              return {
+                  reInit: function () {
+                      HYFRESH.destroySwiper(this.swiperObject);
+                      this.init();
+                  },
+                  init: function() {
+                      this.setElement();
+                      this.buildSwiper();
+                  },
+                  setElement : function() {
+                      this.obj                      = $(defParams.obj);
+                      this.newMarketingBanner       = this.obj.find(defParams.newMarketingBanner);
+                      this.swiperObject = {};
+                  },
+                  buildSwiper : function() {
+                      this.swiperObject.newMarketingBannerObj       = new Swiper(this.newMarketingBanner, defParams.newMarketingBannerOpts);
+                  },
+              }
+          })('.content-new')
+
+          $(function () {
+              if ($('.content-new').length) {
+                  HYFRESH.new.init();
+              }
+          });
+      })(window, window.jQuery);
+
+    </code>
+</pre>
+</body>
+</html>

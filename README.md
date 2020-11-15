@@ -296,3 +296,14 @@
     * [참고링크](https://github.com/nolimits4web/Swiper/issues/2038)
         
         * Ok, swiper.destroy(false); helps https://jsfiddle.net/j9k0xtqo/43/
+        
+### 20201115
+
+1. [dropdown list add, remove / jQuery createElement](https://hyungju-lee.github.io/daily-issue/html/ex25/)
+2. [checkbox max length](https://hyungju-lee.github.io/daily-issue/html/ex29/)
+3. [input checkbox prop checked -> true / false 이거 css 랜더링 생각해야됨 requestAnimationFrame](https://hyungju-lee.github.io/daily-issue/html/ex26/)    
+4. [input validator IE 오류 수정](https://hyungju-lee.github.io/daily-issue/html/ex27/)
+
+    * input checkbox interaction 구현할 때는 IE 꼭 확인하자. 그리고 css 랜더링도 생각하자.
+
+5. [swiper, defParams 의 swiperObject에 정의한걸 this로 수정, 다른데서도 쓸 수 있게](https://hyungju-lee.github.io/daily-issue/html/ex28/)

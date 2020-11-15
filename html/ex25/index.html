@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<pre>
+    <code>
+        (function (win, $) {
+          'use strict';
+          win.HYFRESH.common = win.HYFRESH.common || {};
+
+          var UTIL = win.HYFRESH.common.util;
+          win.HYFRESH.orderPopup = (function (container){
+            var defParams = {
+              obj                : container,
+              optionDropdownBtn  : '.js-option-dropdown__btn',
+              optionDropDownList : '.js-option-dropdown__list',
+              optionDropDownItem : '.js-option-dropdown__item',
+              optionSelectList   : '.js-select-option-list',
+              optionSelectItem   : '.js-select-option-item',
+              optionDropDownBtnList : '.js-option-dropdown__btn-list',
+              optionValue : '.js-option-value',
+              btnDelete : '.btn-delete',
+            }
+            return {
+              init: function() {
+                this.setElements();
+                this.bindEvents();
+              },
+              setElements : function() {
+                this.obj = $(defParams.obj);
+              },
+              bindEvents : function() {
+                this.obj.on("click", defParams.optionDropdownBtn, $.proxy(this.optionDropdownBtn, this));
+                this.obj.on("click", defParams.optionDropDownBtnList, $.proxy(this.optionDropDownBtnList, this));
+                this.obj.on("click", defParams.btnDelete, $.proxy(this.listDelete, this));
+              },
+              optionDropdownBtn: function (e) {
+                var target = $(e.currentTarget);
+                var targetParent = target.parents(defParams.obj);
+                var targetList = targetParent.find(defParams.optionDropDownList);
+                targetList.is(":visible") ?
+                  targetList.css("display", "none") :
+                  targetList.css("display", "block");
+              },
+              optionDropDownBtnList: function (e) {
+                var target = $(e.currentTarget);
+                var targetIndex = target.data("optionBtn");
+                var targetList = target.parents(defParams.optionDropDownList);
+                var targetParent = target.parents(defParams.obj);
+                var targetSelectList = targetParent.find(defParams.optionSelectList);
+                var targetText = target.find(defParams.optionValue).text();
+                var selectItemNum = targetSelectList.find(defParams.optionSelectItem).length;
+                if (!selectItemNum) {
+                  var ulElement = $("&lt;ul class='select-option__list js-select-option-list'&gt;&lt;/ul&gt;")
+                  targetParent.append(ulElement);
+                  targetSelectList = targetParent.find(defParams.optionSelectList);
+                }
+                this.createElement(targetSelectList, targetText, targetIndex);
+                targetList.css("display", "none");
+                target.prop("disabled", true);
+              },
+              createElement: function (target, cont, index) {
+                var targetElement = $("&lt;span class='type'&gt;&lt;/span&gt;").text(cont);
+                var btnMinus = $("&lt;button type='button' class='btn-minus' disabled&gt;minus&lt;/button&gt;")
+                var numProductInput = $("&lt;input type='number' name='number-product' readonly value='1'&gt;")
+                var btnPlus = $("&lt;button type='button' class='btn-plus'&gt;plus&lt;/button&gt;")
+                var btnDelete = $("&lt;button type='button' class='btn-delete'&gt;&lt;span class='blind'&gt;삭제&lt;/span&gt;&lt;/button&gt;");
+                var layerUpperAmount = $("&lt;div class='layer-upper__amount layer-upper__amount--small'&gt;&lt;/div&gt;")
+                  .append(btnMinus)
+                  .append(numProductInput)
+                  .append(btnPlus);
+                var element = $("&lt;li class='select-option__item js-select-option-item' data-option-list='"+index+"'&gt;&lt;/li&gt;")
+                  .append(targetElement)
+                  .append(layerUpperAmount)
+                  .append(btnDelete);
+                target.append(element);
+              },
+              listDelete: function (e) {
+                var target = $(e.currentTarget);
+                var targetList = target.parents(defParams.optionSelectList);
+                var targetItemNum = targetList.find(defParams.optionSelectItem).length;
+                var targetItem = target.parents(defParams.optionSelectItem);
+                var targetIndex = targetItem.data("optionList");
+                $(defParams.optionDropDownBtnList+"[data-option-btn=\""+targetIndex+"\"]").prop("disabled", false);
+                targetItemNum &lt; 2 ? targetList.remove() : targetItem.remove();
+              },
+            }
+          })('.js-option-dropdown-wrap');
+
+          $(function () {
+            if ($('.layer-upper').length) {
+              HYFRESH.orderPopup.init();
+            }
+          });
+        })(window, window.jQuery);
+    </code>
+</pre>
+</body>
+</html>

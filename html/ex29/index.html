@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<pre>
+    <code>
+        (function (win, $) {
+          'use strict';
+          win.HYFRESH.common = win.HYFRESH.common || {};
+
+          var UTIL = win.HYFRESH.common.util;
+          win.HYFRESH.orderCheckBox = (function (container){
+            var defParams = {
+              obj                : container,
+              inputInner         : '.js-input__inner',
+              label              : '.js-input-label',
+              checkBox           : '.js-input-checkbox',
+              checkBoxRelatedWrap : '.js-input-option-related-wrap',
+              checkBoxRelatedList : '.js-input-option-related-list',
+              checkBoxRelatedRequired : '.js-input-option-related-required',
+            }
+            return {
+              init: function() {
+                this.setElements();
+                this.initSet();
+                this.bindEvents();
+              },
+              setElements : function() {
+                this.obj = $(defParams.obj);
+                this.checkBoxRelatedList = $(defParams.checkBoxRelatedList);
+                this.checkBoxRelatedRequired = $(defParams.checkBoxRelatedRequired);
+                this.indexNum = 0;
+                this.checkedPropTrueNum = 0;
+                this.indexChecked = false;
+              },
+              initSet : function () {
+                this.checkBoxRelatedRequired.css("display", "block");
+                this.checkBoxRelatedList.css("display", "none");
+                this.checkBoxRelatedList.find("li").css("display", "none");
+              },
+              bindEvents : function() {
+                this.obj.on("click", defParams.label, $.proxy(this.clickEvents, this));
+              },
+              clickEvents : function (e) {
+                this.inputCheckbox(e);
+              },
+              inputCheckbox: function (e) {
+                var _this = this;
+                var target = $(e.currentTarget);
+                var targetParent = target.parents(defParams.obj);
+                var targetCheckbox = Array.prototype.slice.call(targetParent.find(defParams.checkBox));
+                this.checkedPropTrueNum = 0;
+
+                requestAnimationFrame(function () {
+                  targetCheckbox.forEach(function (value, index) {
+                    $(value).prop("checked") ? _this.checkedPropTrueNum++ : null;
+                    _this.inputCheckedTrueNum(_this.checkedPropTrueNum, targetCheckbox);
+                  })
+                  for (var i=0; i<$(defParams.label).length; i++) {
+                    if (target[0] === $(defParams.label).eq(i)[0]) {
+                      _this.indexNum = i;
+                      _this.indexChecked = target.parents(defParams.inputInner).find(defParams.checkBox).prop("checked");
+                      break
+                    }
+                  }
+                  _this.checkedList(_this.checkedPropTrueNum, _this.indexNum, _this.indexChecked);
+                })
+              },
+              inputCheckedTrueNum : function (num, chx) {
+                if (num > 2) {
+                  chx.forEach(function (value, index) {
+                    !$(value).prop("checked") ?
+                      $(value).prop("disabled", true) : null;
+                  })
+                } else {
+                  chx.forEach(function (value, index) {
+                    $(value).prop("disabled", false);
+                  })
+                }
+              },
+              checkedList: function (num1, num2, boolean) {
+                if (num1 === 0) {
+                  this.initSet();
+                } else {
+                  this.checkBoxRelatedRequired.css("display", "none");
+                  this.checkBoxRelatedList.css("display", "block");
+                  this.listLoopFunc(this.checkBoxRelatedList, num2, boolean);
+                }
+              },
+              listLoopFunc : function (target, eq, boolean) {
+                var display = boolean ? "block" : "none";
+                for (var j = 0; j < target.length; j++) {
+                  target.eq(j).find("li").eq(eq).css("display", display);
+                }
+              }
+            }
+          })('.js-input-option-wrap');
+
+          $(function () {
+            if ($('.layer-upper').length) {
+              HYFRESH.orderCheckBox.init();
+            }
+          });
+        })(window, window.jQuery);
+    </code>
+</pre>
+</body>
+</html>
