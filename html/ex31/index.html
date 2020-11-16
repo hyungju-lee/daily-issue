@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<pre>
+    <code>
+        (function (win, $, doc) {
+          'use strict';
+          win.HYFRESH = win.HYFRESH || {};
+
+          var UTIL = win.HYFRESH.common.util,
+            pluginName = 'dropdown';
+
+          win.HYFRESH[pluginName] = function (container, args) {
+            var defParams = {
+              dropdown: '.js-dropdown',
+              dropdownBtn: '.js-dropdown__btn',
+              dropdownContent: '.js-dropdown__list',
+              dropdownContentBtn: '.js-dropdown__btn-list',
+              dropdownContentValue: '.js-option-value',
+              openClass: 'is-opened',
+              selectClass: 'is-selected',
+            };
+            this.obj = container;
+            this.opts = UTIL.def(defParams, (args || {}));
+            this.init();
+          };
+          win.HYFRESH[pluginName].prototype = {
+            init: function () {
+              this.setElements();
+              this.initSet();
+              this.bindEvents();
+            },
+            setElements: function () {
+              this.dropdown = $(this.opts.dropdown);
+              this.dropdownContent = $(this.opts.dropdownContent);
+              this.target = null;
+            },
+            initSet: function () {
+              this.dropdownContent.find("li").removeClass(this.opts.selectClass);
+              this.dropdownContent.find("li").eq(0).addClass(this.opts.selectClass);
+            },
+            bindEvents: function () {
+              $("body").on('click', $.proxy(this.bodyClickEvents, this));
+              this.dropdown.on('click', this.opts.dropdownBtn, $.proxy(this.dropdownBtnFunc, this));
+              this.dropdown.on('click', this.opts.dropdownContentBtn, $.proxy(this.dropdownContentBtnFunc, this));
+            },
+            bodyClickEvents: function (e) {
+              this.isDropdown(e);
+              this.offDropdown();
+            },
+            isDropdown: function (e) {
+              this.target = $(e.target);
+              <span style="color: red">
+              if (this.target.hasClass("btn-delete")) return
+              </span>
+              while (!this.target.hasClass("js-dropdown")) {
+                this.target = this.target.parent();
+                if (this.target.prop("tagName") === "BODY") return
+              }
+            },
+            offDropdown: function () {
+              if (this.target.prop("tagName") === "BODY") {
+                this.dropdown.removeClass(this.opts.openClass);
+                this.dropdown.find(this.opts.dropdownContent).css("display", "none");
+              }
+            },
+            dropdownBtnFunc: function (e) {
+              var target = $(e.currentTarget);
+              var targetWrap = target.parents(this.opts.dropdown);
+              var targetList = targetWrap.find(this.opts.dropdownContent);
+              var boolean = targetWrap.hasClass(this.opts.openClass) ? true : false;
+              for (var i=0; i&lt;this.dropdown.length; i++) {
+                if (targetWrap[0] !== this.dropdown.eq(i)[0]) {
+                  this.dropdown.eq(i).removeClass(this.opts.openClass);
+                  this.dropdown.eq(i).find(this.opts.dropdownContent).css("display", "none");
+                }
+              }
+              this.onOffDropdownList(targetWrap, targetList, boolean);
+            },
+            onOffDropdownList: function (targetWrap, targetList, boolean) {
+              if (boolean) {
+                targetWrap.removeClass(this.opts.openClass);
+                targetList.css("display", "none");
+              } else {
+                targetWrap.addClass(this.opts.openClass);
+                targetList.css("display", "block");
+              }
+            },
+            dropdownContentBtnFunc: function (e) {
+              var target = $(e.currentTarget);
+              var targetValue = target.text();
+              var targetWrap = target.parents(this.opts.dropdown);
+              var targetList = targetWrap.find(this.opts.dropdownContent);
+              var targetBtn = targetWrap.find(this.opts.dropdownBtn);
+              var boolean = true;
+              target.closest("li").addClass(this.opts.selectClass).siblings().removeClass(this.opts.selectClass);
+              targetBtn.text(targetValue);
+              this.onOffDropdownList(targetWrap, targetList, boolean);
+            },
+          };
+          $.fn[pluginName] = function (args) {
+            var _this = this;
+            new win.HYFRESH[pluginName](_this, args);
+          };
+
+          $(function () {
+            $('.dropdown').dropdown();
+          });
+        })(window, window.jQuery, window.document);
+    </code>
+</pre>
+</body>
+</html>
