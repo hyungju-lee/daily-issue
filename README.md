@@ -319,7 +319,14 @@
 
     * 동적으로 생성된 리스트가 아예 없어지는 경우가 있는데, 없어지면서 반복문으로 해당 요소값을 못읽으니까 계속 무한반복문 실행. 이 부분 주의하자.
     
-3. swiper slide flickering in safari - 이슈 해결방법
+3.  swiper slide flickering in safari - 이슈 
+
+    * 사파리에서는 스 와이프 애니메이션이 종료 될 때 잠시 깜박입니다. 
+    * 이것은 매우 성가신 경험을 초래할 수 있습니다. 
+    * 비슷한 문제 ([#3124](https://github.com/nolimits4web/swiper/issues/3124))가 "오래된"플래그로 표시된 것을 발견했습니다.  
+      하드웨어와 관련된 것 같습니다.
+
+4. swiper slide flickering in safari - 이슈 해결방법
 
     * [참고 자료](https://github.com/nolimits4web/swiper/issues/3527)
     * `.swiper-slide` 클래스에 `-webkit-transform: translate3d(0,0,0)` 를 추가합니다.
