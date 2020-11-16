@@ -307,3 +307,10 @@
     * input checkbox interaction 구현할 때는 IE 꼭 확인하자. 그리고 css 랜더링도 생각하자.
 
 5. [swiper, defParams 의 swiperObject에 정의한걸 this로 수정, 다른데서도 쓸 수 있게](https://hyungju-lee.github.io/daily-issue/html/ex28/)
+
+### 20201116
+
+1. [드롭다운박스 구현 및 수정](https://hyungju-lee.github.io/daily-issue/html/ex30/)
+
+    * 다른곳 클릭했을 때 드롭다운 박스 닫히도록
+    * while 문 돌려서 드롭다운 박스 영역 클릭했는지 아닌지 판단
