@@ -318,3 +318,10 @@
 2. [드롭다운박스 body 클릭해서 닫힐 때 무한반복문 실행 이슈](https://hyungju-lee.github.io/daily-issue/html/ex31/)
 
     * 동적으로 생성된 리스트가 아예 없어지는 경우가 있는데, 없어지면서 반복문으로 해당 요소값을 못읽으니까 계속 무한반복문 실행. 이 부분 주의하자.
+    
+3. swiper slide flickering in safari - 이슈 해결방법
+
+    * [참고 자료](https://github.com/nolimits4web/swiper/issues/3527)
+    * `.swiper-slide` 클래스에 `-webkit-transform: translate3d(0,0,0)` 를 추가합니다.
+    * `-webkit-` 접두사는 수정이 `Safari`에서만 유효 함을 보장합니다.
+    * 이상하게도이 클래스에 추가 된 3D 변환은 전환이 덜 부드러워 보이기 때문에 하드웨어 가속을 비활성화하는 것 같습니다 (인상 일 수 있음).
