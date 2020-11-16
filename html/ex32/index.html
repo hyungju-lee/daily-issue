@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<pre>
+    <code>
+        if (_this.parents(".category-slide").length) {
+            switch (true) {
+              case (!!_this.parents(".content-regular-delivery").length) :
+                HYFRESH.regularDelivery.swiperObject.categorySwiperObj.update();
+                break
+              case (!!_this.parents(".content-certificate-detail").length) :
+                HYFRESH.certificateDetail.swiperObject.categorySwiperObj.update();
+                break
+              default :
+                break
+            }
+          }
+    </code>
+</pre>
+</body>
+</html>

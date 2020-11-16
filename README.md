@@ -337,3 +337,5 @@
    body 클릭 이벤트가 걸리다보니 예기치못한 오류 발생 및 쓸데없는 이벤트 발생한다.  
    즉, 다른곳 클릭했을 때 dropdown 닫히도록하는건, popup 딤드 원리 이용하자.  
    투명 얇은 막을 깐 후 투명 얇은 막 클릭시 드롭다운 닫히도록하자!!
+   
+6. [`switch` 문은 `if`문과 달라서 평가값이 `truthy`, `falsy`가 아닌 `true`, `false`여야 한다.](https://hyungju-lee.github.io/daily-issue/html/ex32/)
