@@ -339,3 +339,7 @@
    투명 얇은 막을 깐 후 투명 얇은 막 클릭시 드롭다운 닫히도록하자!!
    
 6. [`switch` 문은 `if`문과 달라서 평가값이 `truthy`, `falsy`가 아닌 `true`, `false`여야 한다.](https://hyungju-lee.github.io/daily-issue/html/ex32/)
+
+### 20201117
+
+1. [reInit 이후 main swiper 텝 클릭 안되는 이슈](https://hyungju-lee.github.io/daily-issue/html/ex33/)
