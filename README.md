@@ -343,3 +343,13 @@
 ### 20201117
 
 1. [reInit 이후 main swiper 텝 클릭 안되는 이슈](https://hyungju-lee.github.io/daily-issue/html/ex33/)
+
+    * tab 메뉴클릭했을 때 가리키는 스와이퍼 개체 -> 스와이퍼 개체 담는 곳 수정했는데 이부분은 수정안해서 스와이퍼 개체를 못찾아서 발생한 이슈
+    
+2. [while 반복문에 의한, 내가 클릭한게 어떤건지 걸러내는 함수에 의해 발생한 에러](https://hyungju-lee.github.io/daily-issue/html/ex34/)
+
+    * 반복문 처리 제대로안함. 그리고 null 값 담겼을 때 함수 실행 막아야되는데 그것도 처리안했음.. 이 부분 수정
+    
+3. 개발서버에 스와이퍼가 서로 다 연동되던 이슈 - pagination : pagination을 swiper-container 바깥으로 빼고 적용함 개발에서..
+
+    * 마크업에서 준대로 했다면 에러 안났었을듯.. 왜 자기들 마음대로 적용하는지!?!?!?
