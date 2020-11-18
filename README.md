@@ -353,3 +353,12 @@
 3. 개발서버에 스와이퍼가 서로 다 연동되던 이슈 - pagination : pagination을 swiper-container 바깥으로 빼고 적용함 개발에서..
 
     * 마크업에서 준대로 했다면 에러 안났었을듯.. 왜 자기들 마음대로 적용하는지!?!?!?
+    
+### 20201118
+
+1. [swiper 적용된 slide의 각 slide를 텝메뉴화 시켰을 때, 클릭 이벤트가 발생 안하던 이슈 해결](https://hyungju-lee.github.io/daily-issue/html/ex35/)
+
+    * 처음에 `onClick`, `onTap` 두개의 이벤트를 동시에 걸었던 이유도 **click**인식이 안될 때가 있었기 때문  
+      하지만 위와 같이 했음에도 불구하고 해당 이슈는 해결되지 않았음
+    * `onTouchStart` 이벤트로 하면 바로바로 인식하긴하지만 터치하자마자 인식되어서 **click 하려던게 아니었는데도 슬라이드가 이동되는 부작용 발생**
+    * `touchstart`, `touchend`의 `clientX` 값을 읽어 **20px 미만 이동했으면 텝메뉴에 따른 슬라이드 이동을하게 함** <- 이런식으로 해결
