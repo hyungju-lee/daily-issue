@@ -368,3 +368,5 @@
 ### 20201119
 
 1. [iOS 처음 클릭 이벤트 실행안되는 이슈 해결방법 - 편법](https://hyungju-lee.github.io/daily-issue/html/ex36/)
+
+    * jQuery에서 touch 이벤트시 좌표값 읽어오는 방법이 위 코드에 담겨있음
