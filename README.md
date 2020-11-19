@@ -364,3 +364,7 @@
     * `touchstart`, `touchend`의 `clientX` 값을 읽어 **20px 미만 이동했으면 텝메뉴에 따른 슬라이드 이동을하게 함** <- 이런식으로 해결
     
 2. JS 공통(common)기능 만들 때 확실한 분기방법을 고려하자. `data-` 속성 또는 확실히 분기된 `class`명칭 등등!!! 최대한 고려하면서 작성하자!!!!
+
+### 20201119
+
+1. [iOS 처음 클릭 이벤트 실행안되는 이슈 해결방법 - 편법](https://hyungju-lee.github.io/daily-issue/html/ex36/)
