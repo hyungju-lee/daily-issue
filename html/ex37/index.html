@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<pre>
+    <code>
+&lt;div class="swiper-container image_viewer-slide"&gt;
+    &lt;div class="swiper-wrapper"&gt;
+        &lt;div class="swiper-slide obj-fit"&gt;&lt;img src="../img/tmp/@img-dummy.png" alt=""&gt;&lt;/div&gt;
+        &lt;div class="swiper-slide obj-fit"&gt;&lt;img src="../img/tmp/@img-dummy-x.png" alt=""&gt;&lt;/div&gt;
+        &lt;div class="swiper-slide obj-horizontal-center"&gt;&lt;img src="../img/tmp/@img-dummy-landscape.png" alt=""&gt;&lt;/div&gt;
+        &lt;div class="swiper-slide obj-vertical-center"&gt;&lt;img src="../img/tmp/@img-dummy-portrait.png" alt=""&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;!-- Add Arrows --&gt;
+    &lt;div class="swiper-button swiper-button-next"&gt;&lt;/div&gt;
+    &lt;div class="swiper-button swiper-button-prev"&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="swiper-container image_viewer-thumbs"&gt;
+    &lt;div class="swiper-wrapper"&gt;
+        &lt;div class="swiper-slide"&gt;&lt;img src="../img/tmp/@img-dummy.png" alt=""&gt;&lt;/div&gt;
+        &lt;div class="swiper-slide"&gt;&lt;img src="../img/tmp/@img-dummy-x.png" alt=""&gt;&lt;/div&gt;
+        &lt;div class="swiper-slide"&gt;&lt;img src="../img/tmp/@img-dummy-landscape.png" alt=""&gt;&lt;/div&gt;
+        &lt;div class="swiper-slide"&gt;&lt;img src="../img/tmp/@img-dummy-portrait.png" alt=""&gt;&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+    var fadeOut = function (obj) {
+        requestAnimationFrame(function () {
+            obj.navigation.nextEl.style.transitionDelay = "1.5s";
+            obj.navigation.prevEl.style.transitionDelay = "1.5s";
+            obj.navigation.nextEl.style.transitionDuration = ".5s";
+            obj.navigation.prevEl.style.transitionDuration = ".5s";
+            requestAnimationFrame(function () {
+                obj.navigation.prevEl.style.opacity = "0";
+                obj.navigation.nextEl.style.opacity = "0";
+            })
+        })
+    }
+    var displayBlock = function (obj) {
+        requestAnimationFrame(function () {
+            obj.navigation.nextEl.style.transitionDelay = "0s";
+            obj.navigation.prevEl.style.transitionDelay = "0s";
+            obj.navigation.nextEl.style.transitionDuration = "0s";
+            obj.navigation.prevEl.style.transitionDuration = "0s";
+            requestAnimationFrame(function () {
+                obj.navigation.prevEl.style.opacity = "1";
+                obj.navigation.nextEl.style.opacity = "1";
+            })
+        })
+    }
+    var galleryThumbs = new Swiper('.image_viewer-thumbs', {
+        spaceBetween: 4,
+        slidesPerView: "auto",
+        freeMode: true,
+        watchSlidesVisibility: true,
+        watchSlidesProgress: true,
+    });
+    var galleryTop = new Swiper('.image_viewer-slide', {
+            spaceBetween: 0,
+            navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+            hideOnClick: true,
+        },
+        thumbs: {
+            swiper: galleryThumbs
+        },
+        on: {
+            init: function (swiper) {
+                fadeOut(swiper);
+            },
+            touchStart: function (swiper) {
+                displayBlock(swiper);
+            },
+            touchEnd: function (swiper) {
+                fadeOut(swiper);
+            }
+        }
+    });
+    </code>
+</pre>
+</body>
+</html>
