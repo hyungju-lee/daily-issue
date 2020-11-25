@@ -374,3 +374,32 @@
 ### 20201124
 
 1. [swiper 두개 슬라이드 연동 및 네비게이션 버튼 애니메이션 코드 예시](https://hyungju-lee.github.io/daily-issue/html/ex37/)
+
+### 20201125
+
+* 스와이퍼 플러그인
+
+    * hideOnClick 옵션 - 스와이퍼 컨테이너를 클릭할 때마다 네비게이션 or 페이지네이션에 hiddenClass (디폴트 값은 swiper-button-hidden)을 추가/제거
+    
+---
+
+* 그런데 문제
+
+    * 윈도우 PC 크롬 모바일 화면에서 확인할 경우
+    * touchEvent 와 mouseEvent 가 둘 다 발생하면서 콜백 함수가 두번 실행
+    * 이는 스와이퍼의 Tap, Click 이벤트에서도 동일하게 발생
+    
+    * 그래서 디바운싱 개념을 도입해 50ms 안에 이벤트가 연달아 발생할 경우 앞의 콜백펑션을 취소하도록 설계
+    
+---
+
+* 추가 정보
+
+    * init에서 페이지네이션, 네비게이션 등의 스타일을 조정할 때, 아직 페이지가 그려지기 전이라 에러가 남
+    * 그래서 `requestAnimationFrame` 함수로 CSS 렌더링 이후 스타일이 적용되도록 해야됨
+    
+    * 하지만 클래스명으로 제어하는 걸로 수정해서 `requestAnimationFrame` 함수 안 써도 됨
+    
+---
+
+1. [위에 것들 적용된 예씨](https://hyungju-lee.github.io/daily-issue/html/ex38/)
