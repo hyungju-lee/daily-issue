@@ -402,4 +402,6 @@
     
 ---
 
-1. [위에 것들 적용된 예씨](https://hyungju-lee.github.io/daily-issue/html/ex38/)
+1. [위에 것들 적용된 예시](https://hyungju-lee.github.io/daily-issue/html/ex38/)
+2. [select option 선택 jquery 사용해서 변경하기](https://hyungju-lee.github.io/daily-issue/html/ex39/)
+2. [select option 선택 javascript 사용해서 변경하기](https://hyungju-lee.github.io/daily-issue/html/ex40/)
