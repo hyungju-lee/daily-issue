@@ -403,5 +403,18 @@
 ---
 
 1. [위에 것들 적용된 예시](https://hyungju-lee.github.io/daily-issue/html/ex38/)
-2. [select option 선택 jquery 사용해서 변경하기](https://hyungju-lee.github.io/daily-issue/html/ex39/)
+
+---
+
+1. [select option 선택 jquery 사용해서 변경하기](https://hyungju-lee.github.io/daily-issue/html/ex39/)
 2. [select option 선택 javascript 사용해서 변경하기](https://hyungju-lee.github.io/daily-issue/html/ex40/)
+
+### 20201130
+
+1. [위에 스와이퍼 safari에서 이슈 - flex이슈](https://hyungju-lee.github.io/daily-issue/html/ex41/)
+
+    * 사파리에선 부모영역이 flex로 늘어나고 그 안에 자식요소에 height:100% 를 한다고해서 그 부모의 height 값을 물려받는 것이 아닌거 같다.
+    * 부모의 height 값을 물려받는 줄 알고 height:100% 를 선언했지만 그보다 훨씬 큰 영역을 물려받았다.
+    * 아마 그 flex로 늘어난 부모의 부모, display:flex 속성을 가지고 있는 그 영역의 height를 물려받는 것 같다.
+    * 즉 다시 그 flex로 늘어지는 요소에도 display:flex 속성을 주고 그 안의 자식요소에도 flex: 1 1 auto 같은 것으로 알맞게 늘어나도록 설정해야된다.
+    * 이 부분 해결 및 네비게이션과 페이지네이션을 클릭/터치했을 땐 안사라지도록 설정했다.

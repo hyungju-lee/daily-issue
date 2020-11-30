@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<pre>
+    <code>
+&lt;!-- Swiper --&gt;
+&lt;div class="swiper-container image_viewer-slide"&gt;
+    &lt;div class="swiper-wrapper"&gt;
+        &lt;div class="swiper-slide obj-fit"&gt;&lt;img src="../img/tmp/@img-dummy.png" alt=""&gt;&lt;/div&gt;
+        &lt;div class="swiper-slide obj-fit"&gt;&lt;img src="../img/tmp/@img-dummy-x.png" alt=""&gt;&lt;/div&gt;
+        &lt;div class="swiper-slide obj-horizontal-center"&gt;&lt;img src="../img/tmp/@img-dummy-landscape.png" alt=""&gt;&lt;/div&gt;
+        &lt;div class="swiper-slide obj-vertical-center"&gt;&lt;img src="../img/tmp/@img-dummy-portrait.png" alt=""&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;!-- Add Pagination --&gt;
+    &lt;div class="swiper-pagination"&gt;&lt;/div&gt;
+    &lt;!-- Add Arrows --&gt;
+    &lt;div class="swiper-button swiper-button-next"&gt;&lt;/div&gt;
+    &lt;div class="swiper-button swiper-button-prev"&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;script type="text/javascript"&gt;
+    var isHidden = false;
+    var timer;
+    var initTimer;
+    var imageViewer = new Swiper('.image_viewer-slide', {
+        spaceBetween: 0,
+        pagination: {
+            el: '.swiper-pagination',
+            type: 'fraction',
+        },
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+        on: {
+            init: function (swiper) {
+                initTimer = setTimeout(function () {
+                    swiper.pagination.el.classList.add("is-hidden");
+                    swiper.navigation.nextEl.classList.add("is-hidden");
+                    swiper.navigation.prevEl.classList.add("is-hidden");
+                    isHidden = true;
+                }, 1500)
+            },
+            click: function (swiper, event) {
+                if (event.target.classList.contains("swiper-button") || event.target.classList.contains("swiper-pagination")) return;
+                if (initTimer) {
+                    clearTimeout(initTimer);
+                }
+                if (timer) {
+                    clearTimeout(timer);
+                }
+                timer = setTimeout(function () {
+                    if (!isHidden) {
+                        swiper.pagination.el.classList.add("is-hidden");
+                        swiper.navigation.nextEl.classList.add("is-hidden");
+                        swiper.navigation.prevEl.classList.add("is-hidden");
+                        isHidden = true;
+                    } else {
+                        swiper.pagination.el.classList.remove("is-hidden");
+                        swiper.navigation.nextEl.classList.remove("is-hidden");
+                        swiper.navigation.prevEl.classList.remove("is-hidden");
+                        isHidden = false;
+                    }
+                }, 50)
+            },
+        }
+    });
+&lt;/script&gt;
+    </code>
+</pre>
+
+<script>
+
+</script>
+</body>
+</html>
