@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<pre>
+    <code>
+(function (win, $) {
+   'use strict';
+    win.FREDITFOOD.common = win.FREDITFOOD.common || {};
+
+    var UTIL = win.FREDITFOOD.common.util;
+    win.FREDITFOOD.main = (function(container){
+        var defParams = {
+            obj             : container,
+            expandClass     : 'is-expanded',
+            hideClass       : 'is-hide',
+            expandToggleText: ['자세히 보기', '상세내용 닫기'],
+
+            mainBannerSwiper    : '.main-banner-slide',
+            mainBannerSwiperOpts: {
+                slidePerView               : 1,
+                loop                       : true,
+                pagination                 : '.main-banner-slide__pagination',
+                paginationClickable        : true,
+                lazyLoading                : true,
+                lazyLoadingInPrevNext      : true,
+                lazyLoadingInPrevNextAmount: 1,
+                autoplay                   : 3000,
+                autoplayDisableOnInteraction: false,
+                onPaginationRendered: function(swiperClass, paginationEl) {
+                    var bullet = $(paginationEl).find('.swiper-pagination-bullet');
+                    for (var i=0; i&lt;bullet.length; i++) {
+                        bullet[i].innerText = 'slide' + (i + 1);
+                    }
+                }
+            },
+            mainMdPickSwiper    : '.main-md-pick-slide',
+            mainMdPickSwiperOpts: {
+                slidesPerView       : 'auto',
+                spaceBetween        : 9,
+                pagination          : '.main-md-pick-slide__pagination',
+                paginationClickable : true,
+                lazyLoading         : true,
+                lazyLoadingInPrevNext      : true,
+                lazyLoadingInPrevNextAmount: 1,
+                onPaginationRendered: function(swiperClass, paginationEl) {
+                    var bullet = $(paginationEl).find('.swiper-pagination-bullet');
+                    for (var i=0; i&lt;bullet.length; i++) {
+                        bullet[i].innerText = 'slide' + (i + 1);
+                    }
+                }
+            },
+            mainForYouSwiper    : '.main-for-you-slide',
+            mainForYouSwiperOpts: {
+                slidesPerView       : 'auto',
+                spaceBetween        : 9,
+                pagination          : '.main-for-you-slide__pagination',
+                paginationClickable : true,
+                lazyLoading         : true,
+                lazyLoadingInPrevNext      : true,
+                lazyLoadingInPrevNextAmount: 1,
+                onPaginationRendered: function(swiperClass, paginationEl) {
+                    var bullet = $(paginationEl).find('.swiper-pagination-bullet');
+                    for (var i=0; i&lt;bullet.length; i++) {
+                        bullet[i].innerText = 'slide' + (i + 1);
+                    }
+                }
+            },
+            mainFreditTimeSwiper    : '.main-fredit-time-slide',
+            mainFreditTimeSwiperOpts: {
+                slidesPerView       : 'auto',
+                spaceBetween        : 9,
+                pagination          : '.main-fredit-time-slide__pagination',
+                paginationClickable : true,
+                lazyLoading         : true,
+                lazyLoadingInPrevNext      : true,
+                lazyLoadingInPrevNextAmount: 1,
+                onPaginationRendered: function(swiperClass, paginationEl) {
+                    var bullet = $(paginationEl).find('.swiper-pagination-bullet');
+                    for (var i=0; i&lt;bullet.length; i++) {
+                        bullet[i].innerText = 'slide' + (i + 1);
+                    }
+                }
+            },
+            currentIndex             : 0,
+            mainBestCategorySwiper   : '.main-best-category-slide',
+            mainBestCategorySlideItem: '.main-best-category-slide .swiper-slide',
+            mainBestCategoryEl       : null,
+            touchThreshold           : 0,
+            tabClick                 : function (e) {
+              defParams.mainBestCategoryEl = e.target;
+              while (!$(defParams.mainBestCategoryEl).hasClass('swiper-slide')) {
+                defParams.mainBestCategoryEl = defParams.mainBestCategoryEl.parentElement;
+                if (defParams.mainBestCategoryEl.nodeName === "BODY") {
+                  defParams.mainBestCategoryEl = null;
+                  return
+                }
+              }
+            },
+            activeSlide: function(key) {
+              if (key) {
+                $(defParams.mainBestCategorySwiper).find('.swiper-slide[data-index=\''+defParams.currentIndex+'\']').addClass('swiper-slide-active');
+              } else {
+                $(defParams.mainBestCategorySwiper).find('.swiper-slide[data-index=\''+defParams.currentIndex+'\']').removeClass('swiper-slide-active');
+              }
+            },
+            <span style="color: red">
+            positionSlide: function () {
+              var currentSlide = document.querySelector('.swiper-slide[data-index=\''+defParams.currentIndex+'\']');
+              var currentSlideInfo = currentSlide.getBoundingClientRect();
+              var currentSlideLeft = currentSlideInfo.left;
+              var currentSlideWidth = currentSlideInfo.width;
+              var currentSlidePositionAndWidth = currentSlideLeft + currentSlideWidth;
+              var moveEl = document.querySelector('.main-best-category-slide__list');
+
+              if (currentSlidePositionAndWidth &gt; window.innerWidth) {
+                moveEl.style.transform = "translate3d("+(-1 * (currentSlide.offsetLeft - window.innerWidth + 80 + currentSlideWidth))+"px, 0, 0)";
+                moveEl.style.transitionDuration = "300ms";
+              }
+              if (currentSlideLeft &lt; 0) {
+                moveEl.style.transform = "translate3d("+(-1 * (currentSlide.offsetLeft))+"px, 0, 0)";
+                moveEl.style.transitionDuration = "300ms";
+              }
+            },
+            </span>
+            mainBestCategorySwiperOpts: {
+                slidesPerView   : 'auto',
+                spaceBetween    : 6,
+                slidePrevClass  : 'swiper-meanlease-prev',
+                slideNextClass  : 'swiper-meanlease-next',
+                slideActiveClass: 'swiper-meanlease-active',
+                lazyLoading     : true,
+                lazyLoadingInPrevNext      : true,
+                lazyLoadingInPrevNextAmount: 1,
+                onInit          : function () {
+                    for (var i = 0; i &lt; $(defParams.mainBestCategorySlideItem).length; i++) {
+                        $(defParams.mainBestCategorySlideItem)[i].setAttribute('data-index', i);
+                        if (i === 0) {
+                            $(defParams.mainBestCategorySlideItem)[i].classList.add('swiper-slide-active');
+                        }
+                    }
+                },
+                onTouchStart: function (swiper, event) {
+                    defParams.touchThreshold = swiper.touches.currentX;
+                },
+                onTouchEnd: function (swiper, event) {
+                    if (Math.abs(swiper.touches.currentX - defParams.touchThreshold) &gt; 19) {
+                      defParams.touchThreshold = 0;
+                      return;
+                    }
+                    defParams.touchThreshold = 0;
+                    defParams.tabClick(event);
+                    if (!defParams.mainBestCategoryEl) return
+                    defParams.activeSlide(false);
+                    defParams.currentIndex = defParams.mainBestCategoryEl.getAttribute('data-index');
+                    defParams.activeSlide(true);
+                    FREDITFOOD.main.swiperObject.mainBestSwiperObj.slideTo(defParams.currentIndex);
+                },
+            },
+            mainBestSwiper    : '.main-best-slide',
+            mainBestSlide     : '.main-best-slide .swiper-slide',
+            mainBestSwiperOpts: {
+                slidesPerView      : 1,
+                spaceBetween       : 15,
+                pagination         : '.main-best-slide__pagination',
+                paginationClickable: true,
+                lazyLoading        : true,
+                lazyLoadingInPrevNext      : true,
+                lazyLoadingInPrevNextAmount: 1,
+                onPaginationRendered: function (swiperClass, paginationEl) {
+                    var bullet = $(paginationEl).find('.swiper-pagination-bullet');
+                    for (var i=0; i&lt;bullet.length; i++) {
+                        bullet[i].innerText = 'slide' + (i + 1);
+                    }
+                },
+                onInit             : function () {
+                    for (var i=0; i&lt;$(defParams.mainBestSlide).length; i++) {
+                        $(defParams.mainBestSlide)[i].setAttribute('data-index', i) ;
+                    }
+                },
+                onTransitionStart: function () {
+                    defParams.activeSlide(false);
+                    defParams.currentIndex = document.querySelector('.main-best-slide .swiper-slide-active').getAttribute('data-index');
+                    defParams.activeSlide(true);
+                    <span style="color: red">defParams.positionSlide();</span>
+                },
+
+            },
+            mainLiveSwiper    : '.main-live-slide',
+            mainLiveSwiperOpts: {
+                slidePerView        : 1,
+                loop                : true,
+                autoHeight          : true,
+                pagination          : '.main-live-slide__pagination',
+                paginationClickable : true,
+                lazyLoading         : true,
+                lazyLoadingInPrevNext      : true,
+                lazyLoadingInPrevNextAmount: 1,
+                observer            : true,
+                observeParents      : true,
+                onPaginationRendered: function(swiperClass, paginationEl) {
+                    var bullet = $(paginationEl).find('.swiper-pagination-bullet');
+                    for (var i=0; i&lt;bullet.length; i++) {
+                        bullet[i].innerText = 'slide' + (i + 1);
+                    }
+                }
+            },
+            mainSpecialGiftSwiper    : '.main-special-gift-slide',
+            mainSpecialGiftSwiperOpts: {
+                slidesPerView       : 'auto',
+                nextButton          : '.main-special-gift-slide__btn--next',
+                prevButton          : '.main-special-gift-slide__btn--prev',
+                pagination          : '.main-special-gift-slide__pagination',
+                paginationClickable : true,
+                lazyLoading         : true,
+                lazyLoadingInPrevNext      : true,
+                lazyLoadingInPrevNextAmount: 1,
+                onPaginationRendered: function(swiperClass, paginationEl) {
+                    var bullet = $(paginationEl).find('.swiper-pagination-bullet');
+                    for (var i=0; i&lt;bullet.length; i++) {
+                        bullet[i].innerText = 'slide' + (i + 1);
+                    }
+                }
+            },
+            mainCertificateSwiper    : '.main-certificate-slide',
+            mainCertificateSwiperOpts: {
+                slidesPerView: 'auto',
+            },
+            mainReviewSwiper    : '.main-review-slide',
+            mainReviewSwiperOpts: {
+                spaceBetween        : 9,
+                pagination          : '.main-review-slide__pagination',
+                paginationClickable : true,
+                lazyLoading         : true,
+                lazyLoadingInPrevNext      : true,
+                lazyLoadingInPrevNextAmount: 1,
+                onPaginationRendered: function(swiperClass, paginationEl) {
+                    var bullet = $(paginationEl).find('.swiper-pagination-bullet');
+                    for (var i=0; i&lt;bullet.length; i++) {
+                        bullet[i].innerText = 'slide' + (i + 1);
+                    }
+                }
+            },
+            mainReviewAutoSwiper    : '.main-review-auto-slide',
+            mainReviewAutoSwiperOpts: {
+                direction   : 'vertical',
+                autoplay    : 2500,
+                speed       : 1000,
+                loop        : true,
+                onlyExternal: true,
+                noSwiping   : true
+            },
+            mainRecipeSwiper    : '.main-recipe-slide',
+            mainRecipeSwiperOpts: {
+                slidesPerView       : 'auto',
+                spaceBetween        : 17,
+                centeredSlides      : true,
+                loop                : true,
+                paginationClickable : true,
+                lazyLoading         : true,
+                lazyLoadingInPrevNext      : true,
+                lazyLoadingInPrevNextAmount: 1,
+            },
+        };
+        return {
+            reInit: function () {
+                this.offEvents();
+                FREDITFOOD.destroySwiper(this.swiperObject);
+                this.init();
+            },
+            init: function() {
+                this.setElement();
+                this.bindEvents();
+                this.buildSwiper();
+            },
+            setElement : function() {
+                this.obj                    = $(defParams.obj);
+                this.mainBannerSwiper       = this.obj.find(defParams.mainBannerSwiper);
+                this.mainMdPickSwiper       = this.obj.find(defParams.mainMdPickSwiper);
+                this.mainForYouSwiper       = this.obj.find(defParams.mainForYouSwiper);
+                this.mainFreditTimeSwiper   = this.obj.find(defParams.mainFreditTimeSwiper);
+                this.mainSpecialGiftSwiper = this.obj.find(defParams.mainSpecialGiftSwiper);
+                this.mainBestSwiper         = this.obj.find(defParams.mainBestSwiper);
+                this.mainBestCategorySwiper = this.obj.find(defParams.mainBestCategorySwiper);
+                this.mainLiveSwiper         = this.obj.find(defParams.mainLiveSwiper);
+                this.mainCertificateSwiper  = this.obj.find(defParams.mainCertificateSwiper);
+                this.mainReviewSwiper       = this.obj.find(defParams.mainReviewSwiper);
+                this.mainReviewAutoSwiper   = this.obj.find(defParams.mainReviewAutoSwiper);
+                this.mainRecipeSwiper       = this.obj.find(defParams.mainRecipeSwiper);
+
+                this.mainCertificateInner         = this.obj.find('.main-certificate__inner');
+                this.mainCertificateDetail         = this.obj.find('.main-certificate-detail');
+                this.btnToggleMainCertificate     = $('.main-certificate__btn');
+                this.btnToggleMainCertificateText = this.btnToggleMainCertificate.find('.main-certificate__text-toggle');
+
+                this.btnLayerMainFeedVideo = $('.main-feed-detail__btn-video');
+                this.videoLayerMainFeed    = $('.main-feed-detail__box-media video');
+                this.btnMainFeedLayerOpen  = $('.main-feed__btn');
+                this.btnMainFeedLayerClose = $('.main-feed-layer .common-layer__box-btn-close');
+                this.targetLazyLoadImage   = $('.js-image-lazy');
+                this.certificateSection = $('.main-section--certificate');
+
+                this.swiperObject = {};
+            },
+            bindEvents: function() {
+                this.btnLayerMainFeedVideo.on('click', $.proxy(this.playLayerMainFeedVideo, this));
+                this.videoLayerMainFeed.on('click', $.proxy(this.pauseLayerMainFeedVideo, this));
+                this.btnMainFeedLayerOpen.on('click', $.proxy(this.initMainFeedVideo, this));
+                this.btnMainFeedLayerClose.on('click', $.proxy(this.closeInitMainFeedVideo, this));
+                $(win).on('load', $.proxy(this.lazyLoadFunc, this));
+                $(document).on('click touchend', '.main-certificate__btn', $.proxy(this.checkMainCertificate, this));
+                this.mainBannerSwiper.on('mouseover mouseenter', $.proxy(this.stopAutoplaySwiper, this));
+                this.mainBannerSwiper.on('mouseleave mouseout', $.proxy(this.playAutoplaySwiper, this));
+            },
+            buildSwiper : function() {
+                this.swiperObject.mainBannerSwiperObj       = new Swiper(this.mainBannerSwiper, defParams.mainBannerSwiperOpts);
+                this.swiperObject.mainMdPickSwiperObj       = new Swiper(this.mainMdPickSwiper, defParams.mainMdPickSwiperOpts);
+                this.swiperObject.mainForYouSwiperObj       = new Swiper(this.mainForYouSwiper, defParams.mainForYouSwiperOpts);
+                this.swiperObject.mainFreditTimeSwiperObj       = new Swiper(this.mainFreditTimeSwiper, defParams.mainFreditTimeSwiperOpts);
+                this.swiperObject.mainSpecialGiftSwiperObj = new Swiper(this.mainSpecialGiftSwiper, defParams.mainSpecialGiftSwiperOpts);
+                this.swiperObject.mainBestSwiperObj         = new Swiper(this.mainBestSwiper, defParams.mainBestSwiperOpts);
+                this.swiperObject.mainBestCategorySwiperObj = new Swiper(this.mainBestCategorySwiper, defParams.mainBestCategorySwiperOpts);
+                this.swiperObject.mainLiveSwiperObj         = new Swiper(this.mainLiveSwiper, defParams.mainLiveSwiperOpts);
+                this.swiperObject.mainCertificateSwiperObj  = new Swiper(this.mainCertificateSwiper, defParams.mainCertificateSwiperOpts);
+                this.swiperObject.mainReviewSwiperObj       = new Swiper(this.mainReviewSwiper, defParams.mainReviewSwiperOpts);
+                this.swiperObject.mainReviewAutoSwiperObj   = new Swiper(this.mainReviewAutoSwiper, defParams.mainReviewAutoSwiperOpts);
+                this.swiperObject.mainRecipeSwiperObj       = new Swiper(this.mainRecipeSwiper, defParams.mainRecipeSwiperOpts);
+            },
+            offEvents : function () {
+                this.btnToggleMainCertificate.off('click', $.proxy(this.checkMainCertificate, this));
+                this.btnLayerMainFeedVideo.off('click', $.proxy(this.playLayerMainFeedVideo, this));
+                this.videoLayerMainFeed.off('click', $.proxy(this.pauseLayerMainFeedVideo, this));
+                this.btnMainFeedLayerOpen.off('click', $.proxy(this.initMainFeedVideo, this));
+                this.btnMainFeedLayerClose.off('click', $.proxy(this.closeInitMainFeedVideo, this));
+                $(win).off('load', $.proxy(this.lazyLoadFunc, this));
+                $(document).off('click touchend', '.main-certificate__btn', $.proxy(this.checkMainCertificate, this));
+                this.mainBannerSwiper.off('mouseover mouseenter', $.proxy(this.stopAutoplaySwiper, this));
+                this.mainBannerSwiper.off('mouseleave mouseout', $.proxy(this.playAutoplaySwiper, this));
+            },
+            stopAutoplaySwiper : function() {
+                this.swiperObject.mainBannerSwiperObj.stopAutoplay();
+            },
+            playAutoplaySwiper : function() {
+                this.swiperObject.mainBannerSwiperObj.startAutoplay();
+            },
+            checkMainCertificate : function() {
+                var certificateSectionOffsetTop = this.certificateSection.offset().top;
+                if(this.mainCertificateInner.hasClass(defParams.expandClass)) {
+                    $('html, body').stop()
+                               .animate({
+                                    scrollTop: certificateSectionOffsetTop - $('.gnb').outerHeight()
+                                }, 500);
+                    this.hideMainCertificate();
+                } else {
+                    this.showMainCertificate();
+                }
+            },
+            showMainCertificate : function() {
+                this.mainCertificateInner.addClass(defParams.expandClass);
+                this.btnToggleMainCertificate.blur();
+            },
+            hideMainCertificate : function() {
+                this.mainCertificateInner.removeClass(defParams.expandClass);
+                this.btnToggleMainCertificate.focus();
+            },
+            playLayerMainFeedVideo : function(e) {
+                var target       = $(e.currentTarget),
+                    targetParent = target.parent('.main-feed-detail__box-media'),
+                    targetVideo  = targetParent.find('video');
+                if(targetVideo[0].play() !== 0) {
+                    targetVideo[0].play();
+                    target.addClass(defParams.hideClass);
+                }
+            },
+            pauseLayerMainFeedVideo : function(e) {
+                var target             = $(e.currentTarget),
+                    targetParent       = target.parent('.main-feed-detail__box-media'),
+                    targetBtnPlayVideo = targetParent.find('.main-feed-detail__btn-video');
+                if(target[0].pause() !== 0) {
+                    target[0].pause();
+                    targetBtnPlayVideo.removeClass(defParams.hideClass);
+                }
+            },
+            initMainFeedVideo : function() {
+                this.btnLayerMainFeedVideo.removeClass(defParams.hideClass);
+            },
+            closeInitMainFeedVideo : function(e) {
+                var target       = $(e.currentTarget),
+                    targetParent = target.parents('.main-feed-layer'),
+                    targetVideo  = targetParent.find('video');
+                if(targetVideo.length) {
+                    targetVideo[0].pause();
+                    targetVideo[0].currentTime = 0;
+                    this.btnLayerMainFeedVideo.removeClass(defParams.hideClass);
+                }
+            },
+            lazyLoadFunc : function() {
+                this.targetLazyLoadImage.Lazy({
+                    effect    : "fadeIn",
+                    effectTime: 300,
+                    threshold : 0
+                });
+            }
+        }
+    })('.content.main')
+
+    $(function () {
+        if ($('.content.main').length) {
+            FREDITFOOD.main.init();
+        }
+    });
+})(window, window.jQuery);
+    </code>
+</pre>
+
+<script>
+
+</script>
+</body>
+</html>

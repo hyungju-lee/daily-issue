@@ -418,3 +418,11 @@
     * 아마 그 flex로 늘어난 부모의 부모, display:flex 속성을 가지고 있는 그 영역의 height를 물려받는 것 같다.
     * 즉 다시 그 flex로 늘어지는 요소에도 display:flex 속성을 주고 그 안의 자식요소에도 flex: 1 1 auto 같은 것으로 알맞게 늘어나도록 설정해야된다.
     * 이 부분 해결 및 네비게이션과 페이지네이션을 클릭/터치했을 땐 안사라지도록 설정했다.
+    
+### 20201202
+
+1. [슬라이드 두개 연결](https://hyungju-lee.github.io/daily-issue/html/ex42/)
+
+    * thumbs 옵션사용하면 편하지만, 스와이퍼 옛날 버전이라 해당 옵션을 지원하지 않음
+    * thumbs 옵션은 4.4.0 버전 이상부터 지원하는 거 같음
+    * `offsetLeft`와 `getBoundingClientRect` 등등 사용
