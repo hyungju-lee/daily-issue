@@ -428,3 +428,4 @@
     * `offsetLeft`와 `getBoundingClientRect` 등등 사용
     
 2. [PC 버전 생각 안하고, 그리고 무조건 innderWidth로 가정하고 짠거 수정.. 생각이 짧았음](https://hyungju-lee.github.io/daily-issue/html/ex43/)
+3. [인덱스 마지막과 마지막에서 두번째 고려 및 여백값 순서가 어디서 꼬인거같은데 잘못가지고오는 이슈 수정](https://hyungju-lee.github.io/daily-issue/html/ex44/)
