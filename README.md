@@ -426,3 +426,5 @@
     * thumbs 옵션사용하면 편하지만, 스와이퍼 옛날 버전이라 해당 옵션을 지원하지 않음
     * thumbs 옵션은 4.4.0 버전 이상부터 지원하는 거 같음
     * `offsetLeft`와 `getBoundingClientRect` 등등 사용
+    
+2. [PC 버전 생각 안하고, 그리고 무조건 innderWidth로 가정하고 짠거 수정.. 생각이 짧았음](https://hyungju-lee.github.io/daily-issue/html/ex43/)
