@@ -131,7 +131,7 @@ CSS 영향 같은데..
                 this.opts.activeIndex = targetParent.index();
             <span style="color: red">
             var swiperObj = target.closest(".js-accordion-item").find(".swiper-container");
-            if (!!swiperObj) {
+            if (!!swiperObj[0]) {
                 if (swiperObj.closest(".js-accordion-content").is(":visible")) {
                     targetParent.find(this.opts.listContents).stop().slideUp();
                     var swiperObjName = swiperObj.data("swiperObject");
@@ -164,6 +164,8 @@ CSS 영향 같은데..
                             break;
                     }
                 }
+            } else {
+                targetParent.find(this.opts.listContents).stop().slideToggle();
             }
             </span>
             if (target.closest(this.opts.itemBox).hasClass(this.opts.expandClass)) {
