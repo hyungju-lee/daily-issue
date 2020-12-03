@@ -434,3 +434,4 @@
 
 1. [jQuery slideToggle 안에 swiper slide active 인덱스가 자꾸 마지막으로 가는 현상](https://hyungju-lee.github.io/daily-issue/html/ex45/)
 2. [reInit() 함수](https://hyungju-lee.github.io/daily-issue/html/ex46/)
+3. [레이어팝업 내 swiper slide index 0번](https://hyungju-lee.github.io/daily-issue/html/ex47/)
