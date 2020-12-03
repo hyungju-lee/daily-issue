@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<pre>
+    <code>
+참고 사이트 : https://unpkg.com/browse/swiper
+
+---------------------------------------------------------------------------------
+
+https://unpkg.com/browse/swiper@3.0.0/dist/js/swiper.min.js
+
+~~
+
+https://unpkg.com/browse/swiper@3.0.6/dist/js/swiper.min.js
+
+----------------------------------------------------------------------------------
+
+3.0.7 : 2015 / 4 / 25 이전 버전을 사용하는 것 같다.
+테스트 버전 3.0.0 ~ 3.0.6 : 해당 버전에서 display:none/block시 스와이퍼가 마지막으로 가는 현상이 발생
+3.0.7 이후 버전부터는 해당 현상이 없다.
+
+----------------------------------------------------------------------------------
+
+그런데 하이프레시 lib 연결하니까 또 해당 현상이 없네..
+그럼 다른게 영향을 끼친다는건데..
+
+뭔가 영향을 받긴하는데..
+CSS 영향 같은데..
+
+----------------------------------------------------------------------------------
+
+테스트결과
+-> 스와이퍼 버전 3.0.6 이하에서 해당 이슈가 똑같지 재현
+-> 하이프레시에서 사용하는 스와이퍼버전이 3.0.6 이하인지 테스트
+-> 그런데 테스트.html 파일에 하이프레시 hyfresh.lib.js연결하면 해당 이슈 발생하지 않음
+
+-> 그래서 다른 JS 영향인지 확인하려고 해당 스와이퍼 제외한 나머지 JS 다 삭제 후 테스트
+-> 그래도 똑같이 이슈 발생
+
+-> 그래서 lib에 있는 JS 문제인가해서 swiper.js말고 나머지 다 삭제하고 테스트
+-> 그래도 이슈 발생
+
+-> 그럼 libs.min.css / hyfresh.css 문제인가 해서 각각 하나씩 연결끊고 테스트
+-> 그래도 이슈 발생
+
+-> 두 개 다 연결 끊고 테스트
+-> 이슈 사라짐
+
+-> 최신 스와이퍼 CSS 연동 테스트
+-> 이슈발생
+
+-> 그래서 마지막은 최신 스와이퍼 CSS + JS로 테스트해보려고했는데
+-> 이슈해결
+
+---------------------------------------------------------------------------------
+
+
+(function (win, $, doc) {
+    'use strict';
+    win.HYFRESH = win.HYFRESH || {};
+
+    var UTIL = win.HYFRESH.common.util,
+        pluginName = 'ListAccordion';
+
+    win.HYFRESH[pluginName] = function (container, args) {
+        var defParams = {
+            itemBox     : '.js-accordion-item',
+            btnTitle    : '.js-accordion-tab',
+            listContents: '.js-accordion-content',
+            expandClass : 'is-expanded',
+            ariaExpanded: 'aria-expanded',
+            activeIndex : null,
+            customEvent : '.' + pluginName + (new Date()).getTime()
+        };
+        this.obj = container;
+        this.opts = UTIL.def(defParams, (args || {}));
+        this.init();
+    };
+    win.HYFRESH[pluginName].prototype = {
+        init : function () {
+            this.setElements();
+            this.initLayout();
+            this.bindEvents();
+        },
+        setElements : function () {
+            this.itemBox     = this.obj.find(this.opts.itemBox);
+            this.itemContent = this.obj.find(this.opts.listContents);
+            this.btnTitle    = this.obj.find(this.opts.btnTitle);
+            <span style="color: red">this.swiperActiveIndexInnerAccordion = 0;</span>
+        },
+        initLayout : function () {
+            var expandClass  = this.opts.expandClass,
+                btnTitle     = this.opts.btnTitle,
+                listContents = this.opts.listContents,
+                ariaExpanded = this.opts.ariaExpanded;
+            $.map(this.itemBox, function (value, index) {
+                if ($(value).hasClass(expandClass)) {
+                    if ($(value).find(btnTitle).attr(ariaExpanded) === "true") {
+                        $(value).find(listContents).show();
+                    } else {
+                        $(value).removeClass(expandClass);
+                        $(value).find(btnTitle).attr(ariaExpanded, false);
+                    }
+                } else {
+                    $(value).find(btnTitle).attr(ariaExpanded, false);
+                    $(value).find(listContents).hide();
+                }
+            })
+        },
+        changeEvents : function (event) {
+            var events = [],
+                eventNames = event.split(' ');
+            for (var key in eventNames) {
+                events.push(eventNames[key] + this.opts.customEvent);
+            }
+            return events.join(' ');
+        },
+        bindEvents : function () {
+            this.itemBox.on(this.changeEvents('click'), this.opts.btnTitle, $.proxy(this.onClickFunc, this));
+        },
+        onClickFunc : function (e) {
+            e.preventDefault();
+            var target                = $(e.currentTarget),
+                targetParent          = $(e.delegateTarget),
+                clientTop             = e.currentTarget.getBoundingClientRect().top;
+                this.opts.activeIndex = targetParent.index();
+            <span style="color: red">
+            var swiperObj = target.closest(".js-accordion-item").find(".swiper-container");
+            if (!!swiperObj) {
+                if (swiperObj.closest(".js-accordion-content").is(":visible")) {
+                    targetParent.find(this.opts.listContents).stop().slideUp();
+                    var swiperObjName = swiperObj.data("swiperObject");
+                    switch (swiperObjName) {
+                        case "oneCertifiedSwiperObj" :
+                          this.swiperActiveIndexInnerAccordion = HYFRESH.CategoryMenu.swiperObject.oneCertifiedSwiperObj.activeIndex;
+                          break;
+                        case "categoryBrandSwiperObj" :
+                            this.swiperActiveIndexInnerAccordion = HYFRESH.CategoryMenu.swiperObject.categoryBrandSwiperObj.activeIndex;
+                            break;
+                        default :
+                            break;
+                    }
+                } else {
+                    var _this = this;
+                    targetParent.find(this.opts.listContents).stop().slideDown();
+                    var swiperObjName = swiperObj.data("swiperObject");
+                    switch (swiperObjName) {
+                        case "oneCertifiedSwiperObj" :
+                            requestAnimationFrame(function () {
+                              HYFRESH.CategoryMenu.swiperObject.oneCertifiedSwiperObj.slideTo(_this.swiperActiveIndexInnerAccordion, 0);
+                            })
+                            break;
+                        case "categoryBrandSwiperObj" :
+                            requestAnimationFrame(function () {
+                                HYFRESH.CategoryMenu.swiperObject.categoryBrandSwiperObj.slideTo(_this.swiperActiveIndexInnerAccordion, 0);
+                            })
+                            break;
+                        default :
+                            break;
+                    }
+                }
+            }
+            </span>
+            if (target.closest(this.opts.itemBox).hasClass(this.opts.expandClass)) {
+                targetParent.toggleClass(this.opts.expandClass);
+                targetParent.hasClass(this.opts.expandClass) ? target.attr(this.opts.ariaExpanded, true): target.attr(this.opts.ariaExpanded, false);
+            } else {
+                this.viewExpandFunc();
+            }
+            this.oldIndex = this.opts.activeIndex;
+            scrollTo(0, e.currentTarget.getBoundingClientRect().top + pageYOffset - clientTop);
+
+
+        },
+        viewExpandFunc: function() {
+            this.itemBox.eq(this.opts.activeIndex).addClass(this.opts.expandClass);
+            this.itemBox.eq(this.opts.activeIndex).find(this.opts.btnTitle).attr(this.opts.ariaExpanded, true);
+            this.itemBox.eq(this.opts.activeIndex).find(this.opts.listContents).slideDown();
+        }
+    };
+    $.fn[pluginName] = function (args) {
+        var _this = this;
+        for (var i = 0, max = this.length; i &lt; max; i++) {
+            (function (index) {
+                new win.HYFRESH[pluginName](_this.eq(index), args);
+            })(i);
+        }
+    };
+
+    $(function () {
+        $('.js-accordion-list').ListAccordion();
+    });
+})(window, window.jQuery, window.document);
+    </code>
+</pre>
+
+<script>
+
+</script>
+</body>
+</html>
