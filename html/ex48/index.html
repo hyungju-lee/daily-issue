@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<pre>
+    <code>
+<strong>// page08.regular-delivery.js</strong>
+(function (win, $) {
+  'use strict';
+  win.HYFRESH.common = win.HYFRESH.common || {};
+
+    var UTIL = win.HYFRESH.common.util;
+    win.HYFRESH.regularDelivery = (function (container){
+        var defParams = {
+            obj: container,
+            weeklyDeliverySwiper : '.weekly-delivery__slide',
+            weeklyDeliverySwiperOpts : {
+            slidesPerView      : 'auto',
+            spaceBetween : 7,
+            observer           : true,
+            observeParents     : true,
+            watchOverflow      : true,
+            onInit: function (swiper) {
+              if (swiper.slides.length &lt; 5) {
+                swiper.wrapper[0].classList.add("swiper-no-swiping");
+                }
+              },
+            },
+            recommendSwiper : '.recommend-delivery-slide',
+            recommendSwiperOpts : {
+                slidesPerView      : 2,
+                slidesPerGroup: 2,
+                spaceBetween : 9,
+                pagination          : '.recommend-delivery-slide__pagination',
+                paginationClickable : true,
+                onPaginationRendered: function(swiperClass, paginationEl) {
+                    var bullet = $(paginationEl).find('.swiper-pagination-bullet');
+                    for (var i=0; i&lt;bullet.length; i++) {
+                        bullet[i].innerText = 'slide' + (i + 1);
+                    }
+                }
+            },
+            currentIndex             : 0,
+            categoryTabSwiper   : '.category-tab-slide',
+            categoryTabSlideItem: '.category-tab-slide .swiper-slide',
+            mainBestCategoryEl       : null,
+            touchThreshold           : 30,
+            tabClick                 : function (e) {
+              defParams.categoryTabEl = e.target;
+              while (!$(defParams.categoryTabEl).hasClass('swiper-slide')) {
+                defParams.categoryTabEl = defParams.categoryTabEl.parentElement;
+                if (defParams.categoryTabEl.nodeName === "BODY") {
+                  defParams.categoryTabEl = null;
+                  return
+                }
+              }
+            },
+            activeSlide: function(key) {
+              if (key) {
+                $(defParams.categoryTabSwiper).find('.swiper-slide[data-index=\''+defParams.currentIndex+'\']').addClass('swiper-slide-active');
+              } else {
+                $(defParams.categoryTabSwiper).find('.swiper-slide[data-index=\''+defParams.currentIndex+'\']').removeClass('swiper-slide-active');
+              }
+            },
+            positionSlide: function (swiper) {
+              var swiper = swiper;
+              var swiperInfo = swiper.container[0].getBoundingClientRect();
+              var currentSlide = document.querySelector('.swiper-slide[data-index=\''+defParams.currentIndex+'\']');
+              var currentSlideInfo = currentSlide.getBoundingClientRect();
+              var currentSlideLeft = currentSlideInfo.left - swiperInfo.left;
+              var currentSlideWidth = currentSlideInfo.width;
+              var currentSlidePositionAndWidth = currentSlideLeft + currentSlideWidth;
+            <span style="color: red">
+              var moveEl = document.querySelector('.category-tab-slide__list');
+              var moveElWidth = moveEl.getBoundingClientRect().width;
+
+              if (currentSlidePositionAndWidth &gt; moveElWidth) {
+                var moveDistance = -1 * (currentSlide.offsetLeft - moveElWidth + currentSlideWidth);
+
+                moveEl.style.transform = "translate3d("+moveDistance+"px, 0, 0)";
+                moveEl.style.transitionDuration = "300ms";
+              }
+              if (currentSlideLeft &lt; 0) {
+                moveEl.style.transform = "translate3d("+(-1 * (currentSlide.offsetLeft))+"px, 0, 0)";
+                moveEl.style.transitionDuration = "300ms";
+              }
+            </span>
+            },
+            categoryTabSwiperOpts: {
+              slidesPerView   : 'auto',
+              spaceBetween    : 20,
+              slidePrevClass  : 'swiper-meanlease-prev',
+              slideNextClass  : 'swiper-meanlease-next',
+              slideActiveClass: 'swiper-meanlease-active',
+              onInit          : function () {
+                for (var i = 0; i &lt; $(defParams.categoryTabSlideItem).length; i++) {
+                  $(defParams.categoryTabSlideItem)[i].setAttribute('data-index', i);
+                  if (i === 0) {
+                    $(defParams.categoryTabSlideItem)[i].classList.add('swiper-slide-active');
+                  }
+                }
+              },
+              onTouchStart: function (swiper, event) {
+                defParams.touchThreshold = swiper.touches.currentX;
+              },
+              onTouchEnd: function (swiper, event) {
+                if (Math.abs(swiper.touches.currentX - defParams.touchThreshold) &gt; 19) {
+                  defParams.touchThreshold = 0;
+                  return;
+                }
+                defParams.touchThreshold = 0;
+                defParams.tabClick(event);
+                if (!defParams.categoryTabEl) return
+                defParams.activeSlide(false);
+                defParams.currentIndex = defParams.categoryTabEl.getAttribute('data-index');
+                defParams.activeSlide(true);
+                HYFRESH.regularDelivery.swiperObject.categorySwiperObj.slideTo(defParams.currentIndex);
+              },
+            },
+            categorySwiper    : '.category-slide',
+            categorySlide     : '.category-slide .swiper-slide',
+            categorySwiperOpts: {
+              slidesPerView      : 1,
+              spaceBetween       : 15,
+              autoHeight         : true,
+              onInit             : function () {
+                for (var i=0; i&lt;$(defParams.categorySlide).length; i++) {
+                  $(defParams.categorySlide)[i].setAttribute('data-index', i) ;
+                }
+              },
+              onTransitionStart: function (swiper) {
+                defParams.activeSlide(false);
+                defParams.currentIndex = document.querySelector('.category-slide .swiper-slide-active').getAttribute('data-index');
+                defParams.activeSlide(true);
+                defParams.positionSlide(swiper);
+              },
+
+            },
+        }
+        return {
+            reInit: function () {
+              HYFRESH.destroySwiper(this.swiperObject);
+              this.init();
+            },
+            init: function() {
+                this.setElements();
+                this.buildSwiper();
+            },
+            setElements : function() {
+                this.obj = $(defParams.obj);
+                this.weeklyDeliverySwiper = this.obj.find(defParams.weeklyDeliverySwiper);
+                this.recommendSwiper = this.obj.find(defParams.recommendSwiper);
+                this.categorySwiper = this.obj.find('.category-slide');
+                this.categoryTabSwiper = this.obj.find('.category-tab-slide');
+                this.swiperObject = {};
+            },
+            buildSwiper : function() {
+              var _this = this;
+            <span style="color: red">
+              requestAnimationFrame(function () {
+                _this.swiperObject.weeklyDeliverySwiperObj = new Swiper(_this.weeklyDeliverySwiper, defParams.weeklyDeliverySwiperOpts);
+                _this.swiperObject.recommendSwiperObj = new Swiper(_this.recommendSwiper, defParams.recommendSwiperOpts);
+                _this.swiperObject.categoryTabSwiperObj = new Swiper(_this.categoryTabSwiper, defParams.categoryTabSwiperOpts);
+                _this.swiperObject.categorySwiperObj = new Swiper(_this.categorySwiper, defParams.categorySwiperOpts);
+              })
+            </span>
+            },
+        }
+  })('.content-regular-delivery');
+
+  $(function () {
+    if ($('.content-regular-delivery').length) {
+      HYFRESH.regularDelivery.init();
+    }
+  });
+})(window, window.jQuery);
+
+    </code>
+</pre>
+
+<script>
+
+</script>
+</body>
+</html>

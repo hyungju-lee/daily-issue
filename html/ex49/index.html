@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<pre>
+    <code>
+<strong>// common.03.product-view-mode.js</strong>
+(function (win, $, doc) {
+    'use strict';
+    win.HYFRESH = win.HYFRESH || {};
+
+    var UTIL = win.HYFRESH.common.util,
+        pluginName = 'productViewMode';
+
+    win.HYFRESH[pluginName] = function (container, args) {
+        var defParams = {
+          viewMode : "type2",
+          listViewMode : "products__list--typeb",
+          parentsClass : ".products__head",
+          productListClass : ".products__list",
+        };
+        this.obj = container;
+        this.opts = UTIL.def(defParams, (args || {}));
+        this.init();
+    };
+    win.HYFRESH[pluginName].prototype = {
+        init : function () {
+            this.setElements();
+            this.bindEvents();
+        },
+        setElements : function () {
+          this.viewMode = this.opts.viewMode;
+          this.listViewMode = this.opts.listViewMode;
+          this.parentsClass = this.opts.parentsClass;
+          this.productListClass = this.opts.productListClass;
+        },
+        bindEvents : function () {
+          this.obj.on("click", $.proxy(this.clickEvents, this));
+        },
+        clickEvents : function (e) {
+          var _this = $(e.target);
+          var hasType2Class = _this.hasClass(this.viewMode);
+          var productList = _this.parents(this.parentsClass).next(this.productListClass);
+          hasType2Class ?
+            _this.removeClass(this.viewMode) :
+            _this.addClass(this.viewMode);
+          hasType2Class ?
+            productList.addClass(this.listViewMode) :
+            productList.removeClass(this.listViewMode);
+
+        <span style="color: red">
+          // update 필요한 스와이퍼 개체
+          switch (true) {
+            case (!!_this.parents(".content-regular-delivery").length) :
+              HYFRESH.regularDelivery.swiperObject.categorySwiperObj.update();
+              break
+            case (!!_this.parents(".content-certificate").length) :
+              HYFRESH.certificate.swiperObject.categorySwiperObj.update();
+              break
+            default :
+              break
+          }
+        </span>
+        },
+    };
+    $.fn[pluginName] = function (args) {
+        new win.HYFRESH[pluginName](this, args);
+    };
+
+    $(function () {
+        $('.products__control-btn--view-mode').productViewMode();
+    });
+})(window, window.jQuery, window.document);
+    </code>
+</pre>
+
+<script>
+
+</script>
+</body>
+</html>
