@@ -445,3 +445,7 @@
     * 수정이슈 목록
     * 카테고리 끝으로 넘기면 우측 여백 생김
     * view 모드 (1/2컬럼) 전환안됨 / swiper height update 안됨
+    
+### 20201208
+
+1. [수정 내용들](https://hyungju-lee.github.io/daily-issue/html/ex51/)
