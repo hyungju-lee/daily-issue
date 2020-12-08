@@ -449,3 +449,17 @@
 ### 20201208
 
 1. [수정 내용들](https://hyungju-lee.github.io/daily-issue/html/ex51/)
+2. input type=date 캘린더 조절방법
+
+    ```css
+    input[type="date"]::-webkit-calendar-picker-indicator{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        background: transparent;
+        -webkit-appearance: none;
+    }
+    ```
