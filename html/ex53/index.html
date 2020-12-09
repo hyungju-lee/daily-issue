@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<pre>
+    <code>
+<strong>// </strong>
+(function (win, $, doc) {
+  'use strict';
+  win.HYFRESH = win.HYFRESH || {};
+
+  var UTIL = win.HYFRESH.common.util,
+    pluginOpenProps = 'comLayerPopupOpenProps',
+    pluginName = 'comLayerPopup';
+
+  win.HYFRESH[pluginOpenProps] = [];
+
+  win.HYFRESH[pluginName] = function (container, args) {
+    if (!(this instanceof win.HYFRESH[pluginName])) {
+      return new win.HYFRESH[pluginName](container, args);
+    }
+    var defParams = {
+      effect : 'fade',
+      layerWrapElements : container,
+      layerWrapperElements : '.common-layer__wrapper',
+      layerElements : '.common-layer__inner',
+      layerContentElements : '.common-layer__content',
+      layerFixedElements : '.common-layer__fixed-wrap',
+      layerFixedTopElements : '.common-layer__header',
+      openerElements : '.layer-popup-opener',
+      openerAsyncClass : 'is-async',
+      closerElements : '.common-layer__btn-close',
+      closerElements2 : '[data-layer-close=\'true\']',
+      dimmedElements : '.common-layer__dimmed',
+      focusOutObj : {
+        CLASS : 'hive-layer-focusout',
+        CSS : {
+          'overflow' : 'hidden',
+          'position' : 'absolute',
+          'left' : 0,
+          'top' : 0,
+          'z-index' : -1,
+          'width' : 1,
+          'height' : 1,
+          'font-size' : '1px',
+          'line-height' : 0,
+          'outline' : 'none'
+        }
+      },
+      customEvent : '.' + pluginName + (new Date()).getTime(),
+      openerTarget : null,
+      useOutside : false,
+      useEscape : true,
+      useCloseFocus : false,
+      bgOpacity : .3,
+      bgColor : '#000',
+      slide : {
+        range : 200,
+        direction : 'rightToLeft' // Could be 'rightToLeft', 'leftToRight', 'topToBottom', 'bottomToTop'
+      },
+      flip : {
+        CLASS : 'hive-layer-flip',
+        direction : 'horizontal', // Could be 'horizontal', 'vertical'
+        rotateStart : 90,
+        rotateEnd : 0
+      },
+      scrollActiveClass : 'is-scroll-active',
+      layerFullTypeClass: 'common-layer--full',
+      layerUpperTypeClass: 'layer-upper',
+      customToggle : false,
+      dimmedDuration : 250,
+      fps : 120,
+      easing : 'swing',
+      duration : 250,
+      layerMove : null,
+      layerOpenBefore : null,
+      layerOpenAfter : null,
+      layerCloseBefore : null,
+      layerCloseAfter : null,
+      resizeStart : null
+    };
+    if (!(this.layerWrap = defParams.layerWrapElements).length) return;
+    this.opts = UTIL.def(defParams, args || {});
+    this.init();
+  };
+  win.HYFRESH[pluginName].prototype = {
+    init : function () {
+      this.initOpts();
+      this.setElements();
+      this.initLayout();
+      this.bindEvents(true);
+    },
+    initOpts : function () {
+      this.layerWrapInstance = '#' + this.layerWrap.attr('id');
+      if (!this.opts.isSupportTransition && this.opts.effect === 'flip') {
+        this.opts.effect = 'default';
+      }
+    },
+    setElements : function () {
+      this.dimmedObj = this.layerWrap.find(this.opts.dimmedElements);
+      this.layerObj = this.layerWrap.find(this.opts.layerElements);
+      this.layerObjWrap = this.layerObj.parent();
+      this.layerContentElements = this.layerWrap.find(this.opts.layerContentElements);
+      this.layerFixedElements = this.layerWrap.find(this.opts.layerFixedElements);
+      this.layerFixedTopElements = this.layerWrap.find(this.opts.layerFixedTopElements);
+      this.closerObj = this.layerWrap.find(this.opts.closerElements);
+      this.closerObj2 = this.layerWrap.find(this.opts.closerElements2);
+      this.layerWrapperElements = this.layerWrap.find(this.opts.layerWrapperElements);
+      this.startY = undefined;
+      this.moveY = undefined;
+    },
+    initLayout : function () {
+      var focusOutClass = this.opts.focusOutObj.CLASS,
+        focusOutElements = '&lt;span class="' + focusOutClass + '" tabindex="0"&gt;""&lt;/span&gt;';
+      if (!this.layerObj.prev().hasClass(focusOutClass)) {
+        this.layerObj.before(focusOutElements);
+      }
+      if (!this.layerObj.next().hasClass(focusOutClass)) {
+        this.layerObj.after(focusOutElements);
+      }
+      this.prevFocusOutObj = this.layerObj.prev();
+      this.nextFocusOutObj = this.layerObj.next();
+      this.focusOutObj = this.layerObj.prev().add(this.layerObj.next());
+      this.layerObj.attr({
+        'tabIndex' : -1,
+        'role' : 'dialog'
+      });
+      this.layerObj.css({
+        'outline' : 'none'
+      });
+      this.focusOutObj.css(this.opts.focusOutObj.CSS);
+      // this.dimmedObj.css({
+      //     background : this.opts.bgColor,
+      //     opacity : this.opts.bgOpacity
+      // });
+      if (this.opts.effect === 'slide') {
+        var sDirection = this.opts.slide.direction;
+        if (sDirection === 'rightToLeft' || sDirection === 'leftToRight') {
+          this.opts.slide.cssD = 'left';
+        } else if (sDirection === 'topToBottom' || sDirection === 'bottomToTop') {
+          this.opts.slide.cssD = 'top';
+        }
+        this.dimmedObj.hide();
+        this.focusOutObj.hide();
+        this.layerObj.hide();
+      } else if (this.opts.effect === 'flip') {
+        var fDirection = this.opts.flip.direction;
+        if (fDirection !== 'vertical') {
+          this.opts.flip.cssD = 'rotateY';
+        } else {
+          this.opts.flip.cssD = 'rotateX';
+        }
+        this.dimmedObj.hide();
+        this.focusOutObj.hide();
+        this.layerObj.hide();
+        this.layerWrap.addClass(this.opts.flip.CLASS);
+      }
+    },
+    changeEvents : function (event) {
+      var events = [],
+        eventNames = event.split(' ');
+      for (var key in eventNames) {
+        events.push(eventNames[key] + this.opts.customEvent);
+      }
+      return events.join(' ');
+    },
+    bindEvents : function (type) {
+      if (type) {
+        $(doc).on(this.changeEvents('click clickCustom'), this.opts.openerElements + '[data-layer-target="' + this.layerWrapInstance + '"]', $.proxy(this.onLayerOpen, this));
+        this.layerWrap.on(this.changeEvents('openLayer'), $.proxy(this.onLayerOpen, this));
+        this.prevFocusOutObj.on(this.changeEvents('focusin'), $.proxy(this.onPrevOut, this));
+        this.nextFocusOutObj.on(this.changeEvents('focusin'), $.proxy(this.onNextOut, this));
+        $.merge(this.closerObj, this.closerObj2).on(this.changeEvents('keydown click clickCustom'), $.proxy(this.onLayerClose, this));
+        if(this.layerWrap.hasClass(this.opts.layerUpperTypeClass)) { // type upper
+          this.layerObjWrap.on(this.changeEvents('click keydown clickCustom'), $.proxy(this.closeFocusFunc, this));
+        } else if(!this.layerWrap.hasClass(this.opts.layerFullTypeClass)) { // type normal
+          this.dimmedObj.on(this.changeEvents('keydown click clickCustom'), $.proxy(this.onLayerClose, this));
+        }
+        this.layerWrap.on(this.changeEvents('layerSetOptions'), $.proxy(this.setOptions, this));
+        if (this.opts.useEscape) {
+          $(doc).on(this.changeEvents('keydown'), $.proxy(this.onEscapeClose, this));
+        }
+      } else {
+        $(doc).off(this.changeEvents('click clickCustom'));
+        this.layerWrap.off(this.changeEvents('openLayer'));
+        this.prevFocusOutObj.off(this.changeEvents('focusin'));
+        this.nextFocusOutObj.off(this.changeEvents('focusin'));
+        $.merge(this.closerObj, this.closerObj2, this.dimmedObj, this.layerObjWrap).off(this.changeEvents('keydown click clickCustom'));
+        this.layerWrap.off(this.changeEvents('layerSetOptions'));
+        if (this.opts.useEscape) {
+          this.layerObj.off(this.changeEvents('keydown'));
+        }
+      }
+    },
+    closeFocusFunc : function(e){
+      if($(e.target).hasClass('common-layer__wrapper')) {
+        this.onLayerClose(e);
+      }
+    },
+    bindOutsideEvents : function (type) {
+      if (!this.opts.useOutside) return;
+      if (type) {
+        this.layerObj.on('clickoutside touchendoutside', $.proxy(this.onLayerOutsideFunc, this));
+      } else {
+        this.layerObj.off('clickoutside touchendoutside');
+      }
+    },
+    bindCloseEvents : function (type) {
+      if (type) {
+        this.layerWrap.on(this.changeEvents('closeLayer'), $.proxy(this.closeLayer, this));
+      } else {
+        this.layerWrap.off(this.changeEvents('closeLayer'));
+      }
+    },
+    setOptions : function (e, data) {
+      UTIL.def(this.opts, data || {});
+      if (data.customToggle) {
+        this.opts.effect = 'default';
+      }
+    },
+    layerScrollInit : function () {
+      if (this.layerWrap.hasClass(this.opts.scrollActiveClass)) {
+        this.setLayout();
+        this.scrollBindEvents(true);
+      }
+    },
+    scrollBindEvents : function (type) {
+      if (type) {
+        $(win).on(this.changeEvents('resize orientationchange'), $.proxy(this.resizeFunc, this));
+      } else {
+        $(win).off(this.changeEvents('resize orientationchange'));
+      }
+    },
+    resizeFunc : function () {
+      this.winWidth = UTIL.winSize().w;
+      if (this.opts.resizeStart == null) {
+        this.opts.resizeStart = this.winWidth;
+        this.resizeAnimateFunc();
+      }
+      win.clearTimeout(this.resizeEndTime);
+      this.resizeEndTime = win.setTimeout($.proxy(this.resizeEndFunc, this), 150);
+    },
+    resizeEndFunc : function () {
+      this.opts.resizeStart = null;
+      this.setLayout();
+      UTIL.cancelAFrame.call(win, this.resizeRequestFrame);
+    },
+    resizeAnimateFunc : function () {
+      this.resizeRequestFrame = UTIL.requestAFrame.call(win, $.proxy(this.resizeAnimateFunc, this));
+    },
+    setLayout : function () {
+      var layerObjWrap = this.layerObjWrap,
+        layerObjWrapPadding = parseFloat(layerObjWrap.css('padding-top')) + parseFloat(layerObjWrap.css('padding-bottom')),
+        layerObjWrapHeight = (layerObjWrap.length) ? layerObjWrap.outerHeight() - layerObjWrapPadding : 0,
+        layerFixedElements = this.layerFixedElements,
+        layerFixedTopElements = this.layerFixedTopElements,
+        height = layerObjWrapHeight - layerFixedElements.outerHeight() - layerFixedTopElements.outerHeight();
+      this.layerContentElements.css('max-height', height);
+    },
+    touchStartY: function (e) {
+      this.startY = e.originalEvent.touches[0].clientY;
+    },
+    preventScrollFunc : function (e) {
+      e.preventDefault();
+      e.stopPropagation();
+    },
+    preventOverScrollFunc : function (e) {
+      this.moveY = e.originalEvent.touches[0].clientY;
+      var direction = this.moveY - this.startY;
+      if ($(e.currentTarget).scrollTop() &gt;= $(e.currentTarget)[0].scrollHeight - $(e.currentTarget).height() && direction &lt; 0) {
+        e.preventDefault();
+        e.stopPropagation();
+      } else if ($(e.currentTarget).scrollTop() &lt;= 0 && direction &gt; 0) {
+        e.preventDefault();
+        e.stopPropagation();
+      }
+    },
+    offsetFunc : function (value, index) {
+      var scrollY = value.layerWrap.find("[data-offset=\""+index+"\"]").position().top;
+      value.layerWrap.find('.common-layer__content').scrollTop(scrollY)
+    },
+    onLayerOpen : function (e) {
+      e.preventDefault();
+      var _this = this;
+      if (e.type === 'click' || e.type === 'clickCustom') {
+        this.opts.openerTarget = $(e.currentTarget);
+      }
+      if (e.type === 'click') {
+        if (this.opts.openerTarget.hasClass(this.opts.openerAsyncClass)) return;
+      }
+      this.layerViewType = 'open';
+      win.HYFRESH[pluginOpenProps].push({
+        'POPUPWRAP' : this.layerWrap
+      });
+      this.bindCloseEvents(true);
+
+      var indexOffset;
+      if ($(e.currentTarget).data("offset") !== undefined) {
+        indexOffset = $(e.currentTarget).data("offset");
+      }
+      switch (true) {
+        case (this.opts.effect === 'default') :
+          if (!this.opts.customToggle) {
+            this.layerWrap.css({
+              'display': 'block'
+            });
+            this.layerScrollInit();
+            this.openAfterBugFunc();
+          }
+          break;
+        case (this.opts.effect === 'fade') :
+          this.focusOutObj.show();
+          this.layerWrap.css({
+            'display': 'block',
+            'opacity': 0,
+          })
+          requestAnimationFrame(function () {
+            requestAnimationFrame(function () {
+              _this.layerWrap.css({
+                'opacity': 1,
+                'transition': 'opacity 0.3s'
+              })
+              if (indexOffset !== undefined) {
+                HYFRESH[pluginName].prototype.offsetFunc(_this, indexOffset)
+              }
+            })
+          })
+          break;
+        case (this.opts.effect === 'slide-btt' || this.opts.effect === 'slide-ttb'
+          || this.opts.effect === 'slide-rtl' || this.opts.effect === 'slide-ltr') :
+          var effectArr = this.opts.effect.split('-');
+          this.layerWrap.css({
+            'display': 'block',
+            'opacity': 0,
+          });
+          this.layerObj.css({
+            'transform':
+              effectArr[1] === 'btt' ? 'translate3d(0, 100%, 0)' :
+                effectArr[1] === 'ttb' ? 'translate3d(0, -100%, 0)' :
+                  effectArr[1] === 'rtl' ? 'translate3d(100%, 0, 0)' :
+                    'translate3d(-100%, 0, 0)',
+          });
+          requestAnimationFrame(function () {
+            requestAnimationFrame(function () {
+              _this.layerWrap.css({
+                'opacity': 1,
+                'transition': 'all 0.25s'
+              })
+              _this.layerObj.css({
+                'transform': 'translate3d(0, 0, 0)',
+                'transition': 'all 0.25s'
+              })
+            })
+          })
+          break;
+        default :
+          break;
+      }
+      this.layerWrap.on("transitionend", function () {
+        _this.layerWrap.off("transitionend");
+        _this.ariaAccessbility();
+      })
+      $('html, body').addClass('scroll-lock');
+
+      if (this.layerWrap.find(".swiper-container").length) {
+        for (var i = 0; i &lt; this.layerWrap.find(".swiper-container").length; i++) {
+          var swiperObjName = this.layerWrap.find(".swiper-container").eq(i).data("swiperObject");
+          switch (swiperObjName) {
+            case "oneCertifiedSwiperObj" :
+              requestAnimationFrame(function () {
+                HYFRESH.CategoryMenu.swiperObject.oneCertifiedSwiperObj.slideTo(0, 0);
+              })
+              break;
+            case "categoryBrandSwiperObj" :
+              requestAnimationFrame(function () {
+                HYFRESH.CategoryMenu.swiperObject.categoryBrandSwiperObj.slideTo(0, 0);
+              })
+              break;
+            default :
+              break;
+          }
+        }
+      }
+        <span style="color: red">
+      switch (true) {
+        case this.layerObj[0].scrollHeight !== this.layerObj.outerHeight(true) :
+          if (this.layerObj[0].scrollHeight &gt; this.layerObj.outerHeight(true)) {
+            this.layerObj.off("scroll touchmove", this.preventScrollFunc);
+            this.layerObj.on("touchmove", this.preventOverScrollFunc);
+            this.layerObj.on("touchstart", this.touchStartY);
+          } else {
+            this.layerObj.on("scroll touchmove", this.preventScrollFunc);
+          }
+          break;
+        case this.layerContentElements[0].scrollHeight !== this.layerContentElements.outerHeight(true) :
+          if (this.layerContentElements[0].scrollHeight &gt; this.layerContentElements.outerHeight(true)) {
+            this.layerContentElements.off("scroll touchmove", this.preventScrollFunc);
+            this.layerContentElements.on("touchmove", this.preventOverScrollFunc);
+            this.layerContentElements.on("touchstart", this.touchStartY);
+          } else {
+            this.layerContentElements.on("scroll touchmove", this.preventScrollFunc);
+          }
+          break;
+        default:
+          this.layerWrap.on("scroll touchmove", this.preventScrollFunc);
+          break;
+      }
+        </span>
+
+    },
+    initStep : function (data) {
+      this.opts.stepTimeOld = new Date();
+      this.direction = data.startDistance &gt; data.moveDistance ? 'toNext' : 'toPrev';
+      this.condition = this.direction === 'toNext' ? data.currentStep &gt; data.moveDistance : data.currentStep &lt; data.moveDistance;
+    },
+    moveStep : function (data) {
+      this.opts.stepTimeNew = new Date();
+      this.opts.remaining = Math.max(0, (this.opts.stepTimeOld - this.opts.stepTimeNew) + this.opts.duration);
+      var temp = this.opts.remaining / this.opts.duration || 0,
+        percent = 1 - temp,
+        eased = $.easing[this.opts.easing](percent, this.opts.duration * percent, 0, 1, this.opts.duration);
+      data.currentStep = (data.endDistance - data.startDistance) * eased;
+    },
+    flipFunc : function () {
+      var data = this.opts.flip.moveData;
+      this.moveStep(data);
+      if (this.condition) {
+        win.clearTimeout(this.stepTimeout);
+        this.stepTimeout = win.setTimeout($.proxy(function () {
+          this.flipFunc();
+        }, this), 1000 / this.opts.fps);
+        this.condition = this.direction === 'toNext' ? data.currentStep &gt; data.moveDistance : data.currentStep &lt; data.moveDistance;
+      } else {
+        this.opts.remaining = this.opts.duration;
+        if (this.layerViewType === 'close' || !this.layerViewType) {
+          this.closeAfterBugFunc();
+          this.dimmedObj.fadeOut(this.opts.dimmedDuration, $.proxy(function () {
+            this.layerWrap.hide();
+            this.focusOutObj.hide();
+            this.layerObj.hide();
+          }, this));
+        } else {
+          this.openAfterBugFunc();
+        }
+      }
+      var movePosition = data.startDistance + data.currentStep;
+      this.layerObj.css({
+        'transform' : this.opts.flip.cssD + '(' + movePosition + 'deg)'
+      });
+    },
+    onLayerOpenAfter : function () {
+      this.layerObj.focus();
+      win.setTimeout($.proxy(function () {
+        this.layerObj.removeAttr('role');
+      }, this), 30);
+      this.bindOutsideEvents(true);
+    },
+    openAfterBugFunc : function () {
+      win.clearTimeout(this.openAfterTimeout);
+      this.openAfterTimeout = win.setTimeout($.proxy(this.onLayerOpenAfter, this), 30);
+    },
+    onLayerClose : function (e) {
+      var _target = $(e.currentTarget);
+      if (e.type === 'keydown') {
+        var keyCode = e.which || e.keyCode;
+        if (keyCode === 13) {
+          e.stopPropagation();
+          this.opts.useCloseFocus = true;
+        }
+      } else if (e.type === 'click' || e.type === 'clickCustom') {
+        e.preventDefault();
+        if (e.type === 'click') {
+          if (_target.hasClass(this.opts.openerAsyncClass)) return;
+        }
+        this.layerWrap.trigger(this.changeEvents('closeLayer'));
+      }
+      $('html, body').removeClass('scroll-lock');
+      if (this.layerWrap.find(".swiper-container").length) {
+        for (var i = 0; i &lt; this.layerWrap.find(".swiper-container").length; i++) {
+          var swiperObjName = this.layerWrap.find(".swiper-container").eq(i).data("swiperObject");
+          switch (swiperObjName) {
+            case "oneCertifiedSwiperObj" :
+              requestAnimationFrame(function () {
+                HYFRESH.CategoryMenu.swiperObject.oneCertifiedSwiperObj.slideTo(0, 0);
+              })
+              break;
+            case "categoryBrandSwiperObj" :
+              requestAnimationFrame(function () {
+                HYFRESH.CategoryMenu.swiperObject.categoryBrandSwiperObj.slideTo(0, 0);
+              })
+              break;
+            default :
+              break;
+          }
+        }
+      }
+        <span style="color: red">
+      this.layerWrap.off("scroll touchmove", this.preventScrollFunc);
+      this.layerObj.off("touchmove", this.preventOverScrollFunc);
+      this.layerObj.off("touchstart", this.touchStartY);
+      this.layerObj.off("scroll touchmove", this.preventScrollFunc);
+      this.layerContentElements.off("touchmove", this.preventOverScrollFunc);
+      this.layerContentElements.off("touchstart", this.touchStartY);
+      this.layerContentElements.off("scroll touchmove", this.preventScrollFunc);
+            </span>
+    },
+    closeLayer : function () {
+      this.layerViewType = 'close';
+      this.popupOpenPropsControl();
+      if (!win.HYFRESH[pluginOpenProps].length) {
+      }
+      win.clearTimeout(this.closeBeforeTimeout);
+      this.closeBeforeTimeout = win.setTimeout($.proxy(this.closeBeforeBugFunc, this), 30);
+      this.bindOutsideEvents(false);
+      this.scrollBindEvents(false);
+      $('html, body').removeClass('scroll-lock');
+      if(this.layerWrap.find('.js-accordion-list')) {
+        this.layerWrap.find('.js-accordion-item').addClass('is-expanded');
+        this.layerWrap.find('.js-accordion-tab').attr('aria-expanded', 'true');
+        this.layerWrap.find('.js-accordion-content').show();
+      }
+    },
+    onEscapeClose : function (e) {
+      var keyCode = e.which || e.keyCode;
+      if (keyCode !== 27) return;
+      this.opts.useCloseFocus = true;
+      this.layerWrap.trigger(this.changeEvents('closeLayer'));
+    },
+    onPrevOut : function () {
+      this.layerWrap.find('a, button, input, select').filter(':visible').not(':disabled').last().focus();
+    },
+    onNextOut : function () {
+      this.layerObj.focus();
+    },
+    onLayerOutsideFunc : function () {
+      this.layerWrap.trigger(this.changeEvents('closeLayer'));
+    },
+    closeBeforeBugFunc : function () {
+      var _this = this;
+      switch (true) {
+        case (this.opts.effect === 'default') :
+          if (!this.opts.customToggle) {
+            this.layerWrap.css({
+              'display': 'none'
+            });
+          }
+          this.closeAfterBugFunc();
+          break
+        case (this.opts.effect === 'fade') :
+          this.layerWrap.css({
+            'opacity': 0,
+            'transition': 'opacity 0.3s'
+          })
+          this.layerWrap.on('transitionend', function () {
+            _this.layerWrap.off('transitionend');
+            _this.layerWrap.css({
+              'transition': '',
+              'opacity': '',
+              'display': 'none',
+            })
+            _this.focusOutObj.hide();
+          })
+          break;
+        case (this.opts.effect === 'slide-btt' || this.opts.effect === 'slide-ttb'
+          || this.opts.effect === 'slide-rtl' || this.opts.effect === 'slide-ltr') :
+          var effectArr = this.opts.effect.split('-');
+          this.layerWrap.css({
+            'opacity': 0,
+            'transition': 'all 0.25s'
+          })
+          this.layerObj.css({
+            'transform':
+              effectArr[1] === 'btt' ? 'translate3d(0, 100%, 0)' :
+                effectArr[1] === 'ttb' ? 'translate3d(0, -100%, 0)' :
+                  effectArr[1] === 'rtl' ? 'translate3d(100%, 0, 0)' :
+                    'translate3d(-100%, 0, 0)',
+          })
+          this.layerObj.on('transitionend', function () {
+            _this.layerObj.off('transitionend');
+            _this.layerObj.css({
+              'transform': '',
+            })
+            _this.layerWrap.css({
+              'opacity': '',
+              'transition': '',
+              'display': 'none'
+            })
+          })
+          break;
+        default :
+          break;
+      }
+      HYFRESH.brand.toggleKeywordLayer(false);
+      this.layerWrap.on("transitionend", function () {
+        _this.layerWrap.off("transitionend");
+        _this.ariaAccessbility();
+      })
+    },
+    closeAfterBugFunc : function () {
+      win.clearTimeout(this.closeAfterTimeout);
+      this.closeAfterTimeout = win.setTimeout($.proxy(this.onLayerCloseAfter, this), 30);
+    },
+    popupOpenPropsControl : function () {
+      var pluginOpenPropDatas = win.HYFRESH[pluginOpenProps];
+      for (var openPropsMin = 0, openPropsMax = pluginOpenPropDatas.length; openPropsMin &lt; openPropsMax; openPropsMin++) {
+        var pluginOpenPropData = pluginOpenPropDatas[openPropsMin],
+          pluginPopupWrap = pluginOpenPropData['POPUPWRAP'][0];
+        if (pluginPopupWrap === this.layerWrap[0]) {
+          pluginOpenPropDatas[openPropsMin] = null;
+        }
+      }
+      for (var delPropsMin = 0, delPropsMax = pluginOpenPropDatas.length; delPropsMin &lt; delPropsMax; delPropsMax--) {
+        var pluginDelPropData = pluginOpenPropDatas[delPropsMax - 1];
+        if (pluginDelPropData === null) {
+          pluginOpenPropDatas.splice(delPropsMax - 1, 1);
+        }
+      }
+    },
+    onLayerCloseAfter : function () {
+      if (this.opts.openerTarget !== null) {
+        if (UTIL.isDevice) {
+          this.opts.useCloseFocus = true;
+        }
+        if (this.opts.useCloseFocus) {
+          this.opts.openerTarget.focus();
+        }
+        this.opts.openerTarget = null;
+      }
+      this.opts.useCloseFocus = false;
+      win.setTimeout($.proxy(function () {
+        this.layerObj.attr('role', 'dialog');
+      }, this), 30);
+      this.bindCloseEvents(false);
+    },
+    ariaAccessbility : function () {
+      $(".common-layer, .layer-search-keyword").each(function (i, val) {
+        if (!$(val).is(":visible")) {
+          $(val).attr("aria-hidden", true);
+        } else {
+          $(val).removeAttr("aria-hidden");
+        }
+      })
+    },
+    destroy : function () {
+      this.bindEvents(false);
+      this.bindOutsideEvents(false);
+      this.bindCloseEvents(false);
+    }
+  };
+  $(function() {
+    var cmSLayer = $('.common-layer');
+    for (var i = 0, max = cmSLayer.length; i &lt; max; i++) {
+      (function (index) {
+        var _this = cmSLayer.eq(i),
+          _effect = cmSLayer.eq(i).data('effect') || 'fade'; // Could be 'default', 'fade', 'slide-btt', 'slide-ttb', 'slide-rtl', 'slide-ltr'
+        new win.HYFRESH[pluginName](_this, {
+          effect: _effect,
+        });
+      })(i);
+    }
+  });
+})(window, window.jQuery, window.document);
+    </code>
+</pre>
+
+<script>
+
+</script>
+</body>
+</html>

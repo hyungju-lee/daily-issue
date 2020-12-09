@@ -463,3 +463,19 @@
         -webkit-appearance: none;
     }
     ```
+   
+---
+
+### 20201209
+
+1. 노드 버전에 따라 스프라이트 이미지가 달라진다. (최종 결과물엔 차이가 없다.)
+
+    * 노드 12버전대 - 스프라이트 이미지 같음
+    * 노드 10버전대 - 스프라이트 이미지 같음
+    
+2. [클래스 추가/제거시 등록되는 이벤트 달리하기](https://hyungju-lee.github.io/daily-issue/html/ex52/)
+3. [팝업 - 바디 스크롤막기 방법](https://hyungju-lee.github.io/daily-issue/html/ex53/)
+
+    * 스크롤 끝에 도달했을 때, e.preventDefault(); e.stopPropagation(); 으로 이벤트전파 및 디폴트실행 막기 
+    * 그런데 상하단 인디케이터바 없는 상태에서 iOS safe-area-inset-bottom 영역에 터치스크롤하면 body가 스크롤된다.  
+      그래도 많이 없애긴 했음..
