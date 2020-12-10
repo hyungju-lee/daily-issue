@@ -479,3 +479,7 @@
     * 스크롤 끝에 도달했을 때, e.preventDefault(); e.stopPropagation(); 으로 이벤트전파 및 디폴트실행 막기 
     * 그런데 상하단 인디케이터바 없는 상태에서 iOS safe-area-inset-bottom 영역에 터치스크롤하면 body가 스크롤된다.  
       그래도 많이 없애긴 했음..
+      
+### 20201210
+
+1. [swiper gnb 슬라이드 활성화된 슬라이드메뉴로 이동](https://hyungju-lee.github.io/daily-issue/html/ex54/)

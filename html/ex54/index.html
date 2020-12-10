@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<pre>
+    <code>
+<strong>// </strong>
+(function (win, $) {
+  'use strict';
+  win.HYFRESH.common = win.HYFRESH.common || {};
+
+  var UTIL = win.HYFRESH.common.util;
+  win.HYFRESH.Gnb = (function(){
+    var defParams = {
+      scrollClass: 'is-scroll',
+      hideClass: 'is-hide',
+      detailHeaderClass: 'header--detail',
+      gnbHeight: 48,
+      gnbOffsetTop: '58',
+      slideBeforeClass: 'has-before-slide',
+      slideAfterClass: 'has-after-slide',
+      gnbInner : '.gnb__inner',
+      swiperOpts : {
+        slidesPerView: 'auto',
+        loop         : false,
+        <span style="color: red">
+        beginEndFunc : function (swiper) {
+          var gnbParent = $(swiper.container[0]).parents(defParams.gnbInner);
+          switch (true) {
+            case (swiper.isEnd === true && swiper.isBeginning === true) :
+              gnbParent.removeClass(defParams.slideBeforeClass + " " + defParams.slideAfterClass);
+              break;
+            case (swiper.isEnd === false && swiper.isBeginning === true) :
+              gnbParent.addClass(defParams.slideAfterClass);
+              gnbParent.removeClass(defParams.slideBeforeClass);
+              break;
+            case (swiper.isEnd === true && swiper.isBeginning === false) :
+              gnbParent.removeClass(defParams.slideAfterClass);
+              gnbParent.addClass(defParams.slideBeforeClass);
+              break;
+            case (swiper.isEnd === false && swiper.isBeginning === false) :
+              gnbParent.addClass(defParams.slideBeforeClass + " " + defParams.slideAfterClass);
+              break;
+            default :
+              break;
+          }
+        },
+        onInit: function (swiper) {
+          Array.prototype.slice.call(swiper.wrapper[0].children).forEach(function (value, index, array) {
+            if (value.classList.contains("is-selected")) {
+              swiper.slideTo(index);
+            }
+          })
+          swiper.params.beginEndFunc(swiper);
+        },
+        onTransitionEnd: function (swiper) {
+          swiper.params.beginEndFunc(swiper);
+        },
+        onTouchMove: function(swiper) {
+          swiper.params.beginEndFunc(swiper);
+        }
+        </span>
+      },
+      swiperObj: null,
+      startSwiper: false,
+      moveSwiper: false,
+      typeFood: 'food_header'
+    };
+    return {
+      init : function() {
+        this.setElement();
+        this.bindEvents();
+      },
+      setElement : function() {
+        this.header          = $('.header');
+        this.gnb             = $('.gnb');
+        this.containerSwiper = this.gnb.find('.js-gnb__swiper');
+        this.gnbList         = this.gnb.find('.gnb__list');
+        this.content         = $('.content');
+      },
+      bindEvents : function() {
+        $(win).on('load', $.proxy(this.buildSwiper, this));
+        $(win).on('load', $.proxy(this.checkContentMargin, this));
+        $(win).on('load scroll', $.proxy(this.scrollGnbFunc, this));
+      },
+      buildSwiper : function() {
+        defParams.swiperObj = new Swiper(this.containerSwiper, defParams.swiperOpts);
+      },
+      scrollGnbFunc : function() {
+        var currentScroll = $(win).scrollTop();
+        if(this.gnb.length) {
+          if (currentScroll &gt; defParams.gnbOffsetTop) {
+            this.gnbList.addClass(defParams.scrollClass);
+            this.gnb.stop().animate({
+              top: 0
+            },0)
+            if(!(this.header).hasClass(defParams.typeFood)) {
+              this.header.addClass(defParams.hideClass);
+            }
+          } else {
+            this.gnbList.removeClass(defParams.scrollClass);
+            this.gnb.stop().animate({
+              top: defParams.gnbOffsetTop
+            },0)
+            if(!(this.header).hasClass(defParams.typeFood)) {
+              this.header.removeClass(defParams.hideClass);
+            }
+          }
+        }
+      },
+      checkContentMargin : function() {
+        var headerHeight = this.header.outerHeight(),
+          gnbHeight    = defParams.gnbHeight,
+          result       = this.gnb.length ? headerHeight + gnbHeight : headerHeight;
+        if(!(this.header.hasClass(defParams.typeFood))) {
+          this.content.css({
+            'padding-top': result + 'px'
+          })
+
+        }
+        return result;
+      }
+    }
+  })();
+})(window, window.jQuery);
+    </code>
+</pre>
+
+<script>
+
+</script>
+</body>
+</html>
