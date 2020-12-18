@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<pre>
+    <code>
+<strong>// </strong>
+(function (win, $) {
+  'use strict';
+  win.HYFRESH.common = win.HYFRESH.common || {};
+
+  var UTIL = win.HYFRESH.common.util,
+    pluginName = 'CommonSubTab';
+
+  win.HYFRESH[pluginName] = (function (container, args) {
+    var defParams = {
+      obj: container,
+      selectClass: 'is-selected',
+      activeClass: 'is-active',
+      visibleClass: 'is-show',
+      mainTabEl       : null,
+      tabClick : function (e) {
+        defParams.mainTabEl = e.target;
+        while (!$(defParams.mainTabEl).hasClass('swiper-slide')) {
+          defParams.mainTabEl = defParams.mainTabEl.parentElement;
+          if (defParams.mainTabEl.nodeName === "BODY") {
+            defParams.mainTabEl = null;
+            return
+          }
+        }
+      },
+      activeSlide: function(key) {
+        if (key) {
+          $(defParams.mainTabSwiper).find('.swiper-slide:eq('+defParams.currentIndex+')').addClass('is-selected').find('.category-slide-tab__btn').blur();
+        } else {
+          $(defParams.mainTabSwiper).find('.swiper-slide').removeClass('is-selected');
+        }
+      },
+      mainTabSwiperOpts: {
+        slidesPerView   : 'auto',
+        spaceBetween    : 0,
+        threshold       : 0,
+        observer: true,
+        observeParents: true,
+        onInit : function (swiper) {
+          // slidesPerView: 'auto', swiper-slide의 width값이 auto일 경우 update 적용
+          setTimeout(function () {
+            HYFRESH.CommonSubTab.swiperObj[0].swiperObject.mainTabSwiperObj.update();
+          }, 100)
+          Array.prototype.slice.call(swiper.wrapper[0].children).forEach(function (value, index, array) {
+            if (value.classList.contains("is-selected")) {
+              setTimeout(function () {
+                swiper.slideTo(index);
+              }, 100)
+            }
+          })
+        },
+        onTouchStart: function (swiper, event) {
+          defParams.touchThreshold = swiper.touches.currentX;
+        },
+        onTouchEnd: function (swiper, event) {
+          if (Math.abs(swiper.touches.currentX - defParams.touchThreshold) &gt; 19) {
+            defParams.touchThreshold = 0;
+            return;
+          }
+          defParams.touchThreshold = 0;
+          defParams.tabClick(event);
+          if (!defParams.mainTabEl) return
+          defParams.activeSlide(false);
+          defParams.currentIndex = $(defParams.mainTabEl).index();
+          defParams.activeSlide(true);
+          HYFRESH.CommonSubTab.swiperObj[0].swiperObject.mainTabSwiperObj.slideTo(defParams.currentIndex);
+        },
+      },
+      subTabSwiperOpts: {
+        slidesPerView: 'auto',
+        spaceBetween: 4,
+        loop: false,
+        observer: true,
+        observeParents: true,
+      },
+      dataAttrTab : {
+        mainTab: 'tab-cateogry',
+        subTab: 'category-sub-tab'
+      }
+    };
+    this.obj = container;
+    this.opts = UTIL.def(defParams, (args || {}));
+    this.init();
+  })
+
+  win.HYFRESH[pluginName].prototype = {
+    init: function () {
+      this.setElement();
+      this.bindEvents();
+      this.buildSwiper();
+    },
+    setElement: function () {
+      this.gnb = $('.gnb');
+      this.obj = $(this.opts.obj);
+      this.mainTab = this.obj.find('.tab-cateogry');
+      this.bestTabSub = this.obj.find('.tab-sub');
+      this.tabCategoryList = this.obj.find('.tab-category__list');
+      this.tabCategoryItem = this.tabCategoryList.find('.tab-category__item');
+      this.tabCategoryTab = this.tabCategoryList.find('.tab-category__link');
+      this.tabSubList = this.obj.find('.tab-sub__list');
+      this.tabSubItem = this.tabSubList.find('.tab-sub__item');
+      this.tabSubTab = this.tabSubList.find('.tab-sub__link');
+      this.swiperObject = {};
+    },
+    bindEvents: function () {
+      $(window).on('load', $.proxy(this.checkSubTab, this));
+      this.tabCategoryTab.on('click', $.proxy(this.categoryTabFunc, this));
+      this.tabSubTab.on('click', $.proxy(this.subTabFunc, this));
+    },
+    buildSwiper: function () {
+      this.swiperObject.mainTabSwiperObj = new Swiper(this.mainTab, this.opts.mainTabSwiperOpts);
+      this.swiperObject.subTabSwiperObj = new Swiper(this.bestTabSub, this.opts.subTabSwiperOpts);
+    },
+    checkSubTab : function() {
+      if((this.bestTabSub.length)) {
+        for (var i = 0; i &lt; this.tabCategoryItem.length; i++) {
+          if(this.tabCategoryItem.eq(i).hasClass(this.opts.selectClass)) {
+            var targetIndex = i;
+            this.tabCategoryTab.eq(targetIndex).trigger('click');
+          }
+        }
+      }
+    },
+    categoryTabFunc: function (e) {
+      e.preventDefault();
+      var target = $(e.currentTarget),
+        targetParent = target.parent(),
+        targetParentIndex = targetParent.index();
+
+      this.tabCategoryItem.removeClass(this.opts.selectClass).eq(targetParentIndex).addClass(this.opts.selectClass);
+      this.bestTabSub.removeClass(this.opts.visibleClass);
+      for(var i=0; i &lt; this.obj.find('.tab-sub').length;i++) {
+        if(this.bestTabSub.eq(i).data(this.opts.dataAttrTab.subTab) == targetParentIndex + 1) {
+          var targetIndex = i;
+          this.bestTabSub.eq(targetIndex).addClass(this.opts.visibleClass);
+          this.bestTabSub.eq(targetIndex).find(this.tabSubItem).removeClass(this.opts.activeClass).eq(0).addClass(this.opts.activeClass);
+          this.swiperObject.subTabSwiperObj[targetIndex].update();
+        }
+      }
+    },
+    subTabFunc: function (e) {
+      e.preventDefault();
+      var target = $(e.currentTarget),
+        targetParent = target.parent();
+      this.tabSubItem.removeClass(this.opts.activeClass);
+      targetParent.addClass(this.opts.activeClass)
+    }
+  }
+
+  $.fn[pluginName] = function (args) {
+    var _this = this;
+    for (var i = 0, max = this.length; i &lt; max; i++) {
+      (function (index) {
+      <span style="color: red">
+        HYFRESH[pluginName].swiperObj = HYFRESH[pluginName].swiperObj || [];
+        HYFRESH[pluginName].swiperObj[i] = new win.HYFRESH[pluginName](_this.eq(index));</span>
+      })(i);
+    }
+  };
+
+  $(function () {
+    $('.tab-category__area')[pluginName]();
+  });
+
+
+})(window, window.jQuery);
+    </code>
+</pre>
+
+<script>
+
+</script>
+</body>
+</html>
