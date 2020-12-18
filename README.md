@@ -483,3 +483,30 @@
 ### 20201210
 
 1. [swiper gnb 슬라이드 활성화된 슬라이드메뉴로 이동](https://hyungju-lee.github.io/daily-issue/html/ex54/)
+
+### 20201218
+
+* 스와이퍼 안에 있는 버튼 클릭 후, 해당 focus된 버튼 위에서 스와이프를하려고하면 스와이퍼가 안됨. 클릭으로 인식함
+
+    1. 활성화된 버튼 focus를 풀어줘야됨
+    2. pointer-events:none 같은걸로 풀어주자.
+    3. 또는
+       
+        ```javascript
+        $('.category-slide-tab__btn').eq(0).blur()
+        document.querySelectorAll('.category-slide-tab__btn')[0].blur()
+        ```
+    
+        blur() 메소드도 있다.
+       
+* 슬라이드에서 아래와 같은 에러가 뜨는 이유  
+  [Intervention] Ignored attempt to cancel a touchmove event with cancelable=false, for example because scrolling is in progress and cannot be interrupted.
+  
+    * 스와이퍼가 적용되어있는 영역 <-> 적용 안되어있는 영역  
+      이 경계선에서 위아래, 좌우스와이퍼를 동시에하면 위아래로 스크롤도되면서 좌우로 스와이퍼도된다.   
+      원래 슬라이드 설계는 -> 슬라이드가 스와이퍼될 때, 예를들어 좌우 스와이퍼 슬라이드라면 좌우로 스와이퍼가 되는 도중엔 위아래로 스와이퍼(스크롤)이 발생하지 않는다.  
+      그 반대도 마찬가지다.   
+      보통 터치시작지점과 무브하는 지점 좌표값을 읽어서 이 사람이 좌우로하는지 상하로하는지를 판단해서 다른스와이퍼는 막아버리는데,  
+      저런 경계가 애매한 곳에서 좌우로하는지 상하로하는지 판단할 수 있는 근거가 빈약하기 때문에 둘 다 가능하게하고 막지를 못하는 것이다.  
+      (그리고 손가락 크기도 1px이 아니니깐. 스와이퍼 영역과 스와이퍼 아닌 영역에 걸터서 스와이프를 하게되니깐 이게문제. PC크롬 모바일 화면에서도 마우스커서가 굵게 바뀌니깐 이게문제, 판단하기 애매해짐)  
+      그래서 저런 에러가 뜬다.
