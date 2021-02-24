@@ -519,3 +519,18 @@
     * 만약 그게 안된다면 차선책으로 `setTimeout` 같은걸로 일단 텀을 둔 후에 스와이퍼 객체르 `update` 시키던지 다른 메소드(`slideTo` 같은거..)를 적용하던지 해야됨
 
 * [플러그인처럼 공통으로 쓰이는 JS코드, 인스턴스 생성할 때 공통으로 쓰일수 있도록 프로퍼티 형태로 저장](https://hyungju-lee.github.io/daily-issue/html/ex55/)
+
+### 20210224
+
+1. 맨 마지막 슬라이드 height가 직전 슬라이드 height와 같게하도록 수정
+
+   옛날 swiper 버전이라 아래와 같이 `onObserverUpdate` 활용  
+   최신 swiper는 `observerUpdate`
+
+    ```javascript
+    onObserverUpdate: function (swiper) {
+        const lastSlide = swiper.wrapper[0].children[swiper.wrapper[0].childElementCount - 1];
+        const lastBeforeSlideHeight = swiper.wrapper[0].children[swiper.wrapper[0].childElementCount - 2].offsetHeight
+        lastSlide.style.height = lastBeforeSlideHeight + "px";
+    },
+    ```
